@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import logo from '~/assets/images/momhelper/logos/logo.webp';
+
+export interface Props {
+  links?: Array<any>;
+  secondaryLinks?: Array<any>;
+  socialLinks?: Array<any>;
+  footNote?: string;
+  theme?: string;
+}
+
+const { links = [], secondaryLinks = [], socialLinks = [], footNote = '', theme = 'light' } = Astro.props;
+---
+
+<footer class="et-l et-l--footer bg-white">
+  <div class="et_builder_inner_content">
+    <!-- First Footer Section - Contact Info -->
+    <section class="et_pb_section et_pb_section_0_tb_footer bg-white py-12">
+      <div class="container mx-auto max-w-[1080px] px-4">
+        <div class="et_pb_row grid grid-cols-1 md:grid-cols-4 gap-8">
+
+          <!-- Column 1: Logo -->
+          <div class="et_pb_column text-center md:text-left">
+            <div class="et_pb_image">
+              <Image
+                src={logo}
+                alt="Mom Helper USA"
+                class="mx-auto md:mx-0 w-auto h-[120px]"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Column 2: Email -->
+          <div class="et_pb_column text-center" id="footer-email">
+            <div class="et_pb_blurb">
+              <div class="et_pb_blurb_content">
+                <div class="et_pb_main_blurb_image mb-3">
+                  <span class="et-pb-icon text-[#D37643] text-4xl">✉</span>
+                </div>
+                <div class="et_pb_blurb_container">
+                  <h4 class="font-bold text-[#D37643] mb-2 text-lg">EMAIL</h4>
+                  <div class="et_pb_blurb_description">
+                    <a href="mailto:momhelperusa10@gmail.com" class="text-gray-700 hover:text-[#D37643] transition-colors">
+                      momhelperusa10@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: Phone -->
+          <div class="et_pb_column text-center">
+            <div class="et_pb_blurb">
+              <div class="et_pb_blurb_content">
+                <div class="et_pb_main_blurb_image mb-3">
+                  <span class="et-pb-icon text-[#D37643] text-4xl">📞</span>
+                </div>
+                <div class="et_pb_blurb_container">
+                  <h4 class="font-bold text-[#D37643] mb-2 text-lg">PHONE</h4>
+                  <div class="et_pb_blurb_description">
+                    <a href="tel:2138084415" class="text-gray-700 hover:text-[#D37643] transition-colors">
+                      (213) 808-4415
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 4: Kakao Talk -->
+          <div class="et_pb_column text-center">
+            <div class="et_pb_blurb">
+              <div class="et_pb_blurb_content">
+                <div class="et_pb_main_blurb_image mb-3">
+                  <span class="et-pb-icon text-[#D37643] text-4xl">💬</span>
+                </div>
+                <div class="et_pb_blurb_container">
+                  <h4 class="font-bold text-[#D37643] mb-2 text-lg">KAKAO TALK ID</h4>
+                  <div class="et_pb_blurb_description">
+                    <p class="text-gray-700">momhelper.usa</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Second Footer Section - Menu (if needed) -->
+    {links && links.length > 0 && (
+      <section class="et_pb_section et_pb_section_1_tb_footer bg-gray-50 py-8 border-t border-gray-200">
+        <div class="container mx-auto max-w-[1080px] px-4">
+          <div class="et_pb_row">
+            <div class="et_pb_column text-center">
+              <nav class="et_pb_menu">
+                <ul class="flex flex-wrap justify-center gap-6 text-sm">
+                  {links.map(({ title, links: subLinks }) => (
+                    subLinks && subLinks.map(({ text, href }: any) => (
+                      <li>
+                        <a href={href} class="text-gray-600 hover:text-[#D37643] transition-colors">
+                          {text}
+                        </a>
+                      </li>
+                    ))
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Copyright Section -->
+    {footNote && (
+      <section class="bg-white py-6 border-t border-gray-200">
+        <div class="container mx-auto max-w-[1080px] px-4">
+          <div class="text-center text-sm text-gray-600">
+            <p set:html={footNote} />
+          </div>
+        </div>
+      </section>
+    )}
+  </div>
+</footer>
+
+<style>
+  .et-l--footer {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .et_pb_blurb_description a {
+    word-break: break-word;
+  }
+
+  @media (max-width: 768px) {
+    .et_pb_column {
+      margin-bottom: 2rem;
+    }
+  }
+</style>

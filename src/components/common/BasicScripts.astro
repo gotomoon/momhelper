@@ -1,0 +1,500 @@
+---
+import { UI } from 'astrowind:config';
+---
+
+<script is:inline define:vars={{ defaultTheme: UI.theme }}>
+  if (window.basic_script) {
+    return;
+  }
+
+  window.basic_script = true;
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+
+  const initTheme = function () {
+    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+      applyTheme(defaultTheme.replace(':only', ''));
+    } else if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      applyTheme('dark');
+    } else {
+      applyTheme('light');
+    }
+  };
+  initTheme();
+
+  function attachEvent(selector, event, fn) {
+    const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem.addEventListener(event, (e) => fn(e, elem), false);
+      });
+    }
+  }
+
+  const onLoad = function () {
+    let lastKnownScrollPosition = window.scrollY;
+    let ticking = true;
+
+    attachEvent('#header nav', 'click', function () {
+      document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('header')?.classList.remove('h-screen');
+      document.getElementById('header')?.classList.remove('expanded');
+      document.getElementById('header')?.classList.remove('bg-page');
+      document.querySelector('#header nav')?.classList.add('hidden');
+      document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
+    });
+
+    attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
+      elem.classList.toggle('expanded');
+      document.body.classList.toggle('overflow-hidden');
+      document.getElementById('header')?.classList.toggle('h-screen');
+      document.getElementById('header')?.classList.toggle('expanded');
+      document.getElementById('header')?.classList.toggle('bg-page');
+      document.querySelector('#header nav')?.classList.toggle('hidden');
+      document.querySelector('#header > div > div:last-child')?.classList.toggle('hidden');
+    });
+
+    attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
+      if (defaultTheme.endsWith(':only')) {
+        return;
+      }
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    });
+
+    attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
+      const network = elem.getAttribute('data-aw-social-share');
+      const url = encodeURIComponent(elem.getAttribute('data-aw-url'));
+      const text = encodeURIComponent(elem.getAttribute('data-aw-text'));
+
+      let href;
+      switch (network) {
+        case 'facebook':
+          href = `https://www.facebook.com/sharer.php?u=${url}`;
+          break;
+        case 'twitter':
+          href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+          break;
+        case 'linkedin':
+          href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`;
+          break;
+        case 'whatsapp':
+          href = `https://wa.me/?text=${text}%20${url}`;
+          break;
+        case 'mail':
+          href = `mailto:?subject=%22${text}%22&body=${text}%20${url}`;
+          break;
+
+        default:
+          return;
+      }
+
+      const newlink = document.createElement('a');
+      newlink.target = '_blank';
+      newlink.href = href;
+      newlink.click();
+    });
+
+    const screenSize = window.matchMedia('(max-width: 767px)');
+    screenSize.addEventListener('change', function () {
+      document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('header')?.classList.remove('h-screen');
+      document.getElementById('header')?.classList.remove('expanded');
+      document.getElementById('header')?.classList.remove('bg-page');
+      document.querySelector('#header nav')?.classList.add('hidden');
+      document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
+    });
+
+    function applyHeaderStylesOnScroll() {
+      const header = document.querySelector('#header[data-aw-sticky-header]');
+      if (!header) return;
+      if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
+        header.classList.add('scroll');
+      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
+        header.classList.remove('scroll');
+      }
+      ticking = false;
+    }
+    applyHeaderStylesOnScroll();
+
+    attachEvent([document], 'scroll', function () {
+      lastKnownScrollPosition = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          applyHeaderStylesOnScroll();
+        });
+        ticking = true;
+      }
+    });
+  };
+  const onPageShow = function () {
+    document.documentElement.classList.add('motion-safe:scroll-smooth');
+    const elem = document.querySelector('[data-aw-toggle-menu]');
+    if (elem) {
+      elem.classList.remove('expanded');
+    }
+    document.body.classList.remove('overflow-hidden');
+    document.getElementById('header')?.classList.remove('h-screen');
+    document.getElementById('header')?.classList.remove('expanded');
+    document.querySelector('#header nav')?.classList.add('hidden');
+  };
+
+  window.onload = onLoad;
+  window.onpageshow = onPageShow;
+
+  document.addEventListener('astro:after-swap', () => {
+    initTheme();
+    onLoad();
+    onPageShow();
+  });
+</script>
+
+<script is:inline>
+  /* Inspired by: https://github.com/heidkaemper/tailwindcss-intersect */
+  const Observer = {
+    observer: null,
+    delayBetweenAnimations: 100,
+    animationCounter: 0,
+
+    start() {
+      const selectors = [
+        '[class*=" intersect:"]',
+        '[class*=":intersect:"]',
+        '[class^="intersect:"]',
+        '[class="intersect"]',
+        '[class*=" intersect "]',
+        '[class^="intersect "]',
+        '[class$=" intersect"]',
+      ];
+
+      const elements = Array.from(document.querySelectorAll(selectors.join(',')));
+
+      const getThreshold = (element) => {
+        if (element.classList.contains('intersect-full')) return 0.99;
+        if (element.classList.contains('intersect-half')) return 0.5;
+        if (element.classList.contains('intersect-quarter')) return 0.25;
+        return 0;
+      };
+
+      elements.forEach((el) => {
+        el.setAttribute('no-intersect', '');
+        el._intersectionThreshold = getThreshold(el);
+      });
+
+      const callback = (entries) => {
+        entries.forEach((entry) => {
+          requestAnimationFrame(() => {
+            const target = entry.target;
+            const intersectionRatio = entry.intersectionRatio;
+            const threshold = target._intersectionThreshold;
+
+            if (target.classList.contains('intersect-no-queue')) {
+              if (entry.isIntersecting) {
+                target.removeAttribute('no-intersect');
+                if (target.classList.contains('intersect-once')) {
+                  this.observer.unobserve(target);
+                }
+              } else {
+                target.setAttribute('no-intersect', '');
+              }
+              return;
+            }
+
+            if (intersectionRatio >= threshold) {
+              if (!target.hasAttribute('data-animated')) {
+                target.removeAttribute('no-intersect');
+                target.setAttribute('data-animated', 'true');
+
+                const delay = this.animationCounter * this.delayBetweenAnimations;
+                this.animationCounter++;
+
+                target.style.transitionDelay = `${delay}ms`;
+                target.style.animationDelay = `${delay}ms`;
+
+                if (target.classList.contains('intersect-once')) {
+                  this.observer.unobserve(target);
+                }
+              }
+            } else {
+              target.setAttribute('no-intersect', '');
+              target.removeAttribute('data-animated');
+              target.style.transitionDelay = '';
+              target.style.animationDelay = '';
+
+              this.animationCounter = 0;
+            }
+          });
+        });
+      };
+
+      this.observer = new IntersectionObserver(callback.bind(this), { threshold: [0, 0.25, 0.5, 0.99] });
+
+      elements.forEach((el) => {
+        this.observer.observe(el);
+      });
+    },
+  };
+
+  Observer.start();
+
+  document.addEventListener('astro:after-swap', () => {
+    Observer.start();
+  });
+</script>
+
+<script is:inline>
+  // Handle Language Switcher
+  document.addEventListener('DOMContentLoaded', () => {
+    // Function to get the current path segments
+    const getPathSegments = () => {
+      const pathname = window.location.pathname;
+      return pathname.split('/').filter(Boolean);
+    };
+
+    // Get current language and path
+    const segments = getPathSegments();
+    const currentLang = segments[0] || 'en';
+
+    // Debug info for troubleshooting
+    console.log('Current pathname:', window.location.pathname);
+    console.log('Current segments:', segments);
+
+    // Complete mapping of page translations between languages
+    const pageTranslations = {
+      // English to Korean
+      en: {
+        '': '',
+        about: 'about',
+        'postpartum-care': '산후관리-서비스',
+        pricing: '이용요금-2',
+        'other-services': '기타-서비스',
+        contact: '연락처',
+        'book-online': '서비스-신청하기',
+        reviews: '이용후기',
+        faq: 'q-a',
+        announcements: '공지사항',
+        terms: '이용약관',
+      },
+      // Korean to English
+      ko: {
+        '': '',
+        about: 'about',
+        '산후관리-서비스': 'postpartum-care',
+        '이용요금-2': 'pricing',
+        '기타-서비스': 'other-services',
+        연락처: 'contact',
+        '서비스-신청하기': 'book-online',
+        이용후기: 'reviews',
+        'q-a': 'faq',
+        공지사항: 'announcements',
+        이용약관: 'terms',
+      },
+    };
+
+    // Add alternative slugs support (with/without dashes, decoding issues)
+    const alternativeSlugMap = {
+      ko: {
+        산후관리서비스: 'postpartum-care',
+        '산후관리-서비스': 'postpartum-care',
+        이용요금: 'pricing',
+        '이용요금-2': 'pricing',
+      },
+      en: {
+        postpartum: 'postpartum-care',
+        'postpartum-service': 'postpartum-care',
+        price: 'pricing',
+      },
+    };
+
+    const langSwitchers = document.querySelectorAll('[data-lang-switch]');
+
+    langSwitchers.forEach((link) => {
+      const targetLang = link.getAttribute('data-lang-switch');
+
+      // If already on the target language, don't change anything
+      if (targetLang === currentLang) {
+        return;
+      }
+
+      // Get the current page path (without language prefix)
+      const currentPage = segments.length > 1 ? segments[1] : '';
+
+      // Find the equivalent page in the target language
+      let targetPage = '';
+
+      // Map from current language to target language
+      if (currentLang === 'en' && targetLang === 'ko') {
+        targetPage = pageTranslations.en[currentPage] || '';
+
+        // Check alternative slug map as fallback
+        if (!targetPage && alternativeSlugMap[currentLang] && alternativeSlugMap[currentLang][currentPage]) {
+          targetPage = alternativeSlugMap[currentLang][currentPage];
+          console.log(`Found alternative slug mapping: ${currentPage} -> ${targetPage}`);
+        }
+      } else if (currentLang === 'ko' && targetLang === 'en') {
+        targetPage = pageTranslations.ko[currentPage] || '';
+
+        // Check alternative slug map as fallback
+        if (!targetPage && alternativeSlugMap[currentLang] && alternativeSlugMap[currentLang][currentPage]) {
+          targetPage = alternativeSlugMap[currentLang][currentPage];
+          console.log(`Found alternative slug mapping: ${currentPage} -> ${targetPage}`);
+        }
+      }
+
+      // Set the href for the language switcher
+      link.href = `/${targetLang}${targetPage ? `/${targetPage}` : ''}`;
+
+      // For detailed debugging
+      console.log(`Language switch attempt: ${currentLang} -> ${targetLang}`);
+      console.log(`Current page: "${currentPage}"`);
+      console.log(`Target page: "${targetPage}"`);
+      console.log(`Setting href to: ${link.href}`);
+
+      // If target page is not found in the mapping, preserve the original URL structure
+      if (!targetPage && currentPage) {
+        console.log(`No mapping found, preserving path structure: ${currentPage}`);
+        link.href = `/${targetLang}/${currentPage}`;
+      }
+    });
+  });
+
+  // Handle Color Mode
+  function applyTheme(theme) {
+    if (theme === 'auto') {
+      document.documentElement.classList.add('dark');
+    } else if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+
+  function applyLocalizedLabels() {
+    const currentLocale = document.documentElement.lang || 'en';
+    const translations = {
+      en: {
+        toggleTheme: 'Toggle between Dark and Light mode',
+        toggleMenu: 'Toggle Menu',
+        scrollToTop: 'Scroll to the top',
+      },
+      ko: {
+        toggleTheme: '다크 모드 및 라이트 모드 전환',
+        toggleMenu: '메뉴 토글',
+        scrollToTop: '맨 위로 스크롤',
+      },
+    };
+
+    // Apply translations if available, fall back to English
+    const t = translations[currentLocale] || translations.en;
+
+    // Apply translations to aria-label attributes
+    const themeToggles = document.querySelectorAll('[data-aw-toggle-color-scheme]');
+    themeToggles.forEach((toggle) => {
+      toggle.setAttribute('aria-label', t.toggleTheme);
+    });
+
+    const menuToggles = document.querySelectorAll('[data-aw-toggle-menu]');
+    menuToggles.forEach((toggle) => {
+      toggle.setAttribute('aria-label', t.toggleMenu);
+    });
+
+    const scrollToTopButtons = document.querySelectorAll('[data-aw-scroll-to-top]');
+    scrollToTopButtons.forEach((button) => {
+      button.setAttribute('aria-label', t.scrollToTop);
+    });
+  }
+
+  const initColorTheme = () => {
+    if ((localStorage.getItem('theme') ?? 'system') === 'dark') {
+      applyTheme('dark');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      applyTheme('auto');
+    }
+  };
+
+  initColorTheme();
+  applyLocalizedLabels();
+
+  function attachEvent(selector, event, fn) {
+    const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem.addEventListener(event, (e) => fn(e, elem), false);
+      });
+    }
+  }
+
+  window.onload = function () {
+    let lastKnownScrollPosition = window.scrollY;
+    let ticking = true;
+
+    attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
+      if (localStorage.getItem('theme') === 'light') {
+        applyTheme('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        applyTheme('light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
+      elem.classList.toggle('expanded');
+      document.body.classList.toggle('overflow-hidden');
+      document.getElementById('header')?.classList.toggle('h-screen');
+      document.querySelector('#header nav')?.classList.toggle('hidden');
+    });
+
+    attachEvent('[data-aw-scroll-to-top]', 'click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function appyHeaderStylesOnScroll() {
+      const header = document.getElementById('header');
+      if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
+        document.getElementById('header').classList.add('scroll');
+      } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
+        document.getElementById('header').classList.remove('scroll');
+      }
+      ticking = false;
+    }
+    appyHeaderStylesOnScroll();
+
+    attachEvent([document], 'scroll', function () {
+      lastKnownScrollPosition = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          appyHeaderStylesOnScroll();
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    });
+  };
+
+  window.onpageshow = function () {
+    document.documentElement.classList.add('motion-safe:scroll-smooth');
+    const elem = document.querySelector('[data-aw-toggle-menu]');
+    if (elem) {
+      elem.classList.remove('expanded');
+    }
+    document.body.classList.remove('overflow-hidden');
+    document.getElementById('header')?.classList.remove('h-screen');
+    document.querySelector('#header nav')?.classList.add('hidden');
+  };
+</script>

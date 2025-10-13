@@ -1,0 +1,77 @@
+---
+interface Service {
+  title: string;
+  items: string[];
+  icon?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  services: Service[];
+  columns?: number;
+  backgroundColor?: string;
+}
+
+const {
+  title,
+  subtitle,
+  services,
+  columns = 3,
+  backgroundColor = '#f7f7f7',
+} = Astro.props;
+
+const gridCols = columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3';
+---
+
+<section class="et_pb_section py-16" style={`background-color: ${backgroundColor};`}>
+  <div class="container mx-auto max-w-[1080px] px-4">
+    {(title || subtitle) && (
+      <div class="et_pb_row mb-8">
+        {title && (
+          <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-4">
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p class="text-center text-gray-600 text-sm italic">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    )}
+
+    <!-- Services Grid -->
+    <div class={`grid grid-cols-1 ${gridCols} gap-8 mb-12`}>
+      {services.map((service) => (
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-['Noto_Sans_KR'] text-xl font-bold mb-4 text-center">
+            {service.title}
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            {service.items.map((item) => (
+              <li class="flex items-start">
+                <span class="text-[#D37643] mr-2">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Slot for additional content -->
+    <slot />
+  </div>
+</section>
+
+<style>
+  .et_pb_section {
+    font-family: 'Noto Sans KR', 'Open Sans', sans-serif;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>

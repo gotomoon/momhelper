@@ -1,0 +1,407 @@
+---
+import { Icon } from 'astro-icon/components';
+
+// Get current path information
+const pathname = Astro.url.pathname || '/';
+const segments = pathname.split('/').filter(Boolean);
+const currentLocale = segments[0] ?? 'en';
+
+// Submenu links (sync with navigation.ts)
+const churchMenu = [
+  {
+    text: currentLocale === 'ko' ? '교회 소개' : 'About Church',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '심포니-교회가-처음이세요' : 'first-time-visitor'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '우리의 비전' : 'Our Vision',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '우리의-비전' : 'our-vision'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '우리의 믿음' : 'Our Faith',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '우리의-믿음' : 'our-faith'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '섬기는 사람들' : 'Our Staff',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '섬기는-사람들' : 'our-staff'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '예배 안내' : 'Worship Info',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '예배-안내' : 'worship'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '오시는 길' : 'Location',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '오시는-길' : 'location'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '심포니 커뮤니티' : 'Symphony Community',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '심포니-커뮤니티' : 'community'}`,
+  },
+];
+
+// Departments submenu links
+const departmentsMenu = [
+  {
+    text: currentLocale === 'ko' ? '한어부' : 'Korean Ministry',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '한어부' : 'korean-ministry'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '영어부' : 'English Ministry',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '영어부' : 'english-ministry'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '차세대부' : 'NextGen Ministry',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '차세대부' : 'nextgen-ministry'}`,
+  },
+  {
+    text: currentLocale === 'ko' ? '선교부' : 'Mission Ministry',
+    href: `/${currentLocale}/${currentLocale === 'ko' ? '선교부' : 'mission-department'}`,
+  },
+];
+---
+
+<!-- Overlays for the drawers -->
+<div id="church-drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+<div id="departments-drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+
+<!-- Bottom menu bar -->
+<div
+  class="fixed bottom-0 left-0 right-0 z-50 bg-white/40 dark:bg-gray-900/40 backdrop-blur-lg md:hidden h-[56px] rounded-t-2xl"
+  style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+>
+  <div class="grid grid-cols-4 gap-1 px-2 py-3 h-full">
+    <!-- Home icon with bilingual text -->
+    <a href={`/${currentLocale}`} class="flex flex-col items-center justify-center">
+      <svg
+        class="w-6 h-6 mb-1"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--aw-color-accent)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polygon points="4,20 20,20 20,10 12,4 4,10"></polygon>
+      </svg>
+      <span class="text-xs" style="color: var(--aw-color-accent)">{currentLocale === 'ko' ? '홈' : 'Home'}</span>
+    </a>
+
+    <!-- Church icon with bilingual text -->
+    <button id="open-church-drawer" type="button" class="flex flex-col items-center justify-center focus:outline-none">
+      <Icon name="tabler:users" class="w-6 h-6 mb-1" style="color: var(--aw-color-accent)" />
+      <span class="text-xs" style="color: var(--aw-color-accent)">{currentLocale === 'ko' ? '교회' : 'Church'}</span>
+    </button>
+
+    <!-- Departments icon with bilingual text -->
+    <button
+      id="open-departments-drawer"
+      type="button"
+      class="flex flex-col items-center justify-center focus:outline-none"
+    >
+      <Icon name="tabler:heart-handshake" class="w-6 h-6 mb-1" style="color: var(--aw-color-accent)" />
+      <span class="text-xs" style="color: var(--aw-color-accent)">{currentLocale === 'ko' ? '사역' : 'Ministries'}</span
+      >
+    </button>
+
+    <!-- Sermons icon with bilingual text -->
+    <a
+      href={`/${currentLocale}/${currentLocale === 'ko' ? '설교-영상' : 'sermons'}`}
+      class="flex flex-col items-center justify-center"
+    >
+      <Icon name="tabler:brand-youtube" class="w-6 h-6 mb-1" style="color: var(--aw-color-accent)" />
+      <span class="text-xs" style="color: var(--aw-color-accent)">{currentLocale === 'ko' ? '설교' : 'Sermons'}</span>
+    </a>
+  </div>
+</div>
+
+<!-- Church menu drawer -->
+<div id="church-drawer" class="fixed left-0 right-0 bottom-[56px] z-50 md:hidden hidden">
+  <div
+    class="w-[80%] mx-auto bg-white/40 dark:bg-gray-900/40 rounded-t-2xl shadow-lg overflow-hidden church-drawer-content backdrop-blur-lg"
+    style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+  >
+    <div class="p-6">
+      <button
+        id="close-church-drawer"
+        class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
+        aria-label="Close">&times;</button
+      >
+      <div class="mb-4 text-center font-bold text-lg">{currentLocale === 'ko' ? '교회 메뉴' : 'Church Menu'}</div>
+      <ul class="space-y-3">
+        {
+          churchMenu.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="block w-full text-center py-3 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-primary-600/70 hover:text-white dark:hover:bg-primary-500/70 transition font-medium text-base"
+                style="color: var(--aw-color-accent)"
+              >
+                {text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Departments menu drawer -->
+<div id="departments-drawer" class="fixed left-0 right-0 bottom-[56px] z-50 md:hidden hidden">
+  <div
+    class="w-[80%] mx-auto bg-white/40 dark:bg-gray-900/40 rounded-t-2xl shadow-lg overflow-hidden departments-drawer-content backdrop-blur-lg"
+    style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+  >
+    <div class="p-6">
+      <button
+        id="close-departments-drawer"
+        class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
+        aria-label="Close">&times;</button
+      >
+      <div class="mb-4 text-center font-bold text-lg">{currentLocale === 'ko' ? '사역 메뉴' : 'Ministries Menu'}</div>
+      <ul class="space-y-3">
+        {
+          departmentsMenu.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="block w-full text-center py-3 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-primary-600/70 hover:text-white dark:hover:bg-primary-500/70 transition font-medium text-base"
+                style="color: var(--aw-color-accent)"
+              >
+                {text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Define the init function in the global scope so it can be called multiple times
+  window.initMobileDrawers = function () {
+    // Church drawer elements
+    const churchDrawer = document.getElementById('church-drawer');
+    const churchOverlay = document.getElementById('church-drawer-overlay');
+    const openChurchBtn = document.getElementById('open-church-drawer');
+    const closeChurchBtn = document.getElementById('close-church-drawer');
+    let isChurchDrawerOpen = false;
+
+    // Departments drawer elements
+    const deptsDrawer = document.getElementById('departments-drawer');
+    const deptsOverlay = document.getElementById('departments-drawer-overlay');
+    const openDeptsBtn = document.getElementById('open-departments-drawer');
+    const closeDeptsBtn = document.getElementById('close-departments-drawer');
+    let isDeptsDrawerOpen = false;
+
+    // Check if elements exist to prevent errors
+    if (!churchDrawer || !deptsDrawer) {
+      console.warn('Mobile drawer elements not found');
+      return;
+    }
+
+    // Church drawer toggle
+    function toggleChurchDrawer(e) {
+      if (e) e.preventDefault();
+
+      // Close departments drawer if open
+      if (isDeptsDrawerOpen) {
+        closeDepartmentsDrawer();
+      }
+
+      if (isChurchDrawerOpen) {
+        closeChurchDrawer();
+      } else {
+        openChurchDrawer();
+      }
+    }
+
+    function openChurchDrawer() {
+      churchDrawer.classList.remove('hidden');
+      if (churchOverlay) churchOverlay.classList.remove('hidden');
+
+      // Force layout reflow to ensure animation runs
+      void churchDrawer.offsetWidth;
+
+      churchDrawer.classList.add('drawer-open');
+      isChurchDrawerOpen = true;
+    }
+
+    function closeChurchDrawer() {
+      churchDrawer.classList.remove('drawer-open');
+      // Wait for animation to finish before hiding
+      setTimeout(() => {
+        churchDrawer.classList.add('hidden');
+        if (churchOverlay) churchOverlay.classList.add('hidden');
+      }, 250);
+      isChurchDrawerOpen = false;
+    }
+
+    // Departments drawer toggle
+    function toggleDepartmentsDrawer(e) {
+      if (e) e.preventDefault();
+
+      // Close church drawer if open
+      if (isChurchDrawerOpen) {
+        closeChurchDrawer();
+      }
+
+      if (isDeptsDrawerOpen) {
+        closeDepartmentsDrawer();
+      } else {
+        openDepartmentsDrawer();
+      }
+    }
+
+    function openDepartmentsDrawer() {
+      deptsDrawer.classList.remove('hidden');
+      if (deptsOverlay) deptsOverlay.classList.remove('hidden');
+
+      // Force layout reflow to ensure animation runs
+      void deptsDrawer.offsetWidth;
+
+      deptsDrawer.classList.add('drawer-open');
+      isDeptsDrawerOpen = true;
+    }
+
+    function closeDepartmentsDrawer() {
+      deptsDrawer.classList.remove('drawer-open');
+      // Wait for animation to finish before hiding
+      setTimeout(() => {
+        deptsDrawer.classList.add('hidden');
+        if (deptsOverlay) deptsOverlay.classList.add('hidden');
+      }, 250);
+      isDeptsDrawerOpen = false;
+    }
+
+    // Add event listeners safely
+    if (openChurchBtn) {
+      // Remove any existing listeners first to prevent duplicates
+      openChurchBtn.removeEventListener('click', toggleChurchDrawer);
+      openChurchBtn.addEventListener('click', toggleChurchDrawer);
+    }
+
+    if (closeChurchBtn) {
+      closeChurchBtn.removeEventListener('click', closeChurchDrawer);
+      closeChurchBtn.addEventListener('click', closeChurchDrawer);
+    }
+
+    if (churchOverlay) {
+      churchOverlay.removeEventListener('click', closeChurchDrawer);
+      churchOverlay.addEventListener('click', closeChurchDrawer);
+    }
+
+    if (openDeptsBtn) {
+      openDeptsBtn.removeEventListener('click', toggleDepartmentsDrawer);
+      openDeptsBtn.addEventListener('click', toggleDepartmentsDrawer);
+    }
+
+    if (closeDeptsBtn) {
+      closeDeptsBtn.removeEventListener('click', closeDepartmentsDrawer);
+      closeDeptsBtn.addEventListener('click', closeDepartmentsDrawer);
+    }
+
+    if (deptsOverlay) {
+      deptsOverlay.removeEventListener('click', closeDepartmentsDrawer);
+      deptsOverlay.addEventListener('click', closeDepartmentsDrawer);
+    }
+
+    // Escape key closes any open drawer
+    document.removeEventListener('keydown', handleEscapeKey);
+    document.addEventListener('keydown', handleEscapeKey);
+
+    function handleEscapeKey(e) {
+      if (e.key === 'Escape') {
+        if (isChurchDrawerOpen) closeChurchDrawer();
+        if (isDeptsDrawerOpen) closeDepartmentsDrawer();
+      }
+    }
+
+    // Close when clicking links in drawers
+    const churchLinks = churchDrawer.querySelectorAll('a');
+    churchLinks.forEach((link) => {
+      link.removeEventListener('click', closeChurchDrawer);
+      link.addEventListener('click', closeChurchDrawer);
+    });
+
+    const deptsLinks = deptsDrawer.querySelectorAll('a');
+    deptsLinks.forEach((link) => {
+      link.removeEventListener('click', closeDepartmentsDrawer);
+      link.addEventListener('click', closeDepartmentsDrawer);
+    });
+
+    console.log('Mobile drawer scripts initialized');
+  };
+
+  // Initial initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    window.initMobileDrawers();
+
+    // Handle language switcher clicks
+    const langSwitchers = document.querySelectorAll('[data-lang-switch]');
+    langSwitchers.forEach((link) => {
+      link.addEventListener('click', () => {
+        // Set a flag so we know to reinitialize after navigation
+        sessionStorage.setItem('needsReinitialization', 'true');
+      });
+    });
+
+    // Check for navigation completions
+    document.addEventListener('astro:page-load', function () {
+      window.initMobileDrawers();
+    });
+
+    document.addEventListener('astro:after-swap', function () {
+      window.initMobileDrawers();
+    });
+
+    // Set up a MutationObserver to watch for DOM changes
+    const observer = new MutationObserver((_mutations) => {
+      // Check if our drawer buttons exist but don't have event listeners
+      const openChurchBtn = document.getElementById('open-church-drawer');
+      if (openChurchBtn && !openChurchBtn.onclick) {
+        window.initMobileDrawers();
+      }
+    });
+
+    // Watch the entire body for changes
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // Reinitialize on page visibility changes
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') {
+        window.initMobileDrawers();
+      }
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', function () {
+      setTimeout(window.initMobileDrawers, 100);
+    });
+  });
+
+  // Reinitialize if coming back from another page with language changed
+  if (sessionStorage.getItem('needsReinitialization') === 'true') {
+    window.initMobileDrawers();
+    sessionStorage.removeItem('needsReinitialization');
+  }
+</script>
+
+<style>
+  /* Make sure the transitions work by using will-change */
+  .church-drawer-content,
+  .departments-drawer-content {
+    max-height: 0;
+    transition: max-height 0.25s ease-out;
+    will-change: max-height;
+    overflow: hidden;
+  }
+
+  .drawer-open .church-drawer-content,
+  .drawer-open .departments-drawer-content {
+    max-height: 80vh;
+  }
+</style>

@@ -1,0 +1,242 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from '~/components/Logo.astro';
+
+import { trimSlash } from '~/utils/permalinks';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
+interface MenuLink extends Link {
+  links?: Array<MenuLink>;
+}
+
+export interface Props {
+  id?: string;
+  links?: Array<MenuLink>;
+  actions?: Array<any>;
+  isSticky?: boolean;
+  isDark?: boolean;
+  isFullWidth?: boolean;
+  showToggleTheme?: boolean;
+  position?: string;
+}
+
+const {
+  id = 'main-header',
+  links = [],
+  actions = [],
+  isSticky = true,
+  isDark = false,
+  isFullWidth = false,
+  showToggleTheme = false,
+  position = 'left',
+} = Astro.props;
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+---
+
+<header
+  id={id}
+  class:list={[
+    'et-header',
+    { 'et-fixed-header': isSticky },
+    'w-full bg-white/0 transition-all duration-300',
+  ]}
+  data-height-onload="81"
+>
+  <div class="container mx-auto max-w-[1080px] px-4 clearfix et_menu_container">
+    <!-- Logo Container -->
+    <div class="logo_container float-left py-2.5">
+      <a href="/" class="flex items-center h-[81px]">
+        <Logo />
+      </a>
+    </div>
+
+    <!-- Top Navigation -->
+    <div id="et-top-navigation" class="float-right" data-height="81">
+      <!-- Desktop Navigation -->
+      <nav id="top-menu-nav" class="hidden md:block">
+        <ul id="top-menu" class="nav flex items-center gap-1">
+          {
+            links.map(({ text, href, links: subLinks }) => (
+              <li class:list={['menu-item relative group', { 'menu-item-has-children': subLinks?.length }]}>
+                {subLinks?.length ? (
+                  <>
+                    <a
+                      href="#"
+                      class="block px-4 py-6 text-[18px] text-white hover:text-[#b74000] transition-colors font-['Nanum_Gothic']"
+                    >
+                      {text}
+                    </a>
+                    <ul class="sub-menu absolute left-0 top-full min-w-[220px] bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      {subLinks.map(({ text: text2, href: href2 }) => {
+                        // Check if this is a language link
+                        const isLanguageLink = text === 'Language' || text === '언어 (Language)';
+                        const langCode = text2 === 'English' ? 'en' : (text2.includes('한국어') ? 'ko' : null);
+
+                        return (
+                          <li class="menu-item">
+                            <a
+                              href={href2}
+                              class="block px-6 py-3 text-[#b76e47] hover:bg-gray-50 transition-colors"
+                              data-lang-switch={isLanguageLink && langCode ? langCode : undefined}
+                            >
+                              {text2}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                ) : (
+                  <a
+                    href={href}
+                    class:list={[
+                      'block px-4 py-6 text-[18px] text-white hover:text-[#b74000] transition-colors font-["Nanum_Gothic"]',
+                      { 'text-[#b74000]': href === currentPath },
+                    ]}
+                  >
+                    {text}
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div id="et_mobile_nav_menu" class="md:hidden">
+        <div class="mobile_nav closed">
+          <span class="select_page">페이지 선택</span>
+          <span class="mobile_menu_bar mobile_menu_bar_toggle cursor-pointer"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* WordPress Divi-like Header Styles */
+  .et-header {
+    position: relative;
+    z-index: 99999;
+  }
+
+  .et-fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .et-fixed-header.et-scrolled {
+    background-color: rgba(255, 255, 255, 0.82) !important;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .et-scrolled #top-menu > li > a {
+    color: #b8551f !important;
+  }
+
+  .clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  /* Mobile menu bar styles */
+  .mobile_menu_bar {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+  }
+
+  .mobile_menu_bar::before,
+  .mobile_menu_bar::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s;
+  }
+
+  .mobile_menu_bar::before {
+    top: -8px;
+  }
+
+  .mobile_menu_bar::after {
+    top: 8px;
+  }
+
+  /* Submenu hover styles */
+  .menu-item-has-children:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (max-width: 980px) {
+    .et-header {
+      background-color: #ffffff !important;
+    }
+
+    #top-menu > li > a,
+    .mobile_menu_bar,
+    .mobile_menu_bar::before,
+    .mobile_menu_bar::after {
+      color: #b8551f !important;
+      background-color: #b8551f !important;
+    }
+
+    .select_page {
+      color: #b8551f;
+    }
+  }
+</style>
+
+<script>
+  // Add scroll event listener for fixed header
+  if (typeof window !== 'undefined') {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const header = document.getElementById('main-header');
+      if (!header) return;
+
+      if (window.scrollY > 10) {
+        header.classList.add('et-scrolled');
+      } else {
+        header.classList.remove('et-scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile_menu_bar_toggle');
+    const mobileNav = document.querySelector('.mobile_nav');
+
+    if (mobileMenuToggle && mobileNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('closed');
+        mobileNav.classList.toggle('opened');
+      });
+    }
+  }
+</script>

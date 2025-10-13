@@ -1,0 +1,40 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import MobileMenu from '~/components/widgets/MobileMenu.astro';
+
+import {
+  headerDataEn,
+  headerDataKo,
+  footerDataEn,
+  footerDataKo,
+  getLanguageFromPath
+} from '~/navigation';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+
+// Detect language from URL
+const currentLang = getLanguageFromPath(Astro.url.pathname);
+const headerData = currentLang === 'ko' ? headerDataKo : headerDataEn;
+const footerData = currentLang === 'ko' ? footerDataKo : footerDataEn;
+---
+
+<Layout metadata={metadata}>
+  <slot name="header">
+    <Header {...headerData} isSticky showToggleTheme />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer {...footerData} />
+    <MobileMenu />
+  </slot>
+</Layout>

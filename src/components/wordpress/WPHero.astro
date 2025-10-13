@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  backgroundImage?: string | ImageMetadata;
+  overlayColor?: string;
+  overlayOpacity?: string;
+  logoImage?: ImageMetadata;
+  title?: string;
+  subtitle?: string;
+  minHeight?: string;
+  showLogo?: boolean;
+}
+
+const {
+  backgroundImage,
+  overlayColor = 'rgba(211,118,67,0.47)',
+  overlayOpacity = '0.47',
+  logoImage,
+  title,
+  subtitle,
+  minHeight = '600px',
+  showLogo = true,
+} = Astro.props;
+---
+
+<section
+  class="et_pb_section et_pb_section_hero relative pb-0 overflow-hidden"
+  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center; min-height: ${minHeight};`}
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-[{overlayColor}] z-0"></div>
+
+  <div class="container mx-auto max-w-full px-4 py-16 relative z-10">
+    <!-- Logo Section -->
+    {showLogo && logoImage && (
+      <div class="et_pb_fullwidth_image text-center mb-8 animate-fadeIn">
+        <Image
+          src={logoImage}
+          alt="Mom Helper USA"
+          class="mx-auto max-w-[400px] md:max-w-[500px] w-full"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <!-- Heading Text -->
+    {(title || subtitle) && (
+      <div class="text-center pb-12">
+        {title && (
+          <h2 class="text-white font-['Noto_Sans_KR'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed mb-4">
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p class="text-white font-['Noto_Sans_KR'] text-[16pt] md:text-[18pt] leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    )}
+
+    <!-- Slot for custom content -->
+    <slot />
+  </div>
+
+  <!-- Bottom Divider -->
+  <div class="et_pb_bottom_inside_divider"></div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .et_pb_section {
+    font-family: 'Noto Sans KR', 'Open Sans', sans-serif;
+  }
+
+  .et_pb_bottom_inside_divider {
+    height: 0;
+  }
+</style>

@@ -1,0 +1,419 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+import momHoldingBaby from '~/assets/images/momhelper/misc/mom-holding-baby.webp';
+import cookingImage from '~/assets/images/momhelper/misc/가사도우미-요리-1395.webp';
+
+const metadata = {
+  title: '산후관리 서비스 — Mom Helper USA',
+  description: '전문 산후관리사가 제공하는 산모 케어, 신생아 케어, 가사 지원 서비스',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section - NO LOGO for non-homepage pages -->
+  <WPPageHero
+    title="산후관리 서비스"
+    subtitle="전문 산후관리사가 제공하는 맞춤형 서비스"
+  />
+
+  <!-- Basic Services Section -->
+  <section class="et_pb_section bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-4">
+          기본 서비스
+        </h2>
+        <p class="text-center text-gray-600 text-sm italic">
+          *가정의 상황에 따라 서비스가 다를 수 있습니다.
+        </p>
+      </div>
+
+      <!-- Three Column Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Column 1: Mother Care -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-['Noto_Sans_KR'] text-xl font-bold mb-4 text-center">
+            산모 케어
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>모유수유 지원</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>산후 마사지</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>회복 지원</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>정서적 지원</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>위생 및 영양 관리</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Newborn Care -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-['Noto_Sans_KR'] text-xl font-bold mb-4 text-center">
+            신생아 케어
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>아기방 관리</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>아기 기록장 작성</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>수유 및 수면 주기 관리</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>목욕 및 탯줄 관리</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>젖병 소독</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Family Care -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-['Noto_Sans_KR'] text-xl font-bold mb-4 text-center">
+            가족 케어 / 가사 서비스
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>육아 제한적 도움</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>다른 자녀를 위한 식사 준비</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>가족 상황에 따른 지원</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mother Care Details with Image -->
+  <section class="et_pb_section bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Left: Image -->
+        <div class="order-2 md:order-1">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src={momHoldingBaby}
+              alt="산모와 아기"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="order-1 md:order-2">
+          <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-6">
+            산모 케어
+          </h2>
+          <div class="space-y-4 text-gray-700">
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">모유수유 지원</h4>
+              <p>전문적인 모유수유 지도 및 유방 관리</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">산후 마사지</h4>
+              <p>산후 회복을 돕는 전문 마사지 제공</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">회복 지원</h4>
+              <p>산후 체조 및 건강 회복 가이드</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">정서적 지원</h4>
+              <p>산후우울증 예방을 위한 정서적 케어</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">위생 및 영양 관리</h4>
+              <p>개인 위생 관리 및 영양 식단 제공</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Household Services with Image -->
+  <section class="et_pb_section bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Left: Content -->
+        <div>
+          <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-6">
+            가사 서비스
+          </h2>
+          <div class="space-y-4 text-gray-700">
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">식사 준비</h4>
+              <p>산모를 위한 영양식 및 가족 식사 준비</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">주방 정리</h4>
+              <p>설거지 및 주방 청소</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">세탁 관리</h4>
+              <p>산모 및 아기 의류 세탁</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">청소</h4>
+              <p>주거 공간 청결 유지</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div>
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src={cookingImage}
+              alt="가사도우미 요리"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Reservation Section -->
+  <section class="et_pb_section bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          서비스 예약
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-[#fff7f4] rounded-lg p-6">
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">예약 절차</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2 font-bold">1.</span>
+              <span>온라인 또는 전화로 예약 신청</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2 font-bold">2.</span>
+              <span>관리자와 상담</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2 font-bold">3.</span>
+              <span>예약금 납부</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2 font-bold">4.</span>
+              <span>서비스 시작</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-[#fff7f4] rounded-lg p-6">
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">이용 요금</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>지역별로 요금이 다를 수 있습니다</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>기본 가족 외 추가 가족 구성원 시 추가 비용</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>관리사에게 직접 지불</span>
+            </li>
+          </ul>
+          <div class="mt-4">
+            <a
+              href="/ko/이용요금-2"
+              class="inline-block bg-[#D37643] text-white font-bold px-6 py-2 rounded-full hover:bg-[#B8551F] transition-colors"
+            >
+              요금표 보기
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Extension Section -->
+  <section class="et_pb_section bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          서비스 연장 및 변경
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 shadow-md">
+        <div class="space-y-4 text-gray-700">
+          <div>
+            <h4 class="font-bold text-[#D37643] text-lg mb-2">서비스 연장</h4>
+            <p>서비스 종료 50% 전에 통보 필요</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-[#D37643] text-lg mb-2">유연한 스케줄</h4>
+            <p>가족의 필요에 따라 일정 조정 가능</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Holiday Policy Section -->
+  <section class="et_pb_section bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          공휴일 정책
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#fff7f4] rounded-lg p-6 text-center">
+          <h4 class="font-bold text-[#D37643] text-lg mb-3">주 5일 근무</h4>
+          <p class="text-gray-700 text-sm">기본적으로 주 5일 근무 제공</p>
+        </div>
+
+        <div class="bg-[#fff7f4] rounded-lg p-6 text-center">
+          <h4 class="font-bold text-[#D37643] text-lg mb-3">공휴일 협의</h4>
+          <p class="text-gray-700 text-sm">공휴일 근무는 협의 가능</p>
+        </div>
+
+        <div class="bg-[#fff7f4] rounded-lg p-6 text-center">
+          <h4 class="font-bold text-[#D37643] text-lg mb-3">자동 연장</h4>
+          <p class="text-gray-700 text-sm">공휴일은 자동으로 서비스 연장</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Notes Section -->
+  <section class="et_pb_section bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          유의 사항
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 shadow-md">
+        <div class="space-y-4 text-gray-700">
+          <div class="flex items-start">
+            <span class="text-[#D37643] mr-3 text-xl">•</span>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-1">서비스 범위 명확화</h4>
+              <p class="text-sm">관리사의 업무 범위를 명확히 정의합니다</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-[#D37643] mr-3 text-xl">•</span>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-1">의료 정보 제공</h4>
+              <p class="text-sm">산모와 아기의 의료 정보 및 긴급 연락처 제공 필요</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-[#D37643] mr-3 text-xl">•</span>
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-1">가정 내 모니터링 장치</h4>
+              <p class="text-sm">CCTV 등 모니터링 장치가 있는 경우 사전 고지 필요</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="et_pb_section bg-[#D37643] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4 text-center">
+      <h2 class="text-white font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
+        지금 산후관리 서비스를 신청하세요
+      </h2>
+      <p class="text-white text-lg mb-8">
+        전문 관리사와 함께 편안하고 안전한 산후 회복을 시작하세요
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/ko/서비스-신청하기"
+          class="inline-block bg-white text-[#D37643] font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
+        >
+          서비스 신청하기
+        </a>
+        <a
+          href="/ko/이용요금-2"
+          class="inline-block bg-transparent text-white border-2 border-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-[#D37643] transition-colors"
+        >
+          이용요금 확인
+        </a>
+      </div>
+      <div class="mt-8 text-white">
+        <p class="mb-2">
+          <strong>전화:</strong> <a href="tel:2138084415" class="hover:underline">(213) 808-4415</a>
+        </p>
+        <p class="mb-2">
+          <strong>이메일:</strong> <a href="mailto:momhelperusa10@gmail.com" class="hover:underline">momhelperusa10@gmail.com</a>
+        </p>
+        <p>
+          <strong>카카오톡 ID:</strong> momhelper.usa
+        </p>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .et_pb_section {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      gap: 1.5rem;
+    }
+  }
+</style>

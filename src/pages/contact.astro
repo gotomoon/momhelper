@@ -1,0 +1,85 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact — Mom Helper USA',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget -->
+  <HeroText
+    tagline="Contact Us"
+    title="Let's Connect!"
+  />
+
+  <ContactUs
+    id="form"
+    title="Send Us a Message"
+    subtitle="Have questions about our postpartum care services? We're here to help! Reach out to discuss your needs and learn how we can support your family."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+      {
+        type: 'tel',
+        name: 'phone',
+        label: 'Phone (optional)',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label: 'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="We typically respond within 24 hours. For urgent inquiries, please call us directly."
+  />
+
+  <!-- Features2 Widget -->
+  <Features2
+    title="Get In Touch"
+    items={[
+      {
+        title: 'Phone',
+        description: '(213) 808-4415',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Email',
+        description: 'momhelperusa10@gmail.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Kakao Talk',
+        description: 'ID: momhelper.usa',
+        icon: 'tabler:message-circle',
+      },
+      {
+        title: 'Service Hours',
+        description: 'Available 24/7 for care services. Office hours: Mon-Fri 9AM-6PM PST',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Booking',
+        description: 'Book online or schedule a consultation call to discuss your postpartum care needs.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Languages',
+        description: 'We offer services in English, Korean, and other languages. Let us know your preference.',
+        icon: 'tabler:language',
+      },
+    ]}
+  />
+</Layout>

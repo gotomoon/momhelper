@@ -1,0 +1,37 @@
+---
+interface Props {
+  title?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+}
+
+const {
+  title,
+  backgroundColor = '#f7f7f7',
+  cardBackgroundColor = 'white',
+} = Astro.props;
+---
+
+<section class="et_pb_section py-16" style={`background-color: ${backgroundColor};`}>
+  <div class="container mx-auto max-w-[1080px] px-4">
+    {title && (
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          {title}
+        </h2>
+      </div>
+    )}
+
+    <div class="rounded-lg p-8 shadow-md" style={`background-color: ${cardBackgroundColor};`}>
+      <div class="space-y-4 text-gray-700">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .et_pb_section {
+    font-family: 'Noto Sans KR', 'Open Sans', sans-serif;
+  }
+</style>

@@ -1,0 +1,292 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'About Us — Mom Helper USA',
+  description: 'Mom Helper USA has been providing professional postpartum care services since 2010. A trusted name serving 500+ families.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Widget -->
+  <Hero
+    tagline="About Us"
+    title="Mom Helper USA"
+    subtitle="Experience Traditional Korean Postpartum Care in America. A Trusted Name Serving 500+ Families Since 2010"
+  />
+
+  <!-- Company Introduction -->
+  <Content
+    title="About Our Company"
+    subtitle="Professional postpartum care with expertise and warmth"
+  >
+    <Fragment slot="content">
+      <p class="text-lg text-muted mb-6">
+        Since our founding in 2010, Mom Helper USA has been the leading provider of traditional Korean-style
+        postpartum care services in California. We prioritize the health and happiness of mothers and newborns,
+        providing safe and systematic care through experienced professional caregivers.
+      </p>
+      <p class="text-lg text-muted mb-6">
+        Our mission is to help mothers recover comfortably during the most important period after childbirth,
+        bond with their babies, and start their journey as a family with happiness and confidence.
+      </p>
+    </Fragment>
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Stats -->
+  <Stats
+    title="Mom Helper USA By The Numbers"
+    stats={[
+      { title: 'Founded', amount: '2010' },
+      { title: 'Families Served', amount: '500+' },
+      { title: 'Professional Caregivers', amount: '50+' },
+      { title: 'Satisfaction Rate', amount: '98%' },
+    ]}
+  />
+
+  <!-- Mission & Vision -->
+  <Features2
+    title="Our Core Values"
+    subtitle="The principles that guide Mom Helper USA"
+    items={[
+      {
+        title: 'Professionalism',
+        description: 'Experienced caregivers with professional training deliver the highest level of care',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Trust',
+        description: 'Thorough background checks and continuous management ensure peace of mind',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Personalized Care',
+        description: 'Customized services tailored to each family\'s situation and needs',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: 'Cultural Understanding',
+        description: 'Understanding Korean culture and providing traditional Korean postpartum care',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Ongoing Support',
+        description: 'Continuous support including parenting consultation even after service completion',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Transparency',
+        description: 'Building trust through clear pricing policies and transparent contracts',
+        icon: 'tabler:file-check',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Our Story -->
+  <Content
+    title="Our Story"
+    subtitle="How It All Began"
+    isReversed
+  >
+    <Fragment slot="content">
+      <p class="text-lg text-muted mb-6">
+        Mom Helper USA was founded in 2010 after witnessing the challenges Korean mothers faced in receiving
+        traditional Korean postpartum care in the United States. Our founder, having experienced the difficulties
+        of childbirth herself, deeply understood the need for Korean-style postpartum care and started this
+        business to help other mothers in the same situation.
+      </p>
+      <p class="text-lg text-muted mb-6">
+        Starting small, we grew through word-of-mouth recommendations built on genuine care and professionalism.
+        Fifteen years later, we have served over 500 families and become the most trusted postpartum care service
+        provider in the California Korean community.
+      </p>
+      <p class="text-lg text-muted">
+        Our secret to success is simple: treat every mother like family and care for every baby as our own.
+        Without losing this original spirit, we look forward to bringing happiness and health to even more families.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Our Services -->
+  <Content
+    title="Our Services"
+    subtitle="Professional and comprehensive family support services"
+    items={[
+      {
+        title: 'Postpartum Care Services',
+        description: 'Professional care for mothers and newborns (commuting or live-in options)',
+      },
+      {
+        title: 'Babysitting & Nanny Services',
+        description: 'Professional childcare from infants to school-age children',
+      },
+      {
+        title: 'Housekeeping Services',
+        description: 'Home management including cleaning, laundry, and meal preparation',
+      },
+      {
+        title: 'Caregiver Services',
+        description: 'Professional care for elderly and patients (IHSS support available)',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Why Choose Us -->
+  <Content
+    title="Why Choose Mom Helper USA?"
+    isReversed
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <div class="flex items-start">
+          <div class="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">15 Years of Experience</h3>
+            <p class="text-muted">Providing optimal solutions in any situation through rich experience accumulated since 2010</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Verified Professional Caregivers</h3>
+            <p class="text-muted">All caregivers are professionals who have undergone background checks, professional training, and experience verification</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">98% Customer Satisfaction</h3>
+            <p class="text-muted">Chosen by over 500 families, with 98% wanting to use and recommend our service again</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Traditional Korean Postpartum Care</h3>
+            <p class="text-muted">Authentic Korean postpartum diet and care methods including seaweed soup and pumpkin porridge</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Flexible Service Options</h3>
+            <p class="text-muted">Choose commuting or live-in options and service duration based on your family's situation</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
+            <p class="text-muted">Support system available anytime during the service period for inquiries and assistance</p>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials -->
+  <Testimonials
+    title="Stories from Our Families"
+    subtitle="Voices from families who experienced Mom Helper USA"
+    testimonials={[
+      {
+        testimonial: 'True to a company with 15 years of tradition, everything was systematic and professional. The caregiver\'s experience and expertise were truly remarkable. Choosing Mom Helper USA was the best decision.',
+        name: 'Sujin Lee',
+        job: 'Los Angeles',
+      },
+      {
+        testimonial: 'I received warm and attentive care just like my mother would provide in Korea. I was so grateful to receive traditional Korean postpartum care in America.',
+        name: 'Miyoung Park',
+        job: 'Irvine',
+      },
+      {
+        testimonial: 'I used Mom Helper USA service for both my first and second child. I know it\'s a company I can trust, so I will definitely choose them for my third child too.',
+        name: 'Hyunju Kim',
+        job: 'Torrance',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Testimonials>
+
+  <!-- Call to Action -->
+  <CallToAction
+    title="Start Your Journey with Mom Helper USA"
+    subtitle="Professionals with 15 years of experience will be with you during your precious moments"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book Service',
+        href: '/book-online',
+      },
+      {
+        variant: 'secondary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      <div class="max-w-3xl mx-auto mt-6">
+        <p class="text-lg mb-3">
+          <strong>Phone:</strong> <a href="tel:+12138084415" class="text-primary hover:underline">(213) 808-4415</a>
+        </p>
+        <p class="text-lg mb-3">
+          <strong>Email:</strong> <a href="mailto:momhelperusa10@gmail.com" class="text-primary hover:underline">momhelperusa10@gmail.com</a>
+        </p>
+        <p class="text-lg">
+          <strong>Kakao Talk:</strong> <span class="text-primary font-semibold">momhelper.usa</span>
+        </p>
+      </div>
+    </Fragment>
+  </CallToAction>
+</PageLayout>

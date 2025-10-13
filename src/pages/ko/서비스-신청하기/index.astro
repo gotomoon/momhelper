@@ -1,0 +1,455 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: '서비스 신청하기 — Mom Helper USA',
+  description: '산후관리 서비스 신청. 간편한 온라인 신청으로 맞춤형 케어를 예약하세요.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Page Title Section -->
+  <section class="et_pb_section bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row text-center">
+        <h1 class="text-[#B8551F] font-['Noto_Sans_KR'] text-3xl md:text-4xl font-bold mb-4">
+          서비스 신청하기
+        </h1>
+        <p class="text-gray-600 text-lg">
+          아래 양식을 작성하여 맞춤형 산후관리 서비스를 예약하세요
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Procedure Section -->
+  <section class="et_pb_section bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          신청 절차
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div class="bg-white rounded-lg p-6 text-center shadow-md">
+          <div class="text-[#D37643] font-bold text-4xl mb-3">1</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">웹사이트 확인</h3>
+          <p class="text-sm text-gray-600">서비스 내용 상세 확인</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center shadow-md">
+          <div class="text-[#D37643] font-bold text-4xl mb-3">2</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">서비스 결정</h3>
+          <p class="text-sm text-gray-600">원하는 서비스 선택</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center shadow-md">
+          <div class="text-[#D37643] font-bold text-4xl mb-3">3</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">신청서 제출</h3>
+          <p class="text-sm text-gray-600">온라인 신청서 작성</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center shadow-md">
+          <div class="text-[#D37643] font-bold text-4xl mb-3">4</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">계약금 지불</h3>
+          <p class="text-sm text-gray-600">예약금 납부</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center shadow-md">
+          <div class="text-[#D37643] font-bold text-4xl mb-3">5</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">관리사 매칭</h3>
+          <p class="text-sm text-gray-600">전문 관리사 배정</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="et_pb_section bg-white py-16">
+    <div class="container mx-auto max-w-[800px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-4">
+          서비스 예약 신청서
+        </h2>
+        <p class="text-center text-gray-600 mb-6">
+          모든 항목을 정확히 작성해 주세요. * 표시는 필수 항목입니다.
+        </p>
+      </div>
+
+      <form class="bg-[#f7f7f7] rounded-lg p-8 shadow-lg">
+        <div class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-gray-700 font-bold mb-2">
+              산모 성함 *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+              placeholder="홍길동"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-gray-700 font-bold mb-2">
+              이메일 *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+              placeholder="your@email.com"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-gray-700 font-bold mb-2">
+              연락처 *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+              placeholder="(213) 123-4567"
+            />
+          </div>
+
+          <!-- Address -->
+          <div>
+            <label for="address" class="block text-gray-700 font-bold mb-2">
+              서비스 주소 *
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643] mb-2"
+              placeholder="Street Address"
+            />
+            <div class="grid grid-cols-2 gap-2">
+              <input
+                type="text"
+                name="city"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+                placeholder="City"
+              />
+              <input
+                type="text"
+                name="state"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+                placeholder="State"
+              />
+            </div>
+            <input
+              type="text"
+              name="zip"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643] mt-2"
+              placeholder="Zip Code"
+            />
+          </div>
+
+          <!-- Due Date -->
+          <div>
+            <label for="due_date" class="block text-gray-700 font-bold mb-2">
+              출산 예정일 *
+            </label>
+            <input
+              type="date"
+              id="due_date"
+              name="due_date"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+            />
+          </div>
+
+          <!-- Delivery Type -->
+          <div>
+            <label for="delivery_type" class="block text-gray-700 font-bold mb-2">
+              출산 방법
+            </label>
+            <select
+              id="delivery_type"
+              name="delivery_type"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+            >
+              <option value="">선택하세요</option>
+              <option value="natural">자연 분만</option>
+              <option value="cesarean">제왕 절개</option>
+              <option value="undetermined">미정</option>
+            </select>
+          </div>
+
+          <!-- Service Type -->
+          <div>
+            <label for="service_type" class="block text-gray-700 font-bold mb-2">
+              서비스 형태 *
+            </label>
+            <select
+              id="service_type"
+              name="service_type"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+            >
+              <option value="">선택하세요</option>
+              <option value="commute">출퇴근형 (Commuting)</option>
+              <option value="live-in">입주형 (Live-in)</option>
+              <option value="hybrid">혼합형 (Hybrid)</option>
+            </select>
+          </div>
+
+          <!-- Service Duration -->
+          <div>
+            <label for="duration" class="block text-gray-700 font-bold mb-2">
+              희망 서비스 기간 *
+            </label>
+            <select
+              id="duration"
+              name="duration"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+            >
+              <option value="">선택하세요</option>
+              <option value="2">2주</option>
+              <option value="3">3주</option>
+              <option value="4">4주</option>
+              <option value="5">5주</option>
+              <option value="6">6주</option>
+              <option value="8">8주</option>
+              <option value="10">10주</option>
+            </select>
+          </div>
+
+          <!-- Existing Children -->
+          <div>
+            <label for="children" class="block text-gray-700 font-bold mb-2">
+              기존 자녀 수
+            </label>
+            <input
+              type="number"
+              id="children"
+              name="children"
+              min="0"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+              placeholder="0"
+            />
+          </div>
+
+          <!-- Twins -->
+          <div>
+            <label class="block text-gray-700 font-bold mb-2">
+              쌍둥이 출산
+            </label>
+            <div class="flex gap-6">
+              <label class="flex items-center">
+                <input type="radio" name="twins" value="yes" class="mr-2" />
+                <span>예</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="twins" value="no" class="mr-2" checked />
+                <span>아니오</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Additional Notes -->
+          <div>
+            <label for="notes" class="block text-gray-700 font-bold mb-2">
+              추가 요청사항
+            </label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="5"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+              placeholder="특별히 고려해야 할 사항이나 질문이 있으시면 입력해 주세요..."
+            ></textarea>
+          </div>
+
+          <!-- Captcha -->
+          <div>
+            <label for="captcha" class="block text-gray-700 font-bold mb-2">
+              1 + 1 = ? *
+            </label>
+            <input
+              type="text"
+              id="captcha"
+              name="captcha"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#D37643]"
+              placeholder="답을 입력하세요"
+            />
+          </div>
+
+          <!-- Privacy Agreement -->
+          <div class="bg-[#fff7f4] border-l-4 border-[#D37643] p-4 rounded">
+            <label class="flex items-start">
+              <input type="checkbox" required class="mt-1 mr-3" />
+              <span class="text-sm text-gray-700">
+                개인정보 수집 및 이용에 동의합니다. 제공하신 정보는 서비스 제공 목적으로만 사용됩니다.
+              </span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center pt-4">
+            <button
+              type="submit"
+              class="bg-[#D37643] text-white font-['Noto_Sans_KR'] font-bold px-12 py-4 rounded-full hover:bg-[#B8551F] transition-colors duration-300 text-lg"
+            >
+              신청서 제출
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="text-center mt-6">
+        <p class="text-sm text-gray-600">
+          신청서를 제출하시면 24시간 이내에 담당자가 연락드립니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Contract Details Section -->
+  <section class="et_pb_section bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="et_pb_row mb-8">
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+          서비스 계약 안내
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">결제 방법</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>은행 송금 (Bank Transfer)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>Zelle</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>체크 (Check)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>현금 (Cash)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">예약 확정</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>계약서 서명 후 예약 확정</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>예약금 납부 필요</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>서비스 기간에 따라 예약금 상이</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">취소 정책</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>5일 전 취소 통보 필요</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>취소 시 환불 규정 적용</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">서비스 연장</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>관리사 일정에 따라 연장 가능</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-[#D37643] mr-2">•</span>
+              <span>연장 희망 시 사전 협의 필요</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="et_pb_section bg-[#D37643] py-16">
+    <div class="container mx-auto max-w-[1080px] px-4 text-center">
+      <h2 class="text-white font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
+        궁금하신 점이 있으신가요?
+      </h2>
+      <p class="text-white text-lg mb-8">
+        신청 전 궁금하신 사항이 있으시면 언제든지 연락주세요
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-lg p-6">
+          <div class="text-[#D37643] text-4xl mb-3">📞</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">전화</h3>
+          <a href="tel:2138084415" class="text-[#D37643] hover:underline">(213) 808-4415</a>
+        </div>
+
+        <div class="bg-white rounded-lg p-6">
+          <div class="text-[#D37643] text-4xl mb-3">✉</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">이메일</h3>
+          <a href="mailto:momhelperusa10@gmail.com" class="text-[#D37643] hover:underline text-sm break-all">
+            momhelperusa10@gmail.com
+          </a>
+        </div>
+
+        <div class="bg-white rounded-lg p-6">
+          <div class="text-[#D37643] text-4xl mb-3">💬</div>
+          <h3 class="font-bold text-[#B8551F] mb-2">카카오톡</h3>
+          <span class="text-[#D37643] font-semibold">momhelper.usa</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .et_pb_section {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    box-shadow: 0 0 0 3px rgba(211, 118, 67, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      gap: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,160 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Other Services — Mom Helper USA',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget -->
+  <Hero
+    tagline="Additional Services"
+    title="Supporting Your Family Beyond Postpartum Care"
+  >
+    <Fragment slot="subtitle">
+      In addition to postpartum care, we offer a range of professional services to support your family's needs at every stage.
+    </Fragment>
+  </Hero>
+
+  <!-- Features3 Widget -->
+  <Features3
+    title="Our Additional Services"
+    subtitle="Reliable, professional support for your family"
+    columns={3}
+    items={[
+      {
+        title: 'Custom Babysitting',
+        description: 'Professional and reliable babysitting services tailored to your family\'s needs. Our experienced caregivers provide safe, engaging care for children of all ages.',
+        icon: 'tabler:baby-carriage',
+      },
+      {
+        title: 'Professional Caregivers',
+        description: 'Experienced caregivers for all your childcare and family care needs. From infant care to toddler activities, we provide trustworthy support.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Reliable Housekeeping',
+        description: 'Maintain a clean and organized home while you focus on what matters most. Our housekeeping services help busy families stay on top of household tasks.',
+        icon: 'tabler:home',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget - Service Details -->
+  <Features3
+    title="Babysitting Services"
+    subtitle="Safe, engaging care for your children"
+    columns={2}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Date Night Care',
+        description: 'Enjoy an evening out knowing your children are in capable, caring hands.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Regular Scheduled Care',
+        description: 'Weekly or bi-weekly babysitting for working parents or regular commitments.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Emergency Backup Care',
+        description: 'Last-minute childcare when your regular arrangements fall through.',
+        icon: 'tabler:urgent',
+      },
+      {
+        title: 'Special Needs Care',
+        description: 'Caregivers trained to work with children with special needs and requirements.',
+        icon: 'tabler:heart',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget - Caregiver Services -->
+  <Features3
+    title="Professional Caregiver Services"
+    subtitle="Experienced support for your family"
+    columns={2}
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Infant Care',
+        description: 'Specialized care for babies including feeding, diapering, and sleep support.',
+        icon: 'tabler:baby-bottle',
+      },
+      {
+        title: 'Toddler Care',
+        description: 'Active, engaging care with age-appropriate activities and developmental support.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Multiple Children',
+        description: 'Experienced caregivers who can handle siblings of different ages.',
+        icon: 'tabler:friends',
+      },
+      {
+        title: 'Activity Planning',
+        description: 'Thoughtful, educational activities that keep children engaged and learning.',
+        icon: 'tabler:palette',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget - Housekeeping -->
+  <Features3
+    title="Housekeeping Services"
+    subtitle="Keep your home clean and organized"
+    columns={2}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Regular Cleaning',
+        description: 'Weekly or bi-weekly cleaning to maintain a fresh, organized home.',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: 'Deep Cleaning',
+        description: 'Thorough cleaning for moving in/out, post-event, or seasonal refreshes.',
+        icon: 'tabler:wash',
+      },
+      {
+        title: 'Laundry Service',
+        description: 'Washing, folding, and organizing laundry to save you time and effort.',
+        icon: 'tabler:hanger',
+      },
+      {
+        title: 'Organization',
+        description: 'Help organizing closets, pantries, and living spaces for better functionality.',
+        icon: 'tabler:stack',
+      },
+    ]}
+  />
+
+  <!-- Call to Action Widget -->
+  <CallToAction
+    title="Interested in Our Services?"
+    subtitle="Contact us to discuss which services are right for your family."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Book Online',
+        href: '/book-online',
+      },
+      {
+        variant: 'secondary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      <p class="text-xl mb-4">Email: <a href="mailto:momhelperusa10@gmail.com" class="text-primary-600 hover:underline">momhelperusa10@gmail.com</a></p>
+      <p class="text-xl mb-4">Phone: <a href="tel:+12138084415" class="text-primary-600 hover:underline">(213) 808-4415</a></p>
+      <p class="text-xl">Kakao Talk ID: momhelper.usa</p>
+    </Fragment>
+  </CallToAction>
+</Layout>

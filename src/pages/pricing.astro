@@ -1,0 +1,283 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'Pricing — Mom Helper USA',
+  description: 'Transparent pricing for postpartum care services. View our basic service rates and premium packages.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Widget -->
+  <Hero
+    tagline="Pricing"
+    title="Postpartum Care Service Pricing"
+    subtitle="Transparent and reasonable pricing for the best postpartum care services"
+  />
+
+  <!-- Pricing Information -->
+  <Content
+    title="Pricing Information"
+    subtitle="Rate structure based on service duration and type"
+    items={[
+      {
+        title: 'Minimum Service Period',
+        description: '2 weeks (14 days) or more',
+      },
+      {
+        title: 'Basic Family Composition',
+        description: 'Includes mother, spouse, and newborn',
+      },
+      {
+        title: 'Service Type',
+        description: 'Commuting (daily visits) or Live-in (24/7)',
+      },
+      {
+        title: 'Deposit',
+        description: 'Deposit varies by service duration and is included in total price',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Basic Service Pricing -->
+  <Pricing
+    title="Basic Service"
+    subtitle="Standard postpartum care for mother, spouse, and newborn"
+    prices={[
+      {
+        title: '2 Weeks',
+        subtitle: 'Commuting',
+        price: '$3,200',
+        period: '+ $300 deposit',
+        items: [
+          { text: 'Basic maternal care' },
+          { text: 'Newborn care' },
+          { text: 'Household support' },
+          { text: 'Daily visits (9am-5pm)' },
+        ],
+        callToAction: {
+          text: 'Contact Us',
+          href: '/contact',
+        },
+      },
+      {
+        title: '2 Weeks',
+        subtitle: 'Live-in',
+        price: '$3,600',
+        period: '+ $300 deposit',
+        items: [
+          { text: '24-hour care' },
+          { text: 'Basic maternal care' },
+          { text: 'Newborn care' },
+          { text: 'Household support' },
+          { text: 'Weekends included' },
+        ],
+        callToAction: {
+          text: 'Contact Us',
+          href: '/contact',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Popular',
+      },
+      {
+        title: '4 Weeks',
+        subtitle: 'Commuting',
+        price: '$6,000',
+        period: '+ $500 deposit',
+        items: [
+          { text: 'Basic maternal care' },
+          { text: 'Newborn care' },
+          { text: 'Household support' },
+          { text: 'Daily visits (9am-5pm)' },
+        ],
+        callToAction: {
+          text: 'Contact Us',
+          href: '/contact',
+        },
+      },
+      {
+        title: '4 Weeks',
+        subtitle: 'Live-in',
+        price: '$6,800',
+        period: '+ $500 deposit',
+        items: [
+          { text: '24-hour care' },
+          { text: 'Basic maternal care' },
+          { text: 'Newborn care' },
+          { text: 'Household support' },
+          { text: 'Weekends included' },
+        ],
+        callToAction: {
+          text: 'Contact Us',
+          href: '/contact',
+        },
+      },
+    ]}
+  />
+
+  <!-- Extended Period Pricing -->
+  <section class="px-4 py-16 mx-auto max-w-7xl">
+    <div class="mb-10 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Long-Term Service Pricing</h2>
+      <p class="text-xl text-muted">Discounted rates for services 6 weeks or longer</p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse bg-white dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden">
+        <thead>
+          <tr class="bg-primary text-white">
+            <th class="px-6 py-4 text-left font-semibold">Service Period</th>
+            <th class="px-6 py-4 text-left font-semibold">Commuting</th>
+            <th class="px-6 py-4 text-left font-semibold">Live-in</th>
+            <th class="px-6 py-4 text-left font-semibold">Deposit</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
+            <td class="px-6 py-4 font-medium">6 Weeks</td>
+            <td class="px-6 py-4">$8,700</td>
+            <td class="px-6 py-4">$9,900</td>
+            <td class="px-6 py-4">$700</td>
+          </tr>
+          <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
+            <td class="px-6 py-4 font-medium">8 Weeks</td>
+            <td class="px-6 py-4">$11,200</td>
+            <td class="px-6 py-4">$12,800</td>
+            <td class="px-6 py-4">$900</td>
+          </tr>
+          <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
+            <td class="px-6 py-4 font-medium">10 Weeks</td>
+            <td class="px-6 py-4">$13,500</td>
+            <td class="px-6 py-4">$15,500</td>
+            <td class="px-6 py-4">$1,100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-sm text-muted italic">* All prices are in USD and may vary by region and program</p>
+    </div>
+  </section>
+
+  <!-- Additional Fees -->
+  <Content
+    title="Additional Fees"
+    subtitle="For additional family members beyond basic service"
+    isReversed
+  >
+    <Fragment slot="content">
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-white dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden">
+          <thead>
+            <tr class="bg-secondary text-white">
+              <th class="px-6 py-4 text-left font-semibold">Additional Family Member</th>
+              <th class="px-6 py-4 text-left font-semibold">LA County</th>
+              <th class="px-6 py-4 text-left font-semibold">OC County</th>
+              <th class="px-6 py-4 text-left font-semibold">Other Areas</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+            <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
+              <td class="px-6 py-4 font-medium">First Additional Family</td>
+              <td class="px-6 py-4">$150/week</td>
+              <td class="px-6 py-4">$200/week</td>
+              <td class="px-6 py-4">$250/week</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
+              <td class="px-6 py-4 font-medium">Second Additional Family</td>
+              <td class="px-6 py-4">$200/week</td>
+              <td class="px-6 py-4">$250/week</td>
+              <td class="px-6 py-4">$300/week</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-slate-700">
+              <td class="px-6 py-4 font-medium">Third+ Additional Family</td>
+              <td class="px-6 py-4">$250/week</td>
+              <td class="px-6 py-4">$300/week</td>
+              <td class="px-6 py-4">$350/week</td>
+            </tr>
+            <tr class="bg-blue-50 dark:bg-slate-900">
+              <td class="px-6 py-4 font-bold">Twins</td>
+              <td colspan="3" class="px-6 py-4 font-semibold text-primary">50% additional to basic service rate</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Important Notes -->
+  <Content
+    title="Important Pricing Notes"
+    items={[
+      {
+        title: 'Minimum Service Period',
+        description: 'All services require a minimum of 2 weeks (14 days)',
+      },
+      {
+        title: 'Deposit',
+        description: 'A deposit is required upon booking confirmation and is included in total service cost',
+      },
+      {
+        title: 'Regional Price Differences',
+        description: 'Rates may vary by service area (LA, OC, other counties)',
+      },
+      {
+        title: 'Holiday Surcharges',
+        description: 'Additional fees apply for work on major holidays like Christmas and Thanksgiving',
+      },
+      {
+        title: 'Cancellation & Refunds',
+        description: 'Cancellations accepted up to 7 days before service start. Deposits are subject to refund policy',
+      },
+      {
+        title: 'Service Extension',
+        description: 'Service extensions calculated at weekly rates, subject to caregiver schedule availability',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Call to Action -->
+  <CallToAction
+    title="Request a Quote & Consultation"
+    subtitle="We provide customized quotes based on your family's situation"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us Now',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Book Service',
+        href: '/book-online',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      <div class="max-w-3xl mx-auto mt-6">
+        <p class="text-lg mb-3">
+          <strong>Phone:</strong> <a href="tel:+12138084415" class="text-primary hover:underline">(213) 808-4415</a>
+        </p>
+        <p class="text-lg mb-3">
+          <strong>Email:</strong> <a href="mailto:momhelperusa10@gmail.com" class="text-primary hover:underline">momhelperusa10@gmail.com</a>
+        </p>
+        <p class="text-lg">
+          <strong>Kakao Talk:</strong> <span class="text-primary font-semibold">momhelper.usa</span>
+        </p>
+      </div>
+    </Fragment>
+  </CallToAction>
+</PageLayout>

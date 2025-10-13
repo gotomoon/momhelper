@@ -1,0 +1,356 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import logoWhite from '~/assets/images/momhelper/logos/logo-white.webp';
+
+const metadata = {
+  title: '연락처 — Mom Helper USA',
+  description: 'Mom Helper USA에 문의하세요. 전화, 이메일, 카카오톡으로 상담 및 예약이 가능합니다.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section with Background Image -->
+  <section
+    class="et_pb_section et_pb_section_0 relative pb-0 overflow-hidden min-h-[600px]"
+    style="background-image: url('/images/baby-hand.jpeg'); background-size: cover; background-position: center;"
+  >
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-[rgba(211,118,67,0.47)] z-0"></div>
+
+    <div class="container mx-auto max-w-full px-4 py-16 relative z-10">
+      <!-- Large Logo -->
+      <div class="et_pb_fullwidth_image text-center mb-8 animate-fadeIn">
+        <Image
+          src={logoWhite}
+          alt="Mom Helper USA"
+          class="mx-auto max-w-[400px] md:max-w-[500px] w-full"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Heading Text -->
+      <div class="text-center pb-12">
+        <h2 class="text-white font-['Noto_Sans_KR'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed mb-4">
+          궁금하신 사항이 있으세요?
+        </h2>
+        <p class="text-white font-['Noto_Sans_KR'] text-[16pt] md:text-[18pt] leading-relaxed">
+          언제든지 문의하시면, 저희 담당자가 최대한 빨리 답변해 드립니다!
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Divider -->
+    <div class="et_pb_bottom_inside_divider"></div>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section class="et_pb_section et_pb_section_1 bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <!-- Section Heading -->
+      <div class="et_pb_row mb-12">
+        <h2 class="text-[#B8551F] text-center font-['Noto_Sans_KR'] text-2xl md:text-3xl font-medium">
+          연락 방법
+        </h2>
+      </div>
+
+      <!-- Three Contact Methods -->
+      <div class="et_pb_row grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Phone -->
+        <div class="et_pb_column text-center">
+          <div class="et_pb_blurb bg-white rounded-lg p-8 shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] hover:shadow-lg transition-shadow duration-300">
+            <div class="mb-6">
+              <span class="inline-block text-[#D37643] text-6xl">📞</span>
+            </div>
+            <h3 class="font-['Noto_Sans_KR'] font-bold text-[20px] text-[#B8551F] mb-4">전화 상담</h3>
+            <a href="tel:+12138084415" class="text-gray-700 text-lg hover:text-[#D37643] transition-colors">
+              (213) 808-4415
+            </a>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="et_pb_column text-center">
+          <div class="et_pb_blurb bg-white rounded-lg p-8 shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] hover:shadow-lg transition-shadow duration-300">
+            <div class="mb-6">
+              <span class="inline-block text-[#D37643] text-6xl">✉️</span>
+            </div>
+            <h3 class="font-['Noto_Sans_KR'] font-bold text-[20px] text-[#B8551F] mb-4">이메일</h3>
+            <a href="mailto:momhelperusa10@gmail.com" class="text-gray-700 text-lg hover:text-[#D37643] transition-colors break-all">
+              momhelperusa10@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Kakao -->
+        <div class="et_pb_column text-center">
+          <div class="et_pb_blurb bg-white rounded-lg p-8 shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] hover:shadow-lg transition-shadow duration-300">
+            <div class="mb-6">
+              <span class="inline-block text-[#D37643] text-6xl">💬</span>
+            </div>
+            <h3 class="font-['Noto_Sans_KR'] font-bold text-[20px] text-[#B8551F] mb-4">카카오톡</h3>
+            <p class="text-gray-700 text-lg">
+              ID: momhelper.usa
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="et_pb_section et_pb_section_2 bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[800px] px-4">
+      <!-- Section Heading -->
+      <div class="et_pb_row mb-12">
+        <h2 class="text-[#B8551F] text-center font-['Noto_Sans_KR'] text-2xl md:text-3xl font-medium mb-4">
+          문의 양식
+        </h2>
+        <p class="text-center text-gray-600 font-['Noto_Sans_KR'] text-lg">
+          아래 양식을 작성해 주시면 빠르게 답변 드리겠습니다
+        </p>
+      </div>
+
+      <!-- Form -->
+      <div class="et_pb_row">
+        <form class="bg-white rounded-lg p-8 shadow-lg" action="/api/contact" method="POST">
+          <div class="space-y-6">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-gray-700 font-['Noto_Sans_KR'] font-bold mb-2">
+                성함 *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#D37643] focus:ring-2 focus:ring-[#D37643] focus:ring-opacity-20 transition-all font-['Noto_Sans_KR']"
+                placeholder="홍길동"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-gray-700 font-['Noto_Sans_KR'] font-bold mb-2">
+                이메일 *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#D37643] focus:ring-2 focus:ring-[#D37643] focus:ring-opacity-20 transition-all font-['Noto_Sans_KR']"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-gray-700 font-['Noto_Sans_KR'] font-bold mb-2">
+                연락처
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#D37643] focus:ring-2 focus:ring-[#D37643] focus:ring-opacity-20 transition-all font-['Noto_Sans_KR']"
+                placeholder="(213) 123-4567"
+              />
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-gray-700 font-['Noto_Sans_KR'] font-bold mb-2">
+                문의 내용 *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="6"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#D37643] focus:ring-2 focus:ring-[#D37643] focus:ring-opacity-20 transition-all resize-vertical font-['Noto_Sans_KR']"
+                placeholder="서비스에 대해 궁금하신 사항을 입력해 주세요..."
+              ></textarea>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="text-sm text-gray-600 font-['Noto_Sans_KR'] leading-relaxed">
+              개인정보 처리방침에 동의합니다. 제출하신 정보는 문의 응대 목적으로만 사용됩니다.
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+              <button
+                type="submit"
+                class="inline-block bg-[#D37643] text-white font-['Noto_Sans_KR'] font-bold text-base px-10 py-4 rounded-[60px] hover:bg-[#B8551F] transition-colors duration-300 cursor-pointer"
+              >
+                문의하기
+              </button>
+            </div>
+
+            <!-- Response Time Notice -->
+            <div class="text-center text-sm text-gray-600 font-['Noto_Sans_KR'] italic">
+              일반적으로 24시간 이내에 답변 드립니다. 급하신 경우 전화로 연락주세요.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Information Section -->
+  <section class="et_pb_section et_pb_section_3 bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Business Hours -->
+        <div class="bg-[#fff7f4] rounded-lg shadow-lg p-8">
+          <h3 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl font-bold mb-6 flex items-center">
+            <svg class="w-8 h-8 mr-3 text-[#D37643]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            상담 시간
+          </h3>
+          <div class="space-y-3 text-lg font-['Noto_Sans_KR']">
+            <div class="flex justify-between">
+              <span class="font-medium text-gray-700">월요일 - 금요일:</span>
+              <span class="text-gray-600">9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-medium text-gray-700">토요일:</span>
+              <span class="text-gray-600">10:00 AM - 4:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-medium text-gray-700">일요일:</span>
+              <span class="text-gray-600">휴무</span>
+            </div>
+            <p class="text-sm text-gray-600 italic mt-4">* 주요 공휴일 휴무</p>
+          </div>
+        </div>
+
+        <!-- Service Area -->
+        <div class="bg-[#fff7f4] rounded-lg shadow-lg p-8">
+          <h3 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl font-bold mb-6 flex items-center">
+            <svg class="w-8 h-8 mr-3 text-[#D37643]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            서비스 지역
+          </h3>
+          <ul class="space-y-3 text-lg font-['Noto_Sans_KR']">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 mr-2 text-[#D37643] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700">Los Angeles 카운티</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 mr-2 text-[#D37643] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700">Orange 카운티</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 mr-2 text-[#D37643] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700">Riverside 카운티</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 mr-2 text-[#D37643] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700">San Bernardino 카운티</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 mr-2 text-[#D37643] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-700">기타 지역 (문의 가능)</span>
+            </li>
+          </ul>
+          <p class="text-sm text-gray-600 italic mt-4 font-['Noto_Sans_KR']">* 지역에 따라 추가 비용이 발생할 수 있습니다</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="et_pb_section et_pb_section_4 bg-[#f7f7f7] py-16">
+    <div class="container mx-auto max-w-[900px] px-4">
+      <h2 class="text-[#B8551F] text-center font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-12">
+        자주 묻는 질문
+      </h2>
+
+      <div class="space-y-6">
+        <details class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+            예약은 얼마나 일찍 해야 하나요?
+          </summary>
+          <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
+            출산 예정일 최소 1-2개월 전에 예약하시는 것을 권장합니다. 성수기(가을, 겨울)에는 더 일찍 예약하시는 것이 좋습니다.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+            최소 서비스 기간은 얼마나 되나요?
+          </summary>
+          <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
+            모든 서비스는 최소 2주(14일)부터 이용 가능합니다. 2주, 4주, 6주, 8주, 10주 단위로 신청하실 수 있습니다.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+            관리사 변경이 가능한가요?
+          </summary>
+          <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
+            네, 가능합니다. 다만 관리사 교체 시 추가 비용이 발생할 수 있으며, 새로운 관리사의 스케줄에 따라 조정됩니다.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+            쌍둥이의 경우 추가 비용이 있나요?
+          </summary>
+          <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
+            네, 쌍둥이의 경우 기본 서비스 요금의 50%가 추가됩니다. 자세한 요금은 이용요금 페이지를 참조해 주세요.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+            카카오톡으로 상담이 가능한가요?
+          </summary>
+          <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
+            네, 카카오톡 ID "momhelper.usa"로 편하게 문의하실 수 있습니다. 한국어와 영어 모두 가능합니다.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  details summary {
+    list-style: none;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary {
+    color: #D37643;
+  }
+</style>

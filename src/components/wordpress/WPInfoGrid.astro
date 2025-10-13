@@ -1,0 +1,102 @@
+---
+interface InfoCard {
+  title: string;
+  items?: string[];
+  description?: string;
+  link?: {
+    text: string;
+    href: string;
+  };
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  cards: InfoCard[];
+  columns?: number;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+}
+
+const {
+  title,
+  subtitle,
+  cards,
+  columns = 2,
+  backgroundColor = 'white',
+  cardBackgroundColor = '#fff7f4',
+} = Astro.props;
+
+const gridCols = columns === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
+---
+
+<section class="et_pb_section py-16" style={`background-color: ${backgroundColor};`}>
+  <div class="container mx-auto max-w-[1080px] px-4">
+    {(title || subtitle) && (
+      <div class="et_pb_row mb-8">
+        {title && (
+          <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold text-center mb-6">
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p class="text-center text-gray-600 text-sm">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    )}
+
+    <div class={`grid grid-cols-1 ${gridCols} gap-8`}>
+      {cards.map((card) => (
+        <div class="rounded-lg p-6" style={`background-color: ${cardBackgroundColor};`}>
+          <h3 class="text-[#D37643] font-bold text-xl mb-4">{card.title}</h3>
+
+          {card.description && (
+            <p class="text-gray-700 mb-4">{card.description}</p>
+          )}
+
+          {card.items && (
+            <ul class="space-y-3 text-gray-700">
+              {card.items.map((item, index) => (
+                <li class="flex items-start">
+                  {item.match(/^\d+\./) ? (
+                    <span class="text-[#D37643] mr-2 font-bold">{index + 1}.</span>
+                  ) : (
+                    <span class="text-[#D37643] mr-2">•</span>
+                  )}
+                  <span>{item.replace(/^\d+\.\s*/, '')}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {card.link && (
+            <div class="mt-4">
+              <a
+                href={card.link.href}
+                class="inline-block bg-[#D37643] text-white font-bold px-6 py-2 rounded-full hover:bg-[#B8551F] transition-colors"
+              >
+                {card.link.text}
+              </a>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Slot for additional content -->
+    <slot />
+  </div>
+</section>
+
+<style>
+  .et_pb_section {
+    font-family: 'Noto Sans KR', 'Open Sans', sans-serif;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>

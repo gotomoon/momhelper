@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface ContentBlock {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  image: ImageMetadata | string;
+  imageAlt: string;
+  title: string;
+  contentBlocks: ContentBlock[];
+  imagePosition?: 'left' | 'right';
+  backgroundColor?: string;
+}
+
+const {
+  image,
+  imageAlt,
+  title,
+  contentBlocks,
+  imagePosition = 'left',
+  backgroundColor = 'white',
+} = Astro.props;
+
+const imageOrder = imagePosition === 'left' ? 'order-2 md:order-1' : 'order-2 md:order-2';
+const contentOrder = imagePosition === 'left' ? 'order-1 md:order-2' : 'order-1 md:order-1';
+---
+
+<section class="et_pb_section py-16" style={`background-color: ${backgroundColor};`}>
+  <div class="container mx-auto max-w-[1080px] px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Image -->
+      <div class={imageOrder}>
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          {typeof image === 'string' ? (
+            <img src={image} alt={imageAlt} class="w-full h-auto" />
+          ) : (
+            <Image src={image} alt={imageAlt} class="w-full h-auto" />
+          )}
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class={contentOrder}>
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-6">
+          {title}
+        </h2>
+        <div class="space-y-4 text-gray-700">
+          {contentBlocks.map((block) => (
+            <div>
+              <h4 class="font-bold text-[#D37643] mb-2">{block.title}</h4>
+              <p>{block.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Slot for additional content -->
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .et_pb_section {
+    font-family: 'Noto Sans KR', 'Open Sans', sans-serif;
+  }
+</style>

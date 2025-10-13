@@ -1,0 +1,61 @@
+---
+/**
+ * Simple Page Hero - for non-homepage pages
+ * Same background image and overlay as homepage, but NO logo
+ * Just displays page title and optional subtitle
+ */
+
+interface Props {
+  backgroundImage?: string;
+  title: string;
+  subtitle?: string;
+  overlayColor?: string;
+  minHeight?: string;
+}
+
+const {
+  backgroundImage = '/images/baby-hand.jpeg',
+  title,
+  subtitle,
+  overlayColor = 'rgba(211,118,67,0.47)',
+  minHeight = '400px',
+} = Astro.props;
+---
+
+<section
+  class="et_pb_section et_pb_section_hero relative pb-0 overflow-hidden"
+  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center; min-height: ${minHeight};`}
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 z-0" style={`background-color: ${overlayColor};`}></div>
+
+  <div class="container mx-auto max-w-full px-4 py-16 relative z-10">
+    <!-- Page Title (NO LOGO for non-homepage pages) -->
+    <div class="text-center pb-12">
+      <h1 class="text-white font-['Noto_Sans_KR','Open_Sans'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed mb-4">
+        {title}
+      </h1>
+      {subtitle && (
+        <p class="text-white font-['Noto_Sans_KR','Open_Sans'] text-[16pt] md:text-[18pt] leading-relaxed">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <!-- Slot for custom content -->
+    <slot />
+  </div>
+
+  <!-- Bottom Divider -->
+  <div class="et_pb_bottom_inside_divider"></div>
+</section>
+
+<style>
+  .et_pb_section {
+    font-family: 'Noto Sans KR', 'Open Sans', sans-serif;
+  }
+
+  .et_pb_bottom_inside_divider {
+    height: 0;
+  }
+</style>

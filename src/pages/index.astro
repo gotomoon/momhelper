@@ -1,0 +1,257 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import logoWhite from '~/assets/images/momhelper/logos/logo-white.webp';
+import momBabyBirth from '~/assets/images/momhelper/misc/mom-baby-birth.webp';
+import cribMomSquare from '~/assets/images/momhelper/misc/crib-mom-square.webp';
+import postpartumMeal from '~/assets/images/momhelper/misc/postpartum-meal-1.webp';
+import babysitting from '~/assets/images/momhelper/services/babysitting.webp';
+import caregiver from '~/assets/images/momhelper/services/caregiver.webp';
+import housekeeping from '~/assets/images/momhelper/services/housekeeping.webp';
+
+const metadata = {
+  title: 'Mom Helper USA',
+  description: 'Professional Postpartum Care Services at Your Doorstep',
+  ignoreTitleTemplate: true,
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section - Full Width with Logo -->
+  <section
+    class="et_pb_section et_pb_section_0 relative pb-0 overflow-hidden min-h-[600px]"
+    style="background-image: url('/images/baby-hand.jpeg'); background-size: cover; background-position: center;"
+  >
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-[rgba(211,118,67,0.47)] z-0"></div>
+
+    <div class="container mx-auto max-w-full px-4 py-16 relative z-10">
+      <!-- Large Logo -->
+      <div class="et_pb_fullwidth_image text-center mb-8 animate-fadeIn">
+        <Image
+          src={logoWhite}
+          alt="Mom Helper USA"
+          class="mx-auto max-w-[400px] md:max-w-[500px] w-full"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Heading Text -->
+      <div class="text-center pb-12">
+        <h2 class="text-white font-['Open_Sans'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed">
+          Professional Postpartum Care Services at Your Doorstep
+        </h2>
+      </div>
+    </div>
+
+    <!-- Bottom Divider -->
+    <div class="et_pb_bottom_inside_divider"></div>
+  </section>
+
+  <!-- Second Section - Main Services -->
+  <section class="et_pb_section et_pb_section_1 bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <!-- Section Heading -->
+      <div class="et_pb_row mb-12">
+        <div class="text-center">
+          <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-medium leading-relaxed">
+            Trained and Experienced Postpartum Caregivers<br />Providing Safe and Comfortable Care
+          </h2>
+        </div>
+      </div>
+
+      <!-- Three Column Features -->
+      <div class="et_pb_row grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Column 1 -->
+        <div class="et_pb_column text-center">
+          <div class="et_pb_image mb-6">
+            <div class="rounded-full overflow-hidden shadow-[0_10px_30px_rgba(229,232,239,0.5)] mx-auto max-w-[280px] border-[20px] border-white transition-all duration-300 hover:border-[10px]">
+              <Image
+                src={momBabyBirth}
+                alt="Custom Postpartum Care"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+          <div class="et_pb_blurb">
+            <h3 class="font-['Candal'] text-[20px] text-[#B8551F] mb-3 leading-snug">Custom Postpartum Care</h3>
+            <p class="text-gray-600 leading-relaxed">We provide personalized postpartum care services tailored to each mother's needs and situation, supporting quick recovery and healthy parenting.</p>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="et_pb_column text-center">
+          <div class="et_pb_image mb-6">
+            <div class="rounded-full overflow-hidden shadow-[0_10px_30px_rgba(229,232,239,0.5)] mx-auto max-w-[280px] border-[20px] border-white transition-all duration-300 hover:border-[10px]">
+              <Image
+                src={cribMomSquare}
+                alt="Professional Caregivers"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+          <div class="et_pb_blurb">
+            <h3 class="font-['Candal'] text-[20px] text-[#B8551F] mb-3 leading-snug">Professional Caregivers</h3>
+            <p class="text-gray-600 leading-relaxed">Our trained and experienced caregivers provide safe and comfortable care for mothers and babies, allowing families to trust and rely on our services with confidence.</p>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="et_pb_column text-center">
+          <div class="et_pb_image mb-6">
+            <div class="rounded-full overflow-hidden shadow-[0_10px_30px_rgba(229,232,239,0.5)] mx-auto max-w-[280px] border-[20px] border-white transition-all duration-300 hover:border-[10px]">
+              <Image
+                src={postpartumMeal}
+                alt="Comfortable Care"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+          <div class="et_pb_blurb">
+            <h3 class="font-['Candal'] text-[20px] text-[#B8551F] mb-3 leading-snug">Comfortable Care</h3>
+            <p class="text-gray-600 leading-relaxed">Mothers can receive postpartum care comfortably at home with their family, promoting mental stability and health recovery.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="et_pb_row text-center">
+        <a
+          href="/postpartum-care"
+          class="inline-block bg-[#D37643] text-white font-['Open_Sans'] font-bold text-sm uppercase px-6 py-3.5 rounded-[60px] hover:bg-[#B8551F] transition-colors duration-300"
+        >
+          Learn More About Our Postpartum Care
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Third Section - Other Services -->
+  <section class="et_pb_section et_pb_section_2 bg-white py-16">
+    <div class="container mx-auto max-w-[1080px] px-4">
+      <!-- Section Heading -->
+      <div class="et_pb_row mb-12">
+        <h2 class="text-[#B8551F] text-center font-['Open_Sans'] text-2xl md:text-3xl font-medium">Other Services</h2>
+      </div>
+
+      <!-- Three Service Cards -->
+      <div class="et_pb_row grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Babysitting -->
+        <div class="et_pb_blurb bg-white rounded-[10px] overflow-hidden shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] pb-6 hover:shadow-lg transition-shadow duration-300">
+          <a href="/other-services">
+            <div class="rounded-t-[10px] overflow-hidden mb-4">
+              <Image
+                src={babysitting}
+                alt="Custom Babysitting & Nanny"
+                class="w-full h-auto animate-fadeTop"
+              />
+            </div>
+            <h3 class="font-bold text-[#6B6B6B] text-center px-4">Custom Babysitting & Nanny</h3>
+          </a>
+        </div>
+
+        <!-- Caregiver -->
+        <div class="et_pb_blurb bg-white rounded-[10px] overflow-hidden shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] pb-6 hover:shadow-lg transition-shadow duration-300">
+          <a href="/other-services">
+            <div class="rounded-t-[10px] overflow-hidden mb-4">
+              <Image
+                src={caregiver}
+                alt="Caregiver Services"
+                class="w-full h-auto animate-fadeTop"
+              />
+            </div>
+            <h3 class="font-bold text-[#6B6B6B] text-center px-4">Caregiver Services</h3>
+          </a>
+        </div>
+
+        <!-- Housekeeping -->
+        <div class="et_pb_blurb bg-white rounded-[10px] overflow-hidden shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] pb-6 hover:shadow-lg transition-shadow duration-300">
+          <a href="/other-services">
+            <div class="rounded-t-[10px] overflow-hidden mb-4">
+              <Image
+                src={housekeeping}
+                alt="Housekeeping Services"
+                class="w-full h-auto animate-fadeTop"
+              />
+            </div>
+            <h3 class="font-bold text-[#6B6B6B] text-center px-4">Housekeeping Services</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="et_pb_section bg-[#ffc1c1] py-16 relative overflow-hidden">
+
+    <div class="container mx-auto max-w-[1080px] px-4 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="et_pb_testimonial bg-gradient-to-b from-[#fef0da] to-white rounded-lg p-6 shadow-[0_10px_61px_-11px_rgba(0,0,0,0.3)] relative">
+          <div class="text-[#6B6B6B] text-6xl absolute top-4 left-4 opacity-20">"</div>
+          <p class="text-gray-700 mb-4 relative z-10">Living up to its 15-year tradition, everything was systematic and professional. The caregiver's experience and expertise were truly amazing. Choosing Mom Helper USA was the best decision.</p>
+          <div class="text-right">
+            <p class="font-bold text-gray-800">Susan Lee</p>
+            <p class="text-sm text-gray-600">Los Angeles</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="et_pb_testimonial bg-gradient-to-b from-[#fef0da] to-white rounded-lg p-6 shadow-[0_10px_61px_-11px_rgba(0,0,0,0.3)] relative">
+          <div class="text-[#6B6B6B] text-6xl absolute top-4 left-4 opacity-20">"</div>
+          <p class="text-gray-700 mb-4 relative z-10">I received warm and attentive care as if my mother was taking care of me in Korea. I'm so grateful to have received traditional Korean postpartum care in the United States.</p>
+          <div class="text-right">
+            <p class="font-bold text-gray-800">Michelle Park</p>
+            <p class="text-sm text-gray-600">Irvine</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="et_pb_testimonial bg-gradient-to-b from-[#fef0da] to-white rounded-lg p-6 shadow-[0_10px_61px_-11px_rgba(0,0,0,0.3)] relative">
+          <div class="text-[#6B6B6B] text-6xl absolute top-4 left-4 opacity-20">"</div>
+          <p class="text-gray-700 mb-4 relative z-10">I used Mom Helper USA services for both my first and second child. Knowing it's a trustworthy company, I will definitely choose them for my third child as well.</p>
+          <div class="text-right">
+            <p class="font-bold text-gray-800">Jennifer Kim</p>
+            <p class="text-sm text-gray-600">Torrance</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="text-center mt-12">
+        <a
+          href="/book-online"
+          class="inline-block bg-[#D37643] text-white font-['Open_Sans'] px-8 py-3 rounded-[25px] hover:bg-[#B8551F] transition-colors duration-300 text-lg"
+        >
+          Apply Now →
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeTop {
+    from {
+      opacity: 0;
+      transform: translateY(-10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .animate-fadeTop {
+    animation: fadeTop 0.6s ease-in-out;
+  }
+</style>
