@@ -1,6 +1,16 @@
 ---
 import favIcon from '~/assets/favicons/favicon.png';
+import appleTouchIcon from '~/assets/favicons/apple-touch-icon.png';
 ---
 
+<!-- Standard favicon -->
+<link rel="icon" type="image/png" sizes="192x192" href={favIcon.src} />
 <link rel="shortcut icon" href={favIcon.src} />
-<link rel="icon" type="image/png" href={favIcon.src} />
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
+
+<!-- Additional sizes for better compatibility -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
