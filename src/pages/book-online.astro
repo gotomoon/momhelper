@@ -1,237 +1,162 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Contact from '~/components/widgets/Contact.astro';
-import Content from '~/components/widgets/Content.astro';
-import Note from '~/components/widgets/Note.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: 'Book Online — Mom Helper USA',
-  description: 'Book postpartum care services. Reserve personalized care with our easy online booking.',
+  title: 'Book Online | Mom Helper USA',
+  description: 'Book postpartum care services. Schedule your customized care with our easy online booking form.',
 };
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero Widget -->
-  <Hero
-    tagline="Book Service"
-    title="Book Postpartum Care Services"
-    subtitle="Complete the form below to reserve personalized postpartum care services"
-  />
+  <!-- Hero Section -->
+  <WPPageHero title="Book Online" />
 
-  <!-- Important Notice -->
-  <Note
-    title="Before You Apply"
-    content="We recommend booking at least 1-2 months before your due date. For peak season (September-December), please book even earlier."
-  />
+  <!-- Form Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">Postpartum Care Booking Form</h2>
 
-  <!-- Pre-Application Information -->
-  <Content
-    title="Application Process"
-    subtitle="Step-by-step guide for seamless service"
-    items={[
-      {
-        title: 'Step 1: Online Application',
-        description: 'Complete and submit the application form below',
-      },
-      {
-        title: 'Step 2: Consultation Call',
-        description: 'Our team will contact you within 24 hours for detailed consultation',
-      },
-      {
-        title: 'Step 3: Schedule Confirmation',
-        description: 'We will match you with a caregiver and confirm your service dates',
-      },
-      {
-        title: 'Step 4: Deposit Payment',
-        description: 'Your booking is confirmed once the deposit is paid',
-      },
-      {
-        title: 'Step 5: Service Begins',
-        description: 'Professional caregiver arrives on scheduled date to begin service',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Application Form -->
-  <Contact
-    id="application-form"
-    title="Service Application Form"
-    subtitle="Please complete all fields accurately"
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Mother\'s Full Name *',
-        placeholder: 'Jane Doe',
-      },
-      {
-        type: 'tel',
-        name: 'phone',
-        label: 'Phone Number *',
-        placeholder: '(213) 123-4567',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email Address *',
-        placeholder: 'your@email.com',
-      },
-      {
-        type: 'text',
-        name: 'address',
-        label: 'Service Address (City/County) *',
-        placeholder: 'Los Angeles, CA',
-      },
-      {
-        type: 'date',
-        name: 'due_date',
-        label: 'Due Date *',
-        placeholder: '',
-      },
-      {
-        type: 'text',
-        name: 'service_type',
-        label: 'Service Type *',
-        placeholder: 'Commuting or Live-in',
-      },
-      {
-        type: 'text',
-        name: 'service_duration',
-        label: 'Desired Service Duration *',
-        placeholder: 'e.g., 4 weeks',
-      },
-      {
-        type: 'text',
-        name: 'family_size',
-        label: 'Family Composition',
-        placeholder: 'e.g., Mother, spouse, newborn',
-      },
-    ]}
-    textarea={{
-      label: 'Additional Requests',
-      name: 'additional_notes',
-      placeholder: 'Please enter any special considerations or questions...',
-      rows: 5,
-    }}
-    disclaimer={{
-      label: 'I agree to the collection and use of personal information. The information provided will only be used for service delivery purposes.',
-    }}
-    description="After submitting your application, our team will contact you within 24 hours."
-    button="Submit Application"
-    formName="service-application"
-  />
-
-  <!-- Required Documents -->
-  <Content
-    title="Required Documents"
-    subtitle="Documents needed before service begins"
-    isReversed
-    items={[
-      {
-        title: 'Identification',
-        description: 'Copy of mother or guardian\'s ID (driver\'s license or passport)',
-      },
-      {
-        title: 'Birth-Related Documents',
-        description: 'Due date confirmation or birth certificate',
-      },
-      {
-        title: 'Address Verification',
-        description: 'Document confirming service location address (utility bill, etc.)',
-      },
-      {
-        title: 'Service Contract',
-        description: 'Service agreement (provided upon booking confirmation)',
-      },
-    ]}
-  />
-
-  <!-- Service Policies -->
-  <Content
-    title="Service Terms & Conditions"
-    subtitle="Please read carefully"
-  >
-    <Fragment slot="content">
-      <div class="prose prose-lg dark:prose-invert max-w-none">
-        <h3 class="text-xl font-bold mb-4">Booking & Cancellation Policy</h3>
-        <ul class="space-y-3 mb-6">
-          <li><strong>Deposit:</strong> Deposits of $300-$1,100 required based on service duration</li>
-          <li><strong>Booking Changes:</strong> Free changes available up to 7 days before service start</li>
-          <li><strong>Cancellation:</strong> 50% deposit refund for cancellations 7+ days before service start</li>
-          <li><strong>No-Show:</strong> No deposit refund for failure to use service without prior notice</li>
-        </ul>
-
-        <h3 class="text-xl font-bold mb-4">Payment Methods</h3>
-        <ul class="space-y-3 mb-6">
-          <li>Check</li>
-          <li>Zelle</li>
-          <li>Cash</li>
-          <li>Wire Transfer</li>
-        </ul>
-
-        <h3 class="text-xl font-bold mb-4">Service Hours</h3>
-        <ul class="space-y-3 mb-6">
-          <li><strong>Commuting Care:</strong> 9am - 5pm (Monday-Friday)</li>
-          <li><strong>Live-in Care:</strong> 24-hour care (Monday-Friday, weekends by arrangement)</li>
-          <li><strong>Overtime:</strong> Additional fees apply for services beyond scheduled hours</li>
-        </ul>
-
-        <h3 class="text-xl font-bold mb-4">Other Important Notes</h3>
-        <ul class="space-y-3">
-          <li>Caregivers are not medical professionals and do not provide medical services</li>
-          <li>In case of emergency, immediately call 911 and notify the guardian</li>
-          <li>Responsibility for property damage during service will be discussed case by case</li>
-          <li>Please inform us in advance if you have pets for caregiver safety</li>
-        </ul>
+      <div class="mb-8">
+        <h4 class="text-lg font-semibold text-[#d37643] mb-4">Please fill out the postpartum care booking form</h4>
+        <p class="text-gray-700">Please select or provide your preferences for postpartum care services.</p>
       </div>
-    </Fragment>
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
 
-  <!-- Contact Information -->
-  <section class="px-4 py-16 mx-auto max-w-4xl text-center">
-    <h2 class="text-3xl font-bold mb-6">Have Questions?</h2>
-    <p class="text-xl text-muted mb-8">
-      If you have any questions before applying, please contact us anytime
-    </p>
-    <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-      <div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-md">
-        <div class="text-primary mb-3">
-          <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-          </svg>
+      <form id="application_form" class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+        <!-- Name and Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Name">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Email">
+          </div>
         </div>
-        <h3 class="font-bold mb-2">Phone</h3>
-        <a href="tel:+12138084415" class="text-primary hover:underline">(213) 808-4415</a>
-      </div>
 
-      <div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-md">
-        <div class="text-primary mb-3">
-          <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Phone Number">
         </div>
-        <h3 class="font-bold mb-2">Email</h3>
-        <a href="mailto:momhelperusa10@gmail.com" class="text-primary hover:underline break-all">momhelperusa10@gmail.com</a>
-      </div>
 
-      <div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-md">
-        <div class="text-primary mb-3">
-          <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-          </svg>
+        <!-- Address -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="street" class="block text-sm font-medium text-gray-700 mb-2">Service Address: Street *</label>
+            <input type="text" id="street" name="street" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Street">
+          </div>
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+            <input type="text" id="city" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="City">
+          </div>
         </div>
-        <h3 class="font-bold mb-2">KakaoTalk</h3>
-        <span class="text-primary font-semibold">momhelper.usa</span>
-      </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="state" class="block text-sm font-medium text-gray-700 mb-2">State *</label>
+            <input type="text" id="state" name="state" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="State">
+          </div>
+          <div>
+            <label for="zip" class="block text-sm font-medium text-gray-700 mb-2">Zip Code *</label>
+            <input type="text" id="zip" name="zip" required pattern="[0-9\s\-]{5,}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Zip Code">
+          </div>
+        </div>
+
+        <!-- Due Date -->
+        <div>
+          <label for="due_date" class="block text-sm font-medium text-gray-700 mb-2">Due Date (MM/DD/YYYY)</label>
+          <input type="text" id="due_date" name="due_date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Due Date">
+        </div>
+
+        <!-- Birth Type and Service Type -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Birth Type</label>
+            <div class="space-y-2">
+              <label class="flex items-center"><input type="radio" name="birth_type" value="Natural Birth" class="mr-2 text-[#d37643]"> Natural Birth</label>
+              <label class="flex items-center"><input type="radio" name="birth_type" value="C-Section" class="mr-2 text-[#d37643]"> C-Section</label>
+              <label class="flex items-center"><input type="radio" name="birth_type" value="Undecided" class="mr-2 text-[#d37643]"> Undecided</label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Service Type</label>
+            <div class="space-y-2">
+              <label class="flex items-center"><input type="radio" name="service_type" value="Commute" class="mr-2 text-[#d37643]"> Commute</label>
+              <label class="flex items-center"><input type="radio" name="service_type" value="Live-In" class="mr-2 text-[#d37643]"> Live-In</label>
+              <label class="flex items-center"><input type="radio" name="service_type" value="Mixed" class="mr-2 text-[#d37643]"> Mixed</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Duration -->
+        <div>
+          <label for="service_duration" class="block text-sm font-medium text-gray-700 mb-2">Service Duration *</label>
+          <input type="text" id="service_duration" name="service_duration" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Number of weeks (1 week = 5 days) or months">
+        </div>
+
+        <!-- Duration Details -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="commute_duration" class="block text-sm font-medium text-gray-700 mb-2">Commute (weeks or months)</label>
+            <input type="text" id="commute_duration" name="commute_duration" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Commute">
+          </div>
+          <div>
+            <label for="livein_duration" class="block text-sm font-medium text-gray-700 mb-2">Live-In (weeks or months)</label>
+            <input type="text" id="livein_duration" name="livein_duration" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Live-In">
+          </div>
+          <div>
+            <label for="mixed_duration" class="block text-sm font-medium text-gray-700 mb-2">Mixed (weeks or months)</label>
+            <input type="text" id="mixed_duration" name="mixed_duration" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Mixed">
+          </div>
+        </div>
+
+        <!-- Older Children and Twins -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Older Children</label>
+            <div class="space-y-2">
+              <label class="flex items-center"><input type="radio" name="older_children" value="First Child" class="mr-2 text-[#d37643]"> First Child</label>
+              <label class="flex items-center"><input type="radio" name="older_children" value="1" class="mr-2 text-[#d37643]"> 1</label>
+              <label class="flex items-center"><input type="radio" name="older_children" value="2" class="mr-2 text-[#d37643]"> 2</label>
+              <label class="flex items-center"><input type="radio" name="older_children" value="3 or more" class="mr-2 text-[#d37643]"> 3 or more</label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Twins</label>
+            <div class="space-y-2">
+              <label class="flex items-center"><input type="radio" name="twins" value="Yes" class="mr-2 text-[#d37643]"> Yes</label>
+              <label class="flex items-center"><input type="radio" name="twins" value="No" class="mr-2 text-[#d37643]"> No</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Notes -->
+        <div>
+          <label for="notes" class="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
+          <textarea id="notes" name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Additional Notes"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="bg-[#d37643] text-white font-bold px-8 py-3 rounded-lg hover:bg-[#b8551f] transition-colors">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Important Notes Section -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">Postpartum Care Service Booking</h2>
+      <ul class="list-disc list-inside space-y-3 text-gray-700">
+        <li>For mixed service (commute + live-in), the live-in deposit rate applies.</li>
+        <li>Extensions may not be available depending on the schedule of other mothers.</li>
+        <li>Service fees are paid directly to the caregiver on a weekly basis after service begins.</li>
+      </ul>
     </div>
   </section>
 </PageLayout>

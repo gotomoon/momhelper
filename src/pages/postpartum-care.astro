@@ -1,419 +1,142 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-import { Image } from 'astro:assets';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
-import momHoldingBaby from '~/assets/images/momhelper/misc/mom-holding-baby.webp';
-import cookingImage from '~/assets/images/momhelper/misc/가사도우미-요리-1395.webp';
 
 const metadata = {
-  title: 'Postpartum Care Services — Mom Helper USA',
-  description: 'Professional maternal care, newborn care, and household support services provided by trained postpartum caregivers',
+  title: 'Postpartum Care | Mom Helper USA',
+  description: 'Maternal care, newborn care, family care and housekeeping services provided by Mom Helper USA.',
 };
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero Section - NO LOGO for non-homepage pages -->
-  <WPPageHero
-    title="Postpartum Care Services"
-    subtitle="Personalized services provided by professional postpartum caregivers"
-  />
+  <!-- Hero Section -->
+  <WPPageHero title="Postpartum Care" />
 
   <!-- Basic Services Section -->
-  <section class="et_pb_section bg-[#f7f7f7] py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="et_pb_row mb-8">
-        <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold text-center mb-4">
-          Basic Services
-        </h2>
-        <p class="text-center text-gray-600 text-sm italic">
-          *Services may vary depending on the family's circumstances.
-        </p>
-      </div>
-
-      <!-- Three Column Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <!-- Column 1: Mother Care -->
-        <div class="bg-white rounded-lg p-6 shadow-md">
-          <h3 class="text-[#D37643] font-['Open_Sans'] text-xl font-bold mb-4 text-center">
-            Maternal Care
-          </h3>
-          <ul class="space-y-2 text-gray-700">
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Breastfeeding support</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Postpartum massage</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Recovery support</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Emotional support</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Hygiene and nutrition management</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 2: Newborn Care -->
-        <div class="bg-white rounded-lg p-6 shadow-md">
-          <h3 class="text-[#D37643] font-['Open_Sans'] text-xl font-bold mb-4 text-center">
-            Newborn Care
-          </h3>
-          <ul class="space-y-2 text-gray-700">
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Nursery management</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Baby log recording</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Feeding and sleep schedule management</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Bathing and umbilical cord care</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Bottle sterilization</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Family Care -->
-        <div class="bg-white rounded-lg p-6 shadow-md">
-          <h3 class="text-[#D37643] font-['Open_Sans'] text-xl font-bold mb-4 text-center">
-            Family Care / Household Services
-          </h3>
-          <ul class="space-y-2 text-gray-700">
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Limited childcare assistance</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Meal preparation for other children</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Support based on family circumstances</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mother Care Details with Image -->
-  <section class="et_pb_section bg-white py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Left: Image -->
-        <div class="order-2 md:order-1">
-          <div class="rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={momHoldingBaby}
-              alt="Mother and baby"
-              class="w-full h-auto"
-            />
-          </div>
-        </div>
-
-        <!-- Right: Content -->
-        <div class="order-1 md:order-2">
-          <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold mb-6">
-            Maternal Care
-          </h2>
-          <div class="space-y-4 text-gray-700">
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Breastfeeding Support</h4>
-              <p>Professional breastfeeding guidance and breast care</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Postpartum Massage</h4>
-              <p>Professional massage to aid postpartum recovery</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Recovery Support</h4>
-              <p>Postpartum exercises and health recovery guidance</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Emotional Support</h4>
-              <p>Emotional care to prevent postpartum depression</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Hygiene and Nutrition Management</h4>
-              <p>Personal hygiene management and nutritious meal provision</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Household Services with Image -->
-  <section class="et_pb_section bg-[#f7f7f7] py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Left: Content -->
-        <div>
-          <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold mb-6">
-            Household Services
-          </h2>
-          <div class="space-y-4 text-gray-700">
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Meal Preparation</h4>
-              <p>Nutritious meals for mothers and family meal preparation</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Kitchen Organization</h4>
-              <p>Dishwashing and kitchen cleaning</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Laundry Management</h4>
-              <p>Laundry for mother and baby clothing</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-2">Cleaning</h4>
-              <p>Maintaining cleanliness of living spaces</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Image -->
-        <div>
-          <div class="rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={cookingImage}
-              alt="Housekeeping cooking"
-              class="w-full h-auto"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Reservation Section -->
-  <section class="et_pb_section bg-white py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="et_pb_row mb-8">
-        <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold text-center mb-6">
-          Service Reservation
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-[#fff7f4] rounded-lg p-6">
-          <h3 class="text-[#D37643] font-bold text-xl mb-4">Reservation Process</h3>
-          <ul class="space-y-3 text-gray-700">
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2 font-bold">1.</span>
-              <span>Apply for reservation online or by phone</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2 font-bold">2.</span>
-              <span>Consultation with manager</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2 font-bold">3.</span>
-              <span>Deposit payment</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2 font-bold">4.</span>
-              <span>Service begins</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="bg-[#fff7f4] rounded-lg p-6">
-          <h3 class="text-[#D37643] font-bold text-xl mb-4">Service Fees</h3>
-          <ul class="space-y-3 text-gray-700">
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Fees may vary by region</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Additional costs for extra family members beyond basic family</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-[#D37643] mr-2">•</span>
-              <span>Payment directly to caregiver</span>
-            </li>
-          </ul>
-          <div class="mt-4">
-            <a
-              href="/pricing"
-              class="inline-block bg-[#D37643] text-white font-bold px-6 py-2 rounded-full hover:bg-[#B8551F] transition-colors"
-            >
-              View Pricing
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Extension Section -->
-  <section class="et_pb_section bg-[#f7f7f7] py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="et_pb_row mb-8">
-        <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold text-center mb-6">
-          Service Extension and Changes
-        </h2>
-      </div>
-
-      <div class="bg-white rounded-lg p-8 shadow-md">
-        <div class="space-y-4 text-gray-700">
-          <div>
-            <h4 class="font-bold text-[#D37643] text-lg mb-2">Service Extension</h4>
-            <p>Notice required before 50% of service period</p>
-          </div>
-          <div>
-            <h4 class="font-bold text-[#D37643] text-lg mb-2">Flexible Schedule</h4>
-            <p>Schedule adjustments available based on family needs</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Holiday Policy Section -->
-  <section class="et_pb_section bg-white py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="et_pb_row mb-8">
-        <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold text-center mb-6">
-          Holiday Policy
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-[#fff7f4] rounded-lg p-6 text-center">
-          <h4 class="font-bold text-[#D37643] text-lg mb-3">5-Day Work Week</h4>
-          <p class="text-gray-700 text-sm">Basic 5-day work week provided</p>
-        </div>
-
-        <div class="bg-[#fff7f4] rounded-lg p-6 text-center">
-          <h4 class="font-bold text-[#D37643] text-lg mb-3">Holiday Consultation</h4>
-          <p class="text-gray-700 text-sm">Holiday work negotiable</p>
-        </div>
-
-        <div class="bg-[#fff7f4] rounded-lg p-6 text-center">
-          <h4 class="font-bold text-[#D37643] text-lg mb-3">Automatic Extension</h4>
-          <p class="text-gray-700 text-sm">Service automatically extended for holidays</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Important Notes Section -->
-  <section class="et_pb_section bg-[#f7f7f7] py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <div class="et_pb_row mb-8">
-        <h2 class="text-[#B8551F] font-['Open_Sans'] text-2xl md:text-3xl font-bold text-center mb-6">
-          Important Notes
-        </h2>
-      </div>
-
-      <div class="bg-white rounded-lg p-8 shadow-md">
-        <div class="space-y-4 text-gray-700">
-          <div class="flex items-start">
-            <span class="text-[#D37643] mr-3 text-xl">•</span>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-1">Service Scope Clarification</h4>
-              <p class="text-sm">Clearly define the scope of caregiver duties</p>
-            </div>
-          </div>
-          <div class="flex items-start">
-            <span class="text-[#D37643] mr-3 text-xl">•</span>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-1">Medical Information Provision</h4>
-              <p class="text-sm">Provide medical information and emergency contacts for mother and baby</p>
-            </div>
-          </div>
-          <div class="flex items-start">
-            <span class="text-[#D37643] mr-3 text-xl">•</span>
-            <div>
-              <h4 class="font-bold text-[#D37643] mb-1">Home Monitoring Devices</h4>
-              <p class="text-sm">Prior notice required if CCTV or monitoring devices are present</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="et_pb_section bg-[#D37643] py-16">
-    <div class="container mx-auto max-w-[1080px] px-4 text-center">
-      <h2 class="text-white font-['Open_Sans'] text-2xl md:text-3xl font-bold mb-4">
-        Apply for Postpartum Care Services Now
-      </h2>
-      <p class="text-white text-lg mb-8">
-        Start your safe and comfortable postpartum recovery with professional caregivers
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800">Basic Services</h2>
+      <hr class="border-gray-300 mb-6" />
+      <p class="text-base md:text-lg text-gray-700 font-semibold mb-12">
+        The service may vary depending on the circumstances of each household.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/book-online"
-          class="inline-block bg-white text-[#D37643] font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
-        >
-          Apply for Service
-        </a>
-        <a
-          href="/pricing"
-          class="inline-block bg-transparent text-white border-2 border-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-[#D37643] transition-colors"
-        >
-          Check Pricing
-        </a>
+
+      <h3 class="text-xl md:text-2xl font-bold mb-8 text-[#d37643]">Postpartum Care</h3>
+
+      <!-- Maternal Care & Newborn Care -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Maternal Care -->
+        <div>
+          <img
+            src="/images/mom-holding-baby.webp"
+            alt="Maternal Care"
+            class="w-full h-auto rounded-lg mb-6"
+          />
+          <h4 class="text-lg font-bold text-gray-800 mb-4">Maternal Care</h4>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Support for successful breastfeeding</li>
+            <li>Breast massage to relieve engorgement</li>
+            <li>Support for postpartum healing (sitz baths for pain relief and wound healing)</li>
+            <li>Massage or postpartum exercise support, emotional support</li>
+            <li>Hygiene management, nutrition management, meal preparation, and kitchen cleanliness</li>
+          </ul>
+        </div>
+
+        <!-- Newborn Care -->
+        <div>
+          <img
+            src="/images/baby-hand.jpeg"
+            alt="Newborn Care"
+            class="w-full h-auto rounded-lg mb-6"
+          />
+          <h4 class="text-lg font-bold text-gray-800 mb-4">Newborn Care</h4>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Management of the newborn's room and items</li>
+            <li>Recording and managing newborn activities (diapers, feeding status)</li>
+            <li>Managing feeding and sleeping cycles, providing advice</li>
+            <li>Newborn bathing, umbilical cord care, massages, and changing clothes</li>
+            <li>Sterilizing bottles, managing breast pumps</li>
+            <li>Accompanying mother and baby on outings and providing light household help if needed</li>
+          </ul>
+        </div>
       </div>
-      <div class="mt-8 text-white">
-        <p class="mb-2">
-          <strong>Phone:</strong> <a href="tel:2138084415" class="hover:underline">(213) 808-4415</a>
-        </p>
-        <p class="mb-2">
-          <strong>Email:</strong> <a href="mailto:momhelperusa10@gmail.com" class="hover:underline">momhelperusa10@gmail.com</a>
-        </p>
-        <p>
-          <strong>KakaoTalk ID:</strong> momhelper.usa
-        </p>
+
+      <!-- Family Care / Housekeeping -->
+      <h4 class="text-lg font-bold text-gray-800 mb-6">Family Care / Housekeeping Services</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <img
+            src="/images/가사도우미-요리-1395.webp"
+            alt="Housekeeping cooking"
+            class="w-full h-auto rounded-lg"
+          />
+        </div>
+        <div>
+          <p class="text-gray-700 font-semibold mb-4">
+            The primary duty of the caregiver is to take care of the mother and newborn. They also look after the older child when the baby's father is on a business trip.
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+            <li>Examples are dropping off and picking up from kindergarten (not including driving), preparing meals and snacks, washing hands and face, tidying toys, etc.</li>
+            <li><strong>Adjustments to tasks can be made depending on the situation</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-lg mb-12">
+        <p class="text-gray-700 font-semibold mb-4">As a postpartum helper, the caregiver provides only a limited portion of housekeeping services.</p>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li>Services may change or be omitted based on the health status of the mother and newborn.</li>
+          <li>The caregiver does not support household tasks that are not directly related to postpartum care, such as preparing side dishes for other family members, cleaning the entire house, doing laundry for the family, washing bedding, ironing large amounts of clothes, making kimchi, entertaining guests, or preparing packed lunches.</li>
+          <li>Additional charges may apply if household tasks not directly related to postpartum care are requested.</li>
+        </ul>
+      </div>
+
+      <!-- Basic Service Recipients -->
+      <h3 class="text-xl md:text-2xl font-bold mb-6 text-[#d37643]">Basic Service Recipients</h3>
+      <p class="text-gray-700 mb-6">
+        The basic service recipients include the mother, father, and newborn.<br />
+        Additional daily charges apply for extra family members not included in the basic service.
+      </p>
+
+      <!-- Pricing Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-[#d37643] text-white">
+              <th class="p-4 text-left font-semibold">Title</th>
+              <th class="p-4 text-left font-semibold border-l border-white/30">Commute</th>
+              <th class="p-4 text-left font-semibold border-l border-white/30">Live-In</th>
+            </tr>
+          </thead>
+          <tbody class="bg-gray-50">
+            <tr class="border-b border-gray-200">
+              <td class="p-4">1. Extra Member in addition to Family Members</td>
+              <td class="p-4 border-l border-gray-200">$10</td>
+              <td class="p-4 border-l border-gray-200">$20</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="p-4">2. One School-Age Child (K-12)</td>
+              <td class="p-4 border-l border-gray-200">$5</td>
+              <td class="p-4 border-l border-gray-200">$10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="p-4">3. Preschool Child</td>
+              <td class="p-4 border-l border-gray-200">$10</td>
+              <td class="p-4 border-l border-gray-200">$20</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="p-4">4. Twin/Multiple Children</td>
+              <td class="p-4 border-l border-gray-200">$20</td>
+              <td class="p-4 border-l border-gray-200">$40</td>
+            </tr>
+            <tr>
+              <td class="p-4">5. Weekend/Holiday Work</td>
+              <td class="p-4 border-l border-gray-200">No additional charge, calculated by date</td>
+              <td class="p-4 border-l border-gray-200">No additional charge, calculated by date</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 </PageLayout>
-
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.6s ease-in-out;
-  }
-
-  .et_pb_section {
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  @media (max-width: 768px) {
-    .grid {
-      gap: 1.5rem;
-    }
-  }
-</style>

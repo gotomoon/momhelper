@@ -1,160 +1,160 @@
 ---
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: 'Other Services — Mom Helper USA',
+  title: 'Other Services | Mom Helper USA',
+  description: 'Babysitter/Nanny, Household Assistance, and Caregiver services provided by Mom Helper USA.',
 };
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget -->
-  <Hero
-    tagline="Additional Services"
-    title="Supporting Your Family Beyond Postpartum Care"
-  >
-    <Fragment slot="subtitle">
-      In addition to postpartum care, we offer a range of professional services to support your family's needs at every stage.
-    </Fragment>
-  </Hero>
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="Other Services" />
 
-  <!-- Features3 Widget -->
-  <Features3
-    title="Our Additional Services"
-    subtitle="Reliable, professional support for your family"
-    columns={3}
-    items={[
-      {
-        title: 'Custom Babysitting',
-        description: 'Professional and reliable babysitting services tailored to your family\'s needs. Our experienced caregivers provide safe, engaging care for children of all ages.',
-        icon: 'tabler:baby-carriage',
-      },
-      {
-        title: 'Professional Caregivers',
-        description: 'Experienced caregivers for all your childcare and family care needs. From infant care to toddler activities, we provide trustworthy support.',
-        icon: 'tabler:users',
-      },
-      {
-        title: 'Reliable Housekeeping',
-        description: 'Maintain a clean and organized home while you focus on what matters most. Our housekeeping services help busy families stay on top of household tasks.',
-        icon: 'tabler:home',
-      },
-    ]}
-  />
+  <!-- Other Service Types Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-800">Other Service Types</h2>
 
-  <!-- Features3 Widget - Service Details -->
-  <Features3
-    title="Babysitting Services"
-    subtitle="Safe, engaging care for your children"
-    columns={2}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Date Night Care',
-        description: 'Enjoy an evening out knowing your children are in capable, caring hands.',
-        icon: 'tabler:clock',
-      },
-      {
-        title: 'Regular Scheduled Care',
-        description: 'Weekly or bi-weekly babysitting for working parents or regular commitments.',
-        icon: 'tabler:calendar',
-      },
-      {
-        title: 'Emergency Backup Care',
-        description: 'Last-minute childcare when your regular arrangements fall through.',
-        icon: 'tabler:urgent',
-      },
-      {
-        title: 'Special Needs Care',
-        description: 'Caregivers trained to work with children with special needs and requirements.',
-        icon: 'tabler:heart',
-      },
-    ]}
-  />
+      <!-- Babysitter/Nanny -->
+      <div class="mb-16">
+        <h3 class="text-xl md:text-2xl font-bold text-gray-800">Babysitter/Nanny</h3>
+        <div class="w-16 h-1 bg-[#d37643] mb-8"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div>
+            <img
+              src="/images/babysitting.webp"
+              alt="Babysitter/Nanny"
+              class="w-full h-auto rounded-lg"
+            />
+          </div>
+          <div>
+            <p class="text-[#d37643] font-semibold mb-4">
+              With a mother's heart, we care for your beloved children so they do not feel the absence of their mom.
+            </p>
+            <p class="text-gray-700 mb-6">
+              We provide age-appropriate activities, meal and snack preparation, bathing, and pickups to ensure the safety and well-being of your children.
+            </p>
+            <h4 class="font-bold text-gray-800 mb-3">Age-Specific Services</h4>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li><strong>Ages 0–2:</strong> Primary responsibilities include baby-related tasks such as feeding, preparing baby food, preparing meals/snacks, sterilizing bottles, washing and organizing baby clothes, and managing the baby's room and belongings. Household chores can be adjusted based on prior agreement with the client.</li>
+              <li><strong>Ages 3 – School Age:</strong> Primary responsibilities include age-appropriate play, preparing snacks/meals, bathing (optional), and pick-up. Household chores can be adjusted based on prior agreement with the client.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-  <!-- Features3 Widget - Caregiver Services -->
-  <Features3
-    title="Professional Caregiver Services"
-    subtitle="Experienced support for your family"
-    columns={2}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Infant Care',
-        description: 'Specialized care for babies including feeding, diapering, and sleep support.',
-        icon: 'tabler:baby-bottle',
-      },
-      {
-        title: 'Toddler Care',
-        description: 'Active, engaging care with age-appropriate activities and developmental support.',
-        icon: 'tabler:puzzle',
-      },
-      {
-        title: 'Multiple Children',
-        description: 'Experienced caregivers who can handle siblings of different ages.',
-        icon: 'tabler:friends',
-      },
-      {
-        title: 'Activity Planning',
-        description: 'Thoughtful, educational activities that keep children engaged and learning.',
-        icon: 'tabler:palette',
-      },
-    ]}
-  />
+      <!-- Household Assistance -->
+      <div class="mb-16">
+        <h3 class="text-xl md:text-2xl font-bold text-gray-800">Household Assistance</h3>
+        <div class="w-16 h-1 bg-[#d37643] mb-8"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div class="order-2 md:order-1">
+            <p class="text-[#d37643] font-semibold mb-4">
+              We provide assistance with house cleaning, laundry, organizing, kitchen cleaning, and meal preparation by visiting your home.
+            </p>
+            <h4 class="font-bold text-gray-800 mb-3">Types of Household Helpers</h4>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li><strong>Household Assistance:</strong> We visit the client's home to assist with meal preparation, house cleaning, laundry, organization, and kitchen tidying.</li>
+              <li><strong>Cleaning Assistance:</strong> We provide cleaning services for homes, offices, and pre/post-move cleaning.</li>
+              <li><strong>Meal Assistance:</strong> We prepare homemade meals using natural seasonings.</li>
+            </ul>
+          </div>
+          <div class="order-1 md:order-2">
+            <img
+              src="/images/housekeeping-cooking.webp"
+              alt="Household Assistance"
+              class="w-full h-auto rounded-lg"
+            />
+          </div>
+        </div>
+      </div>
 
-  <!-- Features3 Widget - Housekeeping -->
-  <Features3
-    title="Housekeeping Services"
-    subtitle="Keep your home clean and organized"
-    columns={2}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Regular Cleaning',
-        description: 'Weekly or bi-weekly cleaning to maintain a fresh, organized home.',
-        icon: 'tabler:sparkles',
-      },
-      {
-        title: 'Deep Cleaning',
-        description: 'Thorough cleaning for moving in/out, post-event, or seasonal refreshes.',
-        icon: 'tabler:wash',
-      },
-      {
-        title: 'Laundry Service',
-        description: 'Washing, folding, and organizing laundry to save you time and effort.',
-        icon: 'tabler:hanger',
-      },
-      {
-        title: 'Organization',
-        description: 'Help organizing closets, pantries, and living spaces for better functionality.',
-        icon: 'tabler:stack',
-      },
-    ]}
-  />
+      <!-- Caregiver Service -->
+      <div class="mb-16">
+        <h3 class="text-xl md:text-2xl font-bold text-gray-800">Caregiver Service</h3>
+        <div class="w-16 h-1 bg-[#d37643] mb-8"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div>
+            <img
+              src="/images/caregiver.webp"
+              alt="Caregiver Service"
+              class="w-full h-auto rounded-lg"
+            />
+          </div>
+          <div>
+            <p class="text-[#d37643] font-semibold mb-4">
+              We assist patients at home, in hospitals, or nursing homes in place of guardians and family members.
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-6">
+              <li><strong>Cleaning:</strong> Patient's room, bathroom, and other used spaces</li>
+              <li><strong>Meal/Snack Preparation:</strong> For the patient</li>
+              <li><strong>Laundry:</strong> Patient's gowns, clothes, bed sheets, towels</li>
+              <li>Walking and Exercise</li>
+              <li><strong>Personal Care Support:</strong> Bowel and bladder care, bathing, grooming</li>
+              <li>Services vary according to patient needs</li>
+            </ul>
+            <h4 class="font-bold text-gray-800 mb-3">Types of Caregivers</h4>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li><strong>Personal Caregiver:</strong> Live-in, Commute (Full-time, Part-time), Overnight, Short-term</li>
+              <li><strong>IHSS Caregiver:</strong> Adjusted based on the monthly service hours of IHSS beneficiaries.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Call to Action Widget -->
-  <CallToAction
-    title="Interested in Our Services?"
-    subtitle="Contact us to discuss which services are right for your family."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Book Online',
-        href: '/book-online',
-      },
-      {
-        variant: 'secondary',
-        text: 'Contact Us',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="subtitle">
-      <p class="text-xl mb-4">Email: <a href="mailto:momhelperusa10@gmail.com" class="text-primary-600 hover:underline">momhelperusa10@gmail.com</a></p>
-      <p class="text-xl mb-4">Phone: <a href="tel:+12138084415" class="text-primary-600 hover:underline">(213) 808-4415</a></p>
-      <p class="text-xl">Kakao Talk ID: momhelper.usa</p>
-    </Fragment>
-  </CallToAction>
-</Layout>
+  <!-- Service Types and Work Forms Section -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-gray-800">Service Types and Work Forms</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Commute-Type -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-[#d37643] mb-4">Commute-Type</h3>
+          <p class="text-gray-700">
+            9 am – 5 pm (Mon-Fri)<br />
+            Or as per the client's preferred schedule<br />
+            For full-time care, a 1-hour break is included daily.
+          </p>
+        </div>
+
+        <!-- Live-In Type -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-[#d37643] mb-4">Live-In Type</h3>
+          <p class="text-gray-700">
+            Live-in services from Monday to Friday<br />
+            The schedule can be adjusted by agreement.<br />
+            A daily 3-hour break is included.
+          </p>
+        </div>
+
+        <!-- Long-Distance/Out-of-State -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-[#d37643] mb-4">Long-Distance/Out-of-State Service</h3>
+          <p class="text-gray-700">
+            Due to the nature of the service, the service period, weekend work, and other conditions can be adjusted in advance with the caregiver.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Information Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Additional Information</h2>
+      <ul class="list-disc list-inside space-y-3 text-gray-700">
+        <li>Tasks unrelated to the agreed-upon duties or caregiver's responsibilities (e.g., babysitting, preparing/picking up meals for other family members, entertaining guests, making kimchi, major cleaning) cannot be requested.</li>
+        <li>Notify us about the presence or planned installation of cameras in the home.</li>
+        <li>If there are changes after starting work (e.g., changes in working hours, additional workdays, changes in duties), contact and discuss with us.</li>
+        <li>Medication: Only physician-prescribed medication will be administered; OTC drugs/supplements are provided after discussing with the family. Notify the family if packaging is damaged or if medication is expired.</li>
+        <li>Patch Use: Only those prescribed by a physician</li>
+        <li>You must inform us in advance of the guardian/family contact information, the patient's medical check-up schedules, hospital/primary care physician contact information, allergies (food, medication), and other important details.</li>
+      </ul>
+    </div>
+  </section>
+</PageLayout>

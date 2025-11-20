@@ -16,6 +16,14 @@ export const headerDataEn = {
       text: 'Postpartum Care',
       links: [
         {
+          text: 'About Postpartum Care',
+          href: getPermalink('/about-postpartum-care'),
+        },
+        {
+          text: 'What is Postpartum Care?',
+          href: getPermalink('/what-is-postpartum-care'),
+        },
+        {
           text: 'Our Postpartum Care Service',
           href: getPermalink('/postpartum-care'),
         },
@@ -45,6 +53,10 @@ export const headerDataEn = {
     {
       text: 'Support',
       links: [
+        {
+          text: 'Prenatal & Postpartum Info',
+          href: getPermalink('/prenatal-postpartum-info'),
+        },
         {
           text: 'Blog',
           href: getPermalink('/blog'),
@@ -105,6 +117,14 @@ export const headerDataKo = {
       text: '산후관리 서비스',
       links: [
         {
+          text: '산후조리에 관하여',
+          href: getPermalink('/ko/산후조리에-관하여'),
+        },
+        {
+          text: '산후관리사란?',
+          href: getPermalink('/ko/산후관리사란'),
+        },
+        {
           text: '산후관리 서비스',
           href: getPermalink('/ko/산후관리-서비스'),
         },
@@ -125,6 +145,10 @@ export const headerDataKo = {
     {
       text: '고객 지원',
       links: [
+        {
+          text: '산전 산후조리 정보',
+          href: getPermalink('/ko/산전-산후조리-정보'),
+        },
         {
           text: '이용후기',
           href: getPermalink('/ko/이용후기'),

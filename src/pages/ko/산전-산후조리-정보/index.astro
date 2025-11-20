@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+import BlogList from '~/components/blog/List.astro';
+import { fetchPosts } from '~/utils/blog';
+
+const metadata = {
+  title: '산전 산후조리 정보 | Mom Helper USA',
+  description: '임신 초기 증상, 좋은 의사 찾기, 지원 프로그램 등 산전 산후 관리에 대한 유용한 정보를 제공합니다.',
+};
+
+// Fetch posts from the Prenatal Care category
+const posts = await fetchPosts();
+const prenatalPosts = posts.filter(post =>
+  post.category?.slug === 'prenatal-care' ||
+  post.category?.title === 'Prenatal Care'
+);
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="산전 산후조리 정보" />
+
+  <!-- Blog Posts Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-800">산전 산후조리 정보</h2>
+
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <span class="px-4 py-2 bg-[#d37643] text-white rounded-full text-sm font-medium">후기 및 추천</span>
+        <span class="px-4 py-2 bg-[#d37643] text-white rounded-full text-sm font-medium">산전 관리</span>
+        <span class="px-4 py-2 bg-[#d37643] text-white rounded-full text-sm font-medium">출산 준비</span>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold text-gray-800 mb-6">최근 게시글</h3>
+        {prenatalPosts.length > 0 ? (
+          <BlogList posts={prenatalPosts} />
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Post Card 1 -->
+            <a href="/early-pregnancy-symptoms" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="p-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3 hover:text-[#d37643]">
+                  임신 초기 증상: 행복한 시작을 위한 필수 가이드와 미국에서의 관리법
+                </h4>
+                <p class="text-gray-600 text-sm mb-4">
+                  안녕하세요, 사랑하는 예비 엄마 여러분! 오늘은 임신 초기 증상에 대해 이야기해 보겠습니다. 임신 초기는 기쁘고 신비로운 시간이지만, 많은 변화가 있는 시기이기도 합니다...
+                </p>
+                <span class="text-[#d37643] text-sm font-medium">자세히 보기 →</span>
+              </div>
+            </a>
+
+            <!-- Post Card 2 -->
+            <a href="/finding-good-obstetrician" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="p-6">
+                <h4 class="text-lg font-bold text-gray-800 mb-3 hover:text-[#d37643]">
+                  임신초기: 좋은 의사와 보조 프로그램 찾기
+                </h4>
+                <p class="text-gray-600 text-sm mb-4">
+                  좋은 의사와 병원 찾기: 미국에서는 Healthgrades와 Zocdoc 같은 웹사이트를 통해 쉽게 평판 좋은 의사와 병원을 찾을 수 있습니다...
+                </p>
+                <span class="text-[#d37643] text-sm font-medium">자세히 보기 →</span>
+              </div>
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Layout>
