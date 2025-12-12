@@ -1,85 +1,331 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: 'Contact — Mom Helper USA',
+  title: 'Contact Us — Mom Helper USA',
+  description: 'Contact Mom Helper USA for consultations and reservations. Reach us by phone, email, or Kakao Talk.',
 };
 ---
 
-<Layout metadata={metadata}>
-  <!-- HeroText Widget -->
-  <HeroText
-    tagline="Contact Us"
-    title="Let's Connect!"
-  />
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="Contact Us" />
 
-  <ContactUs
-    id="form"
-    title="Send Us a Message"
-    subtitle="Have questions about our postpartum care services? We're here to help! Reach out to discuss your needs and learn how we can support your family."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-      {
-        type: 'tel',
-        name: 'phone',
-        label: 'Phone (optional)',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label: 'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="We typically respond within 24 hours. For urgent inquiries, please call us directly."
-  />
+  <!-- Contact Information Section -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="mb-16 text-center">
+        <h2 class="text-mh-orange-dark text-2xl md:text-3xl font-bold mb-4">Contact Methods</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          We are here to help. Reach out to us through any of the following channels.
+        </p>
+      </div>
 
-  <!-- Features2 Widget -->
-  <Features2
-    title="Get In Touch"
-    items={[
-      {
-        title: 'Phone',
-        description: '(213) 808-4415',
-        icon: 'tabler:phone',
-      },
-      {
-        title: 'Email',
-        description: 'momhelperusa10@gmail.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Kakao Talk',
-        description: 'ID: momhelper.usa',
-        icon: 'tabler:message-circle',
-      },
-      {
-        title: 'Service Hours',
-        description: 'Available 24/7 for care services. Office hours: Mon-Fri 9AM-6PM PST',
-        icon: 'tabler:clock',
-      },
-      {
-        title: 'Booking',
-        description: 'Book online or schedule a consultation call to discuss your postpartum care needs.',
-        icon: 'tabler:calendar',
-      },
-      {
-        title: 'Languages',
-        description: 'We offer services in English, Korean, and other languages. Let us know your preference.',
-        icon: 'tabler:language',
-      },
-    ]}
-  />
-</Layout>
+      <!-- Three Contact Methods -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <!-- Phone -->
+        <div class="text-center group">
+          <div
+            class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center"
+          >
+            <div
+              class="mb-6 w-20 h-20 bg-mh-bg-cream rounded-full flex items-center justify-center group-hover:bg-mh-orange transition-colors duration-300"
+            >
+              <Icon
+                name="tabler:phone"
+                class="w-10 h-10 text-mh-orange group-hover:text-white transition-colors duration-300"
+              />
+            </div>
+            <h3 class="font-bold text-xl text-mh-orange-dark mb-4">Phone</h3>
+            <a href="tel:+12138084415" class="text-gray-700 text-lg hover:text-mh-orange transition-colors font-medium">
+              (213) 808-4415
+            </a>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="text-center group">
+          <div
+            class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center"
+          >
+            <div
+              class="mb-6 w-20 h-20 bg-mh-bg-cream rounded-full flex items-center justify-center group-hover:bg-mh-orange transition-colors duration-300"
+            >
+              <Icon
+                name="tabler:mail"
+                class="w-10 h-10 text-mh-orange group-hover:text-white transition-colors duration-300"
+              />
+            </div>
+            <h3 class="font-bold text-xl text-mh-orange-dark mb-4">Email</h3>
+            <a
+              href="mailto:momhelperusa10@gmail.com"
+              class="text-gray-700 text-lg hover:text-mh-orange transition-colors break-all font-medium"
+            >
+              momhelperusa10@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Kakao -->
+        <div class="text-center group">
+          <div
+            class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center"
+          >
+            <div
+              class="mb-6 w-20 h-20 bg-mh-bg-cream rounded-full flex items-center justify-center group-hover:bg-mh-orange transition-colors duration-300"
+            >
+              <Icon
+                name="tabler:message-circle"
+                class="w-10 h-10 text-mh-orange group-hover:text-white transition-colors duration-300"
+              />
+            </div>
+            <h3 class="font-bold text-xl text-mh-orange-dark mb-4">Kakao Talk</h3>
+            <p class="text-gray-700 text-lg font-medium">ID: momhelper.usa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="bg-gray-50 py-16 md:py-20">
+    <div class="container mx-auto max-w-4xl px-4">
+      <div class="mb-12 text-center">
+        <h2 class="text-mh-orange-dark text-2xl md:text-3xl font-bold mb-4">Inquiry Form</h2>
+        <p class="text-gray-600 text-lg">Fill out the form below and we'll get back to you promptly</p>
+      </div>
+
+      <!-- Form -->
+      <form
+        class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100"
+        action="/api/contact"
+        method="POST"
+      >
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-gray-700 font-bold mb-2">
+                Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-mh-orange focus:ring-2 focus:ring-mh-orange/20 transition-all outline-none"
+                placeholder="Your name"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-gray-700 font-bold mb-2">
+                Email <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-mh-orange focus:ring-2 focus:ring-mh-orange/20 transition-all outline-none"
+                placeholder="your@email.com"
+              />
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-gray-700 font-bold mb-2"> Phone (optional) </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-mh-orange focus:ring-2 focus:ring-mh-orange/20 transition-all outline-none"
+              placeholder="(213) 123-4567"
+            />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-gray-700 font-bold mb-2">
+              Message <span class="text-red-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="6"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-mh-orange focus:ring-2 focus:ring-mh-orange/20 transition-all outline-none resize-y"
+              placeholder="Tell us about your service needs..."></textarea>
+          </div>
+
+          <!-- Disclaimer -->
+          <div class="text-sm text-gray-500 leading-relaxed bg-gray-50 p-4 rounded-lg border border-gray-100">
+            By submitting this form, you agree to our privacy policy. Your information will only be used to respond to
+            your inquiry.
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center pt-4">
+            <button
+              type="submit"
+              class="inline-block bg-mh-orange text-white font-bold text-lg px-12 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
+              Send Message
+            </button>
+          </div>
+
+          <!-- Response Time Notice -->
+          <div class="text-center text-sm text-gray-500 italic">
+            We typically respond within 24 hours. For urgent inquiries, please call us directly.
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Additional Information Section -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Business Hours -->
+        <div class="bg-mh-bg-cream/30 rounded-2xl shadow-lg border border-mh-bg-cream p-8 md:p-10">
+          <h3 class="text-mh-orange-dark text-2xl font-bold mb-8 flex items-center">
+            <Icon name="tabler:clock" class="w-8 h-8 mr-3 text-mh-orange" />
+            Office Hours
+          </h3>
+          <div class="space-y-4 text-lg">
+            <div class="flex justify-between border-b border-gray-200 pb-2">
+              <span class="font-medium text-gray-700">Monday - Friday:</span>
+              <span class="text-gray-600">9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 pb-2">
+              <span class="font-medium text-gray-700">Saturday:</span>
+              <span class="text-gray-600">10:00 AM - 4:00 PM</span>
+            </div>
+            <div class="flex justify-between border-b border-gray-200 pb-2">
+              <span class="font-medium text-gray-700">Sunday:</span>
+              <span class="text-gray-600">Closed</span>
+            </div>
+            <p class="text-sm text-gray-500 italic mt-6">* Closed on major holidays</p>
+          </div>
+        </div>
+
+        <!-- Service Area -->
+        <div class="bg-mh-bg-cream/30 rounded-2xl shadow-lg border border-mh-bg-cream p-8 md:p-10">
+          <h3 class="text-mh-orange-dark text-2xl font-bold mb-8 flex items-center">
+            <Icon name="tabler:map-pin" class="w-8 h-8 mr-3 text-mh-orange" />
+            Service Areas
+          </h3>
+          <ul class="space-y-4 text-lg">
+            <li class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+              <Icon name="tabler:map-pin-filled" class="w-5 h-5 mr-3 text-mh-orange" />
+              <span class="text-gray-700 font-medium">Los Angeles County</span>
+            </li>
+            <li class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+              <Icon name="tabler:map-pin-filled" class="w-5 h-5 mr-3 text-mh-orange" />
+              <span class="text-gray-700 font-medium">Orange County</span>
+            </li>
+            <li class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+              <Icon name="tabler:map-pin-filled" class="w-5 h-5 mr-3 text-mh-orange" />
+              <span class="text-gray-700 font-medium">Riverside County</span>
+            </li>
+            <li class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+              <Icon name="tabler:map-pin-filled" class="w-5 h-5 mr-3 text-mh-orange" />
+              <span class="text-gray-700 font-medium">San Bernardino County</span>
+            </li>
+            <li class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+              <Icon name="tabler:map-pin-filled" class="w-5 h-5 mr-3 text-mh-orange" />
+              <span class="text-gray-700 font-medium">Other areas (inquire)</span>
+            </li>
+          </ul>
+          <p class="text-sm text-gray-500 italic mt-6">* Additional fees may apply depending on location</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-gray-50 py-16 md:py-20">
+    <div class="container mx-auto max-w-4xl px-4">
+      <h2 class="text-mh-orange-dark text-center text-2xl md:text-3xl font-bold mb-12">Frequently Asked Questions</h2>
+
+      <div class="space-y-6">
+        <details class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 group">
+          <summary
+            class="font-bold text-lg cursor-pointer text-gray-800 group-hover:text-mh-orange transition-colors flex items-center justify-between"
+          >
+            How far in advance should I book?
+            <Icon name="tabler:chevron-down" class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+            We recommend booking at least 1-2 months before your due date. During peak seasons (fall and winter),
+            earlier booking is advisable.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 group">
+          <summary
+            class="font-bold text-lg cursor-pointer text-gray-800 group-hover:text-mh-orange transition-colors flex items-center justify-between"
+          >
+            What is the minimum service period?
+            <Icon name="tabler:chevron-down" class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+            All services are available from a minimum of 2 weeks (14 days). You can book 2, 4, 6, 8, or 10 week periods.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 group">
+          <summary
+            class="font-bold text-lg cursor-pointer text-gray-800 group-hover:text-mh-orange transition-colors flex items-center justify-between"
+          >
+            Can I change my caregiver?
+            <Icon name="tabler:chevron-down" class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+            Yes, it's possible. However, there may be additional fees for caregiver changes, and adjustments will depend
+            on the new caregiver's schedule.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 group">
+          <summary
+            class="font-bold text-lg cursor-pointer text-gray-800 group-hover:text-mh-orange transition-colors flex items-center justify-between"
+          >
+            Is there an additional fee for twins?
+            <Icon name="tabler:chevron-down" class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+            Yes, for twins there is an additional 50% of the basic service fee. Please refer to our pricing page for
+            detailed rates.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 group">
+          <summary
+            class="font-bold text-lg cursor-pointer text-gray-800 group-hover:text-mh-orange transition-colors flex items-center justify-between"
+          >
+            Can I consult via Kakao Talk?
+            <Icon name="tabler:chevron-down" class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+            Yes, you can easily reach us via Kakao Talk ID "momhelper.usa". We communicate in both Korean and English.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

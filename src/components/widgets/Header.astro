@@ -38,6 +38,20 @@ const {
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+
+// Language switcher configuration
+const locales = [
+  { code: 'en', label: 'English' },
+  { code: 'ko', label: '한국어' },
+];
+
+// Detect current locale from path
+const pathname = Astro.url.pathname;
+const segments = pathname.split('/').filter(Boolean);
+const currentLocale = segments[0] === 'ko' ? 'ko' : 'en';
+
+// Filter out language dropdown from links
+const filteredLinks = links.filter(link => link.text !== 'Language' && link.text !== '언어 (Language)');
 ---
 
 <header
@@ -47,23 +61,23 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     { 'et-fixed-header': isSticky },
     'w-full bg-white/0 transition-all duration-300',
   ]}
-  data-height-onload="81"
+  data-height-onload="110"
 >
-  <div class="container mx-auto max-w-[1080px] px-4 clearfix et_menu_container">
+  <div class="container mx-auto px-4 clearfix et_menu_container">
     <!-- Logo Container -->
     <div class="logo_container float-left py-2.5">
-      <a href="/" class="flex items-center h-[81px]">
+      <a href="/" class="flex items-center h-[110px]">
         <Logo />
       </a>
     </div>
 
     <!-- Top Navigation -->
-    <div id="et-top-navigation" class="float-right" data-height="81">
+    <div id="et-top-navigation" class="float-right" data-height="110">
       <!-- Desktop Navigation -->
       <nav id="top-menu-nav" class="hidden md:block">
         <ul id="top-menu" class="nav flex items-center gap-1">
           {
-            links.map(({ text, href, links: subLinks }) => (
+            filteredLinks.map(({ text, href, links: subLinks }) => (
               <li class:list={['menu-item relative group', { 'menu-item-has-children': subLinks?.length }]}>
                 {subLinks?.length ? (
                   <>
@@ -74,23 +88,16 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       {text}
                     </a>
                     <ul class="sub-menu absolute left-0 top-full min-w-[220px] bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      {subLinks.map(({ text: text2, href: href2 }) => {
-                        // Check if this is a language link
-                        const isLanguageLink = text === 'Language' || text === '언어 (Language)';
-                        const langCode = text2 === 'English' ? 'en' : (text2.includes('한국어') ? 'ko' : null);
-
-                        return (
-                          <li class="menu-item">
-                            <a
-                              href={href2}
-                              class="block px-6 py-3 text-[#b76e47] hover:bg-gray-50 transition-colors"
-                              data-lang-switch={isLanguageLink && langCode ? langCode : undefined}
-                            >
-                              {text2}
-                            </a>
-                          </li>
-                        );
-                      })}
+                      {subLinks.map(({ text: text2, href: href2 }) => (
+                        <li class="menu-item">
+                          <a
+                            href={href2}
+                            class="block px-6 py-3 text-[#b76e47] hover:bg-gray-50 transition-colors"
+                          >
+                            {text2}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </>
                 ) : (
@@ -107,6 +114,30 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               </li>
             ))
           }
+          <!-- Language Switcher (Desktop) -->
+          <li class="menu-item flex gap-1 px-2">
+            {
+              locales.map((locale) => {
+                const href = locale.code === 'ko' ? '/ko' : '/en';
+                const isActive = locale.code === currentLocale;
+                return (
+                  <a
+                    href={href}
+                    class:list={[
+                      'px-3 py-2 rounded text-sm font-semibold transition-colors',
+                      isActive
+                        ? 'text-white border border-white bg-[#b74000]/30'
+                        : 'text-white/80 hover:bg-white/10',
+                    ]}
+                    aria-label={locale.label}
+                    data-lang-switch={locale.code}
+                  >
+                    {locale.label}
+                  </a>
+                );
+              })
+            }
+          </li>
         </ul>
       </nav>
 
@@ -142,6 +173,20 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
   .et-scrolled #top-menu > li > a {
     color: #b8551f !important;
+  }
+
+  /* Language switcher styles for scrolled state */
+  .et-scrolled #top-menu .menu-item a[data-lang-switch] {
+    color: #b8551f !important;
+    border-color: #b8551f !important;
+  }
+
+  .et-scrolled #top-menu .menu-item a[data-lang-switch]:not([class*="border"]) {
+    color: #b8551f !important;
+  }
+
+  .et-scrolled #top-menu .menu-item a[data-lang-switch]:hover {
+    background-color: rgba(183, 64, 0, 0.1) !important;
   }
 
   .clearfix::after {

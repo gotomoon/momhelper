@@ -1,0 +1,49 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection('post');
+  const reviewPosts = allPosts.filter((post) => post.data.category === 'Reviews');
+
+  return reviewPosts.map((post) => ({
+    params: { slug: post.id.replace('.md', '') },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const metadata = {
+  title: `${post.data.title} — Mom Helper USA`,
+  description: post.data.excerpt || '맘헬퍼USA 산후관리 서비스를 이용하신 고객님의 진솔한 후기입니다.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Widget -->
+  <WPPageHero title={post.data.title} />
+
+  <!-- Content -->
+  <article class="px-4 py-12 mx-auto max-w-4xl">
+    <div class="prose prose-lg dark:prose-invert mx-auto">
+      <Content />
+    </div>
+
+    <!-- Back to Reviews Link -->
+    <div class="mt-12 text-center">
+      <a
+        href="/ko/이용후기"
+        class="inline-flex items-center text-[18px] font-medium hover:underline"
+        style="color: rgb(211, 118, 67);"
+      >
+        ← 후기 목록으로 돌아가기
+      </a>
+    </div>
+  </article>
+</PageLayout>

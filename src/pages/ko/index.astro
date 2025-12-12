@@ -1,7 +1,6 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
-import logoWhite from '~/assets/images/momhelper/logos/logo-white.webp';
 import momBabyBirth from '~/assets/images/momhelper/misc/mom-baby-birth.webp';
 import cribMomSquare from '~/assets/images/momhelper/misc/crib-mom-square.webp';
 import postpartumMeal from '~/assets/images/momhelper/misc/postpartum-meal-1.webp';
@@ -17,108 +16,94 @@ const metadata = {
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero Section - Full Width with Logo -->
-  <section
-    class="et_pb_section et_pb_section_0 relative pb-0 overflow-hidden min-h-[600px]"
-    style="background-image: url('/images/baby-hand.jpeg'); background-size: cover; background-position: center;"
-  >
+  <!-- Hero Section -->
+  <section class="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div
+      class="absolute inset-0 z-0 bg-cover bg-center"
+      style="background-image: url('http://momhelperusa.com/wp-content/uploads/2024/03/baby-hand.jpeg');"
+    >
+    </div>
+
     <!-- Overlay -->
-    <div class="absolute inset-0 bg-[rgba(211,118,67,0.47)] z-0"></div>
+    <div class="absolute inset-0 z-10" style="background-color: rgba(211,118,67,0.47);"></div>
 
-    <div class="container mx-auto max-w-full px-4 py-16 relative z-10">
-      <!-- Large Logo -->
-      <div class="et_pb_fullwidth_image text-center mb-8 animate-fadeIn">
-        <Image
-          src={logoWhite}
-          alt="Mom Helper USA"
-          class="mx-auto max-w-[400px] md:max-w-[500px] w-full"
-          loading="eager"
-        />
-      </div>
-
+    <div class="container mx-auto px-4 relative z-20 py-16 text-center">
       <!-- Heading Text -->
-      <div class="text-center pb-12">
-        <h2 class="text-white font-['Noto_Sans_KR'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="text-white font-sans font-medium leading-relaxed drop-shadow-md"
+          style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 26pt; margin-top: -30px;"
+        >
           찾아가는 맞춤형 산후관리 서비스
         </h2>
       </div>
     </div>
-
-    <!-- Bottom Divider -->
-    <div class="et_pb_bottom_inside_divider"></div>
   </section>
 
-  <!-- Second Section - Main Services -->
-  <section class="et_pb_section et_pb_section_1 bg-white py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <!-- Section Heading -->
-      <div class="et_pb_row mb-12">
-        <div class="text-center">
-          <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-medium leading-relaxed">
-            교육과 경험을 갖춘 전문 산후관리사가<br />편안하고 안전한 산후조리를 제공합니다
-          </h2>
+  <!-- Main Services Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-bold leading-relaxed mb-4">
+          교육과 경험을 갖춘 전문 산후관리사가<br />편안하고 안전한 산후조리를 제공합니다
+        </h2>
+        <div class="w-24 h-1 bg-mh-orange mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <!-- Feature 1 -->
+        <div class="text-center group">
+          <div class="mb-8 relative inline-block">
+            <div
+              class="rounded-full overflow-hidden w-64 h-64 mx-auto border-8 border-white shadow-xl transform group-hover:scale-105 transition-transform duration-500"
+            >
+              <Image src={momBabyBirth} alt="맞춤형 산후조리" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <h3 class="font-heading text-xl text-mh-orange-dark mb-4 font-bold">맞춤형 산후조리</h3>
+          <p class="text-gray-600 leading-relaxed max-w-xs mx-auto">
+            각 산모의 필요와 상황에 맞춘 개인화된 산후조리 서비스를 제공합니다. 이는 산모의 빠른 회복과 건강한 육아를
+            돕습니다.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="text-center group">
+          <div class="mb-8 relative inline-block">
+            <div
+              class="rounded-full overflow-hidden w-64 h-64 mx-auto border-8 border-white shadow-xl transform group-hover:scale-105 transition-transform duration-500"
+            >
+              <Image src={cribMomSquare} alt="전문 산후관리사" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <h3 class="font-heading text-xl text-mh-orange-dark mb-4 font-bold">전문 산후관리사</h3>
+          <p class="text-gray-600 leading-relaxed max-w-xs mx-auto">
+            교육과 경험을 갖춘 산후관리사가 산모와 아기를 안전하고 편안하게 돌봅니다. 이는 산모와 가족이 안심하고
+            서비스를 이용할 수 있게 합니다.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="text-center group">
+          <div class="mb-8 relative inline-block">
+            <div
+              class="rounded-full overflow-hidden w-64 h-64 mx-auto border-8 border-white shadow-xl transform group-hover:scale-105 transition-transform duration-500"
+            >
+              <Image src={postpartumMeal} alt="편안한 산후조리" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <h3 class="font-heading text-xl text-mh-orange-dark mb-4 font-bold">편안한 산후조리</h3>
+          <p class="text-gray-600 leading-relaxed max-w-xs mx-auto">
+            산모가 자신의 집에서 편안하게 가족과 함께 산후조리를 받을 수 있어, 심신의 안정과 건강 회복을 촉진합니다.
+          </p>
         </div>
       </div>
 
-      <!-- Three Column Features -->
-      <div class="et_pb_row grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <!-- Column 1 -->
-        <div class="et_pb_column text-center">
-          <div class="et_pb_image mb-6">
-            <div class="rounded-full overflow-hidden shadow-[0_10px_30px_rgba(229,232,239,0.5)] mx-auto max-w-[280px] border-[20px] border-white transition-all duration-300 hover:border-[10px]">
-              <Image
-                src={momBabyBirth}
-                alt="맞춤형 산후조리"
-                class="w-full h-auto"
-              />
-            </div>
-          </div>
-          <div class="et_pb_blurb">
-            <h3 class="font-['Candal'] text-[20px] text-[#B8551F] mb-3 leading-snug">맞춤형 산후조리</h3>
-            <p class="text-gray-600 leading-relaxed">각 산모의 필요와 상황에 맞춘 개인화된 산후조리 서비스를 제공합니다. 이는 산모의 빠른 회복과 건강한 육아를 돕습니다.</p>
-          </div>
-        </div>
-
-        <!-- Column 2 -->
-        <div class="et_pb_column text-center">
-          <div class="et_pb_image mb-6">
-            <div class="rounded-full overflow-hidden shadow-[0_10px_30px_rgba(229,232,239,0.5)] mx-auto max-w-[280px] border-[20px] border-white transition-all duration-300 hover:border-[10px]">
-              <Image
-                src={cribMomSquare}
-                alt="전문 산후관리사"
-                class="w-full h-auto"
-              />
-            </div>
-          </div>
-          <div class="et_pb_blurb">
-            <h3 class="font-['Candal'] text-[20px] text-[#B8551F] mb-3 leading-snug">전문 산후관리사</h3>
-            <p class="text-gray-600 leading-relaxed">교육과 경험을 갖춘 산후관리사가 산모와 아기를 안전하고 편안하게 돌봅니다. 이는 산모와 가족이 안심하고 서비스를 이용할 수 있게 합니다.</p>
-          </div>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="et_pb_column text-center">
-          <div class="et_pb_image mb-6">
-            <div class="rounded-full overflow-hidden shadow-[0_10px_30px_rgba(229,232,239,0.5)] mx-auto max-w-[280px] border-[20px] border-white transition-all duration-300 hover:border-[10px]">
-              <Image
-                src={postpartumMeal}
-                alt="편안한 산후조리"
-                class="w-full h-auto"
-              />
-            </div>
-          </div>
-          <div class="et_pb_blurb">
-            <h3 class="font-['Candal'] text-[20px] text-[#B8551F] mb-3 leading-snug">편안한 산후조리</h3>
-            <p class="text-gray-600 leading-relaxed">산모가 자신의 집에서 편안하게 가족과 함께 산후조리를 받을 수 있어, 심신의 안정과 건강 회복을 촉진합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Button -->
-      <div class="et_pb_row text-center">
+      <div class="text-center">
         <a
           href="/ko/산후관리-서비스"
-          class="inline-block bg-[#D37643] text-white font-['Noto_Sans_KR'] font-bold text-sm uppercase px-6 py-3.5 rounded-[60px] hover:bg-[#B8551F] transition-colors duration-300"
+          class="inline-block bg-mh-orange text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
         >
           산후관리 서비스 더 알아보기
         </a>
@@ -126,132 +111,108 @@ const metadata = {
     </div>
   </section>
 
-  <!-- Third Section - Other Services -->
-  <section class="et_pb_section et_pb_section_2 bg-white py-16">
-    <div class="container mx-auto max-w-[1080px] px-4">
-      <!-- Section Heading -->
-      <div class="et_pb_row mb-12">
-        <h2 class="text-[#B8551F] text-center font-['Noto_Sans_KR'] text-2xl md:text-3xl font-medium">기타 서비스</h2>
-      </div>
+  <!-- Other Services Section -->
+  <section class="py-16 md:py-24 bg-mh-bg-cream/30">
+    <div class="container mx-auto px-4">
+      <h2 class="text-mh-orange-dark text-center font-sans text-2xl md:text-3xl font-bold mb-16">기타 서비스</h2>
 
-      <!-- Three Service Cards -->
-      <div class="et_pb_row grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Babysitting -->
-        <div class="et_pb_blurb bg-white rounded-[10px] overflow-hidden shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] pb-6 hover:shadow-lg transition-shadow duration-300">
-          <a href="/ko/기타-서비스">
-            <div class="rounded-t-[10px] overflow-hidden mb-4">
-              <Image
-                src={babysitting}
-                alt="맞춤형 베이비시터"
-                class="w-full h-auto animate-fadeTop"
-              />
-            </div>
-            <h3 class="font-bold text-[#6B6B6B] text-center px-4">맞춤형 베이비시터</h3>
-          </a>
-        </div>
+        <a
+          href="/ko/기타-서비스"
+          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div class="h-64 overflow-hidden">
+            <Image
+              src={babysitting}
+              alt="맞춤형 베이비시터"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">
+              맞춤형 베이비시터
+            </h3>
+          </div>
+        </a>
 
         <!-- Caregiver -->
-        <div class="et_pb_blurb bg-white rounded-[10px] overflow-hidden shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] pb-6 hover:shadow-lg transition-shadow duration-300">
-          <a href="/ko/기타-서비스">
-            <div class="rounded-t-[10px] overflow-hidden mb-4">
-              <Image
-                src={caregiver}
-                alt="간병 서비스"
-                class="w-full h-auto animate-fadeTop"
-              />
-            </div>
-            <h3 class="font-bold text-[#6B6B6B] text-center px-4">간병 서비스</h3>
-          </a>
-        </div>
+        <a
+          href="/ko/기타-서비스"
+          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div class="h-64 overflow-hidden">
+            <Image
+              src={caregiver}
+              alt="간병 서비스"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">간병 서비스</h3>
+          </div>
+        </a>
 
         <!-- Housekeeping -->
-        <div class="et_pb_blurb bg-white rounded-[10px] overflow-hidden shadow-[0_2px_25px_-9px_rgba(0,0,0,0.3)] pb-6 hover:shadow-lg transition-shadow duration-300">
-          <a href="/ko/기타-서비스">
-            <div class="rounded-t-[10px] overflow-hidden mb-4">
-              <Image
-                src={housekeeping}
-                alt="가사도우미"
-                class="w-full h-auto animate-fadeTop"
-              />
-            </div>
-            <h3 class="font-bold text-[#6B6B6B] text-center px-4">가사도우미</h3>
-          </a>
-        </div>
+        <a
+          href="/ko/기타-서비스"
+          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div class="h-64 overflow-hidden">
+            <Image
+              src={housekeeping}
+              alt="가사도우미"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">가사도우미</h3>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section class="et_pb_section bg-[#ffc1c1] py-16 relative overflow-hidden">
+  <section class="py-16 md:py-24 bg-mh-bg-pink relative overflow-hidden">
+    <div class="container mx-auto px-4 max-w-6xl relative z-10">
+      <!-- Section Title -->
+      <div class="text-center mb-12">
+        <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-medium">고객 후기</h2>
+      </div>
 
-    <div class="container mx-auto max-w-[1080px] px-4 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <!-- Testimonial 1 -->
-        <div class="et_pb_testimonial bg-gradient-to-b from-[#fef0da] to-white rounded-lg p-6 shadow-[0_10px_61px_-11px_rgba(0,0,0,0.3)] relative">
-          <div class="text-[#6B6B6B] text-6xl absolute top-4 left-4 opacity-20">"</div>
-          <p class="text-gray-700 mb-4 relative z-10">이 곳은 15년 전통에 걸맞게 모든 것이 체계적이고 전문적이었습니다. 관리사님의 경험과 전문성이 정말 놀라웠어요. Mom Helper USA를 선택한 것이 최고의 결정이었습니다.</p>
-          <div class="text-right">
-            <p class="font-bold text-gray-800">이수진</p>
-            <p class="text-sm text-gray-600">Los Angeles</p>
-          </div>
+        <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
+          <p class="text-gray-700 leading-relaxed text-base">
+            이모님은 많이 배우셨고 아이 경험이 많으십니다. 마음이 따뜻하고 긍정적이며, 성격이 밝으신 분으로 아기를 많이 좋아하고 사랑하시는 분입니다. 전적으로 신뢰할 수 있는 경험이 많으신 전문가이십니다. 제 아기가 제 충미달에 아주 작게 태어났고 황달이 …
+          </p>
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="et_pb_testimonial bg-gradient-to-b from-[#fef0da] to-white rounded-lg p-6 shadow-[0_10px_61px_-11px_rgba(0,0,0,0.3)] relative">
-          <div class="text-[#6B6B6B] text-6xl absolute top-4 left-4 opacity-20">"</div>
-          <p class="text-gray-700 mb-4 relative z-10">한국에서 어머니가 해주시는 것처럼 따뜻하고 세심한 케어를 받았습니다. 미국에서 전통적인 한국식 산후조리를 받을 수 있어 정말 감사했어요.</p>
-          <div class="text-right">
-            <p class="font-bold text-gray-800">박미영</p>
-            <p class="text-sm text-gray-600">Irvine</p>
-          </div>
+        <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
+          <p class="text-gray-700 leading-relaxed text-base">
+            지금까지 산후조리를 해 주셨던 분들과는 모든 것에서 너무 다르셨고, 1 개월이 지나서는 아기와 큰 집을 말거두고 몇일 가족 트립과 여절 수 없는 비지니스 트립을 다녀올 수도 있었습니다. 이모님이 계시는 8주 동안 우리 가족들은 편안하고 든 든 했습니다. 바람직한 산후조리와 …
+          </p>
         </div>
 
         <!-- Testimonial 3 -->
-        <div class="et_pb_testimonial bg-gradient-to-b from-[#fef0da] to-white rounded-lg p-6 shadow-[0_10px_61px_-11px_rgba(0,0,0,0.3)] relative">
-          <div class="text-[#6B6B6B] text-6xl absolute top-4 left-4 opacity-20">"</div>
-          <p class="text-gray-700 mb-4 relative z-10">첫째와 둘째 모두 Mom Helper USA 서비스를 이용했습니다. 믿을 수 있는 회사라는 것을 알기에 셋째도 반드시 선택할 것입니다.</p>
-          <div class="text-right">
-            <p class="font-bold text-gray-800">김현주</p>
-            <p class="text-sm text-gray-600">Torrance</p>
-          </div>
+        <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
+          <p class="text-gray-700 leading-relaxed text-base">
+            요리 솜씨가 정말 좋으십니다. 저의 입맛에 맞추어서 저염식이면서도 골고루 영양소가 들어갈수 있게 맛있게 요리를 해주셨고, 모유 수유에 도움이 되는 음식, 생활습관, 마사지까지 저의 빠른 회복을 위해 쉬는 시간도 얼마 못가지시면서 헌신적으로 도와주셨습니다. 그리고 …
+          </p>
         </div>
       </div>
 
       <!-- CTA Button -->
-      <div class="text-center mt-12">
+      <div class="text-center">
         <a
-          href="/ko/서비스-신청하기"
-          class="inline-block bg-[#D37643] text-white font-['Noto_Sans_KR'] px-8 py-3 rounded-[25px] hover:bg-[#B8551F] transition-colors duration-300 text-lg"
+          href="/ko/이용후기"
+          class="inline-block bg-mh-orange text-white font-sans font-medium text-base px-10 py-3 rounded-full border-2 border-mh-orange hover:bg-mh-orange-dark hover:border-mh-orange-dark transition-all duration-300"
         >
-          지금 신청하기 →
+          후기 자세히 보기 ☞
         </a>
       </div>
     </div>
   </section>
 </PageLayout>
-
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes fadeTop {
-    from {
-      opacity: 0;
-      transform: translateY(-10%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.6s ease-in-out;
-  }
-
-  .animate-fadeTop {
-    animation: fadeTop 0.6s ease-in-out;
-  }
-</style>

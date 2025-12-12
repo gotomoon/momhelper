@@ -5,14 +5,20 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { blogListRobots, fetchPosts, blogPostsPerPage } from '~/utils/blog';
 
 export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  return await getStaticPathsBlogList({ paginate });
+  const posts = await fetchPosts();
+  // Filter for Korean posts if/when we have them. For now, show all or empty.
+  // Assuming no posts yet, this will generate page 1 with empty list.
+
+  return paginate(posts, {
+    params: {},
+    pageSize: blogPostsPerPage,
+  });
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
@@ -20,13 +26,9 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
-// const allCategories = await findCategories();
-// const allTags = await findTags();
-
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''} | Mom Helper USA`,
-  description:
-    'Helpful information about prenatal and postpartum care, pregnancy tips, and parenting advice from Mom Helper USA.',
+  title: `블로그${currentPage > 1 ? ` — 페이지 ${currentPage}` : ''} | Mom Helper USA`,
+  description: 'Mom Helper USA의 산후조리, 임신, 육아 정보 블로그입니다.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -39,14 +41,8 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-6xl">
-    <Headline subtitle="Helpful information about prenatal and postpartum care, pregnancy tips, and parenting advice">
-      Blog
-    </Headline>
+    <Headline subtitle="산후조리, 임신, 육아에 관한 유용한 정보를 확인하세요"> 블로그 </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
   </section>
 </Layout>

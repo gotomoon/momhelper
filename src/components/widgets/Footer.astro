@@ -16,19 +16,13 @@ const { links = [], secondaryLinks = [], socialLinks = [], footNote = '', theme 
 <footer class="et-l et-l--footer bg-white">
   <div class="et_builder_inner_content">
     <!-- First Footer Section - Contact Info -->
-    <section class="et_pb_section et_pb_section_0_tb_footer bg-white py-12">
-      <div class="container mx-auto max-w-[1080px] px-4">
+    <section class="et_pb_section et_pb_section_0_tb_footer py-12" style="background-color: rgba(255, 210, 142, 0.35);">
+      <div class="container mx-auto px-4">
         <div class="et_pb_row grid grid-cols-1 md:grid-cols-4 gap-8">
-
           <!-- Column 1: Logo -->
           <div class="et_pb_column text-center md:text-left">
             <div class="et_pb_image">
-              <Image
-                src={logo}
-                alt="Mom Helper USA"
-                class="mx-auto md:mx-0 w-auto h-[120px]"
-                loading="lazy"
-              />
+              <Image src={logo} alt="Mom Helper USA" class="mx-auto md:mx-0 w-auto h-[120px]" loading="lazy" />
             </div>
           </div>
 
@@ -36,13 +30,28 @@ const { links = [], secondaryLinks = [], socialLinks = [], footNote = '', theme 
           <div class="et_pb_column text-center" id="footer-email">
             <div class="et_pb_blurb">
               <div class="et_pb_blurb_content">
-                <div class="et_pb_main_blurb_image mb-3">
-                  <span class="et-pb-icon text-[#D37643] text-4xl">✉</span>
+                <div class="et_pb_main_blurb_image mb-3 flex justify-center">
+                  <svg
+                    width="80"
+                    height="80"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- Rounded rectangle background -->
+                    <rect x="10" y="25" width="80" height="50" rx="12" ry="12" fill="rgb(184, 85, 31)"/>
+                    <!-- Envelope flap -->
+                    <path d="M 15 30 L 50 55 L 85 30" stroke="rgb(255, 210, 142)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
                 <div class="et_pb_blurb_container">
-                  <h4 class="font-bold text-[#D37643] mb-2 text-lg">EMAIL</h4>
+                  <h4 class="font-normal mb-2 text-[18px]" style="color: rgb(184, 85, 31);">EMAIL</h4>
                   <div class="et_pb_blurb_description">
-                    <a href="mailto:momhelperusa10@gmail.com" class="text-gray-700 hover:text-[#D37643] transition-colors">
+                    <a
+                      href="mailto:momhelperusa10@gmail.com"
+                      class="hover:underline transition-colors text-[18px]"
+                      style="color: rgb(211, 118, 67);"
+                    >
                       momhelperusa10@gmail.com
                     </a>
                   </div>
@@ -55,13 +64,28 @@ const { links = [], secondaryLinks = [], socialLinks = [], footNote = '', theme 
           <div class="et_pb_column text-center">
             <div class="et_pb_blurb">
               <div class="et_pb_blurb_content">
-                <div class="et_pb_main_blurb_image mb-3">
-                  <span class="et-pb-icon text-[#D37643] text-4xl">📞</span>
+                <div class="et_pb_main_blurb_image mb-3 flex justify-center">
+                  <svg
+                    width="80"
+                    height="80"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- Rounded rectangle phone body -->
+                    <rect x="25" y="10" width="50" height="80" rx="8" ry="8" fill="rgb(184, 85, 31)"/>
+                    <!-- Home button circle -->
+                    <circle cx="50" cy="82" r="4" fill="rgb(255, 210, 142)"/>
+                  </svg>
                 </div>
                 <div class="et_pb_blurb_container">
-                  <h4 class="font-bold text-[#D37643] mb-2 text-lg">PHONE</h4>
+                  <h4 class="font-normal mb-2 text-[18px]" style="color: rgb(184, 85, 31);">PHONE</h4>
                   <div class="et_pb_blurb_description">
-                    <a href="tel:2138084415" class="text-gray-700 hover:text-[#D37643] transition-colors">
+                    <a
+                      href="tel:2138084415"
+                      class="hover:underline transition-colors text-[18px]"
+                      style="color: rgb(211, 118, 67);"
+                    >
                       (213) 808-4415
                     </a>
                   </div>
@@ -74,58 +98,53 @@ const { links = [], secondaryLinks = [], socialLinks = [], footNote = '', theme 
           <div class="et_pb_column text-center">
             <div class="et_pb_blurb">
               <div class="et_pb_blurb_content">
-                <div class="et_pb_main_blurb_image mb-3">
-                  <span class="et-pb-icon text-[#D37643] text-4xl">💬</span>
+                <div class="et_pb_main_blurb_image mb-3 flex justify-center">
+                  <i class="fa-solid fa-comment" style="font-size: 60px; color: rgb(184, 85, 31);"></i>
                 </div>
                 <div class="et_pb_blurb_container">
-                  <h4 class="font-bold text-[#D37643] mb-2 text-lg">KAKAO TALK ID</h4>
+                  <h4 class="font-normal mb-2 text-[18px]" style="color: rgb(184, 85, 31);">KAKAO TALK ID</h4>
                   <div class="et_pb_blurb_description">
-                    <p class="text-gray-700">momhelper.usa</p>
+                    <p class="text-[16px]" style="color: rgb(211, 118, 67);">momhelper.usa</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Second Footer Section - Menu (if needed) -->
-    {links && links.length > 0 && (
-      <section class="et_pb_section et_pb_section_1_tb_footer bg-gray-50 py-8 border-t border-gray-200">
-        <div class="container mx-auto max-w-[1080px] px-4">
-          <div class="et_pb_row">
-            <div class="et_pb_column text-center">
-              <nav class="et_pb_menu">
-                <ul class="flex flex-wrap justify-center gap-6 text-sm">
-                  {links.map(({ title, links: subLinks }) => (
-                    subLinks && subLinks.map(({ text, href }: any) => (
-                      <li>
-                        <a href={href} class="text-gray-600 hover:text-[#D37643] transition-colors">
-                          {text}
-                        </a>
-                      </li>
-                    ))
-                  ))}
-                </ul>
-              </nav>
+    <!-- Bottom Footer Section - Dark Orange -->
+    <section class="py-8" style="background-color: rgb(184, 85, 31);">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center text-white text-sm">
+          <!-- Left Side: Links & Copyright -->
+          <div class="flex flex-col items-center md:items-start gap-4 mb-4 md:mb-0">
+            <!-- Footer Links -->
+            <div class="flex flex-wrap gap-6 font-medium">
+              {
+                links.map(({ text, href }) => (
+                  <a href={href} class="hover:underline">
+                    {text}
+                  </a>
+                ))
+              }
+            </div>
+
+            <!-- Copyright -->
+            <div class="opacity-90">
+              © 2024 – {new Date().getFullYear()} Mom Helper USA
             </div>
           </div>
-        </div>
-      </section>
-    )}
 
-    <!-- Copyright Section -->
-    {footNote && (
-      <section class="bg-white py-6 border-t border-gray-200">
-        <div class="container mx-auto max-w-[1080px] px-4">
-          <div class="text-center text-sm text-gray-600">
-            <p set:html={footNote} />
+          <!-- Right Side: Powered By -->
+          <div class="flex items-center">
+            <span class="opacity-90 mr-1">Powered by</span>
+            <a href="#" class="font-bold underline hover:no-underline">CUSTOMI</a>
           </div>
         </div>
-      </section>
-    )}
+      </div>
+    </section>
   </div>
 </footer>
 

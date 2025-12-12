@@ -5,22 +5,23 @@ import BlogList from '~/components/blog/List.astro';
 import { fetchPosts } from '~/utils/blog';
 
 const metadata = {
-  title: '산전 산후조리 정보 | Mom Helper USA',
-  description: '임신 초기 증상, 좋은 의사 찾기, 지원 프로그램 등 산전 산후 관리에 대한 유용한 정보를 제공합니다.',
+  title: 'Prenatal & Postpartum Care Information | Mom Helper USA',
+  description: 'Helpful information about prenatal and postpartum care, including early pregnancy symptoms, finding good doctors, support programs, and more.',
 };
 
 // Fetch posts from the Prenatal Care category
-const posts = await fetchPosts();
+const allPosts = await fetchPosts();
+const posts = allPosts.filter((post) => post.category?.slug === 'prenatal-care');
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <WPPageHero title="산전 산후조리 정보" />
+  <WPPageHero title="Prenatal & Postpartum Care Information" />
 
   <!-- Blog Posts Section -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-800">산전 산후조리 정보</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-800">Latest Articles</h2>
 
       <!-- Recent Posts -->
       <div class="mb-12">

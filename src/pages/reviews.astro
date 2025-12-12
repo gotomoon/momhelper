@@ -1,102 +1,55 @@
 ---
-import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
 
 const metadata = {
   title: 'Reviews — Mom Helper USA',
 };
+
+// Get English review posts
+const allPosts = await getCollection('post');
+const reviewPosts = allPosts
+  .filter((post) => post.data.category === 'Reviews' && post.id.startsWith('review-'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget -->
-  <Hero
-    tagline="Client Reviews"
-    title="What Our Families Are Saying"
-  >
-    <Fragment slot="subtitle">
-      Real experiences from families we've had the privilege to support during their postpartum journey.
-    </Fragment>
-  </Hero>
+  <WPPageHero title="Client Reviews" />
 
-  <!-- Testimonials Widget -->
-  <Testimonials
-    title="Client Testimonials"
-    subtitle="Hear from the families who have trusted us with their postpartum care"
-    testimonials={[
-      {
-        testimonial: 'The caregiver was incredibly knowledgeable and experienced with babies. She had a warm personality and was a trustworthy professional that we felt comfortable leaving our baby with. Her support during those first few weeks was invaluable.',
-        name: 'Sarah M.',
-        job: 'New Mother',
-        image: {
-          alt: 'Client testimonial',
-        },
-      },
-      {
-        testimonial: 'After my first child, I struggled without proper postpartum support. With my second baby, I hired Mom Helper USA and it made all the difference. The caregiver helped me recover properly while teaching me essential baby care skills. I wish I had known about this service earlier!',
-        name: 'Jennifer K.',
-        job: 'Mother of Two',
-        image: {
-          alt: 'Client testimonial',
-        },
-      },
-      {
-        testimonial: 'Our caregiver was amazing! She provided not just physical help but emotional support during a challenging time. She taught us breastfeeding techniques, helped with household tasks, and gave us confidence as new parents. Highly recommend their services.',
-        name: 'David & Michelle L.',
-        job: 'First-Time Parents',
-        image: {
-          alt: 'Client testimonial',
-        },
-      },
-      {
-        testimonial: 'The overnight care was a lifesaver. Being able to get proper sleep while knowing our baby was in expert hands made such a difference in my recovery. The caregiver was professional, gentle, and truly cared about our family\'s wellbeing.',
-        name: 'Emily R.',
-        job: 'Postpartum Care Client',
-        image: {
-          alt: 'Client testimonial',
-        },
-      },
-      {
-        testimonial: 'As a Korean family, it was important for us to have a caregiver who understood our cultural practices. Mom Helper USA matched us with a wonderful Korean-speaking caregiver who provided traditional postpartum care. We felt understood and well-cared for.',
-        name: 'Minseo P.',
-        job: 'Mother',
-        image: {
-          alt: 'Client testimonial',
-        },
-      },
-      {
-        testimonial: 'I cannot recommend Mom Helper USA enough. Their caregiver helped with everything - from baby care to meal preparation to emotional support. She became like family to us during those precious early weeks with our newborn.',
-        name: 'Amanda T.',
-        job: 'New Mother',
-        image: {
-          alt: 'Client testimonial',
-        },
-      },
-    ]}
-  />
+  <!-- Blog Post Previews -->
+  <section class="px-4 py-12 mx-auto max-w-5xl">
+    <h1 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Client Reviews</h1>
 
-  <!-- Call to Action Widget -->
-  <CallToAction
-    title="Ready to Experience This Care?"
-    subtitle="Join the many families who have benefited from our professional postpartum care services."
-    actions={[
+    <div class="space-y-12">
       {
-        variant: 'primary',
-        text: 'Book Your Care',
-        href: '/book-online',
-      },
-      {
-        variant: 'secondary',
-        text: 'Contact Us',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="subtitle">
-      <p class="text-xl mb-4">Email: <a href="mailto:momhelperusa10@gmail.com" class="text-primary-600 hover:underline">momhelperusa10@gmail.com</a></p>
-      <p class="text-xl mb-4">Phone: <a href="tel:+12138084415" class="text-primary-600 hover:underline">(213) 808-4415</a></p>
-      <p class="text-xl">Kakao Talk ID: momhelper.usa</p>
-    </Fragment>
-  </CallToAction>
+        reviewPosts.map((post) => {
+          // Extract first paragraph as excerpt
+          const content = post.body || '';
+          const firstParagraph = content.split('\n\n').find((p) => p.trim() && !p.startsWith('#'));
+          const excerpt = firstParagraph ? firstParagraph.replace(/^##\s+/, '').substring(0, 200) + '...' : '';
+
+          return (
+            <article class="border-b border-gray-200 dark:border-gray-700 pb-12 last:border-0">
+              <h2 class="text-2xl font-bold mb-4">
+                <a
+                  href={`/${post.slug}`}
+                  class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                >
+                  {post.data.title}
+                </a>
+              </h2>
+
+              {excerpt && <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{excerpt}</p>}
+
+              <a href={`/${post.slug}`} class="text-[18px] font-medium" style="color: rgb(211, 118, 67);">
+                Read More
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
 </Layout>

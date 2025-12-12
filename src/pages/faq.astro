@@ -1,204 +1,64 @@
 ---
-import Hero from '~/components/widgets/Hero.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: 'FAQ — Mom Helper USA',
+  title: 'Q & A | Mom Helper USA',
+  description: 'Frequently asked questions about postpartum care services from Mom Helper USA.',
 };
+
+const faqs = [
+  {
+    question: 'What qualifications do postpartum caregivers have?',
+    answer: 'The postpartum caregivers we dispatch are trained professionals who have completed specialized courses in newborn care, breastfeeding support, and maternal health management. They possess essential certifications, including CPR and first aid. These caregivers are not only trained through basic courses but have also completed systematic professional postpartum care training and passed evaluations. Additionally, they are experts who prioritize the safety and health of mothers and babies, leveraging years of accumulated professional knowledge.'
+  },
+  {
+    question: 'What is included in the postpartum care service?',
+    answer: 'Our service includes newborn care, assisting with the mother\'s physical recovery, meal preparation, light housekeeping, newborn sleep training, breastfeeding support, and nutritional management. Services can be added or adjusted according to the client\'s needs.'
+  },
+  {
+    question: 'How long is the service period?',
+    answer: 'The service period varies depending on the needs and circumstances of the client. Typically, we recommend a period of 2 to 12 weeks, but we can provide services for shorter or longer durations as needed.'
+  },
+  {
+    question: 'How do I make a reservation?',
+    answer: 'You can fill out the reservation form on our website or schedule a consultation directly by phone. When making a reservation, please specify your desired service start date, location, and any special requirements.'
+  },
+  {
+    question: 'Can I change my postpartum caregiver?',
+    answer: 'Yes, if you feel that the match with your postpartum caregiver is not ideal, you can request a change at any time. We prioritize our clients\' satisfaction and comfort, and we will provide a suitable replacement as needed.'
+  },
+  {
+    question: 'Is there anything I need to prepare when using the postpartum caregiver service?',
+    answer: 'There is nothing specific you need to prepare, but having a list of your baby\'s necessities and any special requests ready before the caregiver arrives can help ensure smoother service.'
+  }
+];
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget -->
-  <Hero
-    tagline="Frequently Asked Questions"
-    title="Questions & Answers"
-  >
-    <Fragment slot="subtitle">
-      Find answers to common questions about our postpartum care services. Can't find what you're looking for? Contact us directly.
-    </Fragment>
-  </Hero>
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="Q & A" />
 
-  <!-- FAQs Widget - Service Related -->
-  <FAQs
-    title="Service Related"
-    subtitle="General questions about postpartum care services"
-    tagline="Service Information"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'What is postpartum care service?',
-        description: 'Postpartum care is professional service where trained caregivers care for mothers and newborns. It includes maternal care (nutritious meals, health monitoring, breast care, etc.), newborn care (feeding, bathing, diaper changes, sleep management, etc.), and household support (cleaning, laundry, meal preparation, etc.).',
-      },
-      {
-        title: 'What is the minimum service period?',
-        description: 'The minimum service period is 2 weeks (14 days). You can book services in 2-week, 4-week, 6-week, 8-week, or 10-week periods. Most clients choose 4 weeks or longer.',
-      },
-      {
-        title: 'What is the difference between commuting and live-in care?',
-        description: 'Commuting care means the caregiver visits daily from 9am to 5pm to provide services. Live-in care means the caregiver stays at your home 24 hours for weekdays (Monday-Friday). Live-in costs more but includes nighttime care so mothers can rest properly.',
-      },
-      {
-        title: 'Who are your caregivers?',
-        description: 'All caregivers are experienced professionals in postpartum and newborn care. They have completed background checks and received relevant training. They are fluent in both Korean and English for smooth communication.',
-      },
-      {
-        title: 'Can I meet the caregiver in advance?',
-        description: 'Yes, after booking confirmation and before service begins, you can have a pre-meeting or phone consultation with your caregiver. This allows you to communicate your family\'s special requirements and preferences in advance.',
-      },
-      {
-        title: 'Can I replace a caregiver if I\'m not satisfied?',
-        description: 'Yes, it is possible. If caregiver replacement is necessary, please contact us immediately and we will assign a new caregiver. However, caregiver replacement may require schedule adjustments and additional fees may apply depending on the situation.',
-      },
-    ]}
-  />
+  <!-- FAQ Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-800">Frequently Asked Questions</h2>
 
-  <!-- FAQs Widget - Pricing Related -->
-  <FAQs
-    title="Pricing Related"
-    subtitle="Questions about service fees and payment"
-    tagline="Pricing Information"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'How much does the service cost?',
-        description: 'Service fees vary by duration, type (commuting/live-in), and region. 2-week commuting starts from $3,200, and live-in starts from $3,600. Please refer to our pricing page or contact us directly for detailed rates.',
-      },
-      {
-        title: 'How much is the deposit?',
-        description: 'Deposits vary by service duration: 2 weeks ($300), 4 weeks ($500), 6 weeks ($700), 8 weeks ($900), and 10 weeks ($1,100). The deposit is included in the total service fee and must be paid upon booking confirmation.',
-      },
-      {
-        title: 'Are there additional fees for extra family members?',
-        description: 'Yes, additional fees apply for family members beyond the basic composition (mother, spouse, newborn). The first additional family member is $150-$250 per week depending on region. Please check the pricing page for details.',
-      },
-      {
-        title: 'What is the rate for twins?',
-        description: 'For twins, there is a 50% surcharge on the basic service rate. For example, if 4-week commuting care costs $6,000, twins would be $9,000.',
-      },
-      {
-        title: 'What payment methods do you accept?',
-        description: 'We accept payment by check, Zelle, cash, and wire transfer. The deposit is due upon booking confirmation, and the balance can be paid before service starts or during the service period.',
-      },
-      {
-        title: 'What is your refund policy?',
-        description: 'Cancellations made 7 days or more before service start receive a 50% refund of the deposit. Cancellations within 7 days of service start are non-refundable. For early termination during service, refunds are negotiated after deducting costs for services already provided.',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
-
-  <!-- FAQs Widget - Reservation Related -->
-  <FAQs
-    title="Reservation Related"
-    subtitle="Questions about service booking and scheduling"
-    tagline="Booking Information"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'When should I book?',
-        description: 'We recommend booking at least 1-2 months before your due date. During peak season (September-December), bookings fill up quickly, so booking as early as possible is advisable.',
-      },
-      {
-        title: 'What if my due date is not certain?',
-        description: 'You can book based on your expected due date. If your actual delivery date changes, we will adjust the schedule for free. Date changes are free up to 7 days before service start.',
-      },
-      {
-        title: 'Can I change service dates?',
-        description: 'Yes, date changes are free up to 7 days before service start. Changes within 7 days of service start are subject to caregiver availability and may incur a change fee.',
-      },
-      {
-        title: 'Can I extend the service period?',
-        description: 'Yes, extensions are possible during service. However, extending with the same caregiver depends on their next schedule availability. If unavailable, you can extend with a different caregiver.',
-      },
-      {
-        title: 'Can I get urgent service right away?',
-        description: 'If caregiver schedules allow, we will provide service as quickly as possible. For urgent needs, please call us directly for immediate confirmation.',
-      },
-      {
-        title: 'Can I receive service on holidays?',
-        description: 'Yes, it is possible. However, additional holiday pay applies for major holidays like Christmas, Thanksgiving, and New Year\'s Day. Service periods including holidays require advance discussion during booking.',
-      },
-    ]}
-  />
-
-  <!-- FAQs Widget - Service Area -->
-  <FAQs
-    title="Service Area"
-    subtitle="Questions about service coverage areas"
-    tagline="Area Information"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'What areas do you serve?',
-        description: 'We primarily serve LA County, Orange County, Riverside County, and San Bernardino County. Other areas may also be serviced depending on the situation - please inquire.',
-      },
-      {
-        title: 'Do rates vary by region?',
-        description: 'Yes, while basic service rates are the same, additional fees for extra family members may vary by region. LA County has the lowest rates, with costs increasing for more distant areas.',
-      },
-      {
-        title: 'Can I receive service in other states?',
-        description: 'Long-distance and out-of-state services are available outside California. Additional costs for transportation and accommodation apply, so please inquire separately.',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
-
-  <!-- FAQs Widget - Other Services -->
-  <FAQs
-    title="Other Services"
-    subtitle="Questions about services beyond postpartum care"
-    tagline="Additional Services"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Do you provide babysitting services?',
-        description: 'Yes, in addition to postpartum care, we provide babysitting, housekeeping, and caregiver services. We offer professional childcare for infants through school-age children, with hourly, daily, or regular schedules available.',
-      },
-      {
-        title: 'Can I use housekeeping services separately?',
-        description: 'Yes, housekeeping services can be used independently. We provide various home services including general cleaning, deep cleaning, laundry, and meal preparation. Please refer to our Other Services page for details.',
-      },
-      {
-        title: 'Do you provide caregiver services?',
-        description: 'Yes, we provide professional caregiver services for elderly, post-surgery patients, and those with chronic illnesses. Services are available both at home and in medical facilities, and we support IHSS (In-Home Supportive Services) programs.',
-      },
-      {
-        title: 'Can I use postpartum care and other services together?',
-        description: 'Yes, it is possible. For example, you can use babysitting services for your first child while receiving postpartum care. Discount benefits are available for combined services - please inquire.',
-      },
-    ]}
-  />
-
-  <!-- Call to Action Widget -->
-  <CallToAction
-    title="Still Have Questions?"
-    subtitle="Contact us and we'll be happy to help"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '/contact',
-      },
-      {
-        variant: 'secondary',
-        text: 'Book Online',
-        href: '/book-online',
-      },
-    ]}
-  >
-    <Fragment slot="subtitle">
-      <p class="text-xl mb-4">Email: <a href="mailto:momhelperusa10@gmail.com" class="text-primary-600 hover:underline">momhelperusa10@gmail.com</a></p>
-      <p class="text-xl mb-4">Phone: <a href="tel:+12138084415" class="text-primary-600 hover:underline">(213) 808-4415</a></p>
-      <p class="text-xl">Kakao Talk ID: momhelper.usa</p>
-    </Fragment>
-  </CallToAction>
-</Layout>
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details class="group bg-gray-50 rounded-lg">
+            <summary class="flex justify-between items-center cursor-pointer p-6 font-semibold text-gray-800 hover:text-[#d37643]">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-[#d37643] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-gray-700">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

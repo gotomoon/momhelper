@@ -1,0 +1,167 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Terms & Conditions — Mom Helper USA',
+  description: 'Mom Helper USA service terms and conditions and privacy policy',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Widget -->
+  <Hero
+    tagline="Terms & Conditions"
+    title="Service Terms and Conditions"
+    subtitle="Terms applicable when using Mom Helper USA services"
+  />
+
+  <!-- Terms Content -->
+  <section class="px-4 py-16 mx-auto max-w-4xl">
+    <article class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-muted mb-8"><strong>Last Updated:</strong> January 1, 2025</p>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 1 (Purpose)</h2>
+      <p class="mb-6">
+        These terms and conditions are intended to define the basic matters regarding the rights, obligations,
+        and responsibilities between Mom Helper USA (hereinafter referred to as "the Company") and users,
+        as well as the service conditions and procedures for postpartum care and other home support services.
+      </p>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 2 (Definition of Terms)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li><strong>"Service"</strong> refers to postpartum care, babysitting, housekeeping, and caregiving services provided by the Company.</li>
+        <li><strong>"User"</strong> refers to customers who use the services provided by the Company in accordance with these terms.</li>
+        <li><strong>"Caregiver"</strong> refers to professional personnel dispatched by the Company to provide services.</li>
+        <li><strong>"Commute Type"</strong> refers to a service format where the caregiver visits daily during set hours (9 AM - 5 PM).</li>
+        <li><strong>"Live-in Type"</strong> refers to a service format where the caregiver stays at the user's home and provides 24-hour service.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 3 (Effect and Amendment of Terms)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>These terms shall be effective for all users who wish to use the service.</li>
+        <li>The Company may amend these terms as necessary within the scope of applicable laws, and amended terms shall become effective upon posting on the website.</li>
+        <li>If users do not agree to the amended terms, they may discontinue service use and terminate the contract.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 4 (Provision and Changes of Services)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>The Company provides the following services:
+          <ul class="list-disc pl-6 mt-3 space-y-2">
+            <li>Postpartum care services (mother care, newborn care, household support)</li>
+            <li>Babysitter and nanny services</li>
+            <li>Housekeeping services</li>
+            <li>Caregiving services</li>
+          </ul>
+        </li>
+        <li>Service content is determined according to individual contracts with users.</li>
+        <li>The Company may change the service content for reasonable reasons and will notify users immediately.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 5 (Establishment of Service Contract)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>Service contracts are established upon user application and Company acceptance.</li>
+        <li>The Company may refuse service provision in the following cases:
+          <ul class="list-disc pl-6 mt-3 space-y-2">
+            <li>When the application contains false information, omissions, or errors</li>
+            <li>When service provision is technically impossible</li>
+            <li>Other cases deemed necessary by the Company</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 6 (Reservation and Deposit)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>Service reservations should be made at least 1-2 months before the expected due date.</li>
+        <li>A deposit must be paid according to the service period for reservation confirmation.</li>
+        <li>The deposit is included in the total service fee and will be settled after service completion.</li>
+        <li>50% of the deposit will be refunded for cancellations made at least 7 days before service start.</li>
+        <li>No refund for cancellations made within 7 days of service start.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 7 (Fees and Payment)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>Service fees vary according to service type, period, and region, and are specified at contract signing.</li>
+        <li>Payment methods include check, Zelle, cash, and wire transfer.</li>
+        <li>Deposit is due upon reservation confirmation, and balance is due before or during service period.</li>
+        <li>Additional pay for holiday work will be notified in advance.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 8 (Service Schedule Changes and Cancellation)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>Free schedule changes are available up to 7 days before service start.</li>
+        <li>Changes within 7 days of service start may incur change fees.</li>
+        <li>The Company is not responsible for service unavailability due to force majeure such as natural disasters or epidemics.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 9 (Company's Obligations)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>The Company dispatches professional and experienced caregivers to provide quality service.</li>
+        <li>The Company conducts background checks on caregivers and provides necessary training.</li>
+        <li>The Company protects users' personal information and complies with relevant laws.</li>
+        <li>The Company responds promptly to issues arising during service provision.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 10 (User's Obligations)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>Users must comply with these terms and relevant laws.</li>
+        <li>Users must cooperate to ensure caregivers can work in a safe and comfortable environment.</li>
+        <li>Users must disclose all relevant information in advance, including pets and special health conditions.</li>
+        <li>Users may not request tasks outside the scope of service from caregivers.</li>
+        <li>Users must respect and treat caregivers courteously.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 11 (Service Scope and Limitations)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>Caregivers are not medical professionals and do not provide medical services (injections, medication administration, etc.).</li>
+        <li>In emergencies, caregivers will immediately contact 911 and notify users.</li>
+        <li>Caregivers provide services only within the scope specified in the contract.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 12 (Liability and Indemnification)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>The Company is responsible for damages caused to users by the caregiver's intentional or gross negligence.</li>
+        <li>However, the Company is not responsible in the following cases:
+          <ul class="list-disc pl-6 mt-3 space-y-2">
+            <li>Force majeure such as natural disasters, war, or riots</li>
+            <li>Cases attributable to user fault</li>
+            <li>Unforeseeable accidents during normal service performance</li>
+          </ul>
+        </li>
+        <li>Property damage will be resolved through consultation depending on circumstances.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 13 (Personal Information Protection)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>The Company protects users' personal information in accordance with relevant laws.</li>
+        <li>Collected personal information is used only for service provision purposes and is not provided to third parties.</li>
+        <li>Users may request to view, modify, or delete their personal information at any time.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 14 (Dispute Resolution)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>In case of disputes related to service use, the Company and users shall make efforts to resolve them amicably through mutual consultation.</li>
+        <li>If consultation fails, the matter shall be resolved in the competent court according to California state law.</li>
+      </ol>
+
+      <h2 class="text-3xl font-bold mt-12 mb-6">Article 15 (Governing Law and Jurisdiction)</h2>
+      <ol class="list-decimal pl-6 mb-6 space-y-3">
+        <li>These terms shall be interpreted and applied according to the laws of the State of California, USA.</li>
+        <li>Lawsuits related to service use shall be filed in the court having jurisdiction over the Company's headquarters location.</li>
+      </ol>
+
+      <div class="bg-blue-50 dark:bg-slate-800 p-8 rounded-lg mt-12">
+        <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+        <p class="mb-4">If you have any questions about these terms, please contact us:</p>
+        <p class="mb-2"><strong>Mom Helper USA</strong></p>
+        <p class="mb-2"><strong>Phone:</strong> (213) 808-4415</p>
+        <p class="mb-2"><strong>Email:</strong> momhelperusa10@gmail.com</p>
+        <p><strong>Kakao Talk:</strong> momhelper.usa</p>
+      </div>
+
+      <p class="text-center text-muted mt-12 pt-8 border-t">
+        These terms are effective as of January 1, 2025.
+      </p>
+    </article>
+  </section>
+</PageLayout>

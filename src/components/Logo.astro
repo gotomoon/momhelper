@@ -5,22 +5,22 @@ import logoDark from '~/assets/images/momhelper/logos/logo-white.webp';
 ---
 
 <div class="flex items-center">
-  <!-- Logo for light mode (matches WordPress 92% of header height = ~75px) -->
+  <!-- Logo for light mode (enlarged to 100px) -->
   <Image
     src={logoLight}
     alt="Mom Helper USA"
-    class="h-[75px] w-auto max-h-[92%] dark:hidden transition-all duration-300"
+    class="h-[100px] w-auto dark:hidden transition-all duration-300"
     loading="eager"
-    width={150}
-    height={150}
+    width={200}
+    height={200}
   />
   <!-- Logo for dark mode -->
   <Image
     src={logoDark}
     alt="Mom Helper USA"
-    class="h-[75px] w-auto max-h-[92%] hidden dark:block transition-all duration-300"
+    class="h-[100px] w-auto hidden dark:block transition-all duration-300"
     loading="eager"
-    width={150}
-    height={150}
+    width={200}
+    height={200}
   />
 </div>

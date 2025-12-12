@@ -12,11 +12,17 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        // MomHelper Custom Colors
+        'mh-orange': '#D37643',
+        'mh-orange-dark': '#B8551F',
+        'mh-gray': '#6B6B6B',
+        'mh-bg-cream': '#fef0da',
+        'mh-bg-pink': '#ffc1c1',
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        sans: ['"Open Sans"', 'var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        heading: ['"Candal"', 'var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {

@@ -15,91 +15,138 @@ const metadata = {
   <!-- Other Service Types Section -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-800">기타 서비스 타입</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-16 text-center text-gray-800">기타 서비스 타입</h2>
 
       <!-- 베이비시터/내니 -->
-      <div class="mb-16">
-        <h3 class="text-xl md:text-2xl font-bold text-gray-800">베이비시터/내니</h3>
-        <div class="w-16 h-1 bg-[#d37643] mb-8"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div>
-            <img
-              src="/images/babysitting.webp"
-              alt="베이비시터/내니"
-              class="w-full h-auto rounded-lg"
-            />
+      <div class="mb-20">
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <div class="w-full md:w-1/2">
+            <div
+              class="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
+            >
+              <img src="/images/babysitting.webp" alt="베이비시터/내니" class="w-full h-auto object-cover" />
+            </div>
           </div>
-          <div>
-            <p class="text-[#d37643] font-semibold mb-4">
+          <div class="w-full md:w-1/2">
+            <h3 class="text-2xl md:text-3xl font-bold text-mh-orange-dark mb-2">베이비시터/내니</h3>
+            <div class="w-16 h-1 bg-mh-orange mb-6"></div>
+
+            <p class="text-mh-orange font-semibold mb-4 text-lg">
               엄마의 마음으로 사랑하는 자녀들이 엄마의 빈 자리를 느끼지 않도록 보살펴드립니다.
             </p>
-            <p class="text-gray-700 mb-6">
-              각 연령층에 필요한 놀이, 이유식, 식사/간식 준비, 목욕, 픽업 등을 지원하며, 자녀들이 안전하게 지낼 수 있도록 보살펴 드립니다.
+            <p class="text-gray-700 mb-8 leading-relaxed">
+              각 연령층에 필요한 놀이, 이유식, 식사/간식 준비, 목욕, 픽업 등을 지원하며, 자녀들이 안전하게 지낼 수
+              있도록 보살펴 드립니다.
             </p>
-            <h4 class="font-bold text-gray-800 mb-3">연령별 서비스</h4>
-            <ul class="list-disc list-inside space-y-2 text-gray-700">
-              <li><strong>0세 – 2세:</strong> 아기에 관련된 일(수유, 이유식 준비, 식사/간식 준비, 젖병 소독, 아기 옷 세탁 및 정리, 아기 방/아기용품 관리) 등이 주된 업무이며 가사활동은 이용자와 사전 협의에 의해 조정합니다.</li>
-              <li><strong>3세 – 학생:</strong> 각 연령층에 맞는 놀이, 간식/식사 준비, 목욕(옵션), 픽업 등이 주된 업무이며, 가사활동은 이용자와 사전 협의에 의해 조정합니다.</li>
-            </ul>
+
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+              <h4 class="font-bold text-mh-orange-dark mb-4 text-lg">연령별 서비스</h4>
+              <ul class="space-y-4 text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2 mt-1">•</span>
+                  <span
+                    ><strong>0세 – 2세:</strong> 아기에 관련된 일(수유, 이유식 준비, 식사/간식 준비, 젖병 소독, 아기 옷 세탁
+                    및 정리, 아기 방/아기용품 관리) 등이 주된 업무이며 가사활동은 이용자와 사전 협의에 의해 조정합니다.</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2 mt-1">•</span>
+                  <span
+                    ><strong>3세 – 학생:</strong> 각 연령층에 맞는 놀이, 간식/식사 준비, 목욕(옵션), 픽업 등이 주된 업무이며,
+                    가사활동은 이용자와 사전 협의에 의해 조정합니다.</span
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- 가사 도움 -->
-      <div class="mb-16">
-        <h3 class="text-xl md:text-2xl font-bold text-gray-800">가사 도움</h3>
-        <div class="w-16 h-1 bg-[#d37643] mb-8"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div class="order-2 md:order-1">
-            <p class="text-[#d37643] font-semibold mb-4">
+      <div class="mb-20">
+        <div class="flex flex-col md:flex-row-reverse gap-12 items-start">
+          <div class="w-full md:w-1/2">
+            <div
+              class="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
+            >
+              <img src="/images/housekeeping-cooking.webp" alt="가사 도움" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <h3 class="text-2xl md:text-3xl font-bold text-mh-orange-dark mb-2">가사 도움</h3>
+            <div class="w-16 h-1 bg-mh-orange mb-6"></div>
+
+            <p class="text-mh-orange font-semibold mb-4 text-lg">
               가정을 방문하여 집안청소, 세탁, 정리정돈, 주방 정리, 식사 준비 등을 도와드립니다.
             </p>
-            <h4 class="font-bold text-gray-800 mb-3">가사도움인 형태</h4>
-            <ul class="list-disc list-inside space-y-2 text-gray-700">
-              <li><strong>가사 도움:</strong> 이용자의 가정을 방문하여 음식준비외 집안청소, 세탁, 정리정돈, 주방 정리 등을 도와 드립니다.</li>
-              <li><strong>청소 도움:</strong> 가정집, 오피스 청소 혹은 이사 전후 청소해 드립니다.</li>
-              <li><strong>음식 도움:</strong> 천연 조미료를 이용한 엄마표 식사 준비해 드립니다.</li>
-            </ul>
-          </div>
-          <div class="order-1 md:order-2">
-            <img
-              src="/images/housekeeping-cooking.webp"
-              alt="가사 도움"
-              class="w-full h-auto rounded-lg"
-            />
+
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+              <h4 class="font-bold text-mh-orange-dark mb-4 text-lg">가사도움인 형태</h4>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2">•</span><span
+                    ><strong>가사 도움:</strong> 이용자의 가정을 방문하여 음식준비외 집안청소, 세탁, 정리정돈, 주방 정리
+                    등을 도와 드립니다.</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2">•</span><span
+                    ><strong>청소 도움:</strong> 가정집, 오피스 청소 혹은 이사 전후 청소해 드립니다.</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2">•</span><span
+                    ><strong>음식 도움:</strong> 천연 조미료를 이용한 엄마표 식사 준비해 드립니다.</span
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- 간병인 서비스 -->
-      <div class="mb-16">
-        <h3 class="text-xl md:text-2xl font-bold text-gray-800">간병인 서비스</h3>
-        <div class="w-16 h-1 bg-[#d37643] mb-8"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div>
-            <img
-              src="/images/caregiver.webp"
-              alt="간병인 서비스"
-              class="w-full h-auto rounded-lg"
-            />
+      <div class="mb-12">
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <div class="w-full md:w-1/2">
+            <div
+              class="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
+            >
+              <img src="/images/caregiver.webp" alt="간병인 서비스" class="w-full h-auto object-cover" />
+            </div>
           </div>
-          <div>
-            <p class="text-[#d37643] font-semibold mb-4">
+          <div class="w-full md:w-1/2">
+            <h3 class="text-2xl md:text-3xl font-bold text-mh-orange-dark mb-2">간병인 서비스</h3>
+            <div class="w-16 h-1 bg-mh-orange mb-6"></div>
+
+            <p class="text-mh-orange font-semibold mb-4 text-lg">
               보호자와 가족을 대신해서 간병이 필요하신 집이나 병원 / 양로병원에 가서 도와드립니다.
             </p>
-            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-6">
-              <li><strong>청소:</strong> 환자 방, 화장실 등 환자가 사용하는 공간</li>
-              <li><strong>환자 식사/간식 준비</strong></li>
-              <li><strong>세탁:</strong> 환자 가운, 의복, 침대시트, 수건</li>
-              <li>산책 및 운동</li>
-              <li><strong>개인 서비스 지원:</strong> 배변 및 방광 치료, 목욕, 머리 손질</li>
-              <li>환자에 따라 요구되는 서비스가 다를 수 있습니다.</li>
+
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 mb-8">
+              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>청소 (환자 방/화장실)</li>
+              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>환자 식사/간식 준비</li>
+              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>세탁 (환자 의복/시트)</li>
+              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>산책 및 운동</li>
+              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>개인 서비스 지원</li>
+              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>맞춤형 서비스</li>
             </ul>
-            <h4 class="font-bold text-gray-800 mb-3">간병인 형태</h4>
-            <ul class="list-disc list-inside space-y-2 text-gray-700">
-              <li><strong>개인 간병인:</strong> 입주, 출퇴근 (풀타임, 파트타임), 심야, 단기간</li>
-              <li><strong>IHSS 간병인:</strong> IHSS 수혜자의 매월 서비스 시간에 따라 이용자와 상의하여 조정합니다.</li>
-            </ul>
+
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+              <h4 class="font-bold text-mh-orange-dark mb-4 text-lg">간병인 형태</h4>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2">•</span><span
+                    ><strong>개인 간병인:</strong> 입주, 출퇴근 (풀타임, 파트타임), 심야, 단기간</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span class="text-mh-orange mr-2">•</span><span
+                    ><strong>IHSS 간병인:</strong> IHSS 수혜자의 매월 서비스 시간에 따라 이용자와 상의하여 조정합니다.</span
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -107,15 +154,17 @@ const metadata = {
   </section>
 
   <!-- Service Types and Work Forms Section -->
-  <section class="py-16 md:py-20 bg-gray-50">
+  <section class="py-16 md:py-20 bg-mh-bg-cream/30">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-gray-800">서비스 타입 및 근무형태</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-gray-800 text-center">서비스 타입 및 근무형태</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <!-- 출퇴근형 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-lg font-bold text-[#d37643] mb-4">출퇴근형</h3>
-          <p class="text-gray-700">
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-mh-orange hover:-translate-y-1 transition-transform duration-300"
+        >
+          <h3 class="text-xl font-bold text-mh-orange-dark mb-4">출퇴근형</h3>
+          <p class="text-gray-700 leading-relaxed">
             오전 9시 – 오후 5시 (월-금)<br />
             또는 이용자 스케줄에 맞춰 근무<br />
             풀타임 근무시 매일 휴식시간 1시간 포함됩니다.
@@ -123,9 +172,11 @@ const metadata = {
         </div>
 
         <!-- 입주형 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-lg font-bold text-[#d37643] mb-4">입주형</h3>
-          <p class="text-gray-700">
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-mh-orange hover:-translate-y-1 transition-transform duration-300"
+        >
+          <h3 class="text-xl font-bold text-mh-orange-dark mb-4">입주형</h3>
+          <p class="text-gray-700 leading-relaxed">
             상주하면서 서비스 제공, (월-금)<br />
             일정은 협의에 의해 조정 가능합니다.<br />
             매일 휴식시간 3시간 포함됩니다.
@@ -133,9 +184,11 @@ const metadata = {
         </div>
 
         <!-- 장거리/타주 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-lg font-bold text-[#d37643] mb-4">장거리 / 타주 서비스</h3>
-          <p class="text-gray-700">
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-mh-orange hover:-translate-y-1 transition-transform duration-300"
+        >
+          <h3 class="text-xl font-bold text-mh-orange-dark mb-4">장거리 / 타주 서비스</h3>
+          <p class="text-gray-700 leading-relaxed">
             특성상 서비스 기간, 주말 근무 및 기타 조건을 관리사와 사전 조정할 수 있습니다.
           </p>
         </div>
@@ -146,15 +199,35 @@ const metadata = {
   <!-- Additional Information Section -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">기타사항</h2>
-      <ul class="list-disc list-inside space-y-3 text-gray-700">
-        <li>계약 시 결정된 업무 내용이나 간병인의 업무와 무관한 일 (베이비시팅, 기타 가족 식사 준비/픽업, 손님 식사접대, 김치 담그기, 대청소 등)을 요구할 수 없습니다.</li>
-        <li>집안 내 카메라 설치 여부 혹은 설치 계획 여부를 회사에 알려주셔야 합니다.</li>
-        <li>근무 시작한 후에 발생한 변경 사항 (예; 근무 시간 변경 혹은 근무일 추가, 업무내용 변경 등)이 발생하게 되면 회사에 연락, 의논하시기 바랍니다.</li>
-        <li>투약: 의사 처방레벨이 있는 약만 제공하며, OTC 약/건강 보조제는 가족과 의논한 후에 제공합니다. 만일 약 포장지가 파손된 것이나 유효기간이 지난 것은 가족에게 알립니다.</li>
-        <li>패치 사용: 의사 처방이 있는 것을 사용합니다.</li>
-        <li>보호자/가족 연락처, 환자의 병원 검진 스케줄, 병원/주치의 연락처, 앨러지 (음식, 약 등) 여부, 기타 중요한 정보를 회사에 미리 알려주셔야 합니다.</li>
-      </ul>
+      <div class="bg-gray-50 p-8 md:p-12 rounded-2xl border border-gray-100">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8 text-gray-800">기타사항</h2>
+        <ul class="space-y-4 text-gray-700">
+          <li class="flex items-start">
+            <span class="text-mh-orange mr-3 mt-1">•</span>계약 시 결정된 업무 내용이나 간병인의 업무와 무관한 일
+            (베이비시팅, 기타 가족 식사 준비/픽업, 손님 식사접대, 김치 담그기, 대청소 등)을 요구할 수 없습니다.
+          </li>
+          <li class="flex items-start">
+            <span class="text-mh-orange mr-3 mt-1">•</span>집안 내 카메라 설치 여부 혹은 설치 계획 여부를 회사에
+            알려주셔야 합니다.
+          </li>
+          <li class="flex items-start">
+            <span class="text-mh-orange mr-3 mt-1">•</span>근무 시작한 후에 발생한 변경 사항 (예; 근무 시간 변경 혹은
+            근무일 추가, 업무내용 변경 등)이 발생하게 되면 회사에 연락, 의논하시기 바랍니다.
+          </li>
+          <li class="flex items-start">
+            <span class="text-mh-orange mr-3 mt-1">•</span>투약: 의사 처방레벨이 있는 약만 제공하며, OTC 약/건강
+            보조제는 가족과 의논한 후에 제공합니다. 만일 약 포장지가 파손된 것이나 유효기간이 지난 것은 가족에게
+            알립니다.
+          </li>
+          <li class="flex items-start">
+            <span class="text-mh-orange mr-3 mt-1">•</span>패치 사용: 의사 처방이 있는 것을 사용합니다.
+          </li>
+          <li class="flex items-start">
+            <span class="text-mh-orange mr-3 mt-1">•</span>보호자/가족 연락처, 환자의 병원 검진 스케줄, 병원/주치의
+            연락처, 앨러지 (음식, 약 등) 여부, 기타 중요한 정보를 회사에 미리 알려주셔야 합니다.
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </PageLayout>

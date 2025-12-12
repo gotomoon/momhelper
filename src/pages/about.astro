@@ -1,11 +1,11 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
-import WPImageText from '~/components/wordpress/WPImageText.astro';
 
 const metadata = {
   title: 'About | Mom Helper USA',
-  description: 'Mom Helper USA has been providing professional postpartum care services. Learn about our story and commitment to helping families.',
+  description:
+    'Mom Helper USA has been providing professional postpartum care services. Learn about our story and commitment to helping families.',
 };
 ---
 
@@ -14,12 +14,12 @@ const metadata = {
   <WPPageHero title="About" />
 
   <!-- Introduction Section -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl">
-        <p class="text-lg md:text-xl text-teal-600 font-semibold mb-4">Hello</p>
-        <p class="text-lg md:text-xl text-teal-600 font-semibold mb-6">Thank you for visiting Mom Helper USA.</p>
-        <p class="text-lg md:text-xl text-orange-600 font-semibold mb-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-semibold mb-4">Hello</p>
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-semibold mb-8">Thank you for visiting Mom Helper USA.</p>
+        <p class="text-lg md:text-xl text-mh-orange font-medium leading-relaxed">
           Are you worried about issues related to childbirth and postpartum care, or do you need help?
         </p>
       </div>
@@ -27,87 +27,124 @@ const metadata = {
   </section>
 
   <!-- First Story Section - Image Left, Text Right -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
         <div class="w-full md:w-1/2">
-          <img
-            src="/images/mom-struggling-baby-cutout.webp"
-            alt="Mom struggling with baby"
-            class="w-full h-auto"
-            width="1468"
-            height="1497"
-          />
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500"
+          >
+            <img
+              src="/images/mom-struggling-baby-cutout.webp"
+              alt="Mom struggling with baby"
+              class="w-full h-auto object-cover"
+              width="1468"
+              height="1497"
+            />
+          </div>
         </div>
         <div class="w-full md:w-1/2">
-          <p class="text-base md:text-lg text-gray-700 mb-6">
-            <strong>I, too,</strong> had a difficult time with the issues and worries that came with the birth of my first child. After giving birth, I wasn't able to properly take care of myself postpartum and suffered from symptoms of 'sanhu-pung' (postpartum wind syndrome). At one point, my arms hurt so much that even light tasks were painful and inconvenient. With the advice of the elders around me, I decided that I had to be very careful with my postpartum care when I had my second child.
-          </p>
-          <p class="text-base md:text-lg text-gray-700">
-            To treat and recover from the aftereffects I experienced after my first child, I needed proper postpartum care. For healthy parenting, a healthy home, and a healthy social life, it was essential for me to recover completely. So, a few years later, after giving birth to my second child, I meticulously took care of myself postpartum. As a result, my body recovered, and the restored health was an indescribable surprise and a proven fact. Whenever I faced challenging tasks, I was always grateful that my arms, legs, and back were strong, and I was reminded of the positive outcomes and importance of proper postpartum care.
-          </p>
+          <div class="prose prose-lg text-mh-gray">
+            <p class="mb-6 leading-relaxed">
+              <strong class="text-mh-orange-dark">I, too,</strong> had a difficult time with the issues and worries that
+              came with the birth of my first child. After giving birth, I wasn't able to properly take care of myself postpartum
+              and suffered from symptoms of 'sanhu-pung' (postpartum wind syndrome). At one point, my arms hurt so much that
+              even light tasks were painful and inconvenient. With the advice of the elders around me, I decided that I had
+              to be very careful with my postpartum care when I had my second child.
+            </p>
+            <p class="leading-relaxed">
+              To treat and recover from the aftereffects I experienced after my first child, I needed proper postpartum
+              care. For healthy parenting, a healthy home, and a healthy social life, it was essential for me to recover
+              completely. So, a few years later, after giving birth to my second child, I meticulously took care of
+              myself postpartum. As a result, my body recovered, and the restored health was an indescribable surprise
+              and a proven fact. Whenever I faced challenging tasks, I was always grateful that my arms, legs, and back
+              were strong, and I was reminded of the positive outcomes and importance of proper postpartum care.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Second Story Section - Text Left, Image Right -->
-  <section class="py-12 md:py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+  <section class="py-16 md:py-24 bg-mh-bg-cream/30">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
         <div class="w-full md:w-1/2">
-          <img
-            src="/images/happy-mom-holding-baby-illustration.webp"
-            alt="Happy mom holding baby"
-            class="w-full h-auto"
-            width="1500"
-            height="1500"
-          />
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500"
+          >
+            <img
+              src="/images/happy-mom-holding-baby-illustration.webp"
+              alt="Happy mom holding baby"
+              class="w-full h-auto object-cover"
+              width="1500"
+              height="1500"
+            />
+          </div>
         </div>
         <div class="w-full md:w-1/2">
-          <p class="text-base md:text-lg text-gray-700 mb-6">
-            Later, I underwent professional training for postpartum care and officially started my career as a postpartum caregiver. Having personally experienced the discomfort and challenges after childbirth and its aftereffects, I developed a deep affection for taking care of mothers and babies and could wholeheartedly commit to my role as a postpartum caregiver. Now, with that passion and sense of duty, I have become a valuable helper providing the best methods and support to all mothers and babies in the United States through 'postpartum care specialization, caregiver education management, and dispatch.'
-          </p>
-          <p class="text-base md:text-lg text-gray-700">
-            The pregnancy and birth of a precious baby are the most wondrous blessings that serve as the focal point for the development and unity of a family. I sincerely thank all the mothers and their families who have trusted, supported, and encouraged us to be a part of this blessing.
-          </p>
+          <div class="prose prose-lg text-mh-gray">
+            <p class="mb-6 leading-relaxed">
+              Later, I underwent professional training for postpartum care and officially started my career as a
+              postpartum caregiver. Having personally experienced the discomfort and challenges after childbirth and its
+              aftereffects, I developed a deep affection for taking care of mothers and babies and could wholeheartedly
+              commit to my role as a postpartum caregiver. Now, with that passion and sense of duty, I have become a
+              valuable helper providing the best methods and support to all mothers and babies in the United States
+              through 'postpartum care specialization, caregiver education management, and dispatch.'
+            </p>
+            <p class="leading-relaxed">
+              The pregnancy and birth of a precious baby are the most wondrous blessings that serve as the focal point
+              for the development and unity of a family. I sincerely thank all the mothers and their families who have
+              trusted, supported, and encouraged us to be a part of this blessing.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Third Section - Image Left, Text Right -->
-  <section class="py-12 md:py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
         <div class="w-full md:w-1/2">
-          <img
-            src="/images/happy-mom-illustration-cutout.webp"
-            alt="Happy mom illustration"
-            class="w-full h-auto"
-            width="1500"
-            height="1495"
-          />
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500"
+          >
+            <img
+              src="/images/happy-mom-illustration-cutout.webp"
+              alt="Happy mom illustration"
+              class="w-full h-auto object-cover"
+              width="1500"
+              height="1495"
+            />
+          </div>
         </div>
         <div class="w-full md:w-1/2">
-          <p class="text-base md:text-lg text-gray-700">
-            <span class="text-teal-600"><strong>Mom Helper USA</strong></span> will train and dispatch professional postpartum caregivers to your home to ensure that mothers can recover and babies can be cared for in the best possible way. We aim to be a valuable source of assistance for those who need a helping hand and dedication. The postpartum caregivers dispatched by Mom Helper USA are trained and experienced, helping mothers comfortably recuperate at home with their families during the confusing period of physical and emotional changes after childbirth, ensuring that babies grow up safely and healthily.
-          </p>
+          <div class="prose prose-lg text-mh-gray">
+            <p class="leading-relaxed">
+              <span class="text-mh-orange-dark font-bold text-xl">Mom Helper USA</span> will train and dispatch professional
+              postpartum caregivers to your home to ensure that mothers can recover and babies can be cared for in the best
+              possible way. We aim to be a valuable source of assistance for those who need a helping hand and dedication.
+              The postpartum caregivers dispatched by Mom Helper USA are trained and experienced, helping mothers comfortably
+              recuperate at home with their families during the confusing period of physical and emotional changes after
+              childbirth, ensuring that babies grow up safely and healthily.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Closing Statement -->
-  <section class="py-12 md:py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl">
-        <p class="text-lg md:text-xl text-teal-600 font-semibold mb-4">
+  <section class="py-20 bg-mh-bg-cream">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-semibold mb-6">
           With the utmost care and dedication, we will support you every step of the way.
         </p>
-        <p class="text-lg md:text-xl text-teal-600 font-semibold">
-          Thank you.
-        </p>
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-bold">Thank you.</p>
       </div>
     </div>
   </section>
