@@ -5,6 +5,8 @@ title: 'Early Pregnancy: Finding a Good Obstetrician and Maternity Support Progr
 excerpt: Find good doctors, hospitals, and maternity support programs in the USA. Learn about insurance, Medicaid, WIC, and other resources.
 image: ~/assets/images/momhelper/women-chiropractic.webp
 category: Prenatal Care
+language: en
+translationKey: prenatal-care-guide
 tags:
   - pregnancy
   - prenatal care

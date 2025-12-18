@@ -4,9 +4,10 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import { SITE, METADATA, I18N } from 'astrowind:config';
+import { SITE, METADATA } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
+import { getLanguageAlternates, getLocaleFromPath, getOpenGraphLocale } from '~/utils/i18nRoutes';
 
 import { adaptOpenGraphImages } from '~/utils/images';
 
@@ -22,7 +23,18 @@ const {
   description,
   openGraph = {},
   twitter = {},
+  structuredData,
 } = Astro.props;
+
+const pathname = Astro.url.pathname ?? '/';
+const currentLocale = getLocaleFromPath(pathname);
+const languageAlternates = getLanguageAlternates(pathname);
+const openGraphLocale = getOpenGraphLocale(currentLocale);
+const normalizedStructuredData = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
 
 const seoProps: AstroSeoProps = merge(
   {
@@ -36,7 +48,7 @@ const seoProps: AstroSeoProps = merge(
       url: canonical,
       site_name: SITE?.name,
       images: [],
-      locale: I18N?.language || 'en',
+      locale: openGraphLocale,
       type: 'website',
     },
     twitter: {
@@ -63,6 +75,57 @@ const seoProps: AstroSeoProps = merge(
     twitter: twitter,
   }
 );
+
+seoProps.openGraph = { ...seoProps.openGraph, locale: openGraphLocale };
+seoProps.languageAlternates = languageAlternates.length ? languageAlternates : undefined;
+
+const adaptedOpenGraph = await adaptOpenGraphImages(seoProps?.openGraph, Astro.site);
+const schemaLogo = adaptedOpenGraph?.images?.find((image) => image?.url)?.url;
+const siteUrl = SITE?.site ?? (Astro.site ? String(Astro.site) : '');
+
+const baseStructuredData = siteUrl
+  ? [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': `${siteUrl}#organization`,
+        name: SITE?.name,
+        url: siteUrl,
+        ...(schemaLogo ? { logo: schemaLogo } : {}),
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            contactType: 'customer service',
+            telephone: '+1-213-808-4415',
+            email: 'momhelperusa10@gmail.com',
+            availableLanguage: ['en', 'ko'],
+            areaServed: 'US',
+          },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        '@id': `${siteUrl}#localbusiness`,
+        name: SITE?.name,
+        url: siteUrl,
+        ...(schemaLogo ? { image: schemaLogo } : {}),
+        telephone: '+1-213-808-4415',
+        email: 'momhelperusa10@gmail.com',
+        areaServed: 'US',
+        parentOrganization: {
+          '@id': `${siteUrl}#organization`,
+        },
+      },
+    ]
+  : [];
+
+const allStructuredData = [...baseStructuredData, ...normalizedStructuredData].filter(Boolean);
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<AstroSeo {...{ ...seoProps, openGraph: adaptedOpenGraph }} />
+{
+  allStructuredData.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}

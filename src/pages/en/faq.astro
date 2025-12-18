@@ -2,11 +2,6 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
-const metadata = {
-  title: 'Q & A | Mom Helper USA',
-  description: 'Frequently asked questions about postpartum care services from Mom Helper USA.',
-};
-
 const faqs = [
   {
     question: 'What qualifications do postpartum caregivers have?',
@@ -33,6 +28,25 @@ const faqs = [
     answer: 'There is nothing specific you need to prepare, but having a list of your baby\'s necessities and any special requests ready before the caregiver arrives can help ensure smoother service.'
   }
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const metadata = {
+  title: 'Q & A',
+  description: 'Frequently asked questions about postpartum care services from Mom Helper USA.',
+  structuredData: [faqSchema],
+};
 ---
 
 <PageLayout metadata={metadata}>

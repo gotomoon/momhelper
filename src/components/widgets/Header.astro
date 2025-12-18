@@ -5,6 +5,8 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import Button from '~/components/ui/Button.astro';
 
 import { trimSlash } from '~/utils/permalinks';
+import { getLocaleFromPath, getPathForRoute, getTranslatedPath, type Locale } from '~/utils/i18nRoutes';
+import { getBlogTranslationMap } from '~/utils/blogTranslations';
 import type { CallToAction } from '~/types';
 
 interface Link {
@@ -46,31 +48,10 @@ const {
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 // Define supported locales
-const locales = [
+const locales: Array<{ code: Locale; label: string }> = [
   { code: 'en', label: 'English' },
   { code: 'ko', label: '한국어' },
 ];
-
-// Define route slugs for each language
-const routeSlugs: Record<string, Record<string, string>> = {
-  home: { en: '', ko: '' },
-  about: { en: 'about', ko: 'about' },
-  reviews: { en: 'reviews', ko: '이용후기' },
-  blog: { en: 'blog', ko: 'blog' },
-  contact: { en: 'contact', ko: '연락처' },
-  terms: { en: 'terms', ko: '이용약관' },
-  privacy: { en: 'privacy', ko: '개인정보-처리방침' },
-  'about-postpartum-care': { en: 'about-postpartum-care', ko: '산후조리에-관하여' },
-  'what-is-postpartum-care': { en: 'what-is-postpartum-care', ko: '산후관리사란' },
-  'postpartum-care': { en: 'postpartum-care', ko: '산후관리-서비스' },
-  'pricing': { en: 'pricing', ko: '이용요금-2' },
-  'book-online': { en: 'book-online', ko: '서비스-신청하기' },
-  'other-services': { en: 'other-services', ko: '기타-서비스' },
-  'other-services-booking': { en: 'book-online', ko: '기타-서비스-신청하기' },
-  'faq': { en: 'faq', ko: 'q-a' },
-  'prenatal-postpartum-info': { en: 'prenatal-postpartum-info', ko: '산전-산후조리-정보' },
-  'announcements': { en: 'announcements', ko: '공지사항' },
-};
 
 // Define menu labels in each language
 const menuTranslations: Record<string, Record<string, string>> = {
@@ -103,46 +84,38 @@ const menuTranslations: Record<string, Record<string, string>> = {
 };
 
 // Function to get the path for a route in a specific language
-function getPath(route: string, locale: string): string {
-  try {
-    if (!routeSlugs[route]) {
-      console.error(`Route "${route}" not found in routeSlugs mapping`);
-      return `/${locale}`;
-    }
-
-    if (!(locale in routeSlugs[route])) {
-      console.error(`No slug found for route "${route}" in locale "${locale}"`);
-      return `/${locale}`;
-    }
-
-    const slug = routeSlugs[route][locale];
-    const result = `/${locale}${slug ? '/' + slug : ''}`;
-    return result;
-  } catch (error) {
-    console.error(`Route mapping error for route: ${route} and locale: ${locale}`, error);
+function getPath(route: string, locale: Locale): string {
+  const resolvedPath = getPathForRoute(route, locale);
+  if (!resolvedPath) {
+    console.error(`Route mapping error for route: ${route} and locale: ${locale}`);
     return `/${locale}`;
   }
+  return resolvedPath;
 }
 
 // Get current path information
 const pathname = Astro.url.pathname || '/';
-const segments = pathname.split('/').filter(Boolean);
-const detectedLocale = segments[0] === 'en' ? 'en' : 'ko';
-const currentLocale = propLocale || detectedLocale;
+const blogTranslations = await getBlogTranslationMap();
+const currentSlug = decodeURIComponent(trimSlash(pathname));
+const currentBlogEntry = currentSlug ? blogTranslations[currentSlug] : undefined;
+const detectedLocale = getLocaleFromPath(pathname);
+const currentLocale = propLocale === 'en' || propLocale === 'ko' ? propLocale : detectedLocale;
+const getSwitchHref = (targetLocale: Locale): string => {
+  if (targetLocale === currentLocale) {
+    return pathname;
+  }
 
-// Create mapping between paths and routes
-const staticPathToRoute: Record<string, string> = {};
+  if (currentBlogEntry) {
+    const targetSlug = currentBlogEntry[targetLocale];
+    if (targetSlug) {
+      return `/${trimSlash(targetSlug)}`;
+    }
+    const blogFallback = getPathForRoute('blog', targetLocale);
+    return blogFallback ?? `/${targetLocale}`;
+  }
 
-Object.keys(routeSlugs).forEach((routeKey) => {
-  Object.entries(routeSlugs[routeKey]).forEach(([lang, slug]) => {
-    const path = `/${lang}${slug ? '/' + slug : ''}`;
-    staticPathToRoute[path] = routeKey;
-  });
-});
-
-// Get the canonical route for the current path
-const decodedPathname = decodeURIComponent(pathname);
-const currentStaticRoute = staticPathToRoute[decodedPathname];
+  return getTranslatedPath(pathname, targetLocale);
+};
 
 // Find the route for a given text
 function findRouteForText(text: string): string | null {
@@ -271,29 +244,22 @@ const translatedLinks = translateLinks(links);
         <div class="flex gap-1">
           {
             locales.map((locale) => {
-              let href;
-              if (locale.code === currentLocale) {
-                href = pathname;
-              } else if (currentStaticRoute) {
-                href = getPath(currentStaticRoute, locale.code);
-              } else {
-                const restOfPath = segments.slice(1).join('/');
-                href = `/${locale.code}/${restOfPath}`;
-              }
+              const href = getSwitchHref(locale.code);
               const isActive = locale.code === currentLocale;
               return (
-                <a
-                  href={href}
-                  class:list={[
-                    'px-2 py-1 rounded text-xs font-semibold transition-colors',
-                    isActive
-                      ? 'text-gray-900 dark:text-white border border-gray-900 dark:border-gray-400 bg-gray-100 dark:bg-gray-700'
-                      : 'text-gray-900 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700',
-                  ]}
-                  aria-label={locale.label}
-                >
-                  {locale.label}
-                </a>
+                  <a
+                    href={href}
+                    class:list={[
+                      'px-2 py-1 rounded text-xs font-semibold transition-colors',
+                      isActive
+                        ? 'text-gray-900 dark:text-white border border-gray-900 dark:border-gray-400 bg-gray-100 dark:bg-gray-700'
+                        : 'text-gray-900 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700',
+                    ]}
+                    aria-label={locale.label}
+                    data-lang-switch={locale.code}
+                  >
+                    {locale.label}
+                  </a>
               );
             })
           }
@@ -367,15 +333,7 @@ const translatedLinks = translateLinks(links);
           <div class="flex gap-1">
             {
               locales.map((locale) => {
-                let href;
-                if (locale.code === currentLocale) {
-                  href = pathname;
-                } else if (currentStaticRoute) {
-                  href = getPath(currentStaticRoute, locale.code);
-                } else {
-                  const restOfPath = segments.slice(1).join('/');
-                  href = `/${locale.code}/${restOfPath}`;
-                }
+                const href = getSwitchHref(locale.code);
                 const isActive = locale.code === currentLocale;
                 return (
                   <a

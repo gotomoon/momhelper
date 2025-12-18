@@ -3,6 +3,8 @@ title: '산후조리 후기, Jenny Jung'
 publishDate: 2024-01-05T00:00:00Z
 image: '~/assets/images/default.jpg'
 category: 'Reviews'
+language: ko
+translationKey: review-jenny-jung
 tags:
   - 후기
   - 산후조리

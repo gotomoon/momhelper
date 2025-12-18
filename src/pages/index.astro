@@ -1,0 +1,8 @@
+---
+import { I18N } from 'astrowind:config';
+
+export const prerender = true;
+
+const defaultLocale = I18N?.language === 'ko' ? 'ko' : 'en';
+return Astro.redirect(`/${defaultLocale}`);
+---

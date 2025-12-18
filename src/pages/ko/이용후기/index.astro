@@ -2,17 +2,59 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 import { getCollection } from 'astro:content';
-
-const metadata = {
-  title: '이용후기 — Mom Helper USA',
-  description: 'Mom Helper USA 산후관리 서비스를 이용하신 고객님들의 진솔한 후기를 확인하세요.',
-};
+import { SITE } from 'astrowind:config';
 
 // Get review posts - Korean only
 const allPosts = await getCollection('post');
 const reviewPosts = allPosts
   .filter((post) => post.data.category === 'Reviews' && !post.id.startsWith('review-'))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const reviewItems = reviewPosts.map((post) => {
+  let cleanText = post.data.excerpt || '';
+
+  if (!cleanText) {
+    const content = post.body || '';
+    const firstParagraph = content.split('\n\n').find((p) => p.trim() && !p.startsWith('#'));
+    cleanText = firstParagraph ? firstParagraph.replace(/^##\s+/, '').trim() : '';
+  }
+
+  return {
+    post,
+    snippet: cleanText ? `${cleanText.substring(0, 200)}...` : '',
+    schemaText: cleanText ? cleanText.substring(0, 200) : '',
+    authorName: post.data.author || '고객',
+  };
+});
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: '산후관리 서비스',
+  provider: {
+    '@type': 'Organization',
+    name: SITE?.name || 'Mom Helper USA',
+    ...(SITE?.site ? { url: SITE.site } : {}),
+  },
+  review: reviewItems
+    .filter((item) => item.schemaText)
+    .map((item) => ({
+      '@type': 'Review',
+      name: item.post.data.title,
+      reviewBody: item.schemaText,
+      datePublished: item.post.data.publishDate?.toISOString(),
+      author: {
+        '@type': 'Person',
+        name: item.authorName,
+      },
+    })),
+};
+
+const metadata = {
+  title: '이용후기',
+  description: 'Mom Helper USA 산후관리 서비스를 이용하신 고객님들의 진솔한 후기를 확인하세요.',
+  structuredData: [reviewSchema],
+};
 ---
 
 <PageLayout metadata={metadata}>
@@ -21,20 +63,11 @@ const reviewPosts = allPosts
 
   <!-- Blog Post Previews -->
   <section class="px-4 py-12 mx-auto max-w-5xl">
-    <h1 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">고객 후기</h1>
+    <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">고객 후기</h2>
 
     <div class="space-y-12">
       {
-        reviewPosts.map((post) => {
-          // Use excerpt from frontmatter if available, otherwise extract from content
-          let excerpt = post.data.excerpt || '';
-
-          if (!excerpt) {
-            const content = post.body || '';
-            const firstParagraph = content.split('\n\n').find((p) => p.trim() && !p.startsWith('#'));
-            excerpt = firstParagraph ? firstParagraph.replace(/^##\s+/, '').substring(0, 200) + '...' : '';
-          }
-
+        reviewItems.map(({ post, snippet }) => {
           return (
             <article class="border-b border-gray-200 dark:border-gray-700 pb-12 last:border-0">
               <h2 class="text-2xl font-bold mb-4">
@@ -46,7 +79,7 @@ const reviewPosts = allPosts
                 </a>
               </h2>
 
-              {excerpt && <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{excerpt}</p>}
+              {snippet && <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{snippet}</p>}
 
               <a href={`/ko/이용후기/${post.id.replace('.md', '')}`} class="text-[18px] font-medium" style="color: rgb(211, 118, 67);">
                 더 읽기

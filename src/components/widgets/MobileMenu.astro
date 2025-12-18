@@ -2,7 +2,13 @@
 import { Icon } from 'astro-icon/components';
 import { getLanguageFromPath, headerDataEn, headerDataKo } from '~/navigation';
 
-const currentLocale = getLanguageFromPath(Astro.url.pathname);
+export interface Props {
+  locale?: 'en' | 'ko';
+}
+
+const { locale } = Astro.props;
+const detectedLocale = getLanguageFromPath(Astro.url.pathname);
+const currentLocale = locale === 'en' || locale === 'ko' ? locale : detectedLocale;
 const headerData = currentLocale === 'ko' ? headerDataKo : headerDataEn;
 const { links = [] } = headerData;
 

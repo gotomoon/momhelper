@@ -29,6 +29,10 @@ export interface Post {
   tags?: Taxonomy[];
   /**  */
   author?: string;
+  /**  */
+  language?: 'en' | 'ko';
+  /**  */
+  translationKey?: string;
 
   /**  */
   metadata?: MetaData;
@@ -61,6 +65,7 @@ export interface MetaData {
 
   openGraph?: MetaDataOpenGraph;
   twitter?: MetaDataTwitter;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 export interface MetaDataRobots {

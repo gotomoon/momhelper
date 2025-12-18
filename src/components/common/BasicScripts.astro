@@ -1,5 +1,9 @@
 ---
 import { UI } from 'astrowind:config';
+import { getLocaleFromPath, locales, routeLocaleAvailability, routeSlugs } from '~/utils/i18nRoutes';
+import { getBlogTranslationMap } from '~/utils/blogTranslations';
+
+const blogTranslations = await getBlogTranslationMap();
 ---
 
 <script is:inline define:vars={{ defaultTheme: UI.theme }}>
@@ -256,119 +260,105 @@ import { UI } from 'astrowind:config';
 
 <script is:inline>
   // Handle Language Switcher
-  document.addEventListener('DOMContentLoaded', () => {
-    // Function to get the current path segments
-    const getPathSegments = () => {
-      const pathname = window.location.pathname;
-      return pathname.split('/').filter(Boolean);
-    };
+  const LANGUAGE_SWITCHER_DATA = {
+    locales: ${JSON.stringify(locales)},
+    routeSlugs: ${JSON.stringify(routeSlugs)},
+    routeLocaleAvailability: ${JSON.stringify(routeLocaleAvailability)},
+    blogTranslations: ${JSON.stringify(blogTranslations)},
+    fallbackLocale: ${JSON.stringify(getLocaleFromPath('/'))},
+  };
 
-    // Get current language and path
-    const segments = getPathSegments();
-    const currentLang = segments[0] || 'en';
+  const updateLanguageSwitchers = () => {
+    const { locales, routeSlugs, routeLocaleAvailability, blogTranslations, fallbackLocale } = LANGUAGE_SWITCHER_DATA;
+    const pathname = window.location.pathname || '/';
 
-    // Debug info for troubleshooting
-    console.log('Current pathname:', window.location.pathname);
-    console.log('Current segments:', segments);
+    const pathToRoute = {};
+    const slugToRoute = {};
 
-    // Complete mapping of page translations between languages
-    const pageTranslations = {
-      // English to Korean
-      en: {
-        '': '',
-        about: 'about',
-        'postpartum-care': '산후관리-서비스',
-        pricing: '이용요금-2',
-        'other-services': '기타-서비스',
-        contact: '연락처',
-        'book-online': '서비스-신청하기',
-        reviews: '이용후기',
-        faq: 'q-a',
-        announcements: '공지사항',
-        terms: '이용약관',
-      },
-      // Korean to English
-      ko: {
-        '': '',
-        about: 'about',
-        '산후관리-서비스': 'postpartum-care',
-        '이용요금-2': 'pricing',
-        '기타-서비스': 'other-services',
-        연락처: 'contact',
-        '서비스-신청하기': 'book-online',
-        이용후기: 'reviews',
-        'q-a': 'faq',
-        공지사항: 'announcements',
-        이용약관: 'terms',
-      },
-    };
-
-    // Add alternative slugs support (with/without dashes, decoding issues)
-    const alternativeSlugMap = {
-      ko: {
-        산후관리서비스: 'postpartum-care',
-        '산후관리-서비스': 'postpartum-care',
-        이용요금: 'pricing',
-        '이용요금-2': 'pricing',
-      },
-      en: {
-        postpartum: 'postpartum-care',
-        'postpartum-service': 'postpartum-care',
-        price: 'pricing',
-      },
-    };
-
-    const langSwitchers = document.querySelectorAll('[data-lang-switch]');
-
-    langSwitchers.forEach((link) => {
-      const targetLang = link.getAttribute('data-lang-switch');
-
-      // If already on the target language, don't change anything
-      if (targetLang === currentLang) {
-        return;
-      }
-
-      // Get the current page path (without language prefix)
-      const currentPage = segments.length > 1 ? segments[1] : '';
-
-      // Find the equivalent page in the target language
-      let targetPage = '';
-
-      // Map from current language to target language
-      if (currentLang === 'en' && targetLang === 'ko') {
-        targetPage = pageTranslations.en[currentPage] || '';
-
-        // Check alternative slug map as fallback
-        if (!targetPage && alternativeSlugMap[currentLang] && alternativeSlugMap[currentLang][currentPage]) {
-          targetPage = alternativeSlugMap[currentLang][currentPage];
-          console.log(`Found alternative slug mapping: ${currentPage} -> ${targetPage}`);
+    Object.entries(routeSlugs).forEach(([routeKey, slugs]) => {
+      Object.entries(slugs).forEach(([locale, slug]) => {
+        const path = `/${locale}${slug ? `/${slug}` : ''}`;
+        if (!pathToRoute[path]) {
+          pathToRoute[path] = routeKey;
         }
-      } else if (currentLang === 'ko' && targetLang === 'en') {
-        targetPage = pageTranslations.ko[currentPage] || '';
-
-        // Check alternative slug map as fallback
-        if (!targetPage && alternativeSlugMap[currentLang] && alternativeSlugMap[currentLang][currentPage]) {
-          targetPage = alternativeSlugMap[currentLang][currentPage];
-          console.log(`Found alternative slug mapping: ${currentPage} -> ${targetPage}`);
+        if (slug && !slugToRoute[slug]) {
+          slugToRoute[slug] = routeKey;
         }
-      }
-
-      // Set the href for the language switcher
-      link.href = `/${targetLang}${targetPage ? `/${targetPage}` : ''}`;
-
-      // For detailed debugging
-      console.log(`Language switch attempt: ${currentLang} -> ${targetLang}`);
-      console.log(`Current page: "${currentPage}"`);
-      console.log(`Target page: "${targetPage}"`);
-      console.log(`Setting href to: ${link.href}`);
-
-      // If target page is not found in the mapping, preserve the original URL structure
-      if (!targetPage && currentPage) {
-        console.log(`No mapping found, preserving path structure: ${currentPage}`);
-        link.href = `/${targetLang}/${currentPage}`;
-      }
+      });
     });
-  });
+
+    const isLocale = (value) => locales.includes(value);
+    const getRouteFromPath = (path) => {
+      const normalized = path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
+      const decoded = decodeURIComponent(normalized);
+      return pathToRoute[decoded];
+    };
+    const getRouteFromSlug = (slug) => slugToRoute[slug];
+    const getPathForRoute = (route, locale) => {
+      const entry = routeSlugs[route];
+      if (!entry || !entry[locale]) return null;
+      const availability = routeLocaleAvailability[route];
+      if (availability && !availability.includes(locale)) return null;
+      const slug = entry[locale];
+      return `/${locale}${slug ? `/${slug}` : ''}`;
+    };
+    const getCurrentLocale = (path) => {
+      const fromDom = document.documentElement.lang;
+      if (isLocale(fromDom)) return fromDom;
+      const segment = path.split('/').filter(Boolean)[0];
+      return isLocale(segment) ? segment : fallbackLocale;
+    };
+    const getTranslatedPath = (path, targetLocale) => {
+      const normalized = path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
+      const rawSlug = normalized.startsWith('/') ? normalized.slice(1) : normalized;
+      const slug = decodeURIComponent(rawSlug);
+      const blogEntry = blogTranslations[slug];
+
+      if (blogEntry) {
+        const targetSlug = blogEntry[targetLocale];
+        if (targetSlug) {
+          return `/${targetSlug}`;
+        }
+        return getPathForRoute('blog', targetLocale) ?? `/${targetLocale}`;
+      }
+
+      const segments = path.split('/').filter(Boolean);
+      const hasLocalePrefix = isLocale(segments[0]);
+      const restSegments = hasLocalePrefix ? segments.slice(1) : segments;
+
+      if (!restSegments.length) {
+        return `/${targetLocale}`;
+      }
+
+      const routeKey = hasLocalePrefix ? getRouteFromPath(path) : undefined;
+      const baseRouteKey = routeKey || getRouteFromSlug(restSegments[0]);
+
+      if (baseRouteKey) {
+        const targetPath = getPathForRoute(baseRouteKey, targetLocale);
+        if (targetPath) {
+          return targetPath;
+        }
+      }
+
+      if (!hasLocalePrefix) {
+        return `/${restSegments.join('/')}`;
+      }
+
+      return `/${targetLocale}`;
+    };
+
+    const currentLocale = getCurrentLocale(pathname);
+    const links = document.querySelectorAll('[data-lang-switch]');
+
+    links.forEach((link) => {
+      const targetLocale = link.getAttribute('data-lang-switch');
+      if (!targetLocale || !isLocale(targetLocale)) return;
+      link.href = targetLocale === currentLocale ? pathname : getTranslatedPath(pathname, targetLocale);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', updateLanguageSwitchers);
+  document.addEventListener('astro:after-swap', updateLanguageSwitchers);
 
   // Handle Color Mode
   function applyTheme(theme) {

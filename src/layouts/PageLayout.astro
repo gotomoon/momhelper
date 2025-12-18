@@ -16,25 +16,27 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  locale?: 'en' | 'ko';
 }
 
-const { metadata } = Astro.props;
+const { metadata, locale } = Astro.props;
 
 // Detect language from URL
-const currentLang = getLanguageFromPath(Astro.url.pathname);
+const detectedLang = getLanguageFromPath(Astro.url.pathname);
+const currentLang = locale === 'en' || locale === 'ko' ? locale : detectedLang;
 const headerData = currentLang === 'ko' ? headerDataKo : headerDataEn;
 const footerData = currentLang === 'ko' ? footerDataKo : footerDataEn;
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} locale={currentLang}>
   <slot name="header">
-    <Header {...headerData} isSticky showToggleTheme />
+    <Header {...headerData} isSticky showToggleTheme locale={currentLang} />
   </slot>
   <main>
     <slot />
   </main>
   <slot name="footer">
     <Footer {...footerData} />
-    <MobileMenu />
+    <MobileMenu locale={currentLang} />
   </slot>
 </Layout>

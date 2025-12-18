@@ -1,3 +1,4 @@
+import { getPathForRoute } from './utils/i18nRoutes';
 import { getPermalink } from './utils/permalinks';
 
 // Helper function to detect language from URL
@@ -75,7 +76,7 @@ export const headerDataEn = {
   actions: [
     {
       text: 'Book Now',
-      href: getPermalink('/book-online'),
+      href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online'),
       variant: 'primary',
     },
   ],
@@ -151,7 +152,7 @@ export const headerDataKo = {
   actions: [
     {
       text: '서비스 신청',
-      href: getPermalink('/ko/서비스-신청하기'),
+      href: getPathForRoute('book-online', 'ko') ?? getPermalink('/서비스-신청하기'),
       variant: 'primary',
     },
   ],
@@ -163,10 +164,10 @@ export const headerData = headerDataEn;
 // English footer
 export const footerDataEn = {
   links: [
-    { text: 'About Us', href: getPermalink('/about') },
-    { text: 'Partner', href: getPermalink('/what-is-postpartum-care') },
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Service Request', href: getPermalink('/book-online') },
+    { text: 'About Us', href: getPathForRoute('about', 'en') ?? getPermalink('/about') },
+    { text: 'Partner', href: getPathForRoute('what-is-postpartum-care', 'en') ?? getPermalink('/what-is-postpartum-care') },
+    { text: 'Terms', href: getPathForRoute('terms', 'en') ?? getPermalink('/terms') },
+    { text: 'Service Request', href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online') },
   ],
   secondaryLinks: [],
   socialLinks: [],
@@ -181,10 +182,10 @@ export const footerDataEn = {
 // Korean footer
 export const footerDataKo = {
   links: [
-    { text: '회사소개', href: getPermalink('/about') },
-    { text: '관리사/파트너 제휴', href: getPermalink('/산후관리사란') },
-    { text: '이용약관', href: getPermalink('/이용약관') },
-    { text: '서비스 신청하기', href: getPermalink('/서비스-신청하기') },
+    { text: '회사소개', href: getPathForRoute('about', 'ko') ?? getPermalink('/about') },
+    { text: '관리사/파트너 제휴', href: getPathForRoute('what-is-postpartum-care', 'ko') ?? getPermalink('/산후관리사란') },
+    { text: '이용약관', href: getPathForRoute('terms', 'ko') ?? getPermalink('/이용약관') },
+    { text: '서비스 신청하기', href: getPathForRoute('book-online', 'ko') ?? getPermalink('/서비스-신청하기') },
   ],
   secondaryLinks: [],
   socialLinks: [],

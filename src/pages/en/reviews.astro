@@ -2,16 +2,55 @@
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getCollection } from 'astro:content';
-
-const metadata = {
-  title: 'Reviews — Mom Helper USA',
-};
+import { SITE } from 'astrowind:config';
 
 // Get English review posts
 const allPosts = await getCollection('post');
 const reviewPosts = allPosts
   .filter((post) => post.data.category === 'Reviews' && post.id.startsWith('review-'))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const reviewItems = reviewPosts.map((post) => {
+  const content = post.body || '';
+  const firstParagraph = content.split('\n\n').find((p) => p.trim() && !p.startsWith('#'));
+  const cleanText = firstParagraph ? firstParagraph.replace(/^##\s+/, '').trim() : '';
+
+  return {
+    post,
+    snippet: cleanText ? `${cleanText.substring(0, 200)}...` : '',
+    schemaText: cleanText ? cleanText.substring(0, 200) : '',
+    authorName: post.data.author || 'Client',
+  };
+});
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Postpartum Care Services',
+  provider: {
+    '@type': 'Organization',
+    name: SITE?.name || 'Mom Helper USA',
+    ...(SITE?.site ? { url: SITE.site } : {}),
+  },
+  review: reviewItems
+    .filter((item) => item.schemaText)
+    .map((item) => ({
+      '@type': 'Review',
+      name: item.post.data.title,
+      reviewBody: item.schemaText,
+      datePublished: item.post.data.publishDate?.toISOString(),
+      author: {
+        '@type': 'Person',
+        name: item.authorName,
+      },
+    })),
+};
+
+const metadata = {
+  title: 'Reviews',
+  description: 'Read client reviews of Mom Helper USA postpartum care services.',
+  structuredData: [reviewSchema],
+};
 ---
 
 <Layout metadata={metadata}>
@@ -20,16 +59,11 @@ const reviewPosts = allPosts
 
   <!-- Blog Post Previews -->
   <section class="px-4 py-12 mx-auto max-w-5xl">
-    <h1 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Client Reviews</h1>
+    <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">Client Reviews</h2>
 
     <div class="space-y-12">
       {
-        reviewPosts.map((post) => {
-          // Extract first paragraph as excerpt
-          const content = post.body || '';
-          const firstParagraph = content.split('\n\n').find((p) => p.trim() && !p.startsWith('#'));
-          const excerpt = firstParagraph ? firstParagraph.replace(/^##\s+/, '').substring(0, 200) + '...' : '';
-
+        reviewItems.map(({ post, snippet }) => {
           return (
             <article class="border-b border-gray-200 dark:border-gray-700 pb-12 last:border-0">
               <h2 class="text-2xl font-bold mb-4">
@@ -41,7 +75,7 @@ const reviewPosts = allPosts
                 </a>
               </h2>
 
-              {excerpt && <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{excerpt}</p>}
+              {snippet && <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{snippet}</p>}
 
               <a href={`/${post.slug}`} class="text-[18px] font-medium" style="color: rgb(211, 118, 67);">
                 Read More

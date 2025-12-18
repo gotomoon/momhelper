@@ -5,6 +5,8 @@ title: '임신 초기 증상: 행복한 시작을 위한 필수 가이드와 미
 excerpt: 임신 초기 증상과 미국에서의 대처 방법에 대한 필수 가이드. 좋은 의사와 병원을 찾는 방법, 보험 및 지원 프로그램 정보를 제공합니다.
 image: ~/assets/images/momhelper/women-chiropractic.webp
 category: Prenatal Care
+language: ko
+translationKey: prenatal-care-guide
 tags:
   - pregnancy
   - prenatal care

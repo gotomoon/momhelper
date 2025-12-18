@@ -3,6 +3,8 @@ title: 'Postpartum Care Review by Jenny Jung'
 publishDate: 2024-01-05T00:00:00Z
 image: '~/assets/images/default.jpg'
 category: 'Reviews'
+language: en
+translationKey: review-jenny-jung
 tags:
   - Reviews
   - Postpartum Care

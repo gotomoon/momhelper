@@ -18,17 +18,28 @@ const BASE_PATHNAME = SITE.base || '/';
 export const cleanSlug = (text = '') =>
   trimSlash(text)
     .split('/')
-    .map((slug) => slugify(slug))
+    .map((segment) => {
+      if (!segment) return '';
+      if (/[^\x00-\x7F]/.test(segment)) {
+        return segment.replace(/\s+/g, '-');
+      }
+      const slugified = slugify(segment);
+      return slugified || segment;
+    })
+    .filter((segment) => !!segment)
     .join('/');
 
-export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname);
-export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
+export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname) || 'blog';
+export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname) || 'category';
 export const TAG_BASE = cleanSlug(APP_BLOG?.tag?.pathname) || 'tag';
 
-export const POST_PERMALINK_PATTERN = trimSlash(APP_BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`);
+export const POST_PERMALINK_PATTERN = trimSlash(APP_BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`) || '/%slug%';
 
 /** */
 export const getCanonical = (path = ''): string | URL => {
+  if (!SITE?.site) {
+    return path;
+  }
   const url = String(new URL(path, SITE.site));
   if (SITE.trailingSlash == false && path && url.endsWith('/')) {
     return url.slice(0, -1);

@@ -3,6 +3,8 @@ title: 'Postpartum Care Review from Yaeun’s Mom'
 publishDate: 2024-01-10T00:00:00Z
 image: '~/assets/images/default.jpg'
 category: 'Reviews'
+language: en
+translationKey: review-yaeun-mom
 tags:
   - Reviews
   - Postpartum Care

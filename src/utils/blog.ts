@@ -53,6 +53,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     tags: rawTags = [],
     category: rawCategory,
     author,
+    language,
+    translationKey,
     draft = false,
     metadata = {},
   } = data;
@@ -88,6 +90,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     category: category,
     tags: tags,
     author: author,
+    language: language,
+    translationKey: translationKey,
 
     draft: draft,
 
@@ -177,7 +181,7 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
   return paginate(await fetchPosts(), {
-    params: { blog: undefined },
+    params: { blog: BLOG_BASE },
     pageSize: blogPostsPerPage,
   });
 };
@@ -209,7 +213,7 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
     paginate(
       posts.filter((post) => post.category?.slug && categorySlug === post.category?.slug),
       {
-        params: { category: categorySlug, blog: undefined },
+        params: { category: categorySlug, blog: CATEGORY_BASE },
         pageSize: blogPostsPerPage,
         props: { category: categories[categorySlug] },
       }
@@ -235,7 +239,7 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
     paginate(
       posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.slug === tagSlug)),
       {
-        params: { tag: tagSlug, blog: undefined },
+        params: { tag: tagSlug, blog: TAG_BASE },
         pageSize: blogPostsPerPage,
         props: { tag: tags[tagSlug] },
       }
