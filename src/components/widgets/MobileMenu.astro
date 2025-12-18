@@ -1,229 +1,441 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { getLanguageFromPath, headerDataEn, headerDataKo } from '~/navigation';
 
-// Detect language from URL
-const currentLang = getLanguageFromPath(Astro.url.pathname);
-const headerData = currentLang === 'ko' ? headerDataKo : headerDataEn;
+const currentLocale = getLanguageFromPath(Astro.url.pathname);
+const headerData = currentLocale === 'ko' ? headerDataKo : headerDataEn;
 const { links = [] } = headerData;
 
-// Language switcher configuration
-const locales = [
-  { code: 'en', label: 'English' },
-  { code: 'ko', label: '한국어' },
+const withLocale = (href = '') => {
+  if (!href) return `/${currentLocale}`;
+  if (href.startsWith('http') || href.startsWith('#')) return href;
+  if (href.startsWith('/')) {
+    const pathWithoutSlash = href.slice(1);
+    if (pathWithoutSlash.startsWith(currentLocale)) return href;
+    return `/${currentLocale}${href}`;
+  }
+  return `/${currentLocale}/${href}`;
+};
+
+const aboutText = currentLocale === 'ko' ? '회사소개' : 'About';
+const reviewsText = currentLocale === 'ko' ? '후기' : 'Reviews';
+const postpartumText = currentLocale === 'ko' ? '산후관리 서비스' : 'Postpartum Care';
+const otherServicesText = currentLocale === 'ko' ? '기타 서비스' : 'Other Services';
+const supportText = currentLocale === 'ko' ? '고객지원' : 'Support';
+
+const aboutLink = links.find((link) => link.text === aboutText);
+const reviewsLink = links.find((link) => link.text === reviewsText);
+const postpartumLink = links.find((link) => link.text === postpartumText);
+const otherServicesLink = links.find((link) => link.text === otherServicesText);
+const supportLink = links.find((link) => link.text === supportText);
+
+const aboutMenu = [
+  {
+    text: currentLocale === 'ko' ? '회사소개' : 'About Us',
+    href: withLocale(aboutLink?.href ?? '/about'),
+  },
+  {
+    text: currentLocale === 'ko' ? '후기' : 'Reviews',
+    href: withLocale(reviewsLink?.href ?? '/reviews'),
+  },
 ];
 
-// Filter out language dropdown from links
-const filteredLinks = links.filter(link => link.text !== 'Language' && link.text !== '언어 (Language)');
+const postpartumMenu = (postpartumLink?.links ?? []).map(({ text, href }) => ({
+  text,
+  href: withLocale(href),
+}));
+
+const otherServicesMenu = (otherServicesLink?.links ?? []).map(({ text, href }) => ({
+  text,
+  href: withLocale(href),
+}));
+
+const supportMenu = (supportLink?.links ?? []).map(({ text, href }) => ({
+  text,
+  href: withLocale(href),
+}));
+
+const labels =
+  currentLocale === 'ko'
+    ? {
+        home: '홈',
+        about: '소개',
+        postpartum: '산후관리',
+        otherServices: '기타서비스',
+        support: '지원',
+      }
+    : {
+        home: 'Home',
+        about: 'About',
+        postpartum: 'Postpartum Care',
+        otherServices: 'Other Services',
+        support: 'Support',
+      };
 ---
 
-<!-- Mobile Menu Overlay -->
-<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
+<!-- Overlays for the drawers -->
+<div id="about-drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+<div id="postpartum-drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+<div id="otherservices-drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
+<div id="support-drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
 
-<!-- Mobile Menu Drawer -->
-<div 
-  id="mobile-menu-drawer" 
-  class="fixed top-0 right-0 bottom-0 w-[280px] bg-white dark:bg-gray-900 z-50 md:hidden transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl"
+<!-- Bottom menu bar -->
+<div
+  class="fixed bottom-0 left-0 right-0 z-50 bg-white/40 dark:bg-gray-900/40 backdrop-blur-lg md:hidden h-[56px] rounded-t-2xl"
+  style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
 >
-  <!-- Menu Header -->
-  <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white">
-      {currentLang === 'ko' ? '메뉴' : 'Menu'}
-    </h2>
+  <div class="grid grid-cols-5 gap-1 px-2 py-3 h-full">
+    <!-- Home icon -->
+    <a href={`/${currentLocale}`} class="flex flex-col items-center justify-center">
+      <Icon name="tabler:home" class="w-6 h-6 mb-1 text-stone-600 dark:text-stone-300" />
+      <span class="text-xs text-stone-600 dark:text-stone-300 font-medium">{labels.home}</span>
+    </a>
+
+    <!-- About icon -->
+    <button id="open-about-drawer" type="button" class="flex flex-col items-center justify-center focus:outline-none">
+      <Icon name="tabler:user" class="w-6 h-6 mb-1 text-stone-600 dark:text-stone-300" />
+      <span class="text-xs text-stone-600 dark:text-stone-300 font-medium">{labels.about}</span>
+    </button>
+
+    <!-- Postpartum Care icon -->
     <button
-      id="close-mobile-menu"
+      id="open-postpartum-drawer"
       type="button"
-      class="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-      aria-label="Close menu"
+      class="flex flex-col items-center justify-center focus:outline-none"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
+      <Icon name="tabler:baby-carriage" class="w-6 h-6 mb-1 text-stone-600 dark:text-stone-300" />
+      <span class="text-xs text-stone-600 dark:text-stone-300 font-medium">{labels.postpartum}</span>
+    </button>
+
+    <!-- Other Services icon -->
+    <button
+      id="open-otherservices-drawer"
+      type="button"
+      class="flex flex-col items-center justify-center focus:outline-none"
+    >
+      <Icon name="tabler:briefcase" class="w-6 h-6 mb-1 text-stone-600 dark:text-stone-300" />
+      <span class="text-xs text-stone-600 dark:text-stone-300 font-medium">{labels.otherServices}</span>
+    </button>
+
+    <!-- Support icon -->
+    <button
+      id="open-support-drawer"
+      type="button"
+      class="flex flex-col items-center justify-center focus:outline-none"
+    >
+      <Icon name="tabler:lifebuoy" class="w-6 h-6 mb-1 text-stone-600 dark:text-stone-300" />
+      <span class="text-xs text-stone-600 dark:text-stone-300 font-medium">{labels.support}</span>
     </button>
   </div>
+</div>
 
-  <!-- Menu Content -->
-  <nav class="overflow-y-auto h-[calc(100vh-73px)]">
-    <ul class="py-2">
-      {filteredLinks.map(({ text, href, links: subLinks }) => (
-        <li>
-          {subLinks?.length ? (
-            <!-- Menu item with submenu -->
-            <div>
-              <button
-                class="w-full flex items-center justify-between px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mobile-submenu-toggle"
-                type="button"
-              >
-                <span class="font-medium">{text}</span>
-                <svg class="w-5 h-5 transition-transform mobile-submenu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <!-- Submenu -->
-              <ul class="hidden bg-gray-50 dark:bg-gray-800/50 mobile-submenu">
-                {subLinks.map(({ text: subText, href: subHref }) => (
-                  <li>
-                    <a
-                      href={subHref}
-                      class="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                    >
-                      {subText}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <!-- Simple menu item -->
-            <a
-              href={href}
-              class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
-            >
-              {text}
-            </a>
-          )}
-        </li>
-      ))}
-    </ul>
-
-    <!-- Language Switcher (Mobile) -->
-    <div class="px-4 py-4 border-t border-gray-200 dark:border-gray-700">
-      <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-        {currentLang === 'ko' ? '언어' : 'Language'}
+<!-- About menu drawer -->
+<div id="about-drawer" class="fixed left-0 right-0 bottom-[56px] z-50 md:hidden hidden">
+  <div
+    class="w-[80%] mx-auto bg-white/40 dark:bg-gray-900/40 rounded-t-2xl shadow-lg overflow-hidden about-drawer-content backdrop-blur-lg"
+    style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+  >
+    <div class="p-6">
+      <button
+        id="close-about-drawer"
+        class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
+        aria-label="Close"
+        >&times;</button
+      >
+      <div class="mb-4 text-center font-bold text-lg">
+        {currentLocale === 'ko' ? '소개 메뉴' : 'About Menu'}
       </div>
-      <div class="flex gap-2">
+      <ul class="space-y-3">
         {
-          locales.map((locale) => {
-            const href = locale.code === 'ko' ? '/ko' : '/en';
-            const isActive = locale.code === currentLang;
-            return (
+          aboutMenu.map(({ text, href }) => (
+            <li>
               <a
                 href={href}
-                class:list={[
-                  'px-4 py-2 rounded text-sm font-semibold transition-colors flex-1 text-center',
-                  isActive
-                    ? 'text-white bg-[#b74000] border border-[#b74000]'
-                    : 'text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800',
-                ]}
-                aria-label={locale.label}
-                data-lang-switch={locale.code}
+                class="block w-full text-center py-3 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-primary-600/70 hover:text-white dark:hover:bg-primary-500/70 transition font-medium text-base text-gray-900 dark:text-white"
               >
-                {locale.label}
+                {text}
               </a>
-            );
-          })
+            </li>
+          ))
         }
-      </div>
+      </ul>
     </div>
-  </nav>
+  </div>
+</div>
+
+<!-- Postpartum Care menu drawer -->
+<div id="postpartum-drawer" class="fixed left-0 right-0 bottom-[56px] z-50 md:hidden hidden">
+  <div
+    class="w-[80%] mx-auto bg-white/40 dark:bg-gray-900/40 rounded-t-2xl shadow-lg overflow-hidden postpartum-drawer-content backdrop-blur-lg"
+    style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+  >
+    <div class="p-6">
+      <button
+        id="close-postpartum-drawer"
+        class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
+        aria-label="Close"
+        >&times;</button
+      >
+      <div class="mb-4 text-center font-bold text-lg">
+        {currentLocale === 'ko' ? '산후관리 메뉴' : 'Postpartum Care Menu'}
+      </div>
+      <ul class="space-y-3">
+        {
+          postpartumMenu.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="block w-full text-center py-3 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-primary-600/70 hover:text-white dark:hover:bg-primary-500/70 transition font-medium text-base text-gray-900 dark:text-white"
+              >
+                {text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Other Services menu drawer -->
+<div id="otherservices-drawer" class="fixed left-0 right-0 bottom-[56px] z-50 md:hidden hidden">
+  <div
+    class="w-[80%] mx-auto bg-white/40 dark:bg-gray-900/40 rounded-t-2xl shadow-lg overflow-hidden otherservices-drawer-content backdrop-blur-lg"
+    style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+  >
+    <div class="p-6">
+      <button
+        id="close-otherservices-drawer"
+        class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
+        aria-label="Close"
+        >&times;</button
+      >
+      <div class="mb-4 text-center font-bold text-lg">
+        {currentLocale === 'ko' ? '기타 서비스 메뉴' : 'Other Services Menu'}
+      </div>
+      <ul class="space-y-3">
+        {
+          otherServicesMenu.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="block w-full text-center py-3 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-primary-600/70 hover:text-white dark:hover:bg-primary-500/70 transition font-medium text-base text-gray-900 dark:text-white"
+              >
+                {text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Support menu drawer -->
+<div id="support-drawer" class="fixed left-0 right-0 bottom-[56px] z-50 md:hidden hidden">
+  <div
+    class="w-[80%] mx-auto bg-white/40 dark:bg-gray-900/40 rounded-t-2xl shadow-lg overflow-hidden support-drawer-content backdrop-blur-lg"
+    style="box-shadow: 0 -1px 2px -1px rgba(220, 136, 59, 0.7), -1px 0 2px -1px rgba(220, 136, 59, 0.7), 1px 0 2px -1px rgba(220, 136, 59, 0.7);"
+  >
+    <div class="p-6">
+      <button
+        id="close-support-drawer"
+        class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
+        aria-label="Close"
+        >&times;</button
+      >
+      <div class="mb-4 text-center font-bold text-lg">
+        {currentLocale === 'ko' ? '고객지원 메뉴' : 'Support Menu'}
+      </div>
+      <ul class="space-y-3">
+        {
+          supportMenu.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="block w-full text-center py-3 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-primary-600/70 hover:text-white dark:hover:bg-primary-500/70 transition font-medium text-base text-gray-900 dark:text-white"
+              >
+                {text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </div>
 
 <script is:inline>
-  // Initialize mobile menu functionality
-  window.initMobileMenu = function() {
-    const mobileMenuToggle = document.querySelector('.mobile_menu_bar_toggle');
-    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const closeMobileMenu = document.getElementById('close-mobile-menu');
+  window.initMobileDrawers = function () {
+    const drawers = {
+      about: {
+        drawer: document.getElementById('about-drawer'),
+        overlay: document.getElementById('about-drawer-overlay'),
+        openBtn: document.getElementById('open-about-drawer'),
+        closeBtn: document.getElementById('close-about-drawer'),
+        isOpen: false,
+      },
+      postpartum: {
+        drawer: document.getElementById('postpartum-drawer'),
+        overlay: document.getElementById('postpartum-drawer-overlay'),
+        openBtn: document.getElementById('open-postpartum-drawer'),
+        closeBtn: document.getElementById('close-postpartum-drawer'),
+        isOpen: false,
+      },
+      otherservices: {
+        drawer: document.getElementById('otherservices-drawer'),
+        overlay: document.getElementById('otherservices-drawer-overlay'),
+        openBtn: document.getElementById('open-otherservices-drawer'),
+        closeBtn: document.getElementById('close-otherservices-drawer'),
+        isOpen: false,
+      },
+      support: {
+        drawer: document.getElementById('support-drawer'),
+        overlay: document.getElementById('support-drawer-overlay'),
+        openBtn: document.getElementById('open-support-drawer'),
+        closeBtn: document.getElementById('close-support-drawer'),
+        isOpen: false,
+      },
+    };
 
-    if (!mobileMenuDrawer || !mobileMenuOverlay) {
-      console.warn('Mobile menu elements not found');
+    const allDrawersExist = Object.values(drawers).every((d) => d.drawer);
+    if (!allDrawersExist) {
+      console.warn('Mobile drawer elements not found');
       return;
     }
 
-    function openMobileMenu() {
-      mobileMenuDrawer.classList.remove('translate-x-full');
-      mobileMenuOverlay.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+    function closeAllDrawers() {
+      Object.keys(drawers).forEach((key) => {
+        if (drawers[key].isOpen) {
+          closeDrawer(key);
+        }
+      });
     }
 
-    function closeMobileMenuFunc() {
-      mobileMenuDrawer.classList.add('translate-x-full');
-      mobileMenuOverlay.classList.add('hidden');
-      document.body.style.overflow = '';
+    function openDrawer(name) {
+      const d = drawers[name];
+      d.drawer.classList.remove('hidden');
+      if (d.overlay) d.overlay.classList.remove('hidden');
+
+      void d.drawer.offsetWidth;
+
+      d.drawer.classList.add('drawer-open');
+      d.isOpen = true;
     }
 
-    // Open menu when hamburger is clicked
-    if (mobileMenuToggle) {
-      mobileMenuToggle.removeEventListener('click', openMobileMenu);
-      mobileMenuToggle.addEventListener('click', openMobileMenu);
+    function closeDrawer(name) {
+      const d = drawers[name];
+      d.drawer.classList.remove('drawer-open');
+      setTimeout(() => {
+        d.drawer.classList.add('hidden');
+        if (d.overlay) d.overlay.classList.add('hidden');
+      }, 250);
+      d.isOpen = false;
     }
 
-    // Close menu when X button is clicked
-    if (closeMobileMenu) {
-      closeMobileMenu.removeEventListener('click', closeMobileMenuFunc);
-      closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+    function toggleDrawer(name) {
+      return function (e) {
+        if (e) e.preventDefault();
+
+        Object.keys(drawers).forEach((key) => {
+          if (key !== name && drawers[key].isOpen) {
+            closeDrawer(key);
+          }
+        });
+
+        if (drawers[name].isOpen) {
+          closeDrawer(name);
+        } else {
+          openDrawer(name);
+        }
+      };
     }
 
-    // Close menu when overlay is clicked
-    if (mobileMenuOverlay) {
-      mobileMenuOverlay.removeEventListener('click', closeMobileMenuFunc);
-      mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
-    }
+    Object.keys(drawers).forEach((name) => {
+      const d = drawers[name];
 
-    // Close menu when ESC is pressed
-    function handleEscKey(e) {
+      if (d.openBtn) {
+        d.openBtn.removeEventListener('click', toggleDrawer(name));
+        d.openBtn.addEventListener('click', toggleDrawer(name));
+      }
+
+      if (d.closeBtn) {
+        d.closeBtn.removeEventListener('click', () => closeDrawer(name));
+        d.closeBtn.addEventListener('click', () => closeDrawer(name));
+      }
+
+      if (d.overlay) {
+        d.overlay.removeEventListener('click', () => closeDrawer(name));
+        d.overlay.addEventListener('click', () => closeDrawer(name));
+      }
+
+      const links = d.drawer.querySelectorAll('a');
+      links.forEach((link) => {
+        link.removeEventListener('click', () => closeDrawer(name));
+        link.addEventListener('click', () => closeDrawer(name));
+      });
+    });
+
+    document.removeEventListener('keydown', handleEscapeKey);
+    document.addEventListener('keydown', handleEscapeKey);
+
+    function handleEscapeKey(e) {
       if (e.key === 'Escape') {
-        closeMobileMenuFunc();
+        closeAllDrawers();
       }
     }
-    document.removeEventListener('keydown', handleEscKey);
-    document.addEventListener('keydown', handleEscKey);
-
-    // Handle submenu toggles
-    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
-    submenuToggles.forEach(toggle => {
-      toggle.removeEventListener('click', handleSubmenuToggle);
-      toggle.addEventListener('click', handleSubmenuToggle);
-    });
-
-    function handleSubmenuToggle(e) {
-      e.stopPropagation();
-      const parent = this.parentElement;
-      const submenu = parent.querySelector('.mobile-submenu');
-      const icon = this.querySelector('.mobile-submenu-icon');
-
-      if (submenu) {
-        submenu.classList.toggle('hidden');
-        icon.classList.toggle('rotate-90');
-      }
-    }
-
-    // Close menu when clicking a link
-    const menuLinks = mobileMenuDrawer.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.removeEventListener('click', closeMobileMenuFunc);
-      link.addEventListener('click', closeMobileMenuFunc);
-    });
-
-    console.log('Mobile menu initialized');
   };
 
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    window.initMobileMenu();
-  });
+  document.addEventListener('DOMContentLoaded', function () {
+    window.initMobileDrawers();
 
-  // Reinitialize after Astro page transitions
-  document.addEventListener('astro:page-load', function() {
-    window.initMobileMenu();
-  });
+    document.addEventListener('astro:page-load', function () {
+      window.initMobileDrawers();
+    });
 
-  document.addEventListener('astro:after-swap', function() {
-    window.initMobileMenu();
+    document.addEventListener('astro:after-swap', function () {
+      window.initMobileDrawers();
+    });
+
+    const observer = new MutationObserver((_mutations) => {
+      const openAboutBtn = document.getElementById('open-about-drawer');
+      if (openAboutBtn && !openAboutBtn.onclick) {
+        window.initMobileDrawers();
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') {
+        window.initMobileDrawers();
+      }
+    });
+
+    window.addEventListener('popstate', function () {
+      setTimeout(window.initMobileDrawers, 100);
+    });
   });
 </script>
 
 <style>
-  /* Ensure smooth transitions */
-  #mobile-menu-drawer {
-    will-change: transform;
+  .about-drawer-content,
+  .postpartum-drawer-content,
+  .otherservices-drawer-content,
+  .support-drawer-content {
+    max-height: 0;
+    transition: max-height 0.25s ease-out;
+    will-change: max-height;
+    overflow: hidden;
   }
 
-  .mobile-submenu-icon {
-    will-change: transform;
-  }
-
-  .rotate-90 {
-    transform: rotate(90deg);
+  .drawer-open .about-drawer-content,
+  .drawer-open .postpartum-drawer-content,
+  .drawer-open .otherservices-drawer-content,
+  .drawer-open .support-drawer-content {
+    max-height: 80vh;
   }
 </style>

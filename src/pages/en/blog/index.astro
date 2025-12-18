@@ -5,18 +5,18 @@ import BlogList from '~/components/blog/List.astro';
 import { fetchPosts } from '~/utils/blog';
 
 const metadata = {
-  title: 'Prenatal & Postpartum Care Information | Mom Helper USA',
+  title: 'Blog | Mom Helper USA',
   description: 'Helpful information about prenatal and postpartum care, including early pregnancy symptoms, finding good doctors, support programs, and more.',
 };
 
-// Fetch posts from the Prenatal Care category
+// Fetch English blog posts only
 const allPosts = await fetchPosts();
-const posts = allPosts.filter((post) => post.category?.slug === 'prenatal-care');
+const posts = allPosts.filter((post) => post.metadata?.canonical?.includes('/en/'));
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <WPPageHero title="Prenatal & Postpartum Care Information" />
+  <WPPageHero title="Blog" />
 
   <!-- Blog Posts Section -->
   <section class="py-16 md:py-20 bg-white">

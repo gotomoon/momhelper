@@ -1,0 +1,700 @@
+---
+/**
+ * Blog Posts Admin Page
+ * Manage blog posts (add, edit, delete) with authentication
+ */
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Blog Posts Admin | Mom Helper USA',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <!-- Password Gate -->
+      <div id="password-gate" class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8 mb-8">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Admin Login</h1>
+        <form id="login-form" class="space-y-4">
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter admin password"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+          >
+            Login
+          </button>
+          <div id="login-error" class="text-red-600 text-sm hidden"></div>
+        </form>
+      </div>
+
+      <!-- Admin Dashboard (hidden until authenticated) -->
+      <div id="admin-dashboard" class="hidden">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-800">Blog Posts Management</h1>
+            <button
+              id="logout-btn"
+              class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters and Actions -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div class="flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex flex-wrap gap-4">
+              <!-- Language Filter -->
+              <div>
+                <label for="language-filter" class="block text-sm font-medium text-gray-700 mb-1"
+                  >Language</label
+                >
+                <select
+                  id="language-filter"
+                  class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="all">All Languages</option>
+                  <option value="en">English</option>
+                  <option value="ko">Korean</option>
+                </select>
+              </div>
+
+              <!-- Category Filter -->
+              <div>
+                <label for="category-filter" class="block text-sm font-medium text-gray-700 mb-1"
+                  >Category</label
+                >
+                <select
+                  id="category-filter"
+                  class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="all">All Categories</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Add New Post Button -->
+            <button
+              id="add-new-btn"
+              class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition"
+            >
+              + Add New Post
+            </button>
+          </div>
+        </div>
+
+        <!-- Posts Table -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-100 border-b">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                    Title
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                    Category
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                    Language
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                    Author
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                    Published
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="posts-table-body" class="divide-y divide-gray-200">
+                <!-- Posts will be inserted here by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+          <div id="loading-indicator" class="text-center py-8">
+            <p class="text-gray-500">Loading posts...</p>
+          </div>
+          <div id="no-posts" class="text-center py-8 hidden">
+            <p class="text-gray-500">No posts found.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Editor Modal -->
+      <div id="editor-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+          <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+            <h2 id="modal-title" class="text-2xl font-bold text-gray-800">Add New Post</h2>
+            <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+          </div>
+
+          <form id="post-form" class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Left Column: Metadata -->
+              <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Post Metadata</h3>
+
+                <!-- Title -->
+                <div>
+                  <label for="post-title" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Title *</label
+                  >
+                  <input
+                    type="text"
+                    id="post-title"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <!-- Excerpt -->
+                <div>
+                  <label for="post-excerpt" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Excerpt *</label
+                  >
+                  <textarea
+                    id="post-excerpt"
+                    rows="3"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required></textarea>
+                </div>
+
+                <!-- Author -->
+                <div>
+                  <label for="post-author" class="block text-sm font-medium text-gray-700 mb-1">Author</label>
+                  <input
+                    type="text"
+                    id="post-author"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value="Mom Helper USA"
+                  />
+                </div>
+
+                <!-- Category -->
+                <div>
+                  <label for="post-category" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Category</label
+                  >
+                  <input
+                    type="text"
+                    id="post-category"
+                    list="category-suggestions"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <datalist id="category-suggestions">
+                    <option value="Prenatal Care"></option>
+                    <option value="Reviews"></option>
+                    <option value="Postpartum Care"></option>
+                    <option value="Pregnancy Guide"></option>
+                  </datalist>
+                </div>
+
+                <!-- Language -->
+                <div>
+                  <label for="post-language" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Language</label
+                  >
+                  <select
+                    id="post-language"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="ko">Korean</option>
+                    <option value="en">English</option>
+                  </select>
+                </div>
+
+                <!-- Tags -->
+                <div>
+                  <label for="post-tags" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Tags (comma-separated)</label
+                  >
+                  <input
+                    type="text"
+                    id="post-tags"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="pregnancy, prenatal care, tips"
+                  />
+                </div>
+
+                <!-- Publish Date -->
+                <div>
+                  <label for="post-date" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Publish Date</label
+                  >
+                  <input
+                    type="datetime-local"
+                    id="post-date"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Draft -->
+                <div class="flex items-center">
+                  <input type="checkbox" id="post-draft" class="mr-2" />
+                  <label for="post-draft" class="text-sm font-medium text-gray-700">Save as Draft</label>
+                </div>
+
+                <!-- Image URL -->
+                <div>
+                  <label for="post-image" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Featured Image URL</label
+                  >
+                  <input
+                    type="url"
+                    id="post-image"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                  <p class="text-xs text-gray-500 mt-1">
+                    Upload images to Cloudinary or paste image URL
+                  </p>
+                </div>
+              </div>
+
+              <!-- Right Column: Content -->
+              <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Post Content</h3>
+
+                <!-- Content Editor -->
+                <div>
+                  <label for="post-content" class="block text-sm font-medium text-gray-700 mb-1"
+                    >Content (Markdown/HTML) *</label
+                  >
+                  <textarea
+                    id="post-content"
+                    rows="15"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+                    required></textarea>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Supports Markdown and HTML. Use ## for headings, **bold**, *italic*, etc.
+                  </p>
+                </div>
+
+                <!-- SEO Options (Collapsible) -->
+                <details class="border rounded-md p-4">
+                  <summary class="font-semibold text-gray-800 cursor-pointer">Advanced SEO Options</summary>
+                  <div class="mt-4 space-y-4">
+                    <!-- Canonical URL -->
+                    <div>
+                      <label for="post-canonical" class="block text-sm font-medium text-gray-700 mb-1"
+                        >Canonical URL</label
+                      >
+                      <input
+                        type="url"
+                        id="post-canonical"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="https://momhelperusa.com/post-slug"
+                      />
+                    </div>
+
+                    <!-- Meta Description -->
+                    <div>
+                      <label for="post-meta-description" class="block text-sm font-medium text-gray-700 mb-1"
+                        >Meta Description</label
+                      >
+                      <textarea
+                        id="post-meta-description"
+                        rows="2"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      ></textarea>
+                    </div>
+
+                    <!-- Robots -->
+                    <div class="flex gap-4">
+                      <div class="flex items-center">
+                        <input type="checkbox" id="post-robots-index" class="mr-2" checked />
+                        <label for="post-robots-index" class="text-sm font-medium text-gray-700"
+                          >Index</label
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <input type="checkbox" id="post-robots-follow" class="mr-2" checked />
+                        <label for="post-robots-follow" class="text-sm font-medium text-gray-700"
+                          >Follow</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="mt-6 flex justify-end gap-4">
+              <button
+                type="button"
+                id="cancel-btn"
+                class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              >
+                Save Post
+              </button>
+            </div>
+            <div id="form-error" class="mt-4 text-red-600 text-sm hidden"></div>
+            <div id="form-success" class="mt-4 text-green-600 text-sm hidden"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let allPosts = [];
+    let currentPost = null;
+    let isAuthenticated = false;
+
+    // Check if already authenticated
+    if (sessionStorage.getItem('admin-auth') === 'true') {
+      isAuthenticated = true;
+      showDashboard();
+      loadPosts();
+    }
+
+    // Login form
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      const errorDiv = document.getElementById('login-error');
+
+      try {
+        const response = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+
+        if (response.ok) {
+          sessionStorage.setItem('admin-auth', 'true');
+          isAuthenticated = true;
+          showDashboard();
+          loadPosts();
+        } else {
+          errorDiv.textContent = 'Invalid password';
+          errorDiv.classList.remove('hidden');
+        }
+      } catch (error) {
+        errorDiv.textContent = 'Error connecting to server';
+        errorDiv.classList.remove('hidden');
+      }
+    });
+
+    // Logout
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      sessionStorage.removeItem('admin-auth');
+      isAuthenticated = false;
+      location.reload();
+    });
+
+    function showDashboard() {
+      document.getElementById('password-gate').classList.add('hidden');
+      document.getElementById('admin-dashboard').classList.remove('hidden');
+    }
+
+    // Load posts
+    async function loadPosts() {
+      try {
+        const response = await fetch('/api/posts');
+        const data = await response.json();
+        allPosts = data.posts || [];
+        populateCategoryFilter();
+        renderPosts();
+      } catch (error) {
+        console.error('Error loading posts:', error);
+        document.getElementById('loading-indicator').textContent = 'Error loading posts';
+      }
+    }
+
+    function populateCategoryFilter() {
+      const categories = new Set();
+      allPosts.forEach((post) => {
+        if (post.category) categories.add(post.category);
+      });
+
+      const filter = document.getElementById('category-filter');
+      Array.from(categories)
+        .sort()
+        .forEach((cat) => {
+          const option = document.createElement('option');
+          option.value = cat;
+          option.textContent = cat;
+          filter.appendChild(option);
+        });
+    }
+
+    function renderPosts() {
+      const languageFilter = document.getElementById('language-filter').value;
+      const categoryFilter = document.getElementById('category-filter').value;
+
+      let filtered = allPosts;
+
+      if (languageFilter !== 'all') {
+        filtered = filtered.filter((p) => p.language === languageFilter);
+      }
+
+      if (categoryFilter !== 'all') {
+        filtered = filtered.filter((p) => p.category === categoryFilter);
+      }
+
+      const tbody = document.getElementById('posts-table-body');
+      tbody.innerHTML = '';
+
+      document.getElementById('loading-indicator').classList.add('hidden');
+
+      if (filtered.length === 0) {
+        document.getElementById('no-posts').classList.remove('hidden');
+        return;
+      }
+
+      document.getElementById('no-posts').classList.add('hidden');
+
+      filtered.forEach((post) => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-50';
+
+        const languageBadge =
+          post.language === 'en'
+            ? '<span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">EN</span>'
+            : '<span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">KO</span>';
+
+        const draftBadge = post.draft
+          ? '<span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded ml-2">Draft</span>'
+          : '';
+
+        tr.innerHTML = `
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-sm font-medium text-gray-900">${post.title}${draftBadge}</div>
+            <div class="text-xs text-gray-500">${post.filename}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${post.category || 'N/A'}</td>
+          <td class="px-6 py-4 whitespace-nowrap">${languageBadge}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${post.author || 'N/A'}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+            ${post.publishDate ? new Date(post.publishDate).toLocaleDateString() : 'N/A'}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm">
+            <button class="text-blue-600 hover:text-blue-800 mr-3 edit-btn" data-filename="${post.filename}">Edit</button>
+            <button class="text-red-600 hover:text-red-800 delete-btn" data-filename="${post.filename}">Delete</button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      // Add event listeners
+      document.querySelectorAll('.edit-btn').forEach((btn) => {
+        btn.addEventListener('click', () => editPost(btn.dataset.filename));
+      });
+
+      document.querySelectorAll('.delete-btn').forEach((btn) => {
+        btn.addEventListener('click', () => deletePost(btn.dataset.filename));
+      });
+    }
+
+    // Filter handlers
+    document.getElementById('language-filter').addEventListener('change', renderPosts);
+    document.getElementById('category-filter').addEventListener('change', renderPosts);
+
+    // Add new post
+    document.getElementById('add-new-btn').addEventListener('click', () => {
+      currentPost = null;
+      document.getElementById('modal-title').textContent = 'Add New Post';
+      document.getElementById('post-form').reset();
+      document.getElementById('post-date').value = new Date().toISOString().slice(0, 16);
+      showModal();
+    });
+
+    // Edit post
+    function editPost(filename) {
+      const post = allPosts.find((p) => p.filename === filename);
+      if (!post) return;
+
+      currentPost = post;
+      document.getElementById('modal-title').textContent = 'Edit Post';
+
+      // Populate form
+      document.getElementById('post-title').value = post.title || '';
+      document.getElementById('post-excerpt').value = post.excerpt || '';
+      document.getElementById('post-author').value = post.author || '';
+      document.getElementById('post-category').value = post.category || '';
+      document.getElementById('post-language').value = post.language || 'ko';
+      document.getElementById('post-tags').value = post.tags ? post.tags.join(', ') : '';
+      document.getElementById('post-date').value = post.publishDate
+        ? new Date(post.publishDate).toISOString().slice(0, 16)
+        : '';
+      document.getElementById('post-draft').checked = post.draft || false;
+      document.getElementById('post-image').value = post.image || '';
+      document.getElementById('post-content').value = post.content || '';
+
+      if (post.metadata) {
+        document.getElementById('post-canonical').value = post.metadata.canonical || '';
+        document.getElementById('post-meta-description').value = post.metadata.description || '';
+        if (post.metadata.robots) {
+          document.getElementById('post-robots-index').checked =
+            post.metadata.robots.index !== false;
+          document.getElementById('post-robots-follow').checked =
+            post.metadata.robots.follow !== false;
+        }
+      }
+
+      showModal();
+    }
+
+    // Delete post
+    async function deletePost(filename) {
+      if (!confirm('Are you sure you want to delete this post? This action cannot be undone.')) {
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/posts/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename }),
+        });
+
+        if (response.ok) {
+          alert('Post deleted successfully!');
+          loadPosts();
+        } else {
+          const error = await response.json();
+          alert('Error deleting post: ' + error.error);
+        }
+      } catch (error) {
+        alert('Error deleting post: ' + error.message);
+      }
+    }
+
+    // Modal controls
+    function showModal() {
+      document.getElementById('editor-modal').classList.remove('hidden');
+      document.getElementById('editor-modal').classList.add('flex');
+    }
+
+    function hideModal() {
+      document.getElementById('editor-modal').classList.add('hidden');
+      document.getElementById('editor-modal').classList.remove('flex');
+    }
+
+    document.getElementById('close-modal').addEventListener('click', hideModal);
+    document.getElementById('cancel-btn').addEventListener('click', hideModal);
+
+    // Form submission
+    document.getElementById('post-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('post-title').value.trim();
+      const excerpt = document.getElementById('post-excerpt').value.trim();
+      const author = document.getElementById('post-author').value.trim();
+      const category = document.getElementById('post-category').value.trim();
+      const language = document.getElementById('post-language').value;
+      const tagsInput = document.getElementById('post-tags').value.trim();
+      const tags = tagsInput ? tagsInput.split(',').map((t) => t.trim()) : [];
+      const publishDate = document.getElementById('post-date').value;
+      const draft = document.getElementById('post-draft').checked;
+      const image = document.getElementById('post-image').value.trim();
+      const content = document.getElementById('post-content').value.trim();
+
+      const canonical = document.getElementById('post-canonical').value.trim();
+      const metaDescription = document.getElementById('post-meta-description').value.trim();
+      const robotsIndex = document.getElementById('post-robots-index').checked;
+      const robotsFollow = document.getElementById('post-robots-follow').checked;
+
+      // Generate filename from title
+      const filename =
+        (currentPost ? currentPost.filename : generateFilename(title)) ||
+        `post-${Date.now()}.mdx`;
+
+      const frontmatter = {
+        title,
+        excerpt,
+        author,
+        category,
+        language,
+        tags,
+        publishDate: publishDate ? new Date(publishDate).toISOString() : new Date().toISOString(),
+        draft,
+        image: image || '~/assets/images/default.jpg',
+      };
+
+      if (canonical || metaDescription || !robotsIndex || !robotsFollow) {
+        frontmatter.metadata = {};
+        if (canonical) frontmatter.metadata.canonical = canonical;
+        if (metaDescription) frontmatter.metadata.description = metaDescription;
+        if (!robotsIndex || !robotsFollow) {
+          frontmatter.metadata.robots = {
+            index: robotsIndex,
+            follow: robotsFollow,
+          };
+        }
+      }
+
+      try {
+        const endpoint = currentPost ? '/api/posts/update' : '/api/posts/add';
+        const body = currentPost
+          ? { filename, originalFilename: currentPost.filename, frontmatter, content }
+          : { filename, frontmatter, content };
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+
+        if (response.ok) {
+          document.getElementById('form-success').textContent = currentPost
+            ? 'Post updated successfully!'
+            : 'Post created successfully!';
+          document.getElementById('form-success').classList.remove('hidden');
+
+          setTimeout(() => {
+            hideModal();
+            loadPosts();
+          }, 1500);
+        } else {
+          const error = await response.json();
+          document.getElementById('form-error').textContent = error.error;
+          document.getElementById('form-error').classList.remove('hidden');
+        }
+      } catch (error) {
+        document.getElementById('form-error').textContent = error.message;
+        document.getElementById('form-error').classList.remove('hidden');
+      }
+    });
+
+    function generateFilename(title) {
+      return (
+        title
+          .toLowerCase()
+          .replace(/[^a-z0-9가-힣\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .trim() + '.mdx'
+      );
+    }
+  </script>
+</Layout>

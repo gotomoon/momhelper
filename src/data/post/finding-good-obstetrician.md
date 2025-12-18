@@ -11,7 +11,7 @@ tags:
   - insurance
   - medicaid
 metadata:
-  canonical: https://momhelperusa.com/finding-good-obstetrician
+  canonical: https://momhelperusa.com/en/finding-good-obstetrician
 ---
 
 ## Finding a Good Doctor and Hospital

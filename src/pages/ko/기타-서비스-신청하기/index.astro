@@ -8,120 +8,120 @@ const metadata = {
 };
 ---
 
-\u003cPageLayout metadata={metadata}\u003e
-  \u003c!-- Hero Section --\u003e
-  \u003cWPPageHero title="기타 서비스 신청하기" /\u003e
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="기타 서비스 신청하기" />
 
-  \u003c!-- Form Section --\u003e
-  \u003csection class="py-16 md:py-20 bg-white"\u003e
-    \u003cdiv class="container mx-auto px-4 max-w-4xl"\u003e
-      \u003ch2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800"\u003e기타 서비스 예약폼\u003c/h2\u003e
+  <!-- Form Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">기타 서비스 예약폼</h2>
 
-      \u003cdiv class="mb-8"\u003e
-        \u003ch4 class="text-lg font-semibold text-[#d37643] mb-4"\u003e기타 서비스 예약폼을 작성해 주세요\u003c/h4\u003e
-        \u003cp class="text-gray-700"\u003e원하시는 서비스와 세부사항을 선택해 주시거나 안내 주시면 감사하겠습니다.\u003c/p\u003e
-      \u003c/div\u003e
+      <div class="mb-8">
+        <h4 class="text-lg font-semibold text-[#d37643] mb-4">기타 서비스 예약폼을 작성해 주세요</h4>
+        <p class="text-gray-700">원하시는 서비스와 세부사항을 선택해 주시거나 안내 주시면 감사하겠습니다.</p>
+      </div>
 
-      \u003cform id="application_form" class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST"\u003e
-        \u003c!-- Name and Email --\u003e
-        \u003cdiv class="grid grid-cols-1 md:grid-cols-2 gap-4"\u003e
-          \u003cdiv\u003e
-            \u003clabel for="name" class="block text-sm font-medium text-gray-700 mb-2"\u003e이름 *\u003c/label\u003e
-            \u003cinput type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="이름"\u003e
-          \u003c/div\u003e
-          \u003cdiv\u003e
-            \u003clabel for="email" class="block text-sm font-medium text-gray-700 mb-2"\u003e이메일 *\u003c/label\u003e
-            \u003cinput type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="이메일"\u003e
-          \u003c/div\u003e
-        \u003c/div\u003e
+      <form id="application_form" class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+        <!-- Name and Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">이름 *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="이름">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">이메일 *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="이메일">
+          </div>
+        </div>
 
-        \u003c!-- Phone --\u003e
-        \u003cdiv\u003e
-          \u003clabel for="phone" class="block text-sm font-medium text-gray-700 mb-2"\u003e휴대 전화 번호 *\u003c/label\u003e
-          \u003cinput type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="휴대 전화 번호"\u003e
-        \u003c/div\u003e
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">휴대 전화 번호 *</label>
+          <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="휴대 전화 번호">
+        </div>
 
-        \u003c!-- Address --\u003e
-        \u003cdiv class="grid grid-cols-1 md:grid-cols-2 gap-4"\u003e
-          \u003cdiv\u003e
-            \u003clabel for="street" class="block text-sm font-medium text-gray-700 mb-2"\u003e서비스 받으실 주소: Street *\u003c/label\u003e
-            \u003cinput type="text" id="street" name="street" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Street"\u003e
-          \u003c/div\u003e
-          \u003cdiv\u003e
-            \u003clabel for="city" class="block text-sm font-medium text-gray-700 mb-2"\u003eCity *\u003c/label\u003e
-            \u003cinput type="text" id="city" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="City"\u003e
-          \u003c/div\u003e
-        \u003c/div\u003e
+        <!-- Address -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="street" class="block text-sm font-medium text-gray-700 mb-2">서비스 받으실 주소: Street *</label>
+            <input type="text" id="street" name="street" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Street">
+          </div>
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+            <input type="text" id="city" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="City">
+          </div>
+        </div>
 
-        \u003cdiv class="grid grid-cols-1 md:grid-cols-2 gap-4"\u003e
-          \u003cdiv\u003e
-            \u003clabel for="state" class="block text-sm font-medium text-gray-700 mb-2"\u003eState *\u003c/label\u003e
-            \u003cinput type="text" id="state" name="state" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="State"\u003e
-          \u003c/div\u003e
-          \u003cdiv\u003e
-            \u003clabel for="zip" class="block text-sm font-medium text-gray-700 mb-2"\u003eZip code *\u003c/label\u003e
-            \u003cinput type="text" id="zip" name="zip" required pattern="[0-9\\s\\-]{5,}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Zip code"\u003e
-          \u003c/div\u003e
-        \u003c/div\u003e
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="state" class="block text-sm font-medium text-gray-700 mb-2">State *</label>
+            <input type="text" id="state" name="state" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="State">
+          </div>
+          <div>
+            <label for="zip" class="block text-sm font-medium text-gray-700 mb-2">Zip code *</label>
+            <input type="text" id="zip" name="zip" required pattern="[0-9\\s\\-]{5,}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Zip code">
+          </div>
+        </div>
 
-        \u003c!-- Service Type Selection --\u003e
-        \u003cdiv\u003e
-          \u003clabel class="block text-sm font-medium text-gray-700 mb-3"\u003e서비스 유형 *\u003c/label\u003e
-          \u003cdiv class="space-y-2"\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="service_type" value="베이비시터/내니" required class="mr-2 text-[#d37643]"\u003e 베이비시터/내니\u003c/label\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="service_type" value="가사 도움" class="mr-2 text-[#d37643]"\u003e 가사 도움\u003c/label\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="service_type" value="간병인" class="mr-2 text-[#d37643]"\u003e 간병인\u003c/label\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="service_type" value="기타" class="mr-2 text-[#d37643]"\u003e 기타\u003c/label\u003e
-          \u003c/div\u003e
-        \u003c/div\u003e
+        <!-- Service Type Selection -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-3">서비스 유형 *</label>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="radio" name="service_type" value="베이비시터/내니" required class="mr-2 text-[#d37643]"> 베이비시터/내니</label>
+            <label class="flex items-center"><input type="radio" name="service_type" value="가사 도움" class="mr-2 text-[#d37643]"> 가사 도움</label>
+            <label class="flex items-center"><input type="radio" name="service_type" value="간병인" class="mr-2 text-[#d37643]"> 간병인</label>
+            <label class="flex items-center"><input type="radio" name="service_type" value="기타" class="mr-2 text-[#d37643]"> 기타</label>
+          </div>
+        </div>
 
-        \u003c!-- Work Type --\u003e
-        \u003cdiv\u003e
-          \u003clabel class="block text-sm font-medium text-gray-700 mb-3"\u003e근무형태 *\u003c/label\u003e
-          \u003cdiv class="space-y-2"\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="work_type" value="출퇴근" required class="mr-2 text-[#d37643]"\u003e 출퇴근\u003c/label\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="work_type" value="입주형" class="mr-2 text-[#d37643]"\u003e 입주형\u003c/label\u003e
-            \u003clabel class="flex items-center"\u003e\u003cinput type="radio" name="work_type" value="시간제" class="mr-2 text-[#d37643]"\u003e 시간제\u003c/label\u003e
-          \u003c/div\u003e
-        \u003c/div\u003e
+        <!-- Work Type -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-3">근무형태 *</label>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="radio" name="work_type" value="출퇴근" required class="mr-2 text-[#d37643]"> 출퇴근</label>
+            <label class="flex items-center"><input type="radio" name="work_type" value="입주형" class="mr-2 text-[#d37643]"> 입주형</label>
+            <label class="flex items-center"><input type="radio" name="work_type" value="시간제" class="mr-2 text-[#d37643]"> 시간제</label>
+          </div>
+        </div>
 
-        \u003c!-- Service Start Date --\u003e
-        \u003cdiv\u003e
-          \u003clabel for="start_date" class="block text-sm font-medium text-gray-700 mb-2"\u003e서비스 시작 희망일 (월/날자/년도)\u003c/label\u003e
-          \u003cinput type="text" id="start_date" name="start_date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="서비스 시작 희망일"\u003e
-        \u003c/div\u003e
+        <!-- Service Start Date -->
+        <div>
+          <label for="start_date" class="block text-sm font-medium text-gray-700 mb-2">서비스 시작 희망일 (월/날자/년도)</label>
+          <input type="text" id="start_date" name="start_date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="서비스 시작 희망일">
+        </div>
 
-        \u003c!-- Service Duration --\u003e
-        \u003cdiv\u003e
-          \u003clabel for="service_duration" class="block text-sm font-medium text-gray-700 mb-2"\u003e서비스 기간\u003c/label\u003e
-          \u003cinput type="text" id="service_duration" name="service_duration" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="예: 3개월, 6개월, 장기 등"\u003e
-        \u003c/div\u003e
+        <!-- Service Duration -->
+        <div>
+          <label for="service_duration" class="block text-sm font-medium text-gray-700 mb-2">서비스 기간</label>
+          <input type="text" id="service_duration" name="service_duration" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="예: 3개월, 6개월, 장기 등">
+        </div>
 
-        \u003c!-- Additional Information --\u003e
-        \u003cdiv\u003e
-          \u003clabel for="notes" class="block text-sm font-medium text-gray-700 mb-2"\u003e기타 참고 사항\u003c/label\u003e
-          \u003ctextarea id="notes" name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="서비스에 대한 구체적인 요구사항이나 질문사항을 적어주세요."\u003e\u003c/textarea\u003e
-        \u003c/div\u003e
+        <!-- Additional Information -->
+        <div>
+          <label for="notes" class="block text-sm font-medium text-gray-700 mb-2">기타 참고 사항</label>
+          <textarea id="notes" name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="서비스에 대한 구체적인 요구사항이나 질문사항을 적어주세요."></textarea>
+        </div>
 
-        \u003c!-- Submit Button --\u003e
-        \u003cdiv class="text-center"\u003e
-          \u003cbutton type="submit" class="bg-[#d37643] text-white font-bold px-8 py-3 rounded-lg hover:bg-[#b8551f] transition-colors"\u003e
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="bg-[#d37643] text-white font-bold px-8 py-3 rounded-lg hover:bg-[#b8551f] transition-colors">
             제출하기
-          \u003c/button\u003e
-        \u003c/div\u003e
-      \u003c/form\u003e
-    \u003c/div\u003e
-  \u003c/section\u003e
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-  \u003c!-- Important Notes Section --\u003e
-  \u003csection class="py-16 md:py-20 bg-gray-50"\u003e
-    \u003cdiv class="container mx-auto px-4 max-w-4xl"\u003e
-      \u003ch2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800"\u003e기타 서비스 신청 안내\u003c/h2\u003e
-      \u003cul class="list-disc list-inside space-y-3 text-gray-700"\u003e
-        \u003cli\u003e서비스 요금은 서비스 유형과 근무형태에 따라 달라질 수 있습니다.\u003c/li\u003e
-        \u003cli\u003e상담 후 구체적인 서비스 내용과 요금이 확정됩니다.\u003c/li\u003e
-        \u003cli\u003e신청서 제출 후 담당자가 빠른 시일 내에 연락드리겠습니다.\u003c/li\u003e
-      \u003c/ul\u003e
-    \u003c/div\u003e
-  \u003c/section\u003e
-\u003c/PageLayout\u003e
+  <!-- Important Notes Section -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">기타 서비스 신청 안내</h2>
+      <ul class="list-disc list-inside space-y-3 text-gray-700">
+        <li>서비스 요금은 서비스 유형과 근무형태에 따라 달라질 수 있습니다.</li>
+        <li>상담 후 구체적인 서비스 내용과 요금이 확정됩니다.</li>
+        <li>신청서 제출 후 담당자가 빠른 시일 내에 연락드리겠습니다.</li>
+      </ul>
+    </div>
+  </section>
+</PageLayout>

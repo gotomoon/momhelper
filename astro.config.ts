@@ -27,10 +27,10 @@ export default defineConfig({
 
   // Internationalization configuration
   i18n: {
-    locales: ['en', 'ko'],
-    defaultLocale: 'en',
+    locales: ['ko', 'en'],  // Reorder: Korean first
+    defaultLocale: 'ko',    // Korean as default
     routing: {
-      prefixDefaultLocale: false,
+      prefixDefaultLocale: false,  // Korean routes: / (no prefix), English routes: /en/
     },
   },
 

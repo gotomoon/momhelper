@@ -2,7 +2,7 @@ import { getPermalink } from './utils/permalinks';
 
 // Helper function to detect language from URL
 export function getLanguageFromPath(pathname: string): 'ko' | 'en' {
-  return pathname.startsWith('/ko') ? 'ko' : 'en';
+  return pathname.startsWith('/en') ? 'en' : 'ko';
 }
 
 // English navigation
@@ -71,19 +71,6 @@ export const headerDataEn = {
       text: 'Reviews',
       href: getPermalink('/reviews'),
     },
-    {
-      text: 'Language',
-      links: [
-        {
-          text: 'English',
-          href: '/en',
-        },
-        {
-          text: '한국어 (Korean)',
-          href: '/',
-        },
-      ],
-    },
   ],
   actions: [
     {
@@ -99,30 +86,30 @@ export const headerDataKo = {
   links: [
     {
       text: '회사소개',
-      href: getPermalink('/ko/about'),
+      href: getPermalink('/about'),
     },
     {
       text: '산후관리 서비스',
       links: [
         {
           text: '산후조리에 관하여',
-          href: getPermalink('/ko/산후조리에-관하여'),
+          href: getPermalink('/산후조리에-관하여'),
         },
         {
           text: '산후관리사란?',
-          href: getPermalink('/ko/산후관리사란'),
+          href: getPermalink('/산후관리사란'),
         },
         {
           text: '산후관리 서비스 내용',
-          href: getPermalink('/ko/산후관리-서비스'),
+          href: getPermalink('/산후관리-서비스'),
         },
         {
           text: '이용요금',
-          href: getPermalink('/ko/이용요금-2'),
+          href: getPermalink('/이용요금-2'),
         },
         {
           text: '서비스 신청하기',
-          href: getPermalink('/ko/서비스-신청하기'),
+          href: getPermalink('/서비스-신청하기'),
         },
       ],
     },
@@ -131,11 +118,11 @@ export const headerDataKo = {
       links: [
         {
           text: '기타 서비스',
-          href: getPermalink('/ko/기타-서비스'),
+          href: getPermalink('/기타-서비스'),
         },
         {
           text: '기타 서비스 신청하기',
-          href: getPermalink('/ko/기타-서비스-신청하기'),
+          href: getPermalink('/기타-서비스-신청하기'),
         },
       ],
     },
@@ -143,35 +130,22 @@ export const headerDataKo = {
       text: '고객지원',
       links: [
         {
-          text: '산후조리·육아정보',
-          href: getPermalink('/ko/산전-산후조리-정보'),
+          text: '블로그',
+          href: getPermalink('/blog'),
         },
         {
           text: 'Q & A',
-          href: getPermalink('/ko/q-a'),
+          href: getPermalink('/q-a'),
         },
         {
           text: '연락처',
-          href: getPermalink('/ko/연락처'),
+          href: getPermalink('/연락처'),
         },
       ],
     },
     {
       text: '후기',
-      href: getPermalink('/ko/이용후기'),
-    },
-    {
-      text: '언어 (Language)',
-      links: [
-        {
-          text: 'English',
-          href: '/en',
-        },
-        {
-          text: '한국어 (Korean)',
-          href: '/',
-        },
-      ],
+      href: getPermalink('/이용후기'),
     },
   ],
   actions: [
@@ -207,10 +181,10 @@ export const footerDataEn = {
 // Korean footer
 export const footerDataKo = {
   links: [
-    { text: '회사소개', href: getPermalink('/ko/about') },
-    { text: '관리사/파트너 제휴', href: getPermalink('/ko/산후관리사란') },
-    { text: '이용약관', href: getPermalink('/ko/이용약관') },
-    { text: '서비스 신청하기', href: getPermalink('/ko/서비스-신청하기') },
+    { text: '회사소개', href: getPermalink('/about') },
+    { text: '관리사/파트너 제휴', href: getPermalink('/산후관리사란') },
+    { text: '이용약관', href: getPermalink('/이용약관') },
+    { text: '서비스 신청하기', href: getPermalink('/서비스-신청하기') },
   ],
   secondaryLinks: [],
   socialLinks: [],

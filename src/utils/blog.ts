@@ -177,7 +177,7 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
   return paginate(await fetchPosts(), {
-    params: { blog: BLOG_BASE || undefined },
+    params: { blog: undefined },
     pageSize: blogPostsPerPage,
   });
 };
@@ -209,7 +209,7 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
     paginate(
       posts.filter((post) => post.category?.slug && categorySlug === post.category?.slug),
       {
-        params: { category: categorySlug, blog: CATEGORY_BASE || undefined },
+        params: { category: categorySlug, blog: undefined },
         pageSize: blogPostsPerPage,
         props: { category: categories[categorySlug] },
       }
@@ -235,7 +235,7 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
     paginate(
       posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.slug === tagSlug)),
       {
-        params: { tag: tagSlug, blog: TAG_BASE || undefined },
+        params: { tag: tagSlug, blog: undefined },
         pageSize: blogPostsPerPage,
         props: { tag: tags[tagSlug] },
       }
