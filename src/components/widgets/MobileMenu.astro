@@ -25,7 +25,7 @@ const withLocale = (href = '') => {
 
 const aboutText = currentLocale === 'ko' ? '회사소개' : 'About';
 const reviewsText = currentLocale === 'ko' ? '후기' : 'Reviews';
-const postpartumText = currentLocale === 'ko' ? '산후관리 서비스' : 'Postpartum Care';
+const postpartumText = currentLocale === 'ko' ? '산후조리 서비스' : 'Postpartum Care';
 const otherServicesText = currentLocale === 'ko' ? '기타 서비스' : 'Other Services';
 const supportText = currentLocale === 'ko' ? '고객지원' : 'Support';
 
@@ -66,7 +66,7 @@ const labels =
     ? {
         home: '홈',
         about: '소개',
-        postpartum: '산후관리',
+        postpartum: '산후조리',
         otherServices: '기타서비스',
         support: '지원',
       }
@@ -124,11 +124,7 @@ const labels =
     </button>
 
     <!-- Support icon -->
-    <button
-      id="open-support-drawer"
-      type="button"
-      class="flex flex-col items-center justify-center focus:outline-none"
-    >
+    <button id="open-support-drawer" type="button" class="flex flex-col items-center justify-center focus:outline-none">
       <Icon name="tabler:lifebuoy" class="w-6 h-6 mb-1 text-stone-600 dark:text-stone-300" />
       <span class="text-xs text-stone-600 dark:text-stone-300 font-medium">{labels.support}</span>
     </button>
@@ -145,8 +141,7 @@ const labels =
       <button
         id="close-about-drawer"
         class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
-        aria-label="Close"
-        >&times;</button
+        aria-label="Close">&times;</button
       >
       <div class="mb-4 text-center font-bold text-lg">
         {currentLocale === 'ko' ? '소개 메뉴' : 'About Menu'}
@@ -179,11 +174,10 @@ const labels =
       <button
         id="close-postpartum-drawer"
         class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
-        aria-label="Close"
-        >&times;</button
+        aria-label="Close">&times;</button
       >
       <div class="mb-4 text-center font-bold text-lg">
-        {currentLocale === 'ko' ? '산후관리 메뉴' : 'Postpartum Care Menu'}
+        {currentLocale === 'ko' ? '산후조리 메뉴' : 'Postpartum Care Menu'}
       </div>
       <ul class="space-y-3">
         {
@@ -213,8 +207,7 @@ const labels =
       <button
         id="close-otherservices-drawer"
         class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
-        aria-label="Close"
-        >&times;</button
+        aria-label="Close">&times;</button
       >
       <div class="mb-4 text-center font-bold text-lg">
         {currentLocale === 'ko' ? '기타 서비스 메뉴' : 'Other Services Menu'}
@@ -247,8 +240,7 @@ const labels =
       <button
         id="close-support-drawer"
         class="absolute top-2 right-4 text-2xl text-gray-400 hover:text-gray-700 dark:hover:text-white"
-        aria-label="Close"
-        >&times;</button
+        aria-label="Close">&times;</button
       >
       <div class="mb-4 text-center font-bold text-lg">
         {currentLocale === 'ko' ? '고객지원 메뉴' : 'Support Menu'}

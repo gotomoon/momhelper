@@ -7,6 +7,7 @@ import { getBlogPermalink } from '~/utils/permalinks';
 import { findPostsByIds } from '~/utils/blog';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Widget } from '~/types';
+import { getLocaleFromPath, getPathForRoute } from '~/utils/i18nRoutes';
 
 export interface Props extends Widget {
   title?: string;
@@ -16,10 +17,13 @@ export interface Props extends Widget {
   postIds: string[];
 }
 
+const locale = getLocaleFromPath(Astro.url.pathname || '/');
+const defaultBlogLink = getPathForRoute('blog', locale) ?? getBlogPermalink();
+
 const {
   title = await Astro.slots.render('title'),
   linkText = 'View all posts',
-  linkUrl = getBlogPermalink(),
+  linkUrl = defaultBlogLink,
   information = await Astro.slots.render('information'),
   postIds = [],
 

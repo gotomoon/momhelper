@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
+import { locales as SUPPORTED_LOCALES, routeSlugs, type Locale } from '~/utils/i18nRoutes';
 
 const generatePermalink = async ({
   id,
@@ -117,6 +118,16 @@ const load = async function (): Promise<Array<Post>> {
 
 let _posts: Array<Post>;
 
+export const getPostLocale = (post: Post): Locale => {
+  if (post.language === 'en' || post.language === 'ko') {
+    return post.language;
+  }
+  if (post.metadata?.canonical?.includes('/en/')) {
+    return 'en';
+  }
+  return 'ko';
+};
+
 /** */
 export const isBlogEnabled = APP_BLOG.isEnabled;
 export const isRelatedPostsEnabled = APP_BLOG.isRelatedPostsEnabled;
@@ -131,6 +142,8 @@ export const blogCategoryRobots = APP_BLOG.category.robots;
 export const blogTagRobots = APP_BLOG.tag.robots;
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
+
+const getBlogBaseForLocale = (locale: Locale): string => cleanSlug(routeSlugs.blog[locale] || BLOG_BASE);
 
 /** */
 export const fetchPosts = async (): Promise<Array<Post>> => {
@@ -170,19 +183,52 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 };
 
 /** */
-export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
+export const findLatestPosts = async ({
+  count,
+  locale,
+}: {
+  count?: number;
+  locale?: Locale;
+}): Promise<Array<Post>> => {
   const _count = count || 4;
   const posts = await fetchPosts();
 
-  return posts ? posts.slice(0, _count) : [];
+  const filtered = locale ? posts.filter((post) => getPostLocale(post) === locale) : posts;
+
+  return filtered ? filtered.slice(0, _count) : [];
 };
 
 /** */
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
-  return paginate(await fetchPosts(), {
-    params: { blog: BLOG_BASE },
-    pageSize: blogPostsPerPage,
+
+  const posts = await fetchPosts();
+
+  return SUPPORTED_LOCALES.flatMap((locale) => {
+    const localizedPosts = posts.filter((post) => getPostLocale(post) === locale);
+    const blogBase = getBlogBaseForLocale(locale);
+    const prefixedBase = `${locale}/${blogBase}`;
+    const paths = [
+      ...paginate(localizedPosts, {
+        params: { blog: prefixedBase },
+        pageSize: blogPostsPerPage,
+        props: { locale, blogBase },
+        locales: [locale],
+      }),
+    ];
+
+    if (prefixedBase !== blogBase) {
+      paths.push(
+        ...paginate(localizedPosts, {
+          params: { blog: blogBase },
+          pageSize: blogPostsPerPage,
+          props: { locale, blogBase },
+          locales: [locale],
+        })
+      );
+    }
+
+    return paths;
   });
 };
 

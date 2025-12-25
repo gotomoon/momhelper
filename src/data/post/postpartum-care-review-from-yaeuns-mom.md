@@ -9,7 +9,7 @@ tags:
   - Reviews
   - Postpartum Care
 metadata:
-  canonical: https://momhelperusa.com/en/예은-엄마/
+  canonical: https://momhelperusa.com/postpartum-care-review-from-yaeuns-mom
 ---
 
 ## Postpartum Care Review from Yaeun’s Mom

@@ -5,13 +5,16 @@ import { getRelatedPosts } from '~/utils/blog';
 import BlogHighlightedPosts from '../widgets/BlogHighlightedPosts.astro';
 import type { Post } from '~/types';
 import { getBlogPermalink } from '~/utils/permalinks';
+import { getLocaleFromPath, getPathForRoute } from '~/utils/i18nRoutes';
 
 export interface Props {
   post: Post;
+  locale?: 'en' | 'ko';
 }
 
-const { post } = Astro.props;
-
+const { post, locale: propLocale } = Astro.props as Props;
+const locale = propLocale === 'en' || propLocale === 'ko' ? propLocale : getLocaleFromPath(Astro.url.pathname || '/');
+const blogPath = getPathForRoute('blog', locale) ?? getBlogPermalink();
 const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
 ---
 
@@ -24,7 +27,7 @@ const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
       }}
       title="Related Posts"
       linkText="View All Posts"
-      linkUrl={getBlogPermalink()}
+      linkUrl={blogPath}
       postIds={relatedPosts.map((post) => post.id)}
     />
   ) : null

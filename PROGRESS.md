@@ -6,6 +6,7 @@
 ## ✅ Completed Tasks
 
 ### 1. Project Setup & Configuration
+
 - ✅ Reviewed existing Astro project structure (AstroWind template)
 - ✅ Updated design tokens (Open Sans font, #2EA3F2 primary color)
 - ✅ Configured bilingual support (Korean/English)
@@ -14,6 +15,7 @@
 ### 2. Core Pages Created
 
 #### English Pages
+
 1. **Homepage** (`/index.astro`)
    - Hero section with CTAs
    - 6 main service features
@@ -22,12 +24,15 @@
    - Contact information & CTA
 
 #### Korean Pages
+
 1. **Homepage** (`/ko/index.astro`)
+
    - Fully translated Korean content
    - Matching structure to English version
    - Korean testimonials
 
-2. **산후관리 서비스** (`/ko/산후관리-서비스/index.astro`)
+2. **산후조리 서비스** (`/ko/산후조리-서비스/index.astro`)
+
    - Service overview
    - Detailed maternal care section
    - Detailed newborn care section
@@ -38,6 +43,7 @@
    - Important notes
 
 3. **이용요금** (`/ko/이용요금-2/index.astro`)
+
    - Basic service pricing (2, 4 weeks)
    - Extended period pricing table (6, 8, 10 weeks)
    - Additional fees table (by county)
@@ -45,6 +51,7 @@
    - Both commuting and live-in options
 
 4. **연락처** (`/ko/연락처/index.astro`)
+
    - Contact form with validation
    - Contact methods (phone, email, KakaoTalk)
    - Business hours
@@ -59,6 +66,7 @@
    - Service work formats
 
 ### 3. Design System
+
 - ✅ Primary color: #2EA3F2 (Mom Helper USA blue)
 - ✅ Secondary color: #2582C2 (darker blue)
 - ✅ Font: Open Sans (matching WordPress)
@@ -66,6 +74,7 @@
 - ✅ Dark mode support
 
 ### 4. Build & Quality
+
 - ✅ Build successful - 66 pages generated
 - ✅ All Korean pages rendering correctly
 - ✅ Sitemap generated
@@ -74,6 +83,7 @@
 ## 📊 Page Count
 
 **Total Pages:** 5 core pages created
+
 - 1 English homepage (updated)
 - 4 Korean pages (new)
 
@@ -82,6 +92,7 @@
 ## 🎯 Next Steps (According to plan1.md)
 
 ### Priority 1 - Essential Pages
+
 - [ ] Create `/ko/서비스-신청하기` (Service Application form)
 - [ ] Create `/ko/이용후기` (Testimonials/Reviews page)
 - [ ] Create `/ko/q-a` (Q&A/FAQ page)
@@ -90,22 +101,26 @@
 - [ ] Create `/ko/about` (About page)
 
 ### Priority 2 - Content
+
 - [ ] Migrate 3 blog posts from WordPress
 - [ ] Add actual images from WordPress site
 - [ ] Update navigation menus
 
 ### Priority 3 - Forms & Integration
+
 - [ ] Set up Netlify Forms or alternative
 - [ ] Test form submissions
 - [ ] Add anti-spam protection
 
 ### Priority 4 - SEO & Performance
+
 - [ ] Add structured data (LocalBusiness schema)
 - [ ] Optimize all images
 - [ ] Run Lighthouse audits
 - [ ] Implement redirects if needed
 
 ### Priority 5 - Deployment
+
 - [ ] Deploy to Netlify/Vercel
 - [ ] Test all pages on production
 - [ ] DNS setup (if needed)
@@ -113,13 +128,16 @@
 ## 📝 Technical Notes
 
 ### URLs Preserved
+
 All Korean URLs match the WordPress structure:
-- `/ko/산후관리-서비스/` ✅
+
+- `/ko/산후조리-서비스/` ✅
 - `/ko/이용요금-2/` ✅
 - `/ko/연락처/` ✅
 - `/ko/기타-서비스/` ✅
 
 ### Components Used
+
 - `PageLayout` - Main layout wrapper
 - `Hero` - Hero sections
 - `Features`, `Features2`, `Features3` - Service features
@@ -130,6 +148,7 @@ All Korean URLs match the WordPress structure:
 - `Contact` - Contact forms
 
 ### Build Performance
+
 - Build time: ~8.24s
 - Compression: 849.95 KB (HTML)
 - Images: 13 optimized
@@ -157,7 +176,7 @@ src/
 │   ├── about.astro, postpartum-care.astro, pricing.astro, etc.
 │   └── ko/
 │       ├── index.astro (Korean homepage)
-│       ├── 산후관리-서비스/index.astro
+│       ├── 산후조리-서비스/index.astro
 │       ├── 이용요금-2/index.astro
 │       ├── 연락처/index.astro
 │       ├── 기타-서비스/index.astro
@@ -180,6 +199,7 @@ src/
 5. **Netlify Forms** - Recommended for form handling (zero config)
 
 ### 5. Multilingual Language Switching System (October 12, 2025)
+
 - ✅ Implemented intelligent language switching in BasicScripts.astro
 - ✅ Added page translation mappings for all EN ↔ KO pages
 - ✅ Enhanced Header.astro with data-lang-switch attributes
@@ -187,7 +207,8 @@ src/
 - ✅ Language switcher now redirects to equivalent pages (not just homepage)
 
 **How it works:**
-- When switching from `/postpartum-care` (EN) to Korean → redirects to `/ko/산후관리-서비스`
+
+- When switching from `/postpartum-care` (EN) to Korean → redirects to `/ko/산후조리-서비스`
 - When switching from `/ko/이용요금-2` (KO) to English → redirects to `/pricing`
 - Falls back gracefully if no mapping exists
 - Supports alternative slugs and URL variations
@@ -202,6 +223,7 @@ src/
 ## 📈 Progress: ~40% Complete
 
 According to the original plan (21 essential pages + 3 blog posts):
+
 - **Completed:** 5 pages
 - **Remaining:** 16 pages + 3 blog posts
 - **Build Status:** ✅ Working

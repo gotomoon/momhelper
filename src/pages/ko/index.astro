@@ -10,7 +10,7 @@ import housekeeping from '~/assets/images/momhelper/services/housekeeping.webp';
 
 const metadata = {
   title: 'Mom Helper USA',
-  description: '찾아가는 맞춤형 산후관리 서비스',
+  description: '찾아가는 맞춤형 산후조리 서비스',
   ignoreTitleTemplate: true,
 };
 ---
@@ -36,7 +36,7 @@ const metadata = {
           class="text-white font-sans font-medium leading-relaxed drop-shadow-md"
           style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 26pt; margin-top: -30px;"
         >
-          찾아가는 맞춤형 산후관리 서비스
+          찾아가는 맞춤형 산후조리 서비스
         </h2>
       </div>
     </div>
@@ -47,7 +47,7 @@ const metadata = {
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
         <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-bold leading-relaxed mb-4">
-          교육과 경험을 갖춘 전문 산후관리사가<br />편안하고 안전한 산후조리를 제공합니다
+          교육과 경험을 갖춘 전문 산후조리사가<br />편안하고 안전한 산후조리를 제공합니다
         </h2>
         <div class="w-24 h-1 bg-mh-orange mx-auto rounded-full"></div>
       </div>
@@ -75,12 +75,12 @@ const metadata = {
             <div
               class="rounded-full overflow-hidden w-64 h-64 mx-auto border-8 border-white shadow-xl transform group-hover:scale-105 transition-transform duration-500"
             >
-              <Image src={cribMomSquare} alt="전문 산후관리사" class="w-full h-full object-cover" />
+              <Image src={cribMomSquare} alt="전문 산후조리사" class="w-full h-full object-cover" />
             </div>
           </div>
-          <h3 class="font-heading text-xl text-mh-orange-dark mb-4 font-bold">전문 산후관리사</h3>
+          <h3 class="font-heading text-xl text-mh-orange-dark mb-4 font-bold">전문 산후조리사</h3>
           <p class="text-gray-600 leading-relaxed max-w-xs mx-auto">
-            교육과 경험을 갖춘 산후관리사가 산모와 아기를 안전하고 편안하게 돌봅니다. 이는 산모와 가족이 안심하고
+            교육과 경험을 갖춘 산후조리사가 산모와 아기를 안전하고 편안하게 돌봅니다. 이는 산모와 가족이 안심하고
             서비스를 이용할 수 있게 합니다.
           </p>
         </div>
@@ -103,10 +103,10 @@ const metadata = {
 
       <div class="text-center">
         <a
-          href="/ko/산후관리-서비스"
+          href="/ko/산후조리-서비스"
           class="inline-block bg-mh-orange text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
         >
-          산후관리 서비스 더 알아보기
+          산후조리 서비스 더 알아보기
         </a>
       </div>
     </div>
@@ -117,7 +117,7 @@ const metadata = {
     <div class="container mx-auto px-4">
       <h2 class="text-mh-orange-dark text-center font-sans text-2xl md:text-3xl font-bold mb-16">기타 서비스</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <!-- Babysitting -->
         <a
           href="/ko/기타-서비스"
@@ -145,12 +145,12 @@ const metadata = {
           <div class="h-64 overflow-hidden">
             <Image
               src={caregiver}
-              alt="간병 서비스"
+              alt="전문 간병인"
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
             />
           </div>
           <div class="p-6 text-center">
-            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">간병 서비스</h3>
+            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">전문 간병인</h3>
           </div>
         </a>
 
@@ -162,13 +162,23 @@ const metadata = {
           <div class="h-64 overflow-hidden">
             <Image
               src={housekeeping}
-              alt="가사도우미"
+              alt="홈 케어"
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
             />
           </div>
           <div class="p-6 text-center">
-            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">가사도우미</h3>
+            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">홈 케어</h3>
           </div>
+        </a>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="text-center">
+        <a
+          href="/ko/기타-서비스"
+          class="inline-block bg-mh-orange text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+        >
+          기타 서비스 더 알아보기
         </a>
       </div>
     </div>
@@ -186,21 +196,27 @@ const metadata = {
         <!-- Testimonial 1 -->
         <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
           <p class="text-gray-700 leading-relaxed text-base">
-            이모님은 많이 배우셨고 아이 경험이 많으십니다. 마음이 따뜻하고 긍정적이며, 성격이 밝으신 분으로 아기를 많이 좋아하고 사랑하시는 분입니다. 전적으로 신뢰할 수 있는 경험이 많으신 전문가이십니다. 제 아기가 제 충미달에 아주 작게 태어났고 황달이 …
+            이모님은 많이 배우셨고 아이 경험이 많으십니다. 마음이 따뚯하고 긍정적이며, 성격이 밝으신 분으로 아기를 많이
+            좋아하고 사랑하시는 분입니다. 전적으로 신뢰할 수 있는 경험이 많으신 전문가이십니다. 제 아기가 체중미달에
+            아주 작게 태어났고 황달이 …
           </p>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
           <p class="text-gray-700 leading-relaxed text-base">
-            지금까지 산후조리를 해 주셨던 분들과는 모든 것에서 너무 다르셨고, 1 개월이 지나서는 아기와 큰 집을 말거두고 몇일 가족 트립과 여절 수 없는 비지니스 트립을 다녀올 수도 있었습니다. 이모님이 계시는 8주 동안 우리 가족들은 편안하고 든 든 했습니다. 바람직한 산후조리와 …
+            지금까지 산후조리를 해 주셨던 분들과는 모든 것에서 너무 다르셨고, 1개월이 지나서는 아기와 큰 집을 맡겨두고
+            몇일 가족 트립과 어쩔 수 없는 비지니스 트립을 다녀올 수도 있었습니다. 이모님이 계시는 8주 동안 우리 가족들은
+            편안하고 든 든 했습니다. 바람직한 산후조리와 …
           </p>
         </div>
 
         <!-- Testimonial 3 -->
         <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
           <p class="text-gray-700 leading-relaxed text-base">
-            요리 솜씨가 정말 좋으십니다. 저의 입맛에 맞추어서 저염식이면서도 골고루 영양소가 들어갈수 있게 맛있게 요리를 해주셨고, 모유 수유에 도움이 되는 음식, 생활습관, 마사지까지 저의 빠른 회복을 위해 쉬는 시간도 얼마 못가지시면서 헌신적으로 도와주셨습니다. 그리고 …
+            요리 솜씨가 정말 좋으십니다. 저의 입맛에 맞추어서 저염식이면서도 골고루 영양소가 들어갈수 있게 맛있게 요리를
+            해주셨고, 모유 수유에 도움이 되는 음식, 생활습관, 마사지까지 저의 빠른 회복을 위해 쉬는 시간도 얼마
+            못가지시면서 헌신적으로 도와주셨습니다. 그리고 …
           </p>
         </div>
       </div>
@@ -211,7 +227,7 @@ const metadata = {
           href="/ko/이용후기"
           class="inline-block bg-mh-orange text-white font-sans font-medium text-base px-10 py-3 rounded-full border-2 border-mh-orange hover:bg-mh-orange-dark hover:border-mh-orange-dark transition-all duration-300"
         >
-          후기 자세히 보기 ☞
+          후기 자세히 보기
         </a>
       </div>
     </div>

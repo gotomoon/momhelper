@@ -16,65 +16,61 @@ export interface Props {
 }
 
 const { post, url } = Astro.props;
+const heroBackground = typeof post.image === 'string' ? post.image : '/images/baby-hand.jpeg';
 ---
+
+<section
+  class="relative isolate overflow-hidden"
+  style={`background-image: url('${heroBackground}'); background-size: cover; background-position: center;`}
+>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/35"></div>
+  <div class="relative max-w-4xl mx-auto px-6 pt-28 pb-20 sm:pt-32 sm:pb-24 text-center text-white">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight font-heading drop-shadow-md text-mh-orange-dark">
+      {post.title}
+    </h1>
+    {post.excerpt && (
+      <p class="mt-6 text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow">
+        {post.excerpt}
+      </p>
+    )}
+    <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm sm:text-base text-white/85">
+      <span class="flex items-center gap-1">
+        <Icon name="tabler:clock" class="w-4 h-4" />
+        <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
+      </span>
+      {post.author && (
+        <span class="flex items-center gap-1">
+          <Icon name="tabler:user" class="w-4 h-4" />
+          {post.author}
+        </span>
+      )}
+      {post.category && (
+        <a
+          class="flex items-center gap-1 hover:underline decoration-white/70"
+          href={getPermalink(post.category.slug, 'category')}
+        >
+          <Icon name="tabler:folder" class="w-4 h-4" />
+          {post.category.title}
+        </a>
+      )}
+      {post.readingTime && (
+        <span class="flex items-center gap-1">
+          <Icon name="tabler:book" class="w-4 h-4" />
+          {post.readingTime} min read
+        </span>
+      )}
+    </div>
+  </div>
+</section>
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
-    <header
-      class={post.image
-        ? 'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'
-        : 'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'}
-    >
-      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
-        <p>
-          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
-          {
-            post.author && (
-              <>
-                {' '}
-                · <Icon name="tabler:user" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-                <span class="inline-block">{post.author}</span>
-              </>
-            )
-          }
-          {
-            post.category && (
-              <>
-                {' '}
-                ·{' '}
-                <a class="hover:underline inline-block" href={getPermalink(post.category.slug, 'category')}>
-                  {post.category.title}
-                </a>
-              </>
-            )
-          }
-          {
-            post.readingTime && (
-              <>
-                &nbsp;· <span>{post.readingTime}</span> min read
-              </>
-            )
-          }
-        </p>
-      </div>
-
-      <h1
-        class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
-      >
-        {post.title}
-      </h1>
-      <p
-        class="max-w-3xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify"
-      >
-        {post.excerpt}
-      </p>
-
+    <header class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
       {
         post.image ? (
           <Image
             src={post.image}
-            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            class="max-w-full lg:max-w-[900px] mx-auto my-8 sm:rounded-md bg-gray-400 dark:bg-slate-700"
             widths={[400, 900]}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post?.excerpt || ''}

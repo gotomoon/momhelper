@@ -6,8 +6,10 @@ import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { getLocaleFromPath, type Locale } from '~/utils/i18nRoutes';
 
 export const prerender = true;
 
@@ -17,16 +19,22 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { page } = Astro.props as Props;
+const { page, locale: propLocale } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
+const currentLocale: Locale =
+  propLocale === 'en' || propLocale === 'ko' ? propLocale : getLocaleFromPath(Astro.url.pathname);
+const pageTitle = currentLocale === 'ko' ? '산후조리·육아정보' : 'Blog';
+const pageSubtitle =
+  currentLocale === 'ko'
+    ? '임신·산후 케어와 육아에 도움이 되는 정보를 모았어요.'
+    : 'Helpful information about prenatal and postpartum care, pregnancy tips, and parenting advice';
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
 
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
-  description:
-    'Helpful information about prenatal and postpartum care, pregnancy tips, and parenting advice from Mom Helper USA.',
+  title: `${pageTitle}${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  description: `${pageSubtitle} ${currentPage > 1 ? `(${pageTitle} page ${currentPage})` : ''}`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -38,10 +46,8 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <WPPageHero title={pageTitle} subtitle={pageSubtitle} backgroundImage="/images/baby-hand.jpeg" minHeight="420px" />
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-6xl">
-    <Headline subtitle="Helpful information about prenatal and postpartum care, pregnancy tips, and parenting advice">
-      Blog
-    </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--

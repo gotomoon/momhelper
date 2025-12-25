@@ -8,7 +8,7 @@ import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 
 import { getCanonical, getPermalink } from '~/utils/permalinks';
-import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
+import { getStaticPathsBlogPost, blogPostRobots, getPostLocale } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
@@ -23,11 +23,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props as Props;
 
-const postLocale = post?.language === 'en' || post?.language === 'ko'
-  ? post.language
-  : post?.metadata?.canonical?.includes('/en/')
-    ? 'en'
-    : 'ko';
+const postLocale = getPostLocale(post);
 const url = getCanonical(getPermalink(post.permalink, 'post'));
 const image = (await findImage(post.image)) as ImageMetadata | string | undefined;
 
@@ -54,6 +50,6 @@ const metadata = merge(
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
-  <ToBlogLink />
-  <RelatedPosts post={post} />
+  <ToBlogLink locale={postLocale} />
+  <RelatedPosts post={post} locale={postLocale} />
 </Layout>

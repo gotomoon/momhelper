@@ -7,7 +7,7 @@ import { SITE } from 'astrowind:config';
 // Get English review posts
 const allPosts = await getCollection('post');
 const reviewPosts = allPosts
-  .filter((post) => post.data.category === 'Reviews' && post.id.startsWith('review-'))
+  .filter((post) => post.data.category === 'Reviews' && post.data.language === 'en')
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const reviewItems = reviewPosts.map((post) => {

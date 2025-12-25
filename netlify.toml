@@ -25,3 +25,58 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/early-pregnancy-symptoms"
+  to = "/임신-초기-증상-행복한-시작을-위한-필수-가이드와-미국에서의-대처-방법"
+  status = 301
+
+[[redirects]]
+  from = "/early-pregnancy-symptoms-en"
+  to = "/early-pregnancy-symptoms-what-to-expect-and-how-to-handle-them-in-the-us"
+  status = 301
+
+[[redirects]]
+  from = "/finding-good-obstetrician"
+  to = "/early-pregnancy-finding-a-good-obstetrician-and-maternity-support-programs"
+  status = 301
+
+[[redirects]]
+  from = "/finding-good-obstetrician-ko"
+  to = "/미국에서-좋은-산부인과-찾기와-출산-지원-프로그램-활용하기"
+  status = 301
+
+[[redirects]]
+  from = "/review-first-time-mom-40s"
+  to = "/review-from-a-first-time-mother-in-her-40s"
+  status = 301
+
+[[redirects]]
+  from = "/review-jenny-jung"
+  to = "/postpartum-care-review-by-jenny-jung"
+  status = 301
+
+[[redirects]]
+  from = "/review-yaeun-mom"
+  to = "/postpartum-care-review-from-yaeuns-mom"
+  status = 301
+
+[[redirects]]
+  from = "/jenny-jung"
+  to = "/산후조리-후기-jenny-jung"
+  status = 301
+
+[[redirects]]
+  from = "/예은-엄마"
+  to = "/예은-엄마의-산후조리-후기"
+  status = 301
+
+[[redirects]]
+  from = "/40대-초산-산모-후기"
+  to = "/초산이신-40대-산모님의-후기"
+  status = 301
+
+[[redirects]]
+  from = "/40대-초산인-산모의-후기"
+  to = "/초산이신-40대-산모님의-후기"
+  status = 301

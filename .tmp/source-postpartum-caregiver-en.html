@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko-KR">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,23 +9,23 @@
       document.documentElement.className = 'js';
     </script>
 
-    <title>회사소개 | Mom Helper USA</title>
+    <title>산후조리사란? | Mom Helper USA</title>
     <meta name="robots" content="max-image-preview:large" />
     <link rel="dns-prefetch" href="//stats.wp.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Mom Helper USA &raquo; 피드"
-      href="https://momhelperusa.com/feed/"
+      title="Mom Helper USA &raquo; Feed"
+      href="https://momhelperusa.com/en/feed/"
     />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Mom Helper USA &raquo; 댓글 피드"
-      href="https://momhelperusa.com/comments/feed/"
+      title="Mom Helper USA &raquo; Comments Feed"
+      href="https://momhelperusa.com/en/comments/feed/"
     />
-    <meta content="Divi v.4.27.4" name="generator" />
+    <meta content="Divi v.4.27.5" name="generator" />
     <style id="wp-block-library-theme-inline-css" type="text/css">
       .wp-block-audio :where(figcaption) {
         color: #555;
@@ -595,14 +595,14 @@
     <link
       rel="stylesheet"
       id="trp-floater-language-switcher-style-css"
-      href="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/css/trp-floater-language-switcher.css?ver=3.0.4"
+      href="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/css/trp-floater-language-switcher.css?ver=3.0.6"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
       id="trp-language-switcher-style-css"
-      href="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher.css?ver=3.0.4"
+      href="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher.css?ver=3.0.6"
       type="text/css"
       media="all"
     />
@@ -620,18 +620,11 @@
       type="text/css"
       media="all"
     />
-    <link
-      rel="stylesheet"
-      id="et-gf-korean-css"
-      href="//fonts.googleapis.com/earlyaccess/hanna.css"
-      type="text/css"
-      media="all"
-    />
     <style id="divi-style-inline-inline-css" type="text/css">
       /*!
 Theme Name: Divi
 Theme URI: http://www.elegantthemes.com/gallery/divi/
-Version: 4.27.4
+Version: 4.27.5
 Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our collection.
 Author: Elegant Themes
 Author URI: http://www.elegantthemes.com
@@ -4314,151 +4307,84 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       .et_pb_text_inner {
         position: relative;
       }
-      .et_pb_with_border .et_pb_image_wrap {
-        border: 0 solid #333;
-      }
-      .et_pb_image {
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 0;
-      }
-      .et_pb_image.aligncenter {
-        text-align: center;
-      }
-      .et_pb_image.et_pb_has_overlay a.et_pb_lightbox_image {
-        display: block;
+      .et_pb_heading_container {
         position: relative;
       }
-      .et_pb_image {
-        display: block;
+      .et_pb_space {
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 23px;
       }
-      .et_pb_image .et_pb_image_wrap {
-        display: inline-block;
-        position: relative;
-        max-width: 100%;
-      }
-      .et_pb_image .et_pb_image_wrap img[src*='.svg'] {
-        width: auto;
-      }
-      .et_pb_image img {
-        position: relative;
-      }
-      .et_pb_image_sticky {
+      .et_pb_divider_hidden {
         margin-bottom: 0 !important;
-        display: inherit;
       }
-      .et_pb_image.et_pb_has_overlay .et_pb_image_wrap:hover .et_overlay {
-        z-index: 3;
-        opacity: 1;
+      .et_pb_divider_internal {
+        display: inline-block;
+        width: 100%;
       }
-      @media (min-width: 981px) {
-        .et_pb_section_sticky,
-        .et_pb_section_sticky.et_pb_bottom_divider .et_pb_row:nth-last-child(2),
-        .et_pb_section_sticky .et_pb_column_single,
-        .et_pb_section_sticky .et_pb_row.et-last-child,
-        .et_pb_section_sticky .et_pb_row:last-child,
-        .et_pb_section_sticky .et_pb_specialty_column .et_pb_row_inner.et-last-child,
-        .et_pb_section_sticky .et_pb_specialty_column .et_pb_row_inner:last-child {
-          padding-bottom: 0 !important;
-        }
+      .et_pb_divider {
+        margin: 0 0 30px;
+        position: relative;
+      }
+      .et_pb_divider:before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+      }
+      .et_pb_divider:after,
+      .et_pb_space:after {
+        content: '';
+        display: table;
+      }
+      .et_pb_divider_position_bottom:before {
+        top: auto !important;
+        bottom: 0 !important;
+      }
+      .et_pb_divider_position_center:before {
+        top: 50% !important;
       }
       @media (max-width: 980px) {
-        .et_pb_image_sticky_tablet {
-          margin-bottom: 0 !important;
-          display: inherit;
+        .et_pb_divider_position_top_tablet:before {
+          top: 0 !important;
+          bottom: auto !important;
         }
-        .et_pb_section_sticky_mobile,
-        .et_pb_section_sticky_mobile.et_pb_bottom_divider .et_pb_row:nth-last-child(2),
-        .et_pb_section_sticky_mobile .et_pb_column_single,
-        .et_pb_section_sticky_mobile .et_pb_row.et-last-child,
-        .et_pb_section_sticky_mobile .et_pb_row:last-child,
-        .et_pb_section_sticky_mobile .et_pb_specialty_column .et_pb_row_inner.et-last-child,
-        .et_pb_section_sticky_mobile .et_pb_specialty_column .et_pb_row_inner:last-child {
-          padding-bottom: 0 !important;
+        .et_pb_divider_position_bottom_tablet:before {
+          top: auto !important;
+          bottom: 0 !important;
         }
-        .et_pb_section_sticky .et_pb_row.et-last-child .et_pb_column.et_pb_row_sticky.et-last-child,
-        .et_pb_section_sticky .et_pb_row:last-child .et_pb_column.et_pb_row_sticky:last-child {
-          margin-bottom: 0;
+        .et_pb_divider_position_center_tablet:before {
+          top: 50% !important;
         }
-        .et_pb_image_bottom_space_tablet {
-          margin-bottom: 30px !important;
-          display: block;
-        }
-        .et_always_center_on_mobile {
-          text-align: center !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
+        .et_pb_space.et-hide-mobile {
+          display: none;
         }
       }
       @media (max-width: 767px) {
-        .et_pb_image_sticky_phone {
-          margin-bottom: 0 !important;
-          display: inherit;
+        .et_pb_divider_position_top_phone:before {
+          top: 0 !important;
+          bottom: auto !important;
         }
-        .et_pb_image_bottom_space_phone {
-          margin-bottom: 30px !important;
-          display: block;
+        .et_pb_divider_position_bottom_phone:before {
+          top: auto !important;
+          bottom: 0 !important;
+        }
+        .et_pb_divider_position_center_phone:before {
+          top: 50% !important;
         }
       }
-      .et_overlay {
-        z-index: -1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: hsla(0, 0%, 100%, 0.9);
-        opacity: 0;
-        pointer-events: none;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-        border: 1px solid #e5e5e5;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-      .et_overlay:before {
-        color: #2ea3f2;
-        content: '\E050';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        font-size: 32px;
-        -webkit-transition: all 0.4s;
-        transition: all 0.4s;
-      }
-      .et_portfolio_image,
-      .et_shop_image {
-        position: relative;
-        display: block;
-      }
-      .et_pb_has_overlay:not(.et_pb_image):hover .et_overlay,
-      .et_portfolio_image:hover .et_overlay,
-      .et_shop_image:hover .et_overlay {
-        z-index: 3;
-        opacity: 1;
-      }
-      #ie7 .et_overlay,
-      #ie8 .et_overlay {
-        display: none;
-      }
-      .et_pb_module.et_pb_has_overlay {
-        position: relative;
-      }
-      .et_pb_module.et_pb_has_overlay .et_overlay,
-      article.et_pb_has_overlay {
-        border: none;
+      .ie .et_pb_divider {
+        overflow: visible;
       }
     </style>
     <link
       rel="preload"
       id="divi-dynamic-late-css"
-      href="https://momhelperusa.com/wp-content/et-cache/538/et-divi-dynamic-tb-212-538-late.css?ver=1740440251"
+      href="https://momhelperusa.com/wp-content/et-cache/528/et-divi-dynamic-tb-212-528-late.css?ver=1764947730"
       as="style"
       media="all"
       onload="this.onload=null;this.rel='stylesheet'"
@@ -4466,7 +4392,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     <link
       rel="preload"
       id="divi-dynamic-css"
-      href="https://momhelperusa.com/wp-content/et-cache/538/et-divi-dynamic-tb-212-538.css?ver=1740440251"
+      href="https://momhelperusa.com/wp-content/et-cache/528/et-divi-dynamic-tb-212-528.css?ver=1764947730"
       as="style"
       media="all"
       onload="this.onload=null;this.rel='stylesheet'"
@@ -4488,33 +4414,49 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       src="https://momhelperusa.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"
       id="jquery-migrate-js"
     ></script>
-    <link rel="https://api.w.org/" href="https://momhelperusa.com/wp-json/" />
+    <link rel="https://api.w.org/" href="https://momhelperusa.com/en/wp-json/" />
     <link
       rel="alternate"
       title="JSON"
       type="application/json"
-      href="https://momhelperusa.com/wp-json/wp/v2/pages/538"
+      href="https://momhelperusa.com/en/wp-json/wp/v2/pages/528"
     />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://momhelperusa.com/xmlrpc.php?rsd" />
     <meta name="generator" content="WordPress 6.8.3" />
-    <link rel="canonical" href="https://momhelperusa.com/about/" />
-    <link rel="shortlink" href="https://momhelperusa.com/?p=538" />
+    <link rel="canonical" href="https://momhelperusa.com/en/%ec%82%b0%ed%9b%84%ea%b4%80%eb%a6%ac%ec%82%ac/" />
+    <link rel="shortlink" href="https://momhelperusa.com/en/?p=528" />
     <link
       rel="alternate"
       title="oEmbed (JSON)"
       type="application/json+oembed"
-      href="https://momhelperusa.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmomhelperusa.com%2Fabout%2F"
+      href="https://momhelperusa.com/en/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmomhelperusa.com%2Fen%2F%25ec%2582%25b0%25ed%259b%2584%25ea%25b4%2580%25eb%25a6%25ac%25ec%2582%25ac%2F"
     />
     <link
       rel="alternate"
       title="oEmbed (XML)"
       type="text/xml+oembed"
-      href="https://momhelperusa.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmomhelperusa.com%2Fabout%2F&#038;format=xml"
+      href="https://momhelperusa.com/en/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmomhelperusa.com%2Fen%2F%25ec%2582%25b0%25ed%259b%2584%25ea%25b4%2580%25eb%25a6%25ac%25ec%2582%25ac%2F&#038;format=xml"
     />
-    <link rel="alternate" hreflang="en-US" href="https://momhelperusa.com/en/about/" />
-    <link rel="alternate" hreflang="ko-KR" href="https://momhelperusa.com/about/" />
-    <link rel="alternate" hreflang="en" href="https://momhelperusa.com/en/about/" />
-    <link rel="alternate" hreflang="ko" href="https://momhelperusa.com/about/" />
+    <link
+      rel="alternate"
+      hreflang="en-US"
+      href="https://momhelperusa.com/en/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/"
+    />
+    <link
+      rel="alternate"
+      hreflang="ko-KR"
+      href="https://momhelperusa.com/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://momhelperusa.com/en/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/"
+    />
+    <link
+      rel="alternate"
+      hreflang="ko"
+      href="https://momhelperusa.com/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/"
+    />
     <style>
       img#wpstats {
         display: none;
@@ -5005,28 +4947,121 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       .et_slide_in_menu_container .et-search-field {
         font-family: 'Hanna', sans-serif;
       }
-      a {
-        font-size: 18px;
+      @font-face {
+        font-family: 'KCC-Ganpan';
+        font-display: swap;
+        src: url('https://momhelperusa.com/wp-content/uploads/et-fonts/KCC-Ganpan.otf') format('opentype');
       }
       a {
         font-size: 18px;
+      }
+      @font-face {
+        font-family: 'KCC-Ganpan';
+        font-display: swap;
+        src: url('https://momhelperusa.com/wp-content/uploads/et-fonts/KCC-Ganpan.otf') format('opentype');
+      }
+      a {
+        font-size: 18px;
+      }
+      @font-face {
+        font-family: 'KCC-Ganpan';
+        font-display: swap;
+        src: url('https://momhelperusa.com/wp-content/uploads/et-fonts/KCC-Ganpan.otf') format('opentype');
+      }
+      div.et_pb_section.et_pb_section_0 {
+        background-blend-mode: multiply;
+        background-image: url(https://momhelperusa.com/wp-content/uploads/2024/03/baby-hand.jpeg) !important;
+      }
+      .et_pb_section_0.et_pb_section {
+        padding-top: 120px;
+        padding-bottom: 80px;
+        background-color: rgba(211, 118, 67, 0.47) !important;
+      }
+      .et_pb_section_0.section_has_divider.et_pb_bottom_divider .et_pb_bottom_inside_divider {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmMmY1ZjciPjxwYXRoIGQ9Ik0xMjgwIDMuNEMxMDUwLjU5IDE4IDEwMTkuNCA4NC44OSA3MzQuNDIgODQuODljLTMyMCAwLTMyMC04NC4zLTY0MC04NC4zQzU5LjQuNTkgMjguMiAxLjYgMCAzLjRWMTQwaDEyODB6IiBmaWxsLW9wYWNpdHk9Ii4zIi8+PHBhdGggZD0iTTAgMjQuMzFjNDMuNDYtNS42OSA5NC41Ni05LjI1IDE1OC40Mi05LjI1IDMyMCAwIDMyMCA4OS4yNCA2NDAgODkuMjQgMjU2LjEzIDAgMzA3LjI4LTU3LjE2IDQ4MS41OC04MFYxNDBIMHoiIGZpbGwtb3BhY2l0eT0iLjUiLz48cGF0aCBkPSJNMTI4MCA1MS43NmMtMjAxIDEyLjQ5LTI0Mi40MyA1My40LTUxMy41OCA1My40LTMyMCAwLTMyMC01Ny02NDAtNTctNDguODUuMDEtOTAuMjEgMS4zNS0xMjYuNDIgMy42VjE0MGgxMjgweiIvPjwvZz48L3N2Zz4=);
+        background-size: 100% 150px;
+        bottom: 0;
+        height: 150px;
+        z-index: 1;
+        transform: scale(1, 1);
+      }
+      .et_pb_text_0 {
+        font-family: 'Nunito', Helvetica, Arial, Lucida, sans-serif;
+        margin-bottom: 10px !important;
+        max-width: 700px;
+      }
+      .et_pb_text_0 h1 {
+        font-size: 52px;
+        line-height: 1.3em;
+      }
+      div.et_pb_section.et_pb_section_1,
+      div.et_pb_section.et_pb_section_2 {
+        background-image: url(https://momhelperusa.com/wp-content/uploads/2024/02/babysitter-background-color-1.png) !important;
+      }
+      .et_pb_section_1 {
+        min-height: 434.9px;
+      }
+      .et_pb_section_1.et_pb_section {
+        padding-top: 120px;
+        padding-bottom: 0px;
+        margin-bottom: 4px;
+        background-color: #f2f5f7 !important;
+      }
+      .et_pb_text_1 h6 {
+        color: #d37643 !important;
+      }
+      .et_pb_divider_0 {
+        width: 10%;
+      }
+      .et_pb_divider_0:before {
+        border-top-color: #d37643;
+        border-top-width: 4px;
+      }
+      .et_pb_section_2.et_pb_section {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .et_pb_section_2.section_has_divider.et_pb_bottom_divider .et_pb_bottom_inside_divider {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmZmZmYiPjxwYXRoIGQ9Ik0xMjgwIDMuNEMxMDUwLjU5IDE4IDEwMTkuNCA4NC44OSA3MzQuNDIgODQuODljLTMyMCAwLTMyMC04NC4zLTY0MC04NC4zQzU5LjQuNTkgMjguMiAxLjYgMCAzLjRWMTQwaDEyODB6IiBmaWxsLW9wYWNpdHk9Ii4zIi8+PHBhdGggZD0iTTAgMjQuMzFjNDMuNDYtNS42OSA5NC41Ni05LjI1IDE1OC40Mi05LjI1IDMyMCAwIDMyMCA4OS4yNCA2NDAgODkuMjQgMjU2LjEzIDAgMzA3LjI4LTU3LjE2IDQ4MS41OC04MFYxNDBIMHoiIGZpbGwtb3BhY2l0eT0iLjUiLz48cGF0aCBkPSJNMTI4MCA1MS43NmMtMjAxIDEyLjQ5LTI0Mi40MyA1My40LTUxMy41OCA1My40LTMyMCAwLTMyMC01Ny02NDAtNTctNDguODUuMDEtOTAuMjEgMS4zNS0xMjYuNDIgMy42VjE0MGgxMjgweiIvPjwvZz48L3N2Zz4=);
+        background-size: 100% 150px;
+        bottom: 0;
+        height: 150px;
+        z-index: 1;
+        transform: scale(1, 1);
+      }
+      .et_pb_divider_1 {
+        padding-bottom: 0px;
+        margin-bottom: 0px !important;
+        width: 10%;
+      }
+      .et_pb_divider_1:before {
+        border-top-color: #d37643;
+        border-top-width: 4px;
+        width: auto;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+      }
+      .et_pb_text_0.et_pb_module {
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
     </style>
     <link
       rel="stylesheet"
-      id="et-core-unified-538-cached-inline-styles"
-      href="https://momhelperusa.com/wp-content/et-cache/538/et-core-unified-538.min.css?ver=1740457086"
+      id="et-core-unified-528-cached-inline-styles"
+      href="https://momhelperusa.com/wp-content/et-cache/528/et-core-unified-528.min.css?ver=1764947730"
     />
     <link
       rel="preload"
       as="style"
-      id="et-core-unified-tb-212-deferred-538-cached-inline-styles"
-      href="https://momhelperusa.com/wp-content/et-cache/538/et-core-unified-tb-212-deferred-538.min.css?ver=1740457087"
+      id="et-core-unified-tb-212-deferred-528-cached-inline-styles"
+      href="https://momhelperusa.com/wp-content/et-cache/528/et-core-unified-tb-212-deferred-528.min.css?ver=1764947730"
       onload="this.onload=null;this.rel='stylesheet';"
     />
   </head>
   <body
-    class="wp-singular page-template-default page page-id-538 wp-theme-Divi et-tb-has-template et-tb-has-footer translatepress-ko_KR et_pb_button_helper_class et_transparent_nav et_fullwidth_secondary_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db"
+    class="wp-singular page-template-default page page-id-528 wp-theme-Divi et-tb-has-template et-tb-has-footer translatepress-en_US et_pb_button_helper_class et_transparent_nav et_fullwidth_secondary_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db"
   >
     <div id="page-container">
       <div id="et-boc" class="et-boc">
@@ -5034,7 +5069,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
           <div class="container clearfix et_menu_container">
             <div class="logo_container">
               <span class="logo_helper"></span>
-              <a href="https://momhelperusa.com/">
+              <a href="https://momhelperusa.com/en/">
                 <img
                   src="https://momhelperusa.com/wp-content/uploads/2024/05/logo.webp"
                   width="500"
@@ -5048,40 +5083,42 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
             <div id="et-top-navigation" data-height="81" data-fixed-height="40">
               <nav id="top-menu-nav">
                 <ul id="top-menu" class="nav et_disable_top_tier">
-                  <li
-                    class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-538 current_page_item menu-item-545"
-                  >
-                    <a href="https://momhelperusa.com/about/" aria-current="page">회사소개</a>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545">
+                    <a href="https://momhelperusa.com/en/about/">About</a>
                   </li>
                   <li
-                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-557"
+                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-557"
                   >
-                    <a href="#">산후조리 서비스</a>
+                    <a href="#">Postpartum Care</a>
                     <ul class="sub-menu">
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-806">
                         <a
-                          href="https://momhelperusa.com/%ec%82%b0%ed%9b%84%ec%a1%b0%eb%a6%ac%ec%97%90-%ea%b4%80%ed%95%98%ec%97%ac/"
-                          >산후조리에 관하여</a
+                          href="https://momhelperusa.com/en/%ec%82%b0%ed%9b%84%ec%a1%b0%eb%a6%ac%ec%97%90-%ea%b4%80%ed%95%98%ec%97%ac/"
+                          >About Postpartum Care</a
                         >
                       </li>
-                      <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-554">
-                        <a href="https://momhelperusa.com/%ec%82%b0%ed%9b%84%ea%b4%80%eb%a6%ac%ec%82%ac/"
-                          >산후조리사란?</a
+                      <li
+                        class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-528 current_page_item menu-item-554"
+                      >
+                        <a
+                          href="https://momhelperusa.com/en/%ec%82%b0%ed%9b%84%ea%b4%80%eb%a6%ac%ec%82%ac/"
+                          aria-current="page"
+                          >What is Postpartum care?</a
                         >
                       </li>
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-210">
                         <a
-                          href="https://momhelperusa.com/%ec%82%b0%ed%9b%84%ea%b4%80%eb%a6%ac-%ec%84%9c%eb%b9%84%ec%8a%a4/"
-                          >산후조리 서비스 내용</a
+                          href="https://momhelperusa.com/en/%ec%82%b0%ed%9b%84%ea%b4%80%eb%a6%ac-%ec%84%9c%eb%b9%84%ec%8a%a4/"
+                          >Our Postpartum Care Service</a
                         >
                       </li>
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-289">
-                        <a href="https://momhelperusa.com/%ec%9d%b4%ec%9a%a9%ec%9a%94%ea%b8%88-2/">이용요금</a>
+                        <a href="https://momhelperusa.com/en/%ec%9d%b4%ec%9a%a9%ec%9a%94%ea%b8%88-2/">Prices</a>
                       </li>
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-560">
                         <a
-                          href="https://momhelperusa.com/%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a0%ec%b2%ad%ed%95%98%ea%b8%b0/"
-                          >서비스 신청하기</a
+                          href="https://momhelperusa.com/en/%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a0%ec%b2%ad%ed%95%98%ea%b8%b0/"
+                          >Book Online</a
                         >
                       </li>
                     </ul>
@@ -5089,17 +5126,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                   <li
                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-559"
                   >
-                    <a href="#">기타 서비스</a>
+                    <a href="#">Other Services</a>
                     <ul class="sub-menu">
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-867">
-                        <a href="https://momhelperusa.com/%ea%b8%b0%ed%83%80-%ec%84%9c%eb%b9%84%ec%8a%a4/"
-                          >기타 서비스</a
+                        <a href="https://momhelperusa.com/en/%ea%b8%b0%ed%83%80-%ec%84%9c%eb%b9%84%ec%8a%a4/"
+                          >Other Services</a
                         >
                       </li>
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-614">
                         <a
-                          href="https://momhelperusa.com/%ea%b8%b0%ed%83%80-%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a0%ec%b2%ad%ed%95%98%ea%b8%b0/"
-                          >기타 서비스 신청하기</a
+                          href="https://momhelperusa.com/en/%ea%b8%b0%ed%83%80-%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a0%ec%b2%ad%ed%95%98%ea%b8%b0/"
+                          >Book Online</a
                         >
                       </li>
                     </ul>
@@ -5107,54 +5144,54 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                   <li
                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-600"
                   >
-                    <a href="#">고객지원</a>
+                    <a href="#">Support</a>
                     <ul class="sub-menu">
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-735">
                         <a
-                          href="https://momhelperusa.com/%ec%82%b0%ec%a0%84-%ec%82%b0%ed%9b%84%ec%a1%b0%eb%a6%ac-%ec%a0%95%eb%b3%b4/"
-                          >산후조리·육아정보</a
+                          href="https://momhelperusa.com/en/%ec%82%b0%ec%a0%84-%ec%82%b0%ed%9b%84%ec%a1%b0%eb%a6%ac-%ec%a0%95%eb%b3%b4/"
+                          >Blog</a
                         >
                       </li>
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-586">
-                        <a href="https://momhelperusa.com/q-a/">Q &#038; A</a>
+                        <a href="https://momhelperusa.com/en/q-a/">Q &amp; A</a>
                       </li>
                       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-602">
-                        <a href="https://momhelperusa.com/%ec%97%b0%eb%9d%bd%ec%b2%98/">연락처</a>
+                        <a href="https://momhelperusa.com/en/%ec%97%b0%eb%9d%bd%ec%b2%98/">Contact Us</a>
                       </li>
                     </ul>
                   </li>
                   <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641">
-                    <a href="https://momhelperusa.com/%ed%9b%84%ea%b8%b0/">후기</a>
+                    <a href="https://momhelperusa.com/en/%ed%9b%84%ea%b8%b0/">Reviews</a>
                   </li>
                   <li
                     class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher menu-item-has-children current-language-menu-item menu-item-1244"
                   >
-                    <a href="https://momhelperusa.com/about/"
+                    <a href="https://momhelperusa.com/en/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/"
                       ><span data-no-translation
                         ><img
                           class="trp-flag-image"
-                          src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ko_KR.png"
+                          src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
                           width="18"
                           height="12"
-                          alt="ko_KR"
-                          title="한국어"
-                        /><span class="trp-ls-language-name">한국어</span></span
+                          alt="en_US"
+                          title="English"
+                        /><span class="trp-ls-language-name">English</span></span
                       ></a
                     >
                     <ul class="sub-menu">
                       <li
-                        class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher menu-item-1245"
+                        class="trp-language-switcher-container menu-item menu-item-type-post_type menu-item-object-language_switcher menu-item-1246"
                       >
-                        <a href="https://momhelperusa.com/en/about/"
+                        <a href="https://momhelperusa.com/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/"
                           ><span data-no-translation
                             ><img
                               class="trp-flag-image"
-                              src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
+                              src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ko_KR.png"
                               width="18"
                               height="12"
-                              alt="en_US"
-                              title="English"
-                            /><span class="trp-ls-language-name">English</span></span
+                              alt="ko_KR"
+                              title="한국어"
+                            /><span class="trp-ls-language-name">한국어</span></span
                           ></a
                         >
                       </li>
@@ -5165,7 +5202,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
               <div id="et_mobile_nav_menu">
                 <div class="mobile_nav closed">
-                  <span class="select_page">페이지 선택</span>
+                  <span class="select_page" data-no-translation="" data-trp-gettext="">Select Page</span>
                   <span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
                 </div>
               </div>
@@ -5177,7 +5214,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         <!-- #main-header -->
         <div id="et-main-area">
           <div id="main-content">
-            <article id="post-538" class="post-538 page type-page status-publish hentry">
+            <article id="post-528" class="post-528 page type-page status-publish hentry">
               <div class="entry-content">
                 <div class="et-l et-l--post">
                   <div class="et_builder_inner_content et_pb_gutters3">
@@ -5191,7 +5228,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                           <div
                             class="et_pb_module et_pb_text et_pb_text_0 et_animated et_pb_text_align_center et_pb_bg_layout_dark"
                           >
-                            <div class="et_pb_text_inner"><h1>회사소개</h1></div>
+                            <div class="et_pb_text_inner"><h1>What is Postpartum care?</h1></div>
                           </div>
                         </div>
                       </div>
@@ -5205,181 +5242,221 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                         >
                           <div class="et_pb_module et_pb_text et_pb_text_1 et_pb_text_align_left et_pb_bg_layout_light">
                             <div class="et_pb_text_inner">
+                              <h2>What is Postpartum care?</h2>
                               <p>
-                                <span style="color: #008080"><strong>안녕하세요.</strong></span>
-                              </p>
-                              <p>
-                                <span style="color: #008080"
-                                  ><strong>맘헬퍼USA 에 방문하여 주셔서 감사 합니다.</strong></span
-                                >
-                              </p>
-                              <p>
-                                <span style="color: #ff6600"
-                                  ><strong
-                                    >&#8216;출산 문제와 출산후의 일들로 혹은 누군가의 도움이 필요해서 걱정이
-                                    많으신가요?</strong
-                                  ></span
-                                ><span style="color: #008080"><strong></strong></span>
+                                After childbirth, the postpartum period (6 to 8 weeks after delivery) is a crucial time
+                                that significantly impacts a mother’s lifelong health. A postpartum caregiver is a
+                                trained professional with specialized education and extensive experience in postpartum
+                                nutrition, maternal health management, and newborn care. They provide postpartum care
+                                services that help mothers comfortably care for their newborns at home while assisting
+                                them in recovering as closely as possible to their pre-pregnancy condition.
                               </p>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="et_pb_row et_pb_row_2">
-                        <div class="et_pb_column et_pb_column_1_2 et_pb_column_2 et_pb_css_mix_blend_mode_passthrough">
-                          <div class="et_pb_module et_pb_image et_pb_image_0">
-                            <span class="et_pb_image_wrap"
-                              ><img
-                                fetchpriority="high"
-                                decoding="async"
-                                width="1468"
-                                height="1497"
-                                src="https://momhelperusa.com/wp-content/uploads/2024/07/mom-struggling-baby-cutout.webp"
-                                alt=""
-                                title="mom-struggling-baby-cutout"
-                                srcset="
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/mom-struggling-baby-cutout.webp           1468w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/mom-struggling-baby-cutout-1280x1305.webp 1280w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/mom-struggling-baby-cutout-980x999.webp    980w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/mom-struggling-baby-cutout-480x489.webp    480w
-                                "
-                                sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1468px, 100vw"
-                                class="wp-image-1248"
-                            /></span>
-                          </div>
-                        </div>
                         <div
-                          class="et_pb_column et_pb_column_1_2 et_pb_column_3 et_pb_css_mix_blend_mode_passthrough et-last-child"
+                          class="et_pb_column et_pb_column_4_4 et_pb_column_2 et_pb_css_mix_blend_mode_passthrough et-last-child"
                         >
+                          <div class="et_pb_module et_pb_heading et_pb_heading_0 et_pb_bg_layout_">
+                            <div class="et_pb_heading_container">
+                              <h2 class="et_pb_module_heading">Qualifications of Postpartum Caregivers</h2>
+                            </div>
+                          </div>
+                          <div class="et_pb_module et_pb_divider et_pb_divider_0 et_pb_divider_position_ et_pb_space">
+                            <div class="et_pb_divider_internal"></div>
+                          </div>
                           <div class="et_pb_module et_pb_text et_pb_text_2 et_pb_text_align_left et_pb_bg_layout_light">
                             <div class="et_pb_text_inner">
-                              <p>
-                                <span style="color: #000000"><strong>저에게도</strong></span> 첫아이 출산 때의 문제와
-                                걱정으로 힘든 시기가 있었습니다. 출산후 제대로 산후조리를 못하여서 ‘산후풍’증세로 고생한
-                                적이 있습니다. 한때는 팔이 너무 아파 가벼운 일조차도 감당하기에 고통스럽고 불편했었죠.
-                                주변 어르신들의 조언이 있었고 둘째아이때는 정말 신경써서 산후조리를 하여야 겠다고
-                                생각했습니다.
-                              </p>
-                              <p>
-                                <span style="color: #000000">첫아이 때</span> 가졌던 후유증들을 치료하고
-                                회복하기위해서는, 제대로 된 산후조리를 해야 했죠. 건강한 육아와 건강한 가정지킴, 건강한
-                                사회생활을 위해선, 산모인 저의 정상회복은 반드시 필요한 일이었습니다. 그렇게 몇년이 지나
-                                둘째아이를 낳은후 산후조리를 철저히 하였습니다. 그 결과 제 몸은 회복이 되었고, 회복된
-                                건강은 말로는 표현할 수 없는 놀라움과 사실 입증이었습니다. 그런계기가 힘든 일을 하게
-                                되었을때마다 저의 팔과 다리,허리들이 건재하다는것이 늘 다행이었고, 산후조리의 좋은결과와
-                                중요성을 되새기게 되었습니다.
-                              </p>
-                              <p>&nbsp;</p>
+                              <ul>
+                                <li>Strong sense of service and hygiene (ages 40-60)</li>
+                                <li>
+                                  Experience in childbirth and childcare, completion of postpartum caregiver training
+                                </li>
+                                <li>Free from contagious diseases (hepatitis, tuberculosis)</li>
+                                <li>Vaccinations: Tdap, flu shot<br />COVID-19 testing and vaccination</li>
+                              </ul>
                             </div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <div
+                      class="et_pb_section et_pb_section_2 et_pb_with_background et_section_regular section_has_divider et_pb_bottom_divider"
+                    >
                       <div class="et_pb_row et_pb_row_3">
-                        <div class="et_pb_column et_pb_column_1_2 et_pb_column_4 et_pb_css_mix_blend_mode_passthrough">
+                        <div
+                          class="et_pb_column et_pb_column_4_4 et_pb_column_3 et_pb_css_mix_blend_mode_passthrough et-last-child"
+                        >
+                          <div class="et_pb_module et_pb_heading et_pb_heading_1 et_pb_bg_layout_">
+                            <div class="et_pb_heading_container">
+                              <h2 class="et_pb_module_heading">Caregiver Guidelines</h2>
+                            </div>
+                          </div>
+                          <div class="et_pb_module et_pb_divider et_pb_divider_1 et_pb_divider_position_ et_pb_space">
+                            <div class="et_pb_divider_internal"></div>
+                          </div>
                           <div class="et_pb_module et_pb_text et_pb_text_3 et_pb_text_align_left et_pb_bg_layout_light">
                             <div class="et_pb_text_inner">
-                              <p>&nbsp;</p>
-                              <p>
-                                <span style="color: #000000"><strong>후에 저는</strong></span> 산후조리를 위한
-                                전문관리사 교육을 거치면서 본격적으로 산후조리사 직업을 가지게 되었습니다. 불편하고
-                                힘들었던 출산후의 처지와, 후유증을 직접 크게 겪었던 저에겐, 산모 와 아기 케어를 감당하는
-                                일에 애정을 가졌으며, 산후조리 <strong>관리사</strong>로 진심을 다 할 수 있었습니다.
-                                이제는 그 열정과 사명감이 미국의 모든 산모와 아기들에게 가장 좋은 방법과 도움을 주는
-                                ‘산후조리전문, 관리사 교육 관리 및 파견’ 이라는 소중한 역할을 하는 조력자가 되었습니다.
-                              </p>
-                              <p>
-                                <span style="color: #000000"><strong>새 가정에</strong></span> 소중한 아기의 임신과
-                                탄생은 이 세상에서 무엇보다도 한 가정의 발전과 결속의 구심이 되는 가장 경이로운
-                                축복입니다. 이 축복에 함께 할 수 있도록 그동안 믿고 맡겨 주시고 격려와 응원을 해 주신
-                                많은 산모님과 산모님 가족분둘께 진심으로 감사 드립니다.
-                              </p>
+                              <ul>
+                                <li>Help mothers recover quickly for a return to normal life</li>
+                                <li>Respect and prioritize mothers' wishes</li>
+                                <li>Treat newborns with care and respect</li>
+                                <li>Adhere to work hours and hygiene standards</li>
+                                <li>No additional fees beyond the specified rates</li>
+                                <li>Refrain from medical practices</li>
+                                <li>Maintain confidentiality</li>
+                                <li>Follow company rules</li>
+                                <li>Inform Mom Helper USA of any extended service request</li>
+                              </ul>
                             </div>
-                          </div>
-                        </div>
-                        <div
-                          class="et_pb_column et_pb_column_1_2 et_pb_column_5 et_pb_css_mix_blend_mode_passthrough et-last-child"
-                        >
-                          <div class="et_pb_module et_pb_image et_pb_image_1">
-                            <span class="et_pb_image_wrap"
-                              ><img
-                                decoding="async"
-                                width="1500"
-                                height="1500"
-                                src="https://momhelperusa.com/wp-content/uploads/2024/06/happy-mom-holding-baby-illustration.webp"
-                                alt=""
-                                title="happy-mom-holding-baby-illustration"
-                                srcset="
-                                  https://momhelperusa.com/wp-content/uploads/2024/06/happy-mom-holding-baby-illustration.webp           1500w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/06/happy-mom-holding-baby-illustration-1280x1280.webp 1280w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/06/happy-mom-holding-baby-illustration-980x980.webp    980w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/06/happy-mom-holding-baby-illustration-480x480.webp    480w
-                                "
-                                sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1500px, 100vw"
-                                class="wp-image-1227"
-                            /></span>
                           </div>
                         </div>
                       </div>
+
+                      <div class="et_pb_bottom_inside_divider et-no-transition"></div>
+                    </div>
+                    <div
+                      class="et_pb_section et_pb_section_3 et_pb_with_background et_section_regular section_has_divider et_pb_bottom_divider"
+                    >
                       <div class="et_pb_row et_pb_row_4">
-                        <div class="et_pb_column et_pb_column_1_2 et_pb_column_6 et_pb_css_mix_blend_mode_passthrough">
-                          <div class="et_pb_module et_pb_image et_pb_image_2">
-                            <span class="et_pb_image_wrap"
-                              ><img
-                                decoding="async"
-                                width="1500"
-                                height="1495"
-                                src="https://momhelperusa.com/wp-content/uploads/2024/07/happy-mom-illustration-cutout.webp"
-                                alt=""
-                                title="happy-mom-illustration-cutout"
-                                srcset="
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/happy-mom-illustration-cutout.webp           1500w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/happy-mom-illustration-cutout-1280x1276.webp 1280w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/happy-mom-illustration-cutout-980x977.webp    980w,
-                                  https://momhelperusa.com/wp-content/uploads/2024/07/happy-mom-illustration-cutout-480x478.webp    480w
-                                "
-                                sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1500px, 100vw"
-                                class="wp-image-1249"
-                            /></span>
-                          </div>
-                        </div>
                         <div
-                          class="et_pb_column et_pb_column_1_2 et_pb_column_7 et_pb_css_mix_blend_mode_passthrough et-last-child"
+                          class="et_pb_column et_pb_column_4_4 et_pb_column_4 et_pb_css_mix_blend_mode_passthrough et-last-child"
                         >
-                          <div class="et_pb_module et_pb_text et_pb_text_4 et_pb_text_align_left et_pb_bg_layout_light">
-                            <div class="et_pb_text_inner">
-                              <p>&nbsp;</p>
-                              <p>
-                                <span style="color: #008080"><strong>맘헬퍼USA</strong></span
-                                >는 산모회복과 아기를 가장 좋은 방법으로 케어 할 수 있도록, 전문 산후조리사를 교육
-                                양성시켜 여러분의 가정으로 파견 할 것이며, 또 누군가의 손길과 정성을 필요로 하는 분들께
-                                좋은 도움인 역할을 할 것입니다. 교육과 경험을 갖춘 맘헬퍼USA 파견 산후 관리사님은,
-                                산모님이 출산후 지친 몸과 여러 가지 심신의 변화로 혼란스러운 시기에 내집에서 가족과 함께
-                                편안한 산후조리를 하고, 아기가 안전하고 건강하게 성장할 수 있도록 적극적으로 돕습니다.
-                              </p>
-                            </div>
+                          <div
+                            class="et_pb_module et_pb_text et_pb_text_4 et_animated et_pb_text_align_center et_pb_bg_layout_dark"
+                          >
+                            <div class="et_pb_text_inner"><h2>Service Types and Work Forms</h2></div>
+                          </div>
+                          <div
+                            class="et_pb_module et_pb_divider et_pb_divider_2 et_animated et_pb_divider_position_ et_pb_space"
+                          >
+                            <div class="et_pb_divider_internal"></div>
                           </div>
                         </div>
                       </div>
                       <div class="et_pb_row et_pb_row_5">
                         <div
-                          class="et_pb_column et_pb_column_4_4 et_pb_column_8 et_pb_css_mix_blend_mode_passthrough et-last-child"
+                          class="et_pb_column et_pb_column_4_4 et_pb_column_5 et_pb_css_mix_blend_mode_passthrough et-last-child"
                         >
-                          <div class="et_pb_module et_pb_text et_pb_text_5 et_pb_text_align_left et_pb_bg_layout_light">
-                            <div class="et_pb_text_inner">
-                              <p>
-                                <span style="color: #008080"
-                                  ><strong
-                                    >가장 좋은 방법과 정성스런 마음으로, 손과 발이 되어 드리겠습니다.</strong
-                                  ></span
-                                >
-                              </p>
-                              <p>
-                                <span style="color: #008080"><strong>감사합니다.</strong></span>
-                              </p>
+                          <div
+                            class="et_pb_with_border et_pb_module et_pb_blurb et_pb_blurb_0 et_animated et_pb_text_align_center et_pb_blurb_position_top et_pb_bg_layout_dark"
+                          >
+                            <div class="et_pb_blurb_content">
+                              <div class="et_pb_blurb_container">
+                                <h3 class="et_pb_module_header"><span>Long-Distance/Out-of-State Service</span></h3>
+                                <div class="et_pb_blurb_description">
+                                  <p>
+                                    <strong
+                                      >Due to the nature of the service, the duration, consecutive weekend work, and
+                                      other conditions can be adjusted in advance with the caregiver. Additionally, all
+                                      round-trip transportation costs (airfare, baggage fees, gas, transportation fees,
+                                      etc.) must be paid separately.</strong
+                                    >
+                                  </p>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <div class="et_pb_row et_pb_row_6">
+                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_6 et_pb_css_mix_blend_mode_passthrough">
+                          <div
+                            class="et_pb_with_border et_pb_module et_pb_pricing_tables_0 et_animated et_pb_pricing clearfix et_pb_pricing_1 et_pb_no_featured_in_first_row"
+                          >
+                            <div class="et_pb_pricing_table_wrap">
+                              <div class="et_pb_pricing_table et_pb_pricing_table_0">
+                                <div class="et_pb_pricing_heading">
+                                  <h3 class="et_pb_pricing_title">Commute-Type</h3>
+                                </div>
+                                <div class="et_pb_pricing_content_top">
+                                  <span class="et_pb_et_price"></span>
+                                </div>
+                                <div class="et_pb_pricing_content">
+                                  <ul class="et_pb_pricing">
+                                    <li><span>Caregivers commute to the mother's home</span></li>
+                                    <li><span>Working hours: Mon-Fri (9 am - 5 pm), with a 1-hour break</span></li>
+                                    <li>
+                                      <span
+                                        >Commute-type care includes a 1-hour break and is only available within a
+                                        distance that the caregiver can reasonably commute to and from.</span
+                                      >
+                                    </li>
+                                    <li>
+                                      <span
+                                        >Additional charges for long-distance commuting (gas, transportation
+                                        costs)</span
+                                      >
+                                    </li>
+                                    <li><span>Weekend services available at different rates</span></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="et_pb_column et_pb_column_1_3 et_pb_column_7 et_pb_css_mix_blend_mode_passthrough">
+                          <div
+                            class="et_pb_with_border et_pb_module et_pb_pricing_tables_1 et_animated et_pb_pricing clearfix et_pb_pricing_1 et_pb_no_featured_in_first_row"
+                          >
+                            <div class="et_pb_pricing_table_wrap">
+                              <div class="et_pb_pricing_table et_pb_pricing_table_1">
+                                <div class="et_pb_pricing_heading">
+                                  <h3 class="et_pb_pricing_title">Live-In Type</h3>
+                                </div>
+                                <div class="et_pb_pricing_content_top">
+                                  <span class="et_pb_et_price"></span>
+                                </div>
+                                <div class="et_pb_pricing_content">
+                                  <ul class="et_pb_pricing">
+                                    <li><span>Caregivers stay at the mother's home</span></li>
+                                    <li>
+                                      <span
+                                        >Working hours: Sun 8 pm - Fri 5 pm (or Mon 10 am - Sat 7 am), with 3-4 hours of
+                                        daytime rest</span
+                                      >
+                                    </li>
+                                    <li><span>Schedule can be adjusted by agreement</span></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="et_pb_column et_pb_column_1_3 et_pb_column_8 et_pb_css_mix_blend_mode_passthrough et-last-child"
+                        >
+                          <div
+                            class="et_pb_with_border et_pb_module et_pb_pricing_tables_2 et_animated et_pb_pricing clearfix et_pb_pricing_1 et_pb_no_featured_in_first_row"
+                          >
+                            <div class="et_pb_pricing_table_wrap">
+                              <div class="et_pb_pricing_table et_pb_pricing_table_2">
+                                <div class="et_pb_pricing_heading">
+                                  <h3 class="et_pb_pricing_title">Mixed Type</h3>
+                                </div>
+                                <div class="et_pb_pricing_content_top">
+                                  <span class="et_pb_et_price"></span>
+                                </div>
+                                <div class="et_pb_pricing_content">
+                                  <ul class="et_pb_pricing">
+                                    <li>
+                                      <span
+                                        >This is combination of commute-type and live-in type. Typically, customers
+                                        start with live-in care during the initial postpartum period, transitioning to
+                                        commute-type care later with this work type.</span
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="et_pb_bottom_inside_divider et-no-transition"></div>
                     </div>
                   </div>
                 </div>
@@ -5505,32 +5582,34 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                               <ul id="menu-footer-menu" class="et-menu nav et_disable_top_tier">
                                 <li
                                   id="menu-item-544"
-                                  class="et_pb_menu_page_id-538 menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-538 current_page_item menu-item-544"
+                                  class="et_pb_menu_page_id-538 menu-item menu-item-type-post_type menu-item-object-page menu-item-544"
                                 >
-                                  <a href="https://momhelperusa.com/about/" aria-current="page">회사소개</a>
+                                  <a href="https://momhelperusa.com/en/about/">About</a>
                                 </li>
                                 <li
                                   id="menu-item-1633"
                                   class="et_pb_menu_page_id-1619 menu-item menu-item-type-post_type menu-item-object-page menu-item-1633"
                                 >
                                   <a
-                                    href="https://momhelperusa.com/%ea%b4%80%eb%a6%ac%ec%82%ac-%ed%8c%8c%ed%8a%b8%eb%84%88-%ec%a0%9c%ed%9c%b4/"
-                                    >관리사/파트너 제휴</a
+                                    href="https://momhelperusa.com/en/%ea%b4%80%eb%a6%ac%ec%82%ac-%ed%8c%8c%ed%8a%b8%eb%84%88-%ec%a0%9c%ed%9c%b4/"
+                                    >Caregiver/Partner Affiliation</a
                                   >
                                 </li>
                                 <li
                                   id="menu-item-203"
                                   class="et_pb_menu_page_id-96 menu-item menu-item-type-post_type menu-item-object-page menu-item-203"
                                 >
-                                  <a href="https://momhelperusa.com/%ec%9d%b4%ec%9a%a9%ec%95%bd%ea%b4%80/">이용약관</a>
+                                  <a href="https://momhelperusa.com/en/%ec%9d%b4%ec%9a%a9%ec%95%bd%ea%b4%80/"
+                                    >Terms and Conditions</a
+                                  >
                                 </li>
                                 <li
                                   id="menu-item-204"
                                   class="et_pb_menu_page_id-103 menu-item menu-item-type-post_type menu-item-object-page menu-item-204"
                                 >
                                   <a
-                                    href="https://momhelperusa.com/%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a0%ec%b2%ad%ed%95%98%ea%b8%b0/"
-                                    >서비스 신청하기</a
+                                    href="https://momhelperusa.com/en/%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a0%ec%b2%ad%ed%95%98%ea%b8%b0/"
+                                    >Book Online</a
                                   >
                                 </li>
                               </ul>
@@ -5584,7 +5663,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       </div>
     </div>
 
-    <template id="tp-language" data-tp-language="ko_KR"></template>
+    <template id="tp-language" data-tp-language="en_US"></template>
     <script type="speculationrules">
       {
         "prefetch": [
@@ -5592,7 +5671,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
             "source": "document",
             "where": {
               "and": [
-                { "href_matches": "\/*" },
+                { "href_matches": "\/en\/*" },
                 {
                   "not": {
                     "href_matches": [
@@ -5602,7 +5681,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                       "\/wp-content\/*",
                       "\/wp-content\/plugins\/*",
                       "\/wp-content\/themes\/Divi\/*",
-                      "\/*\\?(.+)"
+                      "\/en\/*\\?(.+)"
                     ]
                   }
                 },
@@ -5625,35 +5704,35 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()">
           <img
             class="trp-flag-image"
-            src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ko_KR.png"
+            src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
             width="18"
             height="12"
-            alt="ko_KR"
-            title="한국어"
-          />한국어
+            alt="en_US"
+            title="English"
+          />English
         </a>
       </div>
       <div id="trp-floater-ls-language-list" class="trp-with-flags">
         <div class="trp-language-wrap trp-language-wrap-bottom">
-          <a href="https://momhelperusa.com/en/about/" title="English">
+          <a href="https://momhelperusa.com/%EC%82%B0%ED%9B%84%EA%B4%80%EB%A6%AC%EC%82%AC/" title="한국어">
             <img
-              class="trp-flag-image"
-              src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
-              width="18"
-              height="12"
-              alt="en_US"
-              title="English"
-            />English
-          </a>
-          <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()"
-            ><img
               class="trp-flag-image"
               src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ko_KR.png"
               width="18"
               height="12"
               alt="ko_KR"
               title="한국어"
-            />한국어</a
+            />한국어
+          </a>
+          <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()"
+            ><img
+              class="trp-flag-image"
+              src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png"
+              width="18"
+              height="12"
+              alt="en_US"
+              title="English"
+            />English</a
           >
         </div>
       </div>
@@ -5661,7 +5740,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
     <script type="application/javascript">
       (function () {
-        var file = ['https:\/\/momhelperusa.com\/wp-content\/et-cache\/538\/et-divi-dynamic-tb-212-538-late.css'];
+        var file = ['https:\/\/momhelperusa.com\/wp-content\/et-cache\/528\/et-divi-dynamic-tb-212-528-late.css'];
         var handle = document.getElementById('divi-style-inline-inline-css');
         var location = handle.parentNode;
 
@@ -5687,8 +5766,147 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
           starting_opacity: '0%',
           speed_curve: 'ease-in-out',
         },
+        {
+          class: 'et_pb_text_4',
+          style: 'slideTop',
+          repeat: 'once',
+          duration: '1000ms',
+          delay: '0ms',
+          intensity: '5%',
+          starting_opacity: '100%',
+          speed_curve: 'ease-in-out',
+        },
+        {
+          class: 'et_pb_divider_2',
+          style: 'slideTop',
+          repeat: 'once',
+          duration: '1000ms',
+          delay: '0ms',
+          intensity: '5%',
+          starting_opacity: '100%',
+          speed_curve: 'ease-in-out',
+        },
+        {
+          class: 'et_pb_blurb_0',
+          style: 'fade',
+          repeat: 'once',
+          duration: '1000ms',
+          delay: '100ms',
+          intensity: '50%',
+          starting_opacity: '0%',
+          speed_curve: 'ease-in-out',
+        },
+        {
+          class: 'et_pb_pricing_tables_0',
+          style: 'flip',
+          repeat: 'once',
+          duration: '1000ms',
+          delay: '0ms',
+          intensity: '15%',
+          starting_opacity: '0%',
+          speed_curve: 'ease-in-out',
+        },
+        {
+          class: 'et_pb_pricing_tables_1',
+          style: 'flip',
+          repeat: 'once',
+          duration: '1000ms',
+          delay: '0ms',
+          intensity: '15%',
+          starting_opacity: '0%',
+          speed_curve: 'ease-in-out',
+        },
+        {
+          class: 'et_pb_pricing_tables_2',
+          style: 'flip',
+          repeat: 'once',
+          duration: '1000ms',
+          delay: '0ms',
+          intensity: '15%',
+          starting_opacity: '0%',
+          speed_curve: 'ease-in-out',
+        },
       ];
     </script>
+    <script type="text/javascript" id="trp-dynamic-translator-js-extra">
+      /* <![CDATA[ */
+      var trp_data = {
+        trp_custom_ajax_url:
+          'https:\/\/momhelperusa.com\/wp-content\/plugins\/translatepress-multilingual\/includes\/trp-ajax.php',
+        trp_wp_ajax_url: 'https:\/\/momhelperusa.com\/wp-admin\/admin-ajax.php',
+        trp_language_to_query: 'en_US',
+        trp_original_language: 'ko_KR',
+        trp_current_language: 'en_US',
+        trp_skip_selectors: [
+          '[data-no-translation]',
+          '[data-no-dynamic-translation]',
+          '[data-trp-translate-id-innertext]',
+          'script',
+          'style',
+          'head',
+          'trp-span',
+          'translate-press',
+          '[data-trp-translate-id]',
+          '[data-trpgettextoriginal]',
+          '[data-trp-post-slug]',
+        ],
+        trp_base_selectors: ['data-trp-translate-id', 'data-trpgettextoriginal', 'data-trp-post-slug'],
+        trp_attributes_selectors: {
+          text: { accessor: 'outertext', attribute: false },
+          block: { accessor: 'innertext', attribute: false },
+          image_src: { selector: 'img[src]', accessor: 'src', attribute: true },
+          submit: {
+            selector: "input[type='submit'],input[type='button'], input[type='reset']",
+            accessor: 'value',
+            attribute: true,
+          },
+          placeholder: {
+            selector: 'input[placeholder],textarea[placeholder]',
+            accessor: 'placeholder',
+            attribute: true,
+          },
+          title: { selector: '[title]', accessor: 'title', attribute: true },
+          a_href: { selector: 'a[href]', accessor: 'href', attribute: true },
+          button: { accessor: 'outertext', attribute: false },
+          option: { accessor: 'innertext', attribute: false },
+          aria_label: { selector: '[aria-label]', accessor: 'aria-label', attribute: true },
+          video_src: { selector: 'video[src]', accessor: 'src', attribute: true },
+          video_poster: { selector: 'video[poster]', accessor: 'poster', attribute: true },
+          video_source_src: { selector: 'video source[src]', accessor: 'src', attribute: true },
+          audio_src: { selector: 'audio[src]', accessor: 'src', attribute: true },
+          audio_source_src: { selector: 'audio source[src]', accessor: 'src', attribute: true },
+          picture_image_src: { selector: 'picture image[src]', accessor: 'src', attribute: true },
+          picture_source_srcset: { selector: 'picture source[srcset]', accessor: 'srcset', attribute: true },
+        },
+        trp_attributes_accessors: [
+          'outertext',
+          'innertext',
+          'src',
+          'value',
+          'placeholder',
+          'title',
+          'href',
+          'aria-label',
+          'poster',
+          'srcset',
+        ],
+        gettranslationsnonceregular: 'f72e8877b2',
+        showdynamiccontentbeforetranslation: '',
+        skip_strings_from_dynamic_translation: [],
+        skip_strings_from_dynamic_translation_for_substrings: {
+          href: ['amazon-adsystem', 'googleads', 'g.doubleclick'],
+        },
+        duplicate_detections_allowed: '100',
+        trp_translate_numerals_opt: 'no',
+        trp_no_auto_translation_selectors: ['[data-no-auto-translation]'],
+      };
+      /* ]]> */
+    </script>
+    <script
+      type="text/javascript"
+      src="https://momhelperusa.com/wp-content/plugins/translatepress-multilingual/assets/js/trp-translate-dom-changes.js?ver=3.0.6"
+      id="trp-dynamic-translator-js"
+    ></script>
     <script type="text/javascript" id="divi-custom-script-js-extra">
       /* <![CDATA[ */
       var DIVI = { item_count: '%d Item', items_count: '%d Items' };
@@ -5704,25 +5922,24 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         ajaxurl: 'https:\/\/momhelperusa.com\/wp-admin\/admin-ajax.php',
         images_uri: 'https:\/\/momhelperusa.com\/wp-content\/themes\/Divi\/images',
         builder_images_uri: 'https:\/\/momhelperusa.com\/wp-content\/themes\/Divi\/includes\/builder\/images',
-        et_frontend_nonce: 'c49d45043e',
-        subscription_failed:
-          '\uc2dc\uae30 \ubc14\ub78d \ud655\uc778\ubd84\uc57c\ub294 \uc544\ub798\ud558\uac00 \uc785\ub825\ud55c \uc815\ud655\ud55c \uc815\ubcf4\uc785\ub2c8\ub2e4.',
-        et_ab_log_nonce: '161169b603',
-        fill_message: '\ub2e4\uc74c \ud544\ub4dc\uc5d0 \uae30\uc785\ud558\uc2ed\uc2dc\uc624 :',
-        contact_error_message: '\ub2e4\uc74c \uc624\ub958\ub97c \uc218\uc815\ud558\uc138\uc694:',
-        invalid: '\uc798\ubabb\ub41c \uc774\uba54\uc77c',
-        captcha: '\ucea1\ucc28',
-        prev: '\uc774\uc804',
-        previous: '\uc774\uc804',
-        next: '\ub2e4\uc74c',
-        wrong_captcha: '\ucea1\ucc28\uc5d0 \uc798\ubabb\ub41c \uc218\ub97c \uc785\ub825\ud588\uc2b5\ub2c8\ub2e4.',
-        wrong_checkbox: '\uccb4\ud06c\ubc15\uc2a4',
+        et_frontend_nonce: '0a31738bc3',
+        subscription_failed: 'Please, check the fields below to make sure you entered the correct information.',
+        et_ab_log_nonce: '57fdcbd6ec',
+        fill_message: 'Please, fill in the following fields:',
+        contact_error_message: 'Please, fix the following errors:',
+        invalid: 'Invalid email',
+        captcha: 'Captcha',
+        prev: 'Prev',
+        previous: 'Previous',
+        next: 'Next',
+        wrong_captcha: 'You entered the wrong number in captcha.',
+        wrong_checkbox: 'Checkbox',
         ignore_waypoints: 'no',
         is_divi_theme_used: '1',
         widget_search_selector: '.widget_search',
         ab_tests: [],
         is_ab_testing_active: '',
-        page_id: '538',
+        page_id: '528',
         unique_test_id: '',
         ab_bounce_rate: '5',
         is_cache_plugin_active: 'yes',
@@ -5737,17 +5954,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     </script>
     <script
       type="text/javascript"
-      src="https://momhelperusa.com/wp-content/themes/Divi/js/scripts.min.js?ver=4.27.4"
+      src="https://momhelperusa.com/wp-content/themes/Divi/js/scripts.min.js?ver=4.27.5"
       id="divi-custom-script-js"
     ></script>
     <script
       type="text/javascript"
-      src="https://momhelperusa.com/wp-content/themes/Divi/js/smoothscroll.js?ver=4.27.4"
+      src="https://momhelperusa.com/wp-content/themes/Divi/js/smoothscroll.js?ver=4.27.5"
       id="smoothscroll-js"
     ></script>
     <script
       type="text/javascript"
-      src="https://momhelperusa.com/wp-content/themes/Divi/core/admin/js/common.js?ver=4.27.4"
+      src="https://momhelperusa.com/wp-content/themes/Divi/core/admin/js/common.js?ver=4.27.5"
       id="et-core-common-js"
     ></script>
     <script type="text/javascript" id="jetpack-stats-js-before">
@@ -5755,14 +5972,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       _stq = window._stq || [];
       _stq.push([
         'view',
-        JSON.parse('{"v":"ext","blog":"242001709","post":"538","tz":"0","srv":"momhelperusa.com","j":"1:15.2"}'),
+        JSON.parse('{"v":"ext","blog":"242001709","post":"528","tz":"0","srv":"momhelperusa.com","j":"1:15.3.1"}'),
       ]);
-      _stq.push(['clickTrackerInit', '242001709', '538']);
+      _stq.push(['clickTrackerInit', '242001709', '528']);
       /* ]]> */
     </script>
     <script
       type="text/javascript"
-      src="https://stats.wp.com/e-202548.js"
+      src="https://stats.wp.com/e-202552.js"
       id="jetpack-stats-js"
       defer="defer"
       data-wp-strategy="defer"
@@ -5773,7 +5990,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         _trfd.push({ 'tccl.baseHost': 'secureserver.net' }),
         _trfd.push(
           { ap: 'wpaas_v2' },
-          { server: '731e6e4a8066' },
+          { server: 'f95477efe990' },
           { pod: 'c8-prod-p3-us-west-2' },
           { xid: '45768405' },
           { wp: '6.8.3' },
@@ -5784,7 +6001,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
           { theme: 'divi' },
           { wds: '0' },
           { wp_alloptions_count: '586' },
-          { wp_alloptions_bytes: '157060' },
+          { wp_alloptions_bytes: '155646' },
           { gdl_coming_soon_page: '0' },
           { appid: '58526' }
         );
@@ -5817,4 +6034,4 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   </body>
 </html>
 
-<!-- Page supported by LiteSpeed Cache 7.6.2 on 2025-11-25 22:29:16 -->
+<!-- Page supported by LiteSpeed Cache 7.7 on 2025-12-25 00:36:03 -->

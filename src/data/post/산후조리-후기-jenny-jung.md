@@ -9,7 +9,7 @@ tags:
   - 후기
   - 산후조리
 metadata:
-  canonical: https://momhelperusa.com/jenny-jung/
+  canonical: https://momhelperusa.com/산후조리-후기-jenny-jung
 ---
 
 ## 산후조리 후기, Jenny Jung

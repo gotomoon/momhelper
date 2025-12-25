@@ -7,7 +7,7 @@ import { SITE } from 'astrowind:config';
 // Get review posts - Korean only
 const allPosts = await getCollection('post');
 const reviewPosts = allPosts
-  .filter((post) => post.data.category === 'Reviews' && !post.id.startsWith('review-'))
+  .filter((post) => post.data.category === 'Reviews' && post.data.language === 'ko')
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const reviewItems = reviewPosts.map((post) => {
@@ -30,7 +30,7 @@ const reviewItems = reviewPosts.map((post) => {
 const reviewSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: '산후관리 서비스',
+  name: '산후조리 서비스',
   provider: {
     '@type': 'Organization',
     name: SITE?.name || 'Mom Helper USA',
@@ -52,7 +52,7 @@ const reviewSchema = {
 
 const metadata = {
   title: '이용후기',
-  description: 'Mom Helper USA 산후관리 서비스를 이용하신 고객님들의 진솔한 후기를 확인하세요.',
+  description: 'Mom Helper USA 산후조리 서비스를 이용하신 고객님들의 진솔한 후기를 확인하세요.',
   structuredData: [reviewSchema],
 };
 ---
@@ -81,7 +81,11 @@ const metadata = {
 
               {snippet && <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{snippet}</p>}
 
-              <a href={`/ko/이용후기/${post.id.replace('.md', '')}`} class="text-[18px] font-medium" style="color: rgb(211, 118, 67);">
+              <a
+                href={`/ko/이용후기/${post.id.replace('.md', '')}`}
+                class="text-[18px] font-medium"
+                style="color: rgb(211, 118, 67);"
+              >
                 더 읽기
               </a>
             </article>

@@ -56,7 +56,7 @@ export const headerDataEn = {
       links: [
         {
           text: 'Blog',
-          href: getPermalink('/blog'),
+          href: getPathForRoute('blog', 'en') ?? getPermalink('/blog'),
         },
         {
           text: 'Q & A',
@@ -90,19 +90,19 @@ export const headerDataKo = {
       href: getPermalink('/about'),
     },
     {
-      text: '산후관리 서비스',
+      text: '산후조리 서비스',
       links: [
         {
           text: '산후조리에 관하여',
           href: getPermalink('/산후조리에-관하여'),
         },
         {
-          text: '산후관리사란?',
-          href: getPermalink('/산후관리사란'),
+          text: '산후조리사란?',
+          href: getPermalink('/산후조리사란'),
         },
         {
-          text: '산후관리 서비스 내용',
-          href: getPermalink('/산후관리-서비스'),
+          text: '산후조리 서비스 내용',
+          href: getPermalink('/산후조리-서비스'),
         },
         {
           text: '이용요금',
@@ -131,8 +131,8 @@ export const headerDataKo = {
       text: '고객지원',
       links: [
         {
-          text: '블로그',
-          href: getPermalink('/blog'),
+          text: '산후조리·육아정보',
+          href: getPathForRoute('blog', 'ko') ?? getPermalink('/blog'),
         },
         {
           text: 'Q & A',
@@ -165,7 +165,10 @@ export const headerData = headerDataEn;
 export const footerDataEn = {
   links: [
     { text: 'About Us', href: getPathForRoute('about', 'en') ?? getPermalink('/about') },
-    { text: 'Partner', href: getPathForRoute('what-is-postpartum-care', 'en') ?? getPermalink('/what-is-postpartum-care') },
+    {
+      text: 'Partner',
+      href: getPathForRoute('what-is-postpartum-care', 'en') ?? getPermalink('/what-is-postpartum-care'),
+    },
     { text: 'Terms', href: getPathForRoute('terms', 'en') ?? getPermalink('/terms') },
     { text: 'Service Request', href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online') },
   ],
@@ -183,7 +186,10 @@ export const footerDataEn = {
 export const footerDataKo = {
   links: [
     { text: '회사소개', href: getPathForRoute('about', 'ko') ?? getPermalink('/about') },
-    { text: '관리사/파트너 제휴', href: getPathForRoute('what-is-postpartum-care', 'ko') ?? getPermalink('/산후관리사란') },
+    {
+      text: '관리사/파트너 제휴',
+      href: getPathForRoute('what-is-postpartum-care', 'ko') ?? getPermalink('/산후조리사란'),
+    },
     { text: '이용약관', href: getPathForRoute('terms', 'ko') ?? getPermalink('/이용약관') },
     { text: '서비스 신청하기', href: getPathForRoute('book-online', 'ko') ?? getPermalink('/서비스-신청하기') },
   ],

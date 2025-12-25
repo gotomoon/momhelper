@@ -1,0 +1,149 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+
+const metadata = {
+  title: '회사소개',
+  description:
+    '맘헬퍼USA는 전문 산후조리 서비스를 제공해왔습니다. 저희의 이야기와 가족을 돕기 위한 헌신에 대해 알아보세요.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="회사소개" />
+
+  <!-- Introduction Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-semibold mb-4">안녕하세요.</p>
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-semibold mb-8">
+          맘헬퍼USA 에 방문하여 주셔서 감사 합니다.
+        </p>
+        <p class="text-lg md:text-xl text-mh-orange font-medium leading-relaxed">
+          출산 문제와 출산후의 일들로 혹은 누군가의 도움이 필요해서 걱정이 많으신가요?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- First Story Section - Image Left, Text Right -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        <div class="w-full md:w-1/2">
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500"
+          >
+            <img
+              src="/images/mom-struggling-baby-cutout.webp"
+              alt="아기와 힘들어하는 엄마"
+              class="w-full h-auto object-cover"
+              width="1468"
+              height="1497"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <div class="prose prose-lg text-mh-gray">
+            <p class="mb-6 leading-relaxed">
+              <strong class="text-mh-orange-dark">저에게도</strong> 첫아이 출산 때의 문제와 걱정으로 힘든 시기가 있었습니다.
+              출산후 제대로 산후조리를 못하여서 '산후풍'증세로 고생한 적이 있습니다. 한때는 팔이 너무 아파 가벼운 일조차도
+              감당하기에 고통스럽고 불편했었죠. 주변 어르신들의 조언이 있었고 둘째아이때는 정말 신경써서 산후조리를 하여야
+              겠다고 생각했습니다.
+            </p>
+            <p class="leading-relaxed">
+              첫아이 때 가졌던 후유증들을 치료하고 회복하기위해서는, 제대로 된 산후조리를 해야 했죠. 건강한 육아와
+              건강한 가정지킴, 건강한 사회생활을 위해선, 산모인 저의 정상회복은 반드시 필요한 일이었습니다. 그렇게
+              몇년이 지나 둘째아이를 낳은후 산후조리를 철저히 하였습니다. 그 결과 제 몸은 회복이 되었고, 회복된 건강은
+              말로는 표현할 수 없는 놀라움과 사실 입증이었습니다. 그런계기가 힘든 일을 하게 되었을때마다 저의 팔과
+              다리,허리들이 건재하다는것이 늘 다행이었고, 산후조리의 좋은결과와 중요성을 되새기게 되었습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Second Story Section - Text Left, Image Right -->
+  <section class="py-16 md:py-24 bg-mh-bg-cream/30">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
+        <div class="w-full md:w-1/2">
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500"
+          >
+            <img
+              src="/images/happy-mom-holding-baby-illustration.webp"
+              alt="아기를 안고 있는 행복한 엄마"
+              class="w-full h-auto object-cover"
+              width="1500"
+              height="1500"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <div class="prose prose-lg text-mh-gray">
+            <p class="mb-6 leading-relaxed">
+              <strong class="text-mh-orange-dark">후에 저는</strong> 산후조리를 위한 전문관리사 교육을 거치면서 본격적으로
+              산후조리사 직업을 가지게 되었습니다. 불편하고 힘들었던 출산후의 처지와, 후유증을 직접 크게 겪었던 저에겐, 산모
+              와 아기 케어를 감당하는 일에 애정을 가졌으며, 산후조리 관리사로 진심을 다 할 수 있었습니다. 이제는 그 열정과
+              사명감이 미국의 모든 산모와 아기들에게 가장 좋은 방법과 도움을 주는 '산후조리전문, 관리사 교육 관리 및 파견'
+              이라는 소중한 역할을 하는 조력자가 되었습니다.
+            </p>
+            <p class="leading-relaxed">
+              <strong class="text-mh-orange-dark">새 가정에</strong> 소중한 아기의 임신과 탄생은 이 세상에서 무엇보다도 한
+              가정의 발전과 결속의 구심이 되는 가장 경이로운 축복입니다. 이 축복에 함께 할 수 있도록 그동안 믿고 맡겨 주시고
+              격려와 응원을 해 주신 많은 산모님과 산모님 가족분둘께 진심으로 감사 드립니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Third Section - Image Left, Text Right -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        <div class="w-full md:w-1/2">
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-500"
+          >
+            <img
+              src="/images/happy-mom-illustration-cutout.webp"
+              alt="행복한 엄마 일러스트"
+              class="w-full h-auto object-cover"
+              width="1500"
+              height="1495"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <div class="prose prose-lg text-mh-gray">
+            <p class="leading-relaxed">
+              <span class="text-mh-orange-dark font-bold text-xl">맘헬퍼USA</span>는 산모회복과 아기를 가장 좋은
+              방법으로 케어 할 수 있도록, 전문 산후조리사를 교육 양성시켜 여러분의 가정으로 파견 할 것이며, 또 누군가의
+              손길과 정성을 필요로 하는 분들께 좋은 도움인 역할을 할 것입니다. 교육과 경험을 갖춘 맘헬퍼USA 파견 산후
+              관리사님은, 산모님이 출산후 지친 몸과 여러 가지 심신의 변화로 혼란스러운 시기에 내집에서 가족과 함께
+              편안한 산후조리를 하고, 아기가 안전하고 건강하게 성장할 수 있도록 적극적으로 돕습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Statement -->
+  <section class="py-20 bg-mh-bg-cream">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-semibold mb-6">
+          가장 좋은 방법과 정성스런 마음으로, 손과 발이 되어 드리겠습니다.
+        </p>
+        <p class="text-xl md:text-2xl text-mh-orange-dark font-bold">감사합니다.</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -5,9 +5,9 @@ import logoWhite from '~/assets/images/momhelper/logos/logo-white.webp';
 
 const faqItems = [
   {
-    question: '산후관리 서비스는 어떤 내용인가요?',
+    question: '산후조리 서비스는 어떤 내용인가요?',
     answer:
-      '산후관리 서비스는 전문 관리사가 산모와 신생아를 돌보는 서비스입니다. 산모 케어(영양 식사, 건강 관리, 유방 관리 등), 신생아 케어(수유, 목욕, 기저귀 교체, 수면 관리 등), 가사 지원(청소, 빨래, 식사 준비 등)을 포함합니다.',
+      '산후조리 서비스는 전문 관리사가 산모와 신생아를 돌보는 서비스입니다. 산모 케어(영양 식사, 건강 관리, 유방 관리 등), 신생아 케어(수유, 목욕, 기저귀 교체, 수면 관리 등), 가사 지원(청소, 빨래, 식사 준비 등)을 포함합니다.',
   },
   {
     question: '최소 서비스 기간은 얼마인가요?',
@@ -146,7 +146,7 @@ const faqSchema = {
 
 const metadata = {
   title: 'Q&A',
-  description: '산후관리 서비스에 대해 자주 묻는 질문과 답변을 확인하세요.',
+  description: '산후조리 서비스에 대해 자주 묻는 질문과 답변을 확인하세요.',
   structuredData: [faqSchema],
 };
 ---
@@ -174,7 +174,9 @@ const metadata = {
 
       <!-- Heading Text -->
       <div class="text-center pb-12">
-        <h2 class="text-white font-['Noto_Sans_KR'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed mb-4">
+        <h2
+          class="text-white font-['Noto_Sans_KR'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed mb-4"
+        >
           자주 묻는 질문
         </h2>
         <p class="text-white font-['Noto_Sans_KR'] text-[16pt] md:text-[18pt] leading-relaxed">
@@ -191,66 +193,94 @@ const metadata = {
   <section class="et_pb_section et_pb_section_1 bg-white py-16">
     <div class="container mx-auto max-w-[1000px] px-4">
       <div class="text-center mb-12">
-        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
-          서비스 관련
-        </h2>
-        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">
-          산후관리 서비스에 대한 일반적인 질문
-        </p>
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">서비스 관련</h2>
+        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">산후조리 서비스에 대한 일반적인 질문</p>
       </div>
 
       <div class="space-y-4">
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
-            산후관리 서비스는 어떤 내용인가요?
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
+            산후조리 서비스는 어떤 내용인가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            산후관리 서비스는 전문 관리사가 산모와 신생아를 돌보는 서비스입니다. 산모 케어(영양 식사, 건강 관리, 유방 관리 등), 신생아 케어(수유, 목욕, 기저귀 교체, 수면 관리 등), 가사 지원(청소, 빨래, 식사 준비 등)을 포함합니다.
+            산후조리 서비스는 전문 관리사가 산모와 신생아를 돌보는 서비스입니다. 산모 케어(영양 식사, 건강 관리, 유방
+            관리 등), 신생아 케어(수유, 목욕, 기저귀 교체, 수면 관리 등), 가사 지원(청소, 빨래, 식사 준비 등)을
+            포함합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             최소 서비스 기간은 얼마인가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            최소 서비스 기간은 2주(14일)입니다. 2주, 4주, 6주, 8주, 10주 단위로 신청하실 수 있으며, 대부분의 고객님들은 4주 이상을 이용하십니다.
+            최소 서비스 기간은 2주(14일)입니다. 2주, 4주, 6주, 8주, 10주 단위로 신청하실 수 있으며, 대부분의 고객님들은
+            4주 이상을 이용하십니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             출퇴근형과 입주형의 차이는 무엇인가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            출퇴근형은 관리사가 매일 오전 9시부터 오후 5시까지 방문하여 서비스를 제공합니다. 입주형은 관리사가 주중 5일(월-금) 24시간 가정에 머물며 케어를 제공합니다. 입주형은 출퇴근형보다 비용이 높지만, 밤 시간 케어도 포함되어 산모가 푹 쉴 수 있습니다.
+            출퇴근형은 관리사가 매일 오전 9시부터 오후 5시까지 방문하여 서비스를 제공합니다. 입주형은 관리사가 주중
+            5일(월-금) 24시간 가정에 머물며 케어를 제공합니다. 입주형은 출퇴근형보다 비용이 높지만, 밤 시간 케어도
+            포함되어 산모가 푹 쉴 수 있습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             관리사님은 어떤 분들인가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            모든 관리사는 산후조리 및 신생아 케어 분야에서 풍부한 경험을 가진 전문가들입니다. 신원 조회(background check)를 완료했으며, 관련 교육과 훈련을 받았습니다. 한국어와 영어가 모두 가능하여 원활한 소통이 가능합니다.
+            모든 관리사는 산후조리 및 신생아 케어 분야에서 풍부한 경험을 가진 전문가들입니다. 신원 조회(background
+            check)를 완료했으며, 관련 교육과 훈련을 받았습니다. 한국어와 영어가 모두 가능하여 원활한 소통이 가능합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             관리사님을 미리 만나볼 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            예약 확정 후 서비스 시작 전에 관리사님과 사전 미팅 또는 전화 상담을 진행할 수 있습니다. 이 시간에 가족의 특별한 요구사항이나 선호사항을 미리 전달하실 수 있습니다.
+            예약 확정 후 서비스 시작 전에 관리사님과 사전 미팅 또는 전화 상담을 진행할 수 있습니다. 이 시간에 가족의
+            특별한 요구사항이나 선호사항을 미리 전달하실 수 있습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             관리사님이 마음에 들지 않으면 교체할 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 가능합니다. 부득이하게 관리사 교체가 필요한 경우 즉시 연락주시면 새로운 관리사를 배정해 드립니다. 다만, 관리사 교체 시 일정 조정이 필요할 수 있으며, 상황에 따라 추가 비용이 발생할 수 있습니다.
+            네, 가능합니다. 부득이하게 관리사 교체가 필요한 경우 즉시 연락주시면 새로운 관리사를 배정해 드립니다. 다만,
+            관리사 교체 시 일정 조정이 필요할 수 있으며, 상황에 따라 추가 비용이 발생할 수 있습니다.
           </p>
         </details>
       </div>
@@ -261,66 +291,93 @@ const metadata = {
   <section class="et_pb_section et_pb_section_2 bg-[#f7f7f7] py-16">
     <div class="container mx-auto max-w-[1000px] px-4">
       <div class="text-center mb-12">
-        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
-          요금 관련
-        </h2>
-        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">
-          이용요금 및 결제에 대한 질문
-        </p>
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">요금 관련</h2>
+        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">이용요금 및 결제에 대한 질문</p>
       </div>
 
       <div class="space-y-4">
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             서비스 요금은 얼마인가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            서비스 요금은 기간, 형태(출퇴근/입주), 지역에 따라 다릅니다. 2주 출퇴근형은 $3,200부터 시작하며, 입주형은 $3,600부터 시작합니다. 자세한 요금은 이용요금 페이지를 참조하시거나 직접 문의해 주세요.
+            서비스 요금은 기간, 형태(출퇴근/입주), 지역에 따라 다릅니다. 2주 출퇴근형은 $3,200부터 시작하며, 입주형은
+            $3,600부터 시작합니다. 자세한 요금은 이용요금 페이지를 참조하시거나 직접 문의해 주세요.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             예약금은 얼마인가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            예약금은 서비스 기간에 따라 다릅니다. 2주는 $300, 4주는 $500, 6주는 $700, 8주는 $900, 10주는 $1,100입니다. 예약금은 총 서비스 요금에 포함되며, 예약 확정 시 납부하셔야 합니다.
+            예약금은 서비스 기간에 따라 다릅니다. 2주는 $300, 4주는 $500, 6주는 $700, 8주는 $900, 10주는 $1,100입니다.
+            예약금은 총 서비스 요금에 포함되며, 예약 확정 시 납부하셔야 합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             추가 가족 구성원이 있으면 추가 비용이 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 기본 가족 구성(산모, 배우자, 신생아) 외에 추가 가족 구성원이 있을 경우 추가 비용이 발생합니다. 첫째 추가 가족은 주당 $150-$250, 지역에 따라 다릅니다. 자세한 내용은 이용요금 페이지를 확인해 주세요.
+            네, 기본 가족 구성(산모, 배우자, 신생아) 외에 추가 가족 구성원이 있을 경우 추가 비용이 발생합니다. 첫째 추가
+            가족은 주당 $150-$250, 지역에 따라 다릅니다. 자세한 내용은 이용요금 페이지를 확인해 주세요.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             쌍둥이의 경우 요금이 어떻게 되나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            쌍둥이의 경우 기본 서비스 요금의 50%가 추가됩니다. 예를 들어, 4주 출퇴근형 기본 요금이 $6,000이라면, 쌍둥이는 $9,000입니다.
+            쌍둥이의 경우 기본 서비스 요금의 50%가 추가됩니다. 예를 들어, 4주 출퇴근형 기본 요금이 $6,000이라면,
+            쌍둥이는 $9,000입니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             결제 방법은 어떻게 되나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            체크(Check), Zelle, 현금(Cash), 은행 송금(Wire Transfer)으로 결제 가능합니다. 예약금은 예약 확정 시, 잔금은 서비스 시작 전 또는 서비스 기간 중 납부하실 수 있습니다.
+            체크(Check), Zelle, 현금(Cash), 은행 송금(Wire Transfer)으로 결제 가능합니다. 예약금은 예약 확정 시, 잔금은
+            서비스 시작 전 또는 서비스 기간 중 납부하실 수 있습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             환불 정책은 어떻게 되나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            서비스 시작 7일 전까지 취소 시 예약금의 50%를 환불해 드립니다. 서비스 시작 7일 이내 취소 시에는 환불이 어렵습니다. 서비스 진행 중 조기 종료 시에는 이미 제공된 서비스에 대한 비용을 제외한 금액을 협의하여 환불해 드립니다.
+            서비스 시작 7일 전까지 취소 시 예약금의 50%를 환불해 드립니다. 서비스 시작 7일 이내 취소 시에는 환불이
+            어렵습니다. 서비스 진행 중 조기 종료 시에는 이미 제공된 서비스에 대한 비용을 제외한 금액을 협의하여 환불해
+            드립니다.
           </p>
         </details>
       </div>
@@ -331,66 +388,92 @@ const metadata = {
   <section class="et_pb_section et_pb_section_3 bg-white py-16">
     <div class="container mx-auto max-w-[1000px] px-4">
       <div class="text-center mb-12">
-        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
-          예약 관련
-        </h2>
-        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">
-          서비스 예약 및 일정에 대한 질문
-        </p>
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">예약 관련</h2>
+        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">서비스 예약 및 일정에 대한 질문</p>
       </div>
 
       <div class="space-y-4">
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             예약은 언제 해야 하나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            출산 예정일 최소 1-2개월 전에 예약하시는 것을 권장합니다. 특히 성수기(9월-12월)에는 예약이 빨리 마감되므로 가능한 빨리 예약하시는 것이 좋습니다.
+            출산 예정일 최소 1-2개월 전에 예약하시는 것을 권장합니다. 특히 성수기(9월-12월)에는 예약이 빨리 마감되므로
+            가능한 빨리 예약하시는 것이 좋습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             출산 날짜가 정확하지 않은데 어떻게 예약하나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            출산 예정일을 기준으로 예약하시면 됩니다. 실제 출산일이 예정일과 달라지면 무료로 일정을 조정해 드립니다. 서비스 시작 7일 전까지는 무료로 날짜 변경이 가능합니다.
+            출산 예정일을 기준으로 예약하시면 됩니다. 실제 출산일이 예정일과 달라지면 무료로 일정을 조정해 드립니다.
+            서비스 시작 7일 전까지는 무료로 날짜 변경이 가능합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             서비스 날짜를 변경할 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 서비스 시작 7일 전까지는 무료로 날짜 변경이 가능합니다. 서비스 시작 7일 이내 변경 시에는 관리사 스케줄에 따라 조정되며, 변경 수수료가 발생할 수 있습니다.
+            네, 서비스 시작 7일 전까지는 무료로 날짜 변경이 가능합니다. 서비스 시작 7일 이내 변경 시에는 관리사 스케줄에
+            따라 조정되며, 변경 수수료가 발생할 수 있습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             서비스 기간을 연장할 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 서비스 진행 중 연장을 원하시면 가능합니다. 다만, 관리사의 다음 스케줄에 따라 동일한 관리사의 연장이 어려울 수 있으며, 이 경우 다른 관리사로 연장하실 수 있습니다.
+            네, 서비스 진행 중 연장을 원하시면 가능합니다. 다만, 관리사의 다음 스케줄에 따라 동일한 관리사의 연장이
+            어려울 수 있으며, 이 경우 다른 관리사로 연장하실 수 있습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             급하게 서비스가 필요한데 바로 이용할 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            관리사 스케줄에 여유가 있다면 최대한 빠르게 서비스를 제공해 드립니다. 급하신 경우 전화로 직접 문의해 주시면 즉시 확인해 드리겠습니다.
+            관리사 스케줄에 여유가 있다면 최대한 빠르게 서비스를 제공해 드립니다. 급하신 경우 전화로 직접 문의해 주시면
+            즉시 확인해 드리겠습니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             공휴일에도 서비스를 받을 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 가능합니다. 다만 크리스마스, 추수감사절, 신정 등 주요 공휴일 근무 시 추가 수당이 발생합니다. 공휴일이 포함된 서비스 기간의 경우 예약 시 사전에 협의가 필요합니다.
+            네, 가능합니다. 다만 크리스마스, 추수감사절, 신정 등 주요 공휴일 근무 시 추가 수당이 발생합니다. 공휴일이
+            포함된 서비스 기간의 경우 예약 시 사전에 협의가 필요합니다.
           </p>
         </details>
       </div>
@@ -401,39 +484,50 @@ const metadata = {
   <section class="et_pb_section et_pb_section_4 bg-[#f7f7f7] py-16">
     <div class="container mx-auto max-w-[1000px] px-4">
       <div class="text-center mb-12">
-        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
-          서비스 지역
-        </h2>
-        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">
-          서비스 제공 가능 지역에 대한 질문
-        </p>
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">서비스 지역</h2>
+        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">서비스 제공 가능 지역에 대한 질문</p>
       </div>
 
       <div class="space-y-4">
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             어느 지역까지 서비스가 가능한가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            주로 LA 카운티, Orange 카운티, Riverside 카운티, San Bernardino 카운티에 서비스를 제공합니다. 기타 지역도 상황에 따라 서비스 제공이 가능하니 문의해 주세요.
+            주로 LA 카운티, Orange 카운티, Riverside 카운티, San Bernardino 카운티에 서비스를 제공합니다. 기타 지역도
+            상황에 따라 서비스 제공이 가능하니 문의해 주세요.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             지역에 따라 요금이 다른가요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 지역에 따라 기본 서비스 요금은 동일하지만, 추가 가족 구성원에 대한 추가 비용이 다를 수 있습니다. LA 카운티가 가장 저렴하며, 거리가 멀수록 추가 비용이 증가합니다.
+            네, 지역에 따라 기본 서비스 요금은 동일하지만, 추가 가족 구성원에 대한 추가 비용이 다를 수 있습니다. LA
+            카운티가 가장 저렴하며, 거리가 멀수록 추가 비용이 증가합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             다른 주(State)에서도 서비스를 받을 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            캘리포니아 외 지역도 장거리/타주 서비스로 제공 가능합니다. 교통비 및 숙박비 등 추가 비용이 발생하므로 별도로 문의해 주세요.
+            캘리포니아 외 지역도 장거리/타주 서비스로 제공 가능합니다. 교통비 및 숙박비 등 추가 비용이 발생하므로 별도로
+            문의해 주세요.
           </p>
         </details>
       </div>
@@ -444,48 +538,64 @@ const metadata = {
   <section class="et_pb_section et_pb_section_5 bg-white py-16">
     <div class="container mx-auto max-w-[1000px] px-4">
       <div class="text-center mb-12">
-        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">
-          기타 서비스
-        </h2>
-        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">
-          산후관리 외 다른 서비스에 대한 질문
-        </p>
+        <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-2xl md:text-3xl font-bold mb-4">기타 서비스</h2>
+        <p class="text-gray-600 font-['Noto_Sans_KR'] text-lg">산후조리 외 다른 서비스에 대한 질문</p>
       </div>
 
       <div class="space-y-4">
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             베이비시터 서비스도 제공하나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 산후조리 외에도 베이비시터, 가사도우미, 간병 서비스를 제공합니다. 영유아부터 학령기 어린이까지 전문적인 육아 서비스를 제공하며, 시간제, 일일, 정기 스케줄 모두 가능합니다.
+            네, 산후조리 외에도 베이비시터, 가사도우미, 간병 서비스를 제공합니다. 영유아부터 학령기 어린이까지 전문적인
+            육아 서비스를 제공하며, 시간제, 일일, 정기 스케줄 모두 가능합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             가사도우미만 따로 이용할 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 가사도우미 서비스만 별도로 이용하실 수 있습니다. 일반 청소, 대청소, 세탁, 식사 준비 등 다양한 가사 서비스를 제공합니다. 자세한 내용은 기타 서비스 페이지를 참조해 주세요.
+            네, 가사도우미 서비스만 별도로 이용하실 수 있습니다. 일반 청소, 대청소, 세탁, 식사 준비 등 다양한 가사
+            서비스를 제공합니다. 자세한 내용은 기타 서비스 페이지를 참조해 주세요.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             간병 서비스도 제공하나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 노인, 수술 후 회복 환자, 만성 질환자를 위한 전문 간병 서비스를 제공합니다. 가정이나 의료 시설 모두에서 서비스 제공이 가능하며, IHSS(In-Home Supportive Services) 프로그램도 지원합니다.
+            네, 노인, 수술 후 회복 환자, 만성 질환자를 위한 전문 간병 서비스를 제공합니다. 가정이나 의료 시설 모두에서
+            서비스 제공이 가능하며, IHSS(In-Home Supportive Services) 프로그램도 지원합니다.
           </p>
         </details>
 
-        <details class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
-          <summary class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors">
+        <details
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+        >
+          <summary
+            class="font-['Noto_Sans_KR'] font-semibold text-lg cursor-pointer hover:text-[#D37643] transition-colors"
+          >
             산후조리와 다른 서비스를 함께 이용할 수 있나요?
           </summary>
           <p class="mt-4 text-gray-700 font-['Noto_Sans_KR'] leading-relaxed">
-            네, 가능합니다. 예를 들어, 산후조리 기간 동안 첫째 아이를 위한 베이비시터 서비스를 함께 이용하실 수 있습니다. 복합 서비스 이용 시 할인 혜택도 있으니 문의해 주세요.
+            네, 가능합니다. 예를 들어, 산후조리 기간 동안 첫째 아이를 위한 베이비시터 서비스를 함께 이용하실 수
+            있습니다. 복합 서비스 이용 시 할인 혜택도 있으니 문의해 주세요.
           </p>
         </details>
       </div>
@@ -495,19 +605,25 @@ const metadata = {
   <!-- Still Have Questions Section -->
   <section class="et_pb_section et_pb_section_6 bg-[#ffc1c1] py-16">
     <div class="container mx-auto max-w-[1080px] px-4 text-center">
-      <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-3xl font-bold mb-6">
-        더 궁금하신 점이 있으신가요?
-      </h2>
+      <h2 class="text-[#B8551F] font-['Noto_Sans_KR'] text-3xl font-bold mb-6">더 궁금하신 점이 있으신가요?</h2>
       <p class="text-gray-700 font-['Noto_Sans_KR'] text-xl mb-12">
         위 내용 외에 궁금하신 사항이 있으시면 언제든지 문의해 주세요
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
         <!-- Phone -->
-        <a href="tel:+12138084415" class="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-shadow duration-300">
+        <a
+          href="tel:+12138084415"
+          class="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
           <div class="mb-4">
             <svg class="w-12 h-12 mx-auto text-[#D37643]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
             </svg>
           </div>
           <h3 class="font-['Noto_Sans_KR'] font-bold text-[#B8551F] mb-2">전화 상담</h3>
@@ -515,10 +631,18 @@ const metadata = {
         </a>
 
         <!-- Email -->
-        <a href="mailto:momhelperusa10@gmail.com" class="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-shadow duration-300">
+        <a
+          href="mailto:momhelperusa10@gmail.com"
+          class="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
           <div class="mb-4">
             <svg class="w-12 h-12 mx-auto text-[#D37643]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
             </svg>
           </div>
           <h3 class="font-['Noto_Sans_KR'] font-bold text-[#B8551F] mb-2">이메일 문의</h3>
@@ -529,7 +653,12 @@ const metadata = {
         <div class="bg-white rounded-lg p-8 shadow-md">
           <div class="mb-4">
             <svg class="w-12 h-12 mx-auto text-[#D37643]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              ></path>
             </svg>
           </div>
           <h3 class="font-['Noto_Sans_KR'] font-bold text-[#B8551F] mb-2">카카오톡</h3>
@@ -558,8 +687,12 @@ const metadata = {
 
 <style>
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .animate-fadeIn {
@@ -580,7 +713,7 @@ const metadata = {
     width: 24px;
     height: 24px;
     margin-right: 12px;
-    color: #D37643;
+    color: #d37643;
     font-size: 24px;
     font-weight: bold;
     line-height: 1;
@@ -591,6 +724,6 @@ const metadata = {
   }
 
   details[open] summary {
-    color: #D37643;
+    color: #d37643;
   }
 </style>

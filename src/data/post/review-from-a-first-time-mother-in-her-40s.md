@@ -9,7 +9,7 @@ tags:
   - Reviews
   - Postpartum Care
 metadata:
-  canonical: https://momhelperusa.com/en/40대-초산인-산모의-후기/
+  canonical: https://momhelperusa.com/review-from-a-first-time-mother-in-her-40s
 ---
 
 ## Review from a first-time mother in her 40s

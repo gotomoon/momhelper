@@ -9,7 +9,7 @@ tags:
   - Reviews
   - Postpartum Care
 metadata:
-  canonical: https://momhelperusa.com/en/jenny-jung/
+  canonical: https://momhelperusa.com/postpartum-care-review-by-jenny-jung
 ---
 
 ## Postpartum Care Review by Jenny Jung

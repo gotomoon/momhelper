@@ -258,14 +258,14 @@ const blogTranslations = await getBlogTranslationMap();
   });
 </script>
 
-<script is:inline>
+<script is:inline define:vars={{ locales, routeSlugs, routeLocaleAvailability, blogTranslations, fallbackLocale: getLocaleFromPath('/') }}>
   // Handle Language Switcher
   const LANGUAGE_SWITCHER_DATA = {
-    locales: ${JSON.stringify(locales)},
-    routeSlugs: ${JSON.stringify(routeSlugs)},
-    routeLocaleAvailability: ${JSON.stringify(routeLocaleAvailability)},
-    blogTranslations: ${JSON.stringify(blogTranslations)},
-    fallbackLocale: ${JSON.stringify(getLocaleFromPath('/'))},
+    locales,
+    routeSlugs,
+    routeLocaleAvailability,
+    blogTranslations,
+    fallbackLocale,
   };
 
   const updateLanguageSwitchers = () => {

@@ -8,7 +8,7 @@ export const prerender = true;
 
 export const getStaticPaths = (async () => {
   const allPosts = await getCollection('post');
-  const reviewPosts = allPosts.filter((post) => post.data.category === 'Reviews');
+  const reviewPosts = allPosts.filter((post) => post.data.category === 'Reviews' && post.data.language === 'ko');
 
   return reviewPosts.map((post) => ({
     params: { slug: post.id.replace('.md', '') },
@@ -21,7 +21,7 @@ const { Content } = await render(post);
 
 const metadata = {
   title: post.data.title,
-  description: post.data.excerpt || '맘헬퍼USA 산후관리 서비스를 이용하신 고객님의 진솔한 후기입니다.',
+  description: post.data.excerpt || '맘헬퍼USA 산후조리 서비스를 이용하신 고객님의 진솔한 후기입니다.',
 };
 ---
 

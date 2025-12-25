@@ -3,139 +3,267 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: '산후관리 서비스',
-  description: '산모 케어, 신생아 케어, 가족케어 및 가사 서비스를 제공하는 맘헬퍼USA의 산후관리 서비스 내용입니다.',
+  title: '산후조리 서비스',
+  description: '산모 케어, 신생아 케어, 가족케어 및 가사 서비스를 제공하는 맘헬퍼USA의 산후조리 서비스 내용입니다.',
 };
 ---
 
 <PageLayout metadata={metadata}>
   <!-- Hero Section -->
-  <WPPageHero title="산후관리 서비스" />
+  <WPPageHero title="산후조리 서비스" />
 
   <!-- Basic Services Section -->
-  <section class="py-16 md:py-20 bg-white">
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800">기본 서비스</h2>
-      <hr class="border-gray-300 mb-6" />
-      <p class="text-base md:text-lg text-gray-700 font-semibold mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white">기본 서비스</h2>
+      <div class="mb-6" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 font-semibold mb-12">
         가정의 상황에 따라 서비스가 다를 수 있습니다.
       </p>
 
-      <h3 class="text-xl md:text-2xl font-bold mb-8 text-[#d37643]">산후관리 서비스</h3>
+      <h3 class="text-xl md:text-2xl font-bold mb-8" style="color: #d37643;">산후조리 서비스</h3>
 
       <!-- Maternal Care & Newborn Care -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <!-- Maternal Care -->
         <div>
-          <img
-            src="/images/mom-holding-baby.webp"
-            alt="산모 케어"
-            class="w-full h-auto rounded-lg mb-6"
-          />
-          <h4 class="text-lg font-bold text-gray-800 mb-4">산모 케어</h4>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>모유 수유 성공 지원</li>
+          <img src="/images/mom-holding-baby.webp" alt="산모 케어" class="w-full h-auto rounded-lg mb-6" />
+          <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-4">산모 케어</h4>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
             <li>출산 직후의 젖몸살 유방 마사지</li>
             <li>출산후 치유 지원 (회음부 통증완화 및 상처회복 촉진을 위한 좌욕)</li>
             <li>마사지 또는 산후체조 관리 지원, 정서지원</li>
-            <li>산모 위생 관리, 영양 관리, 식사 준비 / 주방 청결유지</li>
+            <li>산모 위생 관리, 영양 관리,식사 준비 / 주방 청결유지</li>
           </ul>
         </div>
 
         <!-- Newborn Care -->
         <div>
-          <img
-            src="/images/baby-hand.jpeg"
-            alt="신생아 케어"
-            class="w-full h-auto rounded-lg mb-6"
-          />
-          <h4 class="text-lg font-bold text-gray-800 mb-4">신생아 케어</h4>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>신생아방 / 신생아용품 관리</li>
+          <img src="/images/baby-hand.jpeg" alt="신생아 케어" class="w-full h-auto rounded-lg mb-6" />
+          <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-4">신생아 케어</h4>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
             <li>신생아 일지 작성 및 관리(신생아 대소변 / 수유상태 등)</li>
             <li>수유 및 취침주기 관리, 기타 어드바이스 지원</li>
             <li>신생아 목욕과 배꼽관리, 신생아 마사지, 옷 갈아 입히기</li>
-            <li>젖병 소독, 유축기 관리</li>
             <li>아기와 함께 외출시 동행하거나 필요시 간단한 가사 도움</li>
           </ul>
         </div>
       </div>
 
       <!-- Family Care / Housekeeping -->
-      <h4 class="text-lg font-bold text-gray-800 mb-6">가족케어 / 가사 서비스</h4>
+      <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-6">가족케어 / 가사 서비스</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
-          <img
-            src="/images/가사도우미-요리-1395.webp"
-            alt="가사도우미 요리"
-            class="w-full h-auto rounded-lg"
-          />
+          <img src="/images/가사도우미-요리-1395.webp" alt="가사도우미 요리" class="w-full h-auto rounded-lg" />
         </div>
         <div>
-          <p class="text-gray-700 font-semibold mb-4">
-            관리사님의 주 업무는 산모와 신생아를 돌보는 것입니다. 아기 아빠가 출장중일때 큰 아이를 챙깁니다.
+          <p class="text-gray-700 dark:text-gray-300 font-semibold mb-4">
+            관리사님의 주 업무는 산모와 신생아를 돌보는 것입니다.
           </p>
-          <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
-            <li>유치원 등/하원 시키기 (라이드불가), 식사 및 간식 챙기기, 간단히 씻기기 (손씻기 및 세수), 장난감 정리</li>
-            <li><strong>상황에 따라서 업무는 조금씩 변경됩니다.</strong></li>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">아기 아빠가 출장중일때 큰 아이를 챙깁니다.</p>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4">
+            <li>
+              유치원 등/하원 시키기 (라이드불가), 식사 및 간식 챙기기, 간단히 씻기기 (손씻기 및 세수), 장난감 정리
+            </li>
           </ul>
+          <p class="text-gray-700 dark:text-gray-300"><strong>상황에 따라서 업무는 조금씩 변경됩니다.</strong></p>
         </div>
       </div>
 
-      <div class="bg-gray-50 p-6 rounded-lg mb-12">
-        <p class="text-gray-700 font-semibold mb-4">관리사님은 산후 조력자로서 일정부분의 가사서비스만 제공합니다.</p>
-        <ul class="list-disc list-inside space-y-2 text-gray-700">
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg mb-12">
+        <p class="text-gray-700 dark:text-gray-300 font-semibold mb-4">
+          관리사님은 산후 조력자로서 일정부분의 가사서비스만 제공합니다.
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
           <li>산모와 아기의 건강 상태에 따라 서비스 내용은 바뀔 수 있고 생략될 수도 있습니다.</li>
-          <li>산모와 신생아를 제외한 다른 가족의 반찬, 집안 전체 청소, 가족들의 빨래세탁, 이불빨래, 많은 양의 다림질, 김치 담그기, 손님 접대, 도시락 챙기기등 산후조리와 직접적으로 관련이 없는 가사일은 지원하지 않습니다.</li>
+          <li>
+            산모와 신생아를 제외한 다른 가족의 반찬, 집안 전체 청소, 가족들의 빨래세탁, 이불빨래, 많은 양의 다림질, 김치
+            담그기, 손님 접대, 도시락 챙기기등 산후조리와 직접적으로 관련이 없는 가사일은 지원하지 않습니다.
+          </li>
           <li>산후조리와 직접적으로 관련이 없는 가사일을 요구시에는 추가 요금이 발생할 수 있습니다.</li>
         </ul>
       </div>
 
       <!-- Basic Service Recipients -->
-      <h3 class="text-xl md:text-2xl font-bold mb-6 text-[#d37643]">기본 서비스 대상자</h3>
-      <p class="text-gray-700 mb-6">
-        산모, 남편, 신생아가 서비스 대상자에 해당됩니다.<br />
+      <h3 class="text-xl md:text-2xl font-bold mb-6" style="color: #d37643;">기본 서비스 대상자</h3>
+      <p class="text-gray-700 dark:text-gray-300 mb-6">산모, 남편, 신생아가 서비스 대상자에 해당됩니다.</p>
+      <p class="text-gray-700 dark:text-gray-300 mb-6">
         만일 동거 가족이 있는 경우 다음과 같이 추가요금이 매일 발생할 수 있으며 서비스 요금에 포함되지 않습니다.
       </p>
 
       <!-- Pricing Table -->
       <div class="overflow-x-auto">
-        <table class="w-full border-collapse">
+        <table class="w-full border-collapse text-gray-700 dark:text-gray-200">
           <thead>
-            <tr class="bg-[#d37643] text-white">
+            <tr class="text-white" style="background-color: #d37643;">
               <th class="p-4 text-left font-semibold">Title</th>
               <th class="p-4 text-left font-semibold border-l border-white/30">출퇴근</th>
               <th class="p-4 text-left font-semibold border-l border-white/30">입주</th>
             </tr>
           </thead>
-          <tbody class="bg-gray-50">
-            <tr class="border-b border-gray-200">
+          <tbody class="bg-gray-50 dark:bg-slate-800">
+            <tr class="border-b border-gray-200 dark:border-slate-700">
               <td class="p-4">1. 기본 가족 외 1 명</td>
-              <td class="p-4 border-l border-gray-200">$10</td>
-              <td class="p-4 border-l border-gray-200">$20</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$10</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$20</td>
             </tr>
-            <tr class="border-b border-gray-200">
+            <tr class="border-b border-gray-200 dark:border-slate-700">
               <td class="p-4">2. 학령기 자녀 1명 (초등학생~고등학생)</td>
-              <td class="p-4 border-l border-gray-200">$5</td>
-              <td class="p-4 border-l border-gray-200">$10</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$5</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$10</td>
             </tr>
-            <tr class="border-b border-gray-200">
+            <tr class="border-b border-gray-200 dark:border-slate-700">
               <td class="p-4">3. 미취학 어린이 1명</td>
-              <td class="p-4 border-l border-gray-200">$10</td>
-              <td class="p-4 border-l border-gray-200">$20</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$10</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$20</td>
             </tr>
-            <tr class="border-b border-gray-200">
+            <tr class="border-b border-gray-200 dark:border-slate-700">
               <td class="p-4">4. 쌍둥이/다둥이</td>
-              <td class="p-4 border-l border-gray-200">$20</td>
-              <td class="p-4 border-l border-gray-200">$40</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$20</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700">$40</td>
             </tr>
             <tr>
               <td class="p-4">5. 주말/공휴일 근무</td>
-              <td class="p-4 border-l border-gray-200">추가요금 없음, 날짜로 계산</td>
-              <td class="p-4 border-l border-gray-200">추가요금 없음, 날짜로 계산</td>
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700"
+                >추가 금액이 발생하지 않고 날짜로 계산합니다</td
+              >
+              <td class="p-4 border-l border-gray-200 dark:border-slate-700"
+                >추가 금액이 발생하지 않고 날짜로 계산합니다</td
+              >
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Reservation Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">서비스 예약</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p class="font-bold">
+          온라인 예약 서비스를 이용하여 신청하시고, 예약금 결제를 하시면 온라인 예약이 확정됩니다.
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          <li>원장님과 상담하신 후에 산모님께 맞는 형태로 산후 조리 서비스를 계약하실 수 있습니다.</li>
+          <li>예약금은 서비스 이용 금액에 포함되지 않습니다.</li>
+          <li>서비스 이용 금액은 산후 관리사님께 직접 지불해 주시면 됩니다.</li>
+          <li>타주의 경우 왕복 비행기 티켓을 고객님께서 전액 부담하셔야 합니다.</li>
+          <li>
+            산모님이 예약을 하실 때에 맘헬퍼USA 에서 여유있게 스케줄을 만들겠지만, 예약 시 다시 한번 스케줄을 확인해
+            주시길 부탁드립니다.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Reservation Button Section -->
+  <section class="py-12 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center">
+        <a
+          href="/ko/서비스-신청하기"
+          class="inline-block text-white font-bold uppercase px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity duration-300"
+          style="background-color: #D37643; font-size: 14px; border-radius: 60px;"
+        >
+          서비스 신청하기
+        </a>
+      </div>
+      <div
+        class="mt-8 mb-4"
+        style="height: 4px; background-color: #D37643; width: 100px; margin-left: auto; margin-right: auto;"
+      >
+      </div>
+      <p class="text-center font-bold text-gray-800 dark:text-white mt-6">
+        신청하시기 전에 먼저 이용약관을 확인해 주세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Fees Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center text-[#262f71] dark:text-white">서비스 이용요금</h2>
+      <div class="mb-8 mx-auto" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p>
+          예약금만으로 회사가 운영됩니다. 예약금은 서비스 이용요금에 포함되어 있지 않습니다. 서비스 이용요금은
+          관리사님이 직접 받는 금액입니다. 주급으로(5일마다) 관리사님께 직접 지불 하시면 됩니다.
+        </p>
+        <p>기본가족은 산모, 산모 남편, 신생아 이며 그외의 식구가 있는 경우는 추가금액이 발생 할 수 있습니다.</p>
+        <p>지역에 따라 상황에 따라 기본 요금이 달라 질 수 있습니다.</p>
+      </div>
+
+      <div class="text-center mt-8">
+        <a
+          href="/ko/이용요금-2"
+          class="inline-block text-white font-bold uppercase px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity duration-300"
+          style="background-color: #D37643; font-size: 14px; border-radius: 60px;"
+        >
+          산후조리 이용요금
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Extension and Changes Section -->
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white">서비스 연장 및 변경</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p>
+          서비스 연장 및 변경을 원할 경우, 최소한 서비스 종료 50%전에 맘헬퍼USA에 연락하셔야 재배정 및 일정 조종이
+          가능합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Holidays Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white">법정 공휴일</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p>
+          휴무를 원칙으로 하되, 산모와 관리사님의 재량에 따라 조정 가능합니다. 공휴일 횟수만큼 서비스 기간이 자동연장
+          되며, 서비스가 제공되어도 추가 비용이 발생하지 않습니다.
+        </p>
+        <p>주 5일 근무하며, 특별한 약정이 없는 한 토요일과 일요일은 휴무를 원칙으로 합니다.</p>
+        <p>공휴일 근무는 협의하여 휴무가 가능하며, 휴무 시 서비스 기간에서 자동 연장됩니다.</p>
+        <p>장거리나 타주는 휴가 없이 연속으로 근무합니다. (예시: 4주라면 20일연속)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Matters Section -->
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-white">기타사항</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p>
+          계약시 결정된 업무 내용이나 베이비케어의 업무와 무관한 일 (다른 가족의 픽업, 손님 접대, 김치 담그기, 대청소
+          등) 을 요구할 수 없습니다.
+        </p>
+        <p>
+          보호자 연락처, 자녀들의 병원 검진 스케줄, 알러지 (음식, 약 등) 여부, 기타 중요한 정보를 회사에 미리 알려주셔야
+          합니다.
+        </p>
+        <p>
+          이용자나 산후조리사가 근무 시작한 후에 업무와 관련된 변경 사항 (예; 근무 시간 변경 혹은 근무일 추가, 업무내용
+          변경 등)이 발생하게 되면 회사에 연락, 의논하시기 바랍니다.
+        </p>
+        <p>카메라 설치 여부 혹은 설치 계획 여부를 회사에 알려주셔야 합니다.</p>
       </div>
     </div>
   </section>

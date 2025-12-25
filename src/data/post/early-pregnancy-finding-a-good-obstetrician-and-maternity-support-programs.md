@@ -6,14 +6,14 @@ excerpt: Find good doctors, hospitals, and maternity support programs in the USA
 image: ~/assets/images/momhelper/women-chiropractic.webp
 category: Prenatal Care
 language: en
-translationKey: prenatal-care-guide
+translationKey: finding-good-obstetrician
 tags:
   - pregnancy
   - prenatal care
   - insurance
   - medicaid
 metadata:
-  canonical: https://momhelperusa.com/en/finding-good-obstetrician
+  canonical: https://momhelperusa.com/early-pregnancy-finding-a-good-obstetrician-and-maternity-support-programs
 ---
 
 ## Finding a Good Doctor and Hospital

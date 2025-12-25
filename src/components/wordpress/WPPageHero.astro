@@ -29,18 +29,16 @@ const {
   <!-- Overlay -->
   <div class="absolute inset-0 z-0" style={`background-color: ${overlayColor};`}></div>
 
-  <div class="container mx-auto max-w-full px-4 py-16 relative z-10">
+  <div class="container mx-auto max-w-3xl px-6 pt-32 sm:pt-40 pb-16 sm:pb-20 text-center relative z-10 space-y-4">
     <!-- Page Title (NO LOGO for non-homepage pages) -->
-    <div class="text-center pb-12">
-      <h1 class="text-white font-['Noto_Sans_KR','Open_Sans'] font-medium text-[20pt] md:text-[24pt] lg:text-[26pt] leading-relaxed mb-4">
-        {title}
-      </h1>
-      {subtitle && (
-        <p class="text-white font-['Noto_Sans_KR','Open_Sans'] text-[16pt] md:text-[18pt] leading-relaxed">
-          {subtitle}
-        </p>
-      )}
-    </div>
+    <h1 class="text-white drop-shadow-md font-['Noto_Sans_KR','Open_Sans'] font-semibold text-3xl sm:text-4xl md:text-5xl leading-tight">
+      {title}
+    </h1>
+    {subtitle && (
+      <p class="text-white/90 drop-shadow font-['Noto_Sans_KR','Open_Sans'] text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
+        {subtitle}
+      </p>
+    )}
 
     <!-- Slot for custom content -->
     <slot />

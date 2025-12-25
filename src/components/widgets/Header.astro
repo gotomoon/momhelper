@@ -77,7 +77,7 @@ const menuTranslations: Record<string, Record<string, string>> = {
     'Elderly Care': '노인돌봄',
     About: '소개',
     Reviews: '후기',
-    Blog: '블로그',
+    Blog: '산후조리·육아정보',
     Contact: '연락처',
     Language: '언어',
   },
@@ -131,7 +131,7 @@ function findRouteForText(text: string): string | null {
     'About Postpartum Care': 'about-postpartum-care',
     'What is Postpartum Care?': 'what-is-postpartum-care',
     'Our Postpartum Care Service': 'postpartum-care',
-    'Pricing': 'pricing',
+    Pricing: 'pricing',
     'Book Online': 'book-online',
     'View All Services': 'other-services',
     'Q & A': 'faq',
@@ -143,14 +143,14 @@ function findRouteForText(text: string): string | null {
     소개: 'about',
     후기: 'reviews',
     이용후기: 'reviews',
-    블로그: 'blog',
+    산후조리·육아정보: 'blog',
     연락처: 'contact',
 
     // Dropdown Korean mappings
     '산후조리에 관하여': 'about-postpartum-care',
-    '산후관리사란?': 'what-is-postpartum-care',
-    '산후관리 서비스 내용': 'postpartum-care',
-    '이용요금': 'pricing',
+    '산후조리사란?': 'what-is-postpartum-care',
+    '산후조리 서비스 내용': 'postpartum-care',
+    이용요금: 'pricing',
     '서비스 신청하기': 'book-online',
     '기타 서비스': 'other-services',
     '기타 서비스 신청하기': 'other-services-booking',
@@ -220,6 +220,45 @@ const translatedLinks = translateLinks(links);
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >
+  <div class="hidden md:flex items-center justify-end gap-2 px-4 py-2 max-w-7xl mx-auto">
+    {showToggleTheme && <ToggleTheme iconClass="w-6 h-6" />}
+    <div class="flex gap-1">
+      {
+        locales.map((locale) => {
+          const href = getSwitchHref(locale.code);
+          const isActive = locale.code === currentLocale;
+          return (
+            <a
+              href={href}
+              class:list={[
+                'px-2.5 py-1 rounded text-xs font-semibold transition-colors border',
+                isActive
+                  ? 'text-white border-white/70 bg-white/10'
+                  : 'text-white/90 border-transparent hover:bg-white/10',
+              ]}
+              aria-label={locale.label}
+              data-lang-switch={locale.code}
+            >
+              {locale.label}
+            </a>
+          );
+        })
+      }
+    </div>
+    {
+      actions?.length ? (
+        <span class="ml-2">
+          {actions.map((btnProps) => (
+            <Button
+              {...btnProps}
+              class="ml-2 py-2 px-4 text-xs font-semibold shadow-none w-auto border border-white/60 bg-white/10 text-white hover:bg-white/20"
+            />
+          ))}
+        </span>
+      ) : null
+    }
+  </div>
+
   <div
     class:list={[
       'relative text-gray-900 dark:text-slate-200 py-3 px-3 md:px-6 mx-auto w-full',
@@ -247,19 +286,19 @@ const translatedLinks = translateLinks(links);
               const href = getSwitchHref(locale.code);
               const isActive = locale.code === currentLocale;
               return (
-                  <a
-                    href={href}
-                    class:list={[
-                      'px-2 py-1 rounded text-xs font-semibold transition-colors',
-                      isActive
-                        ? 'text-gray-900 dark:text-white border border-gray-900 dark:border-gray-400 bg-gray-100 dark:bg-gray-700'
-                        : 'text-gray-900 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700',
-                    ]}
-                    aria-label={locale.label}
-                    data-lang-switch={locale.code}
-                  >
-                    {locale.label}
-                  </a>
+                <a
+                  href={href}
+                  class:list={[
+                    'px-2 py-1 rounded text-xs font-semibold transition-colors',
+                    isActive
+                      ? 'text-gray-900 dark:text-white border border-gray-900 dark:border-gray-400 bg-gray-100 dark:bg-gray-700'
+                      : 'text-gray-900 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700',
+                  ]}
+                  aria-label={locale.label}
+                  data-lang-switch={locale.code}
+                >
+                  {locale.label}
+                </a>
               );
             })
           }
@@ -267,11 +306,11 @@ const translatedLinks = translateLinks(links);
       </div>
     </div>
     <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-visible md:justify-self-center"
+      class="items-center w-full md:w-auto hidden md:flex md:mx-3 lg:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-visible md:justify-self-center"
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[1.0625rem] tracking-[0.01rem] font-semibold md:justify-center"
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-base lg:text-[1.05rem] tracking-[0.01rem] font-semibold md:justify-center md:gap-2 lg:gap-4"
       >
         {
           translatedLinks.map(({ text, href, links, ...rest }) => (
@@ -280,7 +319,7 @@ const translatedLinks = translateLinks(links);
                 <>
                   <button
                     type="button"
-                    class="px-4 py-3 flex items-center whitespace-nowrap transition-colors hover:text-[#b74000]"
+                    class="px-3 lg:px-4 py-3 flex items-center whitespace-nowrap transition-colors hover:text-[#b74000]"
                   >
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-4 h-4 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
@@ -305,7 +344,7 @@ const translatedLinks = translateLinks(links);
               ) : (
                 <a
                   class:list={[
-                    'px-4 py-3 flex items-center whitespace-nowrap transition-colors hover:text-[#b74000]',
+                    'px-3 lg:px-4 py-3 flex items-center whitespace-nowrap transition-colors hover:text-[#b74000]',
                     { 'aw-link-active text-[#b74000]': href === currentPath },
                   ]}
                   href={href}
@@ -319,54 +358,7 @@ const translatedLinks = translateLinks(links);
         }
       </ul>
     </nav>
-    <div
-      class:list={[
-        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
-      ]}
-    >
-      <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex items-center gap-2">
-          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
-
-          {/* Desktop Language Switcher */}
-          <div class="flex gap-1">
-            {
-              locales.map((locale) => {
-                const href = getSwitchHref(locale.code);
-                const isActive = locale.code === currentLocale;
-                return (
-                  <a
-                    href={href}
-                    class:list={[
-                      'px-2 py-1 rounded text-xs font-semibold transition-colors',
-                      isActive
-                        ? 'text-gray-900 dark:text-white border border-gray-900 dark:border-gray-400 bg-gray-100 dark:bg-gray-700'
-                        : 'text-gray-900 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700',
-                    ]}
-                    aria-label={locale.label}
-                    data-lang-switch={locale.code}
-                  >
-                    {locale.label}
-                  </a>
-                );
-              })
-            }
-          </div>
-        </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
-      </div>
-    </div>
+    {position === 'center' ? <div class="hidden md:block" aria-hidden="true" /> : null}
   </div>
 </header>
 

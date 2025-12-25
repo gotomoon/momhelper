@@ -62,4 +62,29 @@
       color: snow;
     }
   }
+
+  .dark .bg-white:not([class*='dark:bg-']) {
+    background-color: var(--aw-color-bg-page);
+  }
+
+  .dark .bg-gray-50:not([class*='dark:bg-']) {
+    background-color: rgb(15 23 42 / 0.6);
+  }
+
+  .dark .text-gray-900:not([class*='dark:text-']),
+  .dark .text-gray-800:not([class*='dark:text-']) {
+    color: var(--aw-color-text-heading);
+  }
+
+  .dark .text-gray-700:not([class*='dark:text-']),
+  .dark .text-gray-600:not([class*='dark:text-']),
+  .dark .text-gray-500:not([class*='dark:text-']) {
+    color: var(--aw-color-text-default);
+  }
+
+  .dark .border-gray-100:not([class*='dark:border-']),
+  .dark .border-gray-200:not([class*='dark:border-']),
+  .dark .border-gray-300:not([class*='dark:border-']) {
+    border-color: rgb(51 65 85);
+  }
 </style>
