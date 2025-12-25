@@ -1,167 +1,276 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: 'Terms & Conditions',
-  description: 'Mom Helper USA service terms and conditions and privacy policy',
+  title: 'Terms of Use',
+  description: 'Mom Helper USA Terms of Use – Important Information and Policies regarding our services.',
 };
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero Widget -->
-  <Hero
-    tagline="Terms & Conditions"
-    title="Service Terms and Conditions"
-    subtitle="Terms applicable when using Mom Helper USA services"
-  />
+  <!-- Hero Section -->
+  <WPPageHero title="Terms and Conditions" />
 
-  <!-- Terms Content -->
-  <section class="px-4 py-16 mx-auto max-w-4xl">
-    <article class="prose prose-lg dark:prose-invert max-w-none">
-      <p class="text-muted mb-8"><strong>Last Updated:</strong> January 1, 2025</p>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 1 (Purpose)</h2>
-      <p class="mb-6">
-        These terms and conditions are intended to define the basic matters regarding the rights, obligations,
-        and responsibilities between Mom Helper USA (hereinafter referred to as "the Company") and users,
-        as well as the service conditions and procedures for postpartum care and other home support services.
-      </p>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 2 (Definition of Terms)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li><strong>"Service"</strong> refers to postpartum care, babysitting, housekeeping, and caregiving services provided by the Company.</li>
-        <li><strong>"User"</strong> refers to customers who use the services provided by the Company in accordance with these terms.</li>
-        <li><strong>"Caregiver"</strong> refers to professional personnel dispatched by the Company to provide services.</li>
-        <li><strong>"Commute Type"</strong> refers to a service format where the caregiver visits daily during set hours (9 AM - 5 PM).</li>
-        <li><strong>"Live-in Type"</strong> refers to a service format where the caregiver stays at the user's home and provides 24-hour service.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 3 (Effect and Amendment of Terms)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>These terms shall be effective for all users who wish to use the service.</li>
-        <li>The Company may amend these terms as necessary within the scope of applicable laws, and amended terms shall become effective upon posting on the website.</li>
-        <li>If users do not agree to the amended terms, they may discontinue service use and terminate the contract.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 4 (Provision and Changes of Services)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>The Company provides the following services:
-          <ul class="list-disc pl-6 mt-3 space-y-2">
-            <li>Postpartum care services (mother care, newborn care, household support)</li>
-            <li>Babysitter and nanny services</li>
-            <li>Housekeeping services</li>
-            <li>Caregiving services</li>
-          </ul>
-        </li>
-        <li>Service content is determined according to individual contracts with users.</li>
-        <li>The Company may change the service content for reasonable reasons and will notify users immediately.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 5 (Establishment of Service Contract)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>Service contracts are established upon user application and Company acceptance.</li>
-        <li>The Company may refuse service provision in the following cases:
-          <ul class="list-disc pl-6 mt-3 space-y-2">
-            <li>When the application contains false information, omissions, or errors</li>
-            <li>When service provision is technically impossible</li>
-            <li>Other cases deemed necessary by the Company</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 6 (Reservation and Deposit)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>Service reservations should be made at least 1-2 months before the expected due date.</li>
-        <li>A deposit must be paid according to the service period for reservation confirmation.</li>
-        <li>The deposit is included in the total service fee and will be settled after service completion.</li>
-        <li>50% of the deposit will be refunded for cancellations made at least 7 days before service start.</li>
-        <li>No refund for cancellations made within 7 days of service start.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 7 (Fees and Payment)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>Service fees vary according to service type, period, and region, and are specified at contract signing.</li>
-        <li>Payment methods include check, Zelle, cash, and wire transfer.</li>
-        <li>Deposit is due upon reservation confirmation, and balance is due before or during service period.</li>
-        <li>Additional pay for holiday work will be notified in advance.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 8 (Service Schedule Changes and Cancellation)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>Free schedule changes are available up to 7 days before service start.</li>
-        <li>Changes within 7 days of service start may incur change fees.</li>
-        <li>The Company is not responsible for service unavailability due to force majeure such as natural disasters or epidemics.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 9 (Company's Obligations)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>The Company dispatches professional and experienced caregivers to provide quality service.</li>
-        <li>The Company conducts background checks on caregivers and provides necessary training.</li>
-        <li>The Company protects users' personal information and complies with relevant laws.</li>
-        <li>The Company responds promptly to issues arising during service provision.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 10 (User's Obligations)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>Users must comply with these terms and relevant laws.</li>
-        <li>Users must cooperate to ensure caregivers can work in a safe and comfortable environment.</li>
-        <li>Users must disclose all relevant information in advance, including pets and special health conditions.</li>
-        <li>Users may not request tasks outside the scope of service from caregivers.</li>
-        <li>Users must respect and treat caregivers courteously.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 11 (Service Scope and Limitations)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>Caregivers are not medical professionals and do not provide medical services (injections, medication administration, etc.).</li>
-        <li>In emergencies, caregivers will immediately contact 911 and notify users.</li>
-        <li>Caregivers provide services only within the scope specified in the contract.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 12 (Liability and Indemnification)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>The Company is responsible for damages caused to users by the caregiver's intentional or gross negligence.</li>
-        <li>However, the Company is not responsible in the following cases:
-          <ul class="list-disc pl-6 mt-3 space-y-2">
-            <li>Force majeure such as natural disasters, war, or riots</li>
-            <li>Cases attributable to user fault</li>
-            <li>Unforeseeable accidents during normal service performance</li>
-          </ul>
-        </li>
-        <li>Property damage will be resolved through consultation depending on circumstances.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 13 (Personal Information Protection)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>The Company protects users' personal information in accordance with relevant laws.</li>
-        <li>Collected personal information is used only for service provision purposes and is not provided to third parties.</li>
-        <li>Users may request to view, modify, or delete their personal information at any time.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 14 (Dispute Resolution)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>In case of disputes related to service use, the Company and users shall make efforts to resolve them amicably through mutual consultation.</li>
-        <li>If consultation fails, the matter shall be resolved in the competent court according to California state law.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">Article 15 (Governing Law and Jurisdiction)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>These terms shall be interpreted and applied according to the laws of the State of California, USA.</li>
-        <li>Lawsuits related to service use shall be filed in the court having jurisdiction over the Company's headquarters location.</li>
-      </ol>
-
-      <div class="bg-blue-50 dark:bg-slate-800 p-8 rounded-lg mt-12">
-        <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-        <p class="mb-4">If you have any questions about these terms, please contact us:</p>
-        <p class="mb-2"><strong>Mom Helper USA</strong></p>
-        <p class="mb-2"><strong>Phone:</strong> (213) 808-4415</p>
-        <p class="mb-2"><strong>Email:</strong> momhelperusa10@gmail.com</p>
-        <p><strong>Kakao Talk:</strong> momhelper.usa</p>
+  <!-- Main Content Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl leading-relaxed space-y-8">
+      <div>
+        <h3 class="font-normal mb-0 text-[26px] leading-[1.2em] text-black">
+          Terms of Use – Important Additional Information
+        </h3>
+        <p class="mb-4 text-[#666666] font-medium text-[16px] leading-[2em]">
+          Postpartum caregivers, babysitters (nannies), housekeeping helpers, and caregivers are all referred to as
+          "caregivers".
+        </p>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            After reviewing the sent contract, fill out and submit the service application form (reservation form) on our
+            website. The contract is established once the reservation fee is deposited into the company's account. The transfer
+            of the reservation fee is equivalent to agreeing to the contract terms.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            You cannot request tasks not decided upon at the time of the contract or unrelated tasks (e.g., picking up other
+            family members, guest meal service, making kimchi, large amounts of ironing, washing bedding, cleaning the entire
+            house).
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Basic service recipients include the mother, husband, and newborn for postpartum care, the respective child for
+            babysitting (nanny) services, and the recipient (patient) for caregiver services. Additional charges may apply
+            daily for other cohabiting family members.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            You must inform the company about the presence or planned installation of cameras in the house.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            For any changes related to work (e.g., change in working hours or days, change in job content, change of caregiver)
+            after the start of work, please contact and discuss with the company.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Caregivers' rest time includes 3 hours for live-in caregivers and 1 hour for commuting caregivers (excluding
+            night sleep, rest, sleep, jogging).
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Additional services are mandatory. If applicable, you must check this on the contract. Any adjustments or changes
+            can be discussed and agreed upon with both the Mom Helper USA representative and the caregiver.
+          </li>
+        </ul>
       </div>
 
-      <p class="text-center text-muted mt-12 pt-8 border-t">
-        These terms are effective as of January 1, 2025.
-      </p>
-    </article>
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">Postpartum Care Additional Information</h5>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            If the mother wishes to extend or shorten the service period or replace the postpartum caregiver, she must consult
+            with the company first.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Early Termination: If you wish to shorten the service period, please contact and discuss with the company. If
+            the service is shortened after commencement, the remaining reservation fee (contract fee) will not be refunded.
+            The caregiver must be informed at least 7 days in advance to avoid disrupting their schedule and plans.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Service Extension: If you wish to extend the postpartum care service, please inform the company at least 50%
+            before the service ends.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            The primary duty of the postpartum caregiver is to care for the mother and newborn. As a postpartum helper, the
+            caregiver provides some housekeeping services. (Tasks not directly related to postpartum care, such as cleaning
+            the entire house, doing laundry for the family, washing bedding, large amounts of ironing, making kimchi, guest
+            meal service, and preparing packed lunches, are not supported.)
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Additional charges may apply if you request tasks unrelated to postpartum care, such as preparing side dishes
+            or laundry for other family members.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Services may change or be omitted based on the health status of the mother and newborn.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            If the baby's father is on a business trip, the caregiver may help with simple tasks like taking the older child
+            to and from kindergarten, bathing them, and organizing toys, in consultation with the mother, and additional
+            charges may apply depending on the situation.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">
+          Additional Information about Babysitter and Nanny
+        </h5>
+        <p class="mb-4 text-[#666666] font-medium text-[16px] leading-[2em] font-semibold">
+          Inform the company and the dispatched caregiver about your child's usual habits, playtime, feeding amount,
+          feeding times, weaning food and snack times, bathing, personality, stranger anxiety, medical history, and
+          emergency contact information.
+        </p>
+      </div>
+
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">
+          Additional Information about Babysitter and Caregiver
+        </h5>
+        <p class="mb-4 text-[#666666] font-medium text-[16px] leading-[2em] font-semibold">
+          You cannot request tasks unrelated to the agreed duties at the time of contract (e.g., picking up other family
+          members, doing laundry for other family members, guest meal service, making kimchi, cleaning the entire
+          house).
+        </p>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Inform the company and caregiver in advance about important information such as the guardian's contact information,
+            children's or recipient's (care patient) hospital check-up schedule, allergies (food, medicine, etc.), and other
+            crucial details.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            For any changes related to work (e.g., change in working hours or days, change in job content) after the start
+            of work, please contact and discuss with the company.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">
+          Service Contract and Cancellation Additional Information
+        </h5>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            The service contract is established when the payment amount presented by the company is deposited into the bank
+            payment account or via Zelle, and the contract is signed.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Cancellation by the Mother: The mother can cancel the reservation before the start of the postpartum care service
+            in unavoidable circumstances. However, once the caregiver is decided upon through an interview, the reservation
+            fee will not be refunded.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Cancellation by the Company: The company can cancel the reservation before the start of the service for unavoidable
+            reasons, and in this case, the full reservation fee will be refunded.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            Reservation Change: In unavoidable cases, you can change the reservation before the service starts, and you must
+            request this from the company operator at least 10 days before the start date of the service.
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 </PageLayout>

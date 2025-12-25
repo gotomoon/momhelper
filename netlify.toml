@@ -80,3 +80,13 @@
   from = "/40대-초산인-산모의-후기"
   to = "/초산이신-40대-산모님의-후기"
   status = 301
+
+[[redirects]]
+  from = "/ko/산후조리사란"
+  to = "/ko/산후관리사란"
+  status = 301
+
+[[redirects]]
+  from = "/ko/산후조리-서비스"
+  to = "/ko/산후관리-서비스"
+  status = 301

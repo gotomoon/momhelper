@@ -1,174 +1,256 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
   title: '이용약관',
-  description: 'Mom Helper USA 서비스 이용약관 및 개인정보 처리방침',
+  description: 'Mom Helper USA 이용약관 – 서비스 이용에 관한 중요 정보 및 정책',
 };
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero Widget -->
-  <Hero tagline="이용약관" title="서비스 이용약관" subtitle="Mom Helper USA 서비스 이용 시 적용되는 약관입니다" />
+  <!-- Hero Section -->
+  <WPPageHero title="이용약관" />
 
-  <!-- Terms Content -->
-  <section class="px-4 py-16 mx-auto max-w-4xl">
-    <article class="prose prose-lg dark:prose-invert max-w-none">
-      <p class="text-muted mb-8"><strong>최종 업데이트:</strong> 2025년 1월 1일</p>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제1조 (목적)</h2>
-      <p class="mb-6">
-        본 약관은 Mom Helper USA(이하 "회사")가 제공하는 산후조리 및 기타 가정 지원 서비스의 이용과 관련하여 회사와
-        이용자 간의 권리, 의무 및 책임사항, 서비스 이용조건 및 절차 등 기본적인 사항을 규정함을 목적으로 합니다.
-      </p>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제2조 (용어의 정의)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>
-          <strong>"서비스"</strong>란 회사가 제공하는 산후조리, 베이비시터, 가사도우미, 간병 등의 가정 지원 서비스를
-          의미합니다.
-        </li>
-        <li><strong>"이용자"</strong>란 본 약관에 따라 회사가 제공하는 서비스를 이용하는 고객을 의미합니다.</li>
-        <li><strong>"관리사"</strong>란 회사가 파견하여 서비스를 제공하는 전문 인력을 의미합니다.</li>
-        <li>
-          <strong>"출퇴근형"</strong>이란 관리사가 매일 정해진 시간(오전 9시-오후 5시)에 방문하여 서비스를 제공하는
-          형태를 의미합니다.
-        </li>
-        <li>
-          <strong>"입주형"</strong>이란 관리사가 이용자의 가정에 머물며 24시간 서비스를 제공하는 형태를 의미합니다.
-        </li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제3조 (약관의 효력 및 변경)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>본 약관은 서비스를 이용하고자 하는 모든 이용자에 대하여 그 효력이 발생합니다.</li>
-        <li>
-          회사는 필요한 경우 관련 법령을 위배하지 않는 범위 내에서 본 약관을 변경할 수 있으며, 변경된 약관은 웹사이트에
-          공지함으로써 효력이 발생합니다.
-        </li>
-        <li>이용자가 변경된 약관에 동의하지 않는 경우 서비스 이용을 중단하고 계약을 해지할 수 있습니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제4조 (서비스의 제공 및 변경)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>
-          회사는 다음과 같은 서비스를 제공합니다:
-          <ul class="list-disc pl-6 mt-3 space-y-2">
-            <li>산후조리 서비스 (산모 케어, 신생아 케어, 가사 지원)</li>
-            <li>베이비시터 및 보모 서비스</li>
-            <li>가사도우미 서비스</li>
-            <li>간병 서비스</li>
-          </ul>
-        </li>
-        <li>서비스의 내용은 이용자와의 개별 계약에 따라 정해집니다.</li>
-        <li>회사는 상당한 이유가 있는 경우 서비스의 내용을 변경할 수 있으며, 이 경우 즉시 이용자에게 통지합니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제5조 (서비스 이용 계약의 성립)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>서비스 이용 계약은 이용자의 서비스 신청과 회사의 승낙으로 성립합니다.</li>
-        <li>
-          회사는 다음 각 호에 해당하는 경우 서비스 제공을 거부할 수 있습니다:
-          <ul class="list-disc pl-6 mt-3 space-y-2">
-            <li>신청 내용에 허위, 기재누락, 오기가 있는 경우</li>
-            <li>서비스 제공이 기술적으로 불가능한 경우</li>
-            <li>기타 회사가 필요하다고 인정하는 경우</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제6조 (예약 및 예약금)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>서비스 예약은 최소 출산 예정일 1-2개월 전에 하는 것을 권장합니다.</li>
-        <li>예약 확정을 위해서는 서비스 기간에 따라 정해진 예약금을 납부해야 합니다.</li>
-        <li>예약금은 총 서비스 요금에 포함되며, 서비스 완료 후 정산됩니다.</li>
-        <li>예약금 납부 후 서비스 시작 7일 전까지 취소 시 예약금의 50%를 환불합니다.</li>
-        <li>서비스 시작 7일 이내 취소 시에는 예약금을 환불하지 않습니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제7조 (요금 및 결제)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>서비스 요금은 서비스 유형, 기간, 지역에 따라 상이하며, 계약 체결 시 명시됩니다.</li>
-        <li>결제 방법은 체크, Zelle, 현금, 은행 송금 중 선택할 수 있습니다.</li>
-        <li>예약금은 예약 확정 시, 잔금은 서비스 시작 전 또는 서비스 기간 중 납부합니다.</li>
-        <li>공휴일 근무 시 추가 수당이 발생하며, 이는 사전에 고지됩니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제8조 (서비스 일정 변경 및 취소)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>서비스 시작 7일 전까지는 무료로 일정 변경이 가능합니다.</li>
-        <li>서비스 시작 7일 이내 변경 시 변경 수수료가 발생할 수 있습니다.</li>
-        <li>천재지변, 전염병 등 불가항력적 사유로 서비스 제공이 불가능한 경우, 회사는 책임을 지지 않습니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제9조 (회사의 의무)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>회사는 전문적이고 경험 많은 관리사를 파견하여 양질의 서비스를 제공합니다.</li>
-        <li>회사는 관리사에 대한 신원 조회를 실시하고, 필요한 교육을 제공합니다.</li>
-        <li>회사는 이용자의 개인정보를 보호하며, 관련 법령을 준수합니다.</li>
-        <li>회사는 서비스 제공 과정에서 발생한 문제에 대해 신속히 대응합니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제10조 (이용자의 의무)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>이용자는 본 약관 및 관련 법령을 준수해야 합니다.</li>
-        <li>이용자는 관리사가 안전하고 쾌적한 환경에서 근무할 수 있도록 협조해야 합니다.</li>
-        <li>이용자는 반려동물, 특별한 건강 상태 등 사전에 고지해야 할 사항을 빠짐없이 알려야 합니다.</li>
-        <li>이용자는 관리사에게 서비스 범위를 벗어난 업무를 요구할 수 없습니다.</li>
-        <li>이용자는 관리사를 존중하고 예의 바르게 대해야 합니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제11조 (서비스 범위 및 제한)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>관리사는 의료 전문가가 아니므로 의료 행위(주사, 약물 투여 등)를 제공하지 않습니다.</li>
-        <li>응급 상황 발생 시 즉시 911에 연락하고 이용자에게 통보합니다.</li>
-        <li>관리사는 계약서에 명시된 업무 범위 내에서만 서비스를 제공합니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제12조 (손해배상 및 면책)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>회사는 관리사의 고의 또는 중대한 과실로 인해 이용자에게 손해가 발생한 경우 책임을 집니다.</li>
-        <li>
-          다만, 다음의 경우 회사는 책임을 지지 않습니다:
-          <ul class="list-disc pl-6 mt-3 space-y-2">
-            <li>천재지변, 전쟁, 폭동 등 불가항력적 사유로 인한 경우</li>
-            <li>이용자의 귀책사유로 인한 경우</li>
-            <li>관리사의 정상적인 업무 수행 중 발생한 예측 불가능한 사고</li>
-          </ul>
-        </li>
-        <li>물품 파손 등의 경우 상황에 따라 협의하여 해결합니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제13조 (개인정보 보호)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>회사는 이용자의 개인정보를 관련 법령에 따라 보호합니다.</li>
-        <li>수집된 개인정보는 서비스 제공 목적으로만 사용되며, 제3자에게 제공하지 않습니다.</li>
-        <li>이용자는 언제든지 자신의 개인정보를 열람, 수정, 삭제를 요청할 수 있습니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제14조 (분쟁 해결)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>서비스 이용과 관련하여 분쟁이 발생한 경우, 회사와 이용자는 상호 협의하여 원만히 해결하도록 노력합니다.</li>
-        <li>협의가 이루어지지 않을 경우, 캘리포니아주 법률에 따라 관할 법원에서 해결합니다.</li>
-      </ol>
-
-      <h2 class="text-3xl font-bold mt-12 mb-6">제15조 (준거법 및 관할법원)</h2>
-      <ol class="list-decimal pl-6 mb-6 space-y-3">
-        <li>본 약관은 미국 캘리포니아주 법률에 따라 해석되고 적용됩니다.</li>
-        <li>서비스 이용과 관련한 소송은 회사의 본사 소재지를 관할하는 법원에 제기합니다.</li>
-      </ol>
-
-      <div class="bg-blue-50 dark:bg-slate-800 p-8 rounded-lg mt-12">
-        <h3 class="text-xl font-bold mb-4">문의</h3>
-        <p class="mb-4">본 약관에 대한 문의사항이 있으시면 아래로 연락주세요:</p>
-        <p class="mb-2"><strong>Mom Helper USA</strong></p>
-        <p class="mb-2"><strong>전화:</strong> (213) 808-4415</p>
-        <p class="mb-2"><strong>이메일:</strong> momhelperusa10@gmail.com</p>
-        <p><strong>카카오톡:</strong> momhelper.usa</p>
+  <!-- Main Content Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl leading-relaxed space-y-8">
+      <div>
+        <h3 class="font-normal mb-0 text-[26px] leading-[1.2em] text-black">이용약관 – 꼭 알아야 할 기타사항</h3>
+        <p class="mb-4 text-[#666666] font-medium text-[16px] leading-[2em]">
+          산후조리관리사, 베이비시터(내니), 가사도움인, 간병인 을 모두 관리사님(또는 이모님)이라고 명칭합니다.
+        </p>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            발송된 계약서를 잘 보신후 인터넷 홈페이지를 통해 서비스 신청서(예약폼)를 작성하여 제출 하시고, 계약금이 회사계좌에
+            입금되면 계약이 성립 됩니다. 계약금 송금은 계약서 동의사인을 한 것과 동일한 효력이 있음을 알고 진행 합니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            계약 시 결정된 업무 내용이나 업무와 무관한 일 (다른 가족의 픽업, 손님 식사접대, 김치 담그기, 많은 양의 다림질,
+            이불빨래, 집안 전체대청소 등)을 요구할 수 없습니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            기본서비스 대상자는 산후조리 서비스는 산모, 남편, 신생아 이며, 아이돌봄(베이비시터,내니) 서비스 는 해당 아이
+            이며, 간병인 서비스는 리시피언트(간병환자) 가 해당 됩니다. 만일 그외 동거 가족의 경우는 추가요금이 매일 발생할
+            수 있습니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            집안 내 카메라 설치 여부 혹은 설치 계획 여부를 회사에 알려주셔야 합니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            이용자나 관리사가 근무 시작한 후에 업무와 관련된 변경 사항 (예; 근무 시간 변경 혹은 근무일 추가, 업무내용 변경
+            , 관리사님 변경 등)이 발생하게 되면 회사에 연락, 의논하시기 바랍니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            관리사님의 휴식시간은 입주형은 3시간, 출퇴근형은 1시간 휴식 시간을 포함 합니다. (밤잠을 제외한 휴식, 수면, 조깅)
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            추가서비스는 선택사항이 아니라 필수 사항입니다. 해당사항이 되는 것은 계약서에 무조건 체크 하셔야합니다, 조정
+            및 변동이 필요하시면 맘헬퍼USA관계자와 관리사님 모두와 상의하에 변경 가능합니다.
+          </li>
+        </ul>
       </div>
 
-      <p class="text-center text-muted mt-12 pt-8 border-t">이 약관은 2025년 1월 1일부터 시행됩니다.</p>
-    </article>
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">산후조리 추가내용</h5>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            산모님은 서비스 기간중 서비스 기간의 연장 또는 단축, 산후조리사 교체를 원할 경우 반드시 회사와 먼저 협의하여야
+            합니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            서비스 단축 : 산모님이 서비스 단축을 원하시는 경우엔 회사에 연락 협의 하여 주시길 바랍니다. 서비스 개시후 서비스
+            단축인 경우 잔여 예약금(계약금)은 반납 되지 않습니다. 관리사님께는 7일 전에는 알려 주셔야 합니다. ( 관리사님의
+            스케줄과 계획에 피해가 없도록 적극 지원해 주시길 부탁 드립니다.)
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            서비스 연장: 산후관리 서비스 연장을 원하시는 경우는 서비스 종료 50% 전에 미리 회사에 알려 주십시오.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            산후관리사님의 주 업무는 산모와 신생아를 돌보는 것입니다. 관리사님은 산후 조력자로서 일정부분의 가사서비스를
+            제공합니다.(집안 전체 청소, 가족들의 빨래, 이불빨래, 많은 양의 다림질, 김치 담그기, 손님 접대, 도시락 챙기기
+            등 산후조리와 직접적으로 관련이 없는 가사일은 지원하지 않습니다.)
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            산모와 신생아를 제외한 다른 가족의 반찬이나 세탁 요구 등 산후조리와 직접 관계없는 일을 요구할 시에는 추가 요금이
+            발생할 수 있습니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            산모와 아기의 건강 상태에 따라 서비스 내용은 바뀔 수 있고 생략될 수도 있습니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            산후조리 서비스는 아기아빠가 일로 출장중일 경우엔 상황에 따라 큰아이 유치원 등하원 시키기(라이드 불가), 간단히
+            씻기기, 장난감 정리.산모와 의논하에 이루어지며, 상황에 따라 추가요금이 발생 할 수 도 있습니다.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">베이비시터, 내니 추가내용</h5>
+        <p class="mb-4 text-[#666666] font-medium text-[16px] leading-[2em] font-semibold">
+          자녀의 평소습관, 놀이, 수유량, 수유 시간, 이유식 및 간식시간, 목욕, 성격, 낯가림, 병력 여부 등 자녀의 특이점,
+          비상 연락처 등을 회사 와 파견된 관리사님에게 알려주셔야 합니다.
+        </p>
+      </div>
+
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">베이비시터, 간병인 추가내용</h5>
+        <p class="mb-4 text-[#666666] font-medium text-[16px] leading-[2em] font-semibold">
+          계약 시 결정된 업무 내용이나 베이비시터, 간병인의 업무와 무관한 일 (다른 가족의 픽업, 다른 가족 세탁, 손님
+          식사접대, 김치 담그기, 대청소 등)을 요구할 수 없습니다.
+        </p>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            보호자 연락처, 자녀들 또는 리시피언(간병받는 분)의 병원 검진 스케줄, 앨러지 (음식, 약 등) 여부, 기타 중요한 정보를
+            회사와 관리사님께 미리 알려주셔야 합니다
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            이용자나 베이비시터가 근무 시작한 후에 업무와 관련된 변경 사항 (예; 근무 시간 변경 혹은 근무일 추가, 업무내용
+            변경 등)이 발생하게 되면 회사에 연락, 의논하시기 바랍니다.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-normal mb-0 text-[18px] leading-[1.2em] text-black">서비스 계약 체결 및 취소 추가내용</h5>
+        <ul class="list-none space-y-2 text-[#666666] font-semibold text-[14px]">
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            서비스 이용 계약 발생은 회사가 제시한 금액을 은행 결제계좌및 zelle 로 입금하고, 계약서에 서명하면 예약이 성립됩니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            예약의취소(산모님사유): 산모는 부득이한 경우에 산후조리 서비스 개시 전 예약을 취소할 수 있습니다. 단, 산후관리사와
+            인터뷰를 통해 관리사를 결정한후에는 예약금을 환불하지 않습니다
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            예약의취소 (회사측의사유): 회사는 부득이한 이유로 서비스 개시전 예약을 취소할 수 있으며, 이 때 예약금 전액을
+            환불합니다.
+          </li>
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-[6px] text-[#d37643]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512"
+                ><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                ></path></svg
+              >
+            </span>
+            예약 변경: 부득이한 경우에 서비스 개시 전 예약을 변경할 수 있으며, 서비스 개시일 최소 10일전에 회사 운영자에게
+            요청해야 합니다.
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 </PageLayout>

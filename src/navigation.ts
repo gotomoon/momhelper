@@ -11,30 +11,30 @@ export const headerDataEn = {
   links: [
     {
       text: 'About',
-      href: getPermalink('/about'),
+      href: getPathForRoute('about', 'en') ?? getPermalink('/about'),
     },
     {
       text: 'Postpartum Care',
       links: [
         {
           text: 'About Postpartum Care',
-          href: getPermalink('/about-postpartum-care'),
+          href: getPathForRoute('about-postpartum-care', 'en') ?? getPermalink('/about-postpartum-care'),
         },
         {
           text: 'What is Postpartum Care?',
-          href: getPermalink('/what-is-postpartum-care'),
+          href: getPathForRoute('what-is-postpartum-care', 'en') ?? getPermalink('/what-is-postpartum-care'),
         },
         {
           text: 'Our Postpartum Care Service',
-          href: getPermalink('/postpartum-care'),
+          href: getPathForRoute('postpartum-care', 'en') ?? getPermalink('/postpartum-care'),
         },
         {
           text: 'Pricing',
-          href: getPermalink('/pricing'),
+          href: getPathForRoute('pricing', 'en') ?? getPermalink('/pricing'),
         },
         {
           text: 'Book Online',
-          href: getPermalink('/book-online'),
+          href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online'),
         },
       ],
     },
@@ -43,11 +43,11 @@ export const headerDataEn = {
       links: [
         {
           text: 'View All Services',
-          href: getPermalink('/other-services'),
+          href: getPathForRoute('other-services', 'en') ?? getPermalink('/other-services'),
         },
         {
           text: 'Book Online',
-          href: getPermalink('/book-online'),
+          href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online'),
         },
       ],
     },
@@ -60,17 +60,17 @@ export const headerDataEn = {
         },
         {
           text: 'Q & A',
-          href: getPermalink('/faq'),
+          href: getPathForRoute('faq', 'en') ?? getPermalink('/faq'),
         },
         {
           text: 'Contact Us',
-          href: getPermalink('/contact'),
+          href: getPathForRoute('contact', 'en') ?? getPermalink('/contact'),
         },
       ],
     },
     {
       text: 'Reviews',
-      href: getPermalink('/reviews'),
+      href: getPathForRoute('reviews', 'en') ?? getPermalink('/reviews'),
     },
   ],
   actions: [
@@ -87,30 +87,30 @@ export const headerDataKo = {
   links: [
     {
       text: '회사소개',
-      href: getPermalink('/about'),
+      href: getPathForRoute('about', 'ko') ?? getPermalink('/about'),
     },
     {
       text: '산후조리 서비스',
       links: [
         {
           text: '산후조리에 관하여',
-          href: getPermalink('/산후조리에-관하여'),
+          href: getPathForRoute('about-postpartum-care', 'ko') ?? getPermalink('/산후조리에-관하여'),
         },
         {
           text: '산후조리사란?',
-          href: getPermalink('/산후조리사란'),
+          href: getPathForRoute('what-is-postpartum-care', 'ko') ?? getPermalink('/산후조리사란'),
         },
         {
           text: '산후조리 서비스 내용',
-          href: getPermalink('/산후조리-서비스'),
+          href: getPathForRoute('postpartum-care', 'ko') ?? getPermalink('/산후조리-서비스'),
         },
         {
           text: '이용요금',
-          href: getPermalink('/이용요금-2'),
+          href: getPathForRoute('pricing', 'ko') ?? getPermalink('/이용요금-2'),
         },
         {
           text: '서비스 신청하기',
-          href: getPermalink('/서비스-신청하기'),
+          href: getPathForRoute('book-online', 'ko') ?? getPermalink('/서비스-신청하기'),
         },
       ],
     },
@@ -119,11 +119,11 @@ export const headerDataKo = {
       links: [
         {
           text: '기타 서비스',
-          href: getPermalink('/기타-서비스'),
+          href: getPathForRoute('other-services', 'ko') ?? getPermalink('/기타-서비스'),
         },
         {
           text: '기타 서비스 신청하기',
-          href: getPermalink('/기타-서비스-신청하기'),
+          href: getPathForRoute('other-services-booking', 'ko') ?? getPermalink('/기타-서비스-신청하기'),
         },
       ],
     },
@@ -136,17 +136,17 @@ export const headerDataKo = {
         },
         {
           text: 'Q & A',
-          href: getPermalink('/q-a'),
+          href: getPathForRoute('faq', 'ko') ?? getPermalink('/q-a'),
         },
         {
           text: '연락처',
-          href: getPermalink('/연락처'),
+          href: getPathForRoute('contact', 'ko') ?? getPermalink('/연락처'),
         },
       ],
     },
     {
       text: '후기',
-      href: getPermalink('/이용후기'),
+      href: getPathForRoute('reviews', 'ko') ?? getPermalink('/이용후기'),
     },
   ],
   actions: [
@@ -167,7 +167,7 @@ export const footerDataEn = {
     { text: 'About Us', href: getPathForRoute('about', 'en') ?? getPermalink('/about') },
     {
       text: 'Partner',
-      href: getPathForRoute('what-is-postpartum-care', 'en') ?? getPermalink('/what-is-postpartum-care'),
+      href: getPermalink('/en/partner-affiliation'),
     },
     { text: 'Terms', href: getPathForRoute('terms', 'en') ?? getPermalink('/terms') },
     { text: 'Service Request', href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online') },
@@ -188,7 +188,7 @@ export const footerDataKo = {
     { text: '회사소개', href: getPathForRoute('about', 'ko') ?? getPermalink('/about') },
     {
       text: '관리사/파트너 제휴',
-      href: getPathForRoute('what-is-postpartum-care', 'ko') ?? getPermalink('/산후조리사란'),
+      href: getPermalink('/ko/관리사-파트너-제휴'),
     },
     { text: '이용약관', href: getPathForRoute('terms', 'ko') ?? getPermalink('/이용약관') },
     { text: '서비스 신청하기', href: getPathForRoute('book-online', 'ko') ?? getPermalink('/서비스-신청하기') },
