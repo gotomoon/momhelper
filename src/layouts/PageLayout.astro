@@ -29,6 +29,9 @@ const footerData = currentLang === 'ko' ? footerDataKo : footerDataEn;
 ---
 
 <Layout metadata={metadata} locale={currentLang}>
+  <Fragment slot="head">
+    <slot name="head" />
+  </Fragment>
   <slot name="header">
     <Header {...headerData} isSticky showToggleTheme locale={currentLang} />
   </slot>

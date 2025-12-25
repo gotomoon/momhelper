@@ -15,7 +15,10 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <div class="min-h-screen bg-gray-50 py-8">
+  <Fragment slot="head">
+    <link href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" rel="stylesheet">
+  </Fragment>
+  <div class="min-h-screen bg-gray-50 py-8 pt-32 md:pt-40">
     <div class="container mx-auto px-4 max-w-7xl">
       <!-- Password Gate -->
       <div id="password-gate" class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8 mb-8">
@@ -26,7 +29,7 @@ const metadata = {
             <input
               type="password"
               id="password"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
               placeholder="Enter admin password"
               required
             />
@@ -67,7 +70,7 @@ const metadata = {
                 >
                 <select
                   id="language-filter"
-                  class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                 >
                   <option value="all">All Languages</option>
                   <option value="en">English</option>
@@ -82,7 +85,7 @@ const metadata = {
                 >
                 <select
                   id="category-filter"
-                  class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                 >
                   <option value="all">All Categories</option>
                 </select>
@@ -161,7 +164,7 @@ const metadata = {
                   <input
                     type="text"
                     id="post-title"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                     required
                   />
                 </div>
@@ -174,7 +177,7 @@ const metadata = {
                   <textarea
                     id="post-excerpt"
                     rows="3"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                     required></textarea>
                 </div>
 
@@ -184,7 +187,7 @@ const metadata = {
                   <input
                     type="text"
                     id="post-author"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                     value="Mom Helper USA"
                   />
                 </div>
@@ -198,7 +201,7 @@ const metadata = {
                     type="text"
                     id="post-category"
                     list="category-suggestions"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                   />
                   <datalist id="category-suggestions">
                     <option value="Prenatal Care"></option>
@@ -215,7 +218,7 @@ const metadata = {
                   >
                   <select
                     id="post-language"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                   >
                     <option value="ko">Korean</option>
                     <option value="en">English</option>
@@ -230,7 +233,7 @@ const metadata = {
                   <input
                     type="text"
                     id="post-tags"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                     placeholder="pregnancy, prenatal care, tips"
                   />
                 </div>
@@ -243,7 +246,7 @@ const metadata = {
                   <input
                     type="datetime-local"
                     id="post-date"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                   />
                 </div>
 
@@ -261,7 +264,7 @@ const metadata = {
                   <input
                     type="url"
                     id="post-image"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                     placeholder="https://example.com/image.jpg"
                   />
                   <p class="text-xs text-gray-500 mt-1">
@@ -277,15 +280,12 @@ const metadata = {
                 <!-- Content Editor -->
                 <div>
                   <label for="post-content" class="block text-sm font-medium text-gray-700 mb-1"
-                    >Content (Markdown/HTML) *</label
+                    >Content (Markdown Editor) *</label
                   >
-                  <textarea
-                    id="post-content"
-                    rows="15"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
-                    required></textarea>
+                  <div id="post-content-editor" style="height: 400px; background: white; border: 1px solid #ccc;"></div>
+                  <textarea id="post-content" style="display:none;"></textarea>
                   <p class="text-xs text-gray-500 mt-1">
-                    Supports Markdown and HTML. Use ## for headings, **bold**, *italic*, etc.
+                    Markdown editor with preview. Use the image button to insert a URL. Content is saved as Markdown.
                   </p>
                 </div>
 
@@ -301,7 +301,7 @@ const metadata = {
                       <input
                         type="url"
                         id="post-canonical"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                         placeholder="https://momhelperusa.com/post-slug"
                       />
                     </div>
@@ -314,7 +314,7 @@ const metadata = {
                       <textarea
                         id="post-meta-description"
                         rows="2"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                       ></textarea>
                     </div>
 
@@ -362,53 +362,285 @@ const metadata = {
     </div>
   </div>
 
-  <script>
+  <!-- Toast UI Editor -->
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js" data-astro-rerun></script>
+
+  <script is:inline data-astro-rerun>
     // State
     let allPosts = [];
+    let editor = null;
     let currentPost = null;
     let isAuthenticated = false;
+    let pendingEditorContent = null;
 
-    // Check if already authenticated
-    if (sessionStorage.getItem('admin-auth') === 'true') {
-      isAuthenticated = true;
-      showDashboard();
-      loadPosts();
+    function resetAdminState() {
+      allPosts = [];
+      editor = null;
+      currentPost = null;
+      isAuthenticated = false;
+      pendingEditorContent = null;
     }
 
-    // Login form
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
+    function applyPendingEditorContent() {
+      if (!editor || pendingEditorContent === null) {
+        return;
+      }
+
+      const content = pendingEditorContent;
+      pendingEditorContent = null;
+
+      editor.setMarkdown(content || '');
+    }
+
+    function setPendingEditorContent(content) {
+      pendingEditorContent = content ?? '';
+      applyPendingEditorContent();
+    }
+
+    function handleLoginSubmit(e) {
+      const form = e.target;
+      if (!form || form.id !== 'login-form') {
+        return;
+      }
+
       e.preventDefault();
-      const password = document.getElementById('password').value;
+      const passwordInput = document.getElementById('password');
       const errorDiv = document.getElementById('login-error');
 
-      try {
-        const response = await fetch('/api/auth', {
+      if (!passwordInput) {
+        return;
+      }
+
+      const password = passwordInput.value;
+
+      fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            sessionStorage.setItem('admin-auth', 'true');
+            isAuthenticated = true;
+            showDashboard();
+            loadPosts();
+          } else if (errorDiv) {
+            errorDiv.textContent = 'Invalid password';
+            errorDiv.classList.remove('hidden');
+          }
+        })
+        .catch(() => {
+          if (errorDiv) {
+            errorDiv.textContent = 'Error connecting to server';
+            errorDiv.classList.remove('hidden');
+          }
+        });
+    }
+
+    function bindAdminEvents() {
+      const loginForm = document.getElementById('login-form');
+      const passwordGate = document.getElementById('password-gate');
+
+      if (!loginForm || !passwordGate) {
+        return;
+      }
+
+      if (loginForm.dataset.adminBound === 'true') {
+        return;
+      }
+
+      loginForm.dataset.adminBound = 'true';
+      resetAdminState();
+
+      // Bind login form directly
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const passwordInput = document.getElementById('password');
+        const errorDiv = document.getElementById('login-error');
+
+        if (!passwordInput) {
+          return;
+        }
+
+        const password = passwordInput.value;
+
+        fetch('/api/auth', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ password }),
-        });
+        })
+          .then((response) => {
+            if (response.ok) {
+              sessionStorage.setItem('admin-auth', 'true');
+              isAuthenticated = true;
+              showDashboard();
+              loadPosts();
+            } else if (errorDiv) {
+              errorDiv.textContent = 'Invalid password';
+              errorDiv.classList.remove('hidden');
+            }
+          })
+          .catch(() => {
+            if (errorDiv) {
+              errorDiv.textContent = 'Error connecting to server';
+              errorDiv.classList.remove('hidden');
+            }
+          });
+      });
 
-        if (response.ok) {
-          sessionStorage.setItem('admin-auth', 'true');
-          isAuthenticated = true;
-          showDashboard();
-          loadPosts();
-        } else {
-          errorDiv.textContent = 'Invalid password';
-          errorDiv.classList.remove('hidden');
-        }
-      } catch (error) {
-        errorDiv.textContent = 'Error connecting to server';
-        errorDiv.classList.remove('hidden');
+      // Check if already authenticated
+      if (sessionStorage.getItem('admin-auth') === 'true') {
+        isAuthenticated = true;
+        showDashboard();
+        loadPosts();
       }
-    });
 
-    // Logout
-    document.getElementById('logout-btn').addEventListener('click', () => {
-      sessionStorage.removeItem('admin-auth');
-      isAuthenticated = false;
-      location.reload();
-    });
+      // Logout
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          sessionStorage.removeItem('admin-auth');
+          isAuthenticated = false;
+          location.reload();
+        });
+      }
+
+      // Filter handlers
+      const languageFilter = document.getElementById('language-filter');
+      if (languageFilter) {
+        languageFilter.addEventListener('change', renderPosts);
+      }
+
+      const categoryFilter = document.getElementById('category-filter');
+      if (categoryFilter) {
+        categoryFilter.addEventListener('change', renderPosts);
+      }
+
+      // Add new post
+      const addNewBtn = document.getElementById('add-new-btn');
+      if (addNewBtn) {
+        addNewBtn.addEventListener('click', () => {
+          currentPost = null;
+          document.getElementById('modal-title').textContent = 'Add New Post';
+          document.getElementById('post-form').reset();
+          document.getElementById('post-date').value = new Date().toISOString().slice(0, 16);
+          showModal();
+          setPendingEditorContent('');
+        });
+      }
+
+      const closeModalBtn = document.getElementById('close-modal');
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', hideModal);
+      }
+
+      const cancelBtn = document.getElementById('cancel-btn');
+      if (cancelBtn) {
+        cancelBtn.addEventListener('click', hideModal);
+      }
+
+      // Form submission
+      const postForm = document.getElementById('post-form');
+      if (postForm) {
+        postForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const title = document.getElementById('post-title').value.trim();
+          const excerpt = document.getElementById('post-excerpt').value.trim();
+          const author = document.getElementById('post-author').value.trim();
+          const category = document.getElementById('post-category').value.trim();
+          const language = document.getElementById('post-language').value;
+          const tagsInput = document.getElementById('post-tags').value.trim();
+          const tags = tagsInput ? tagsInput.split(',').map((t) => t.trim()) : [];
+          const publishDate = document.getElementById('post-date').value;
+          const draft = document.getElementById('post-draft').checked;
+          const image = document.getElementById('post-image').value.trim();
+
+      // Get content from editor as Markdown
+      const content = editor ? editor.getMarkdown() : document.getElementById('post-content').value;
+
+          const canonical = document.getElementById('post-canonical').value.trim();
+          const metaDescription = document.getElementById('post-meta-description').value.trim();
+          const robotsIndex = document.getElementById('post-robots-index').checked;
+          const robotsFollow = document.getElementById('post-robots-follow').checked;
+
+          // Generate filename from title
+          const filename =
+            (currentPost ? currentPost.filename : generateFilename(title)) ||
+            `post-${Date.now()}.mdx`;
+
+          const frontmatter = {
+            title,
+            excerpt,
+            author,
+            category,
+            language,
+            tags,
+            publishDate: publishDate ? new Date(publishDate).toISOString() : new Date().toISOString(),
+            draft,
+            image: image || '~/assets/images/default.jpg',
+          };
+
+          if (canonical || metaDescription || !robotsIndex || !robotsFollow) {
+            frontmatter.metadata = {};
+            if (canonical) frontmatter.metadata.canonical = canonical;
+            if (metaDescription) frontmatter.metadata.description = metaDescription;
+            if (!robotsIndex || !robotsFollow) {
+              frontmatter.metadata.robots = {
+                index: robotsIndex,
+                follow: robotsFollow,
+              };
+            }
+          }
+
+          try {
+            const endpoint = currentPost ? '/api/posts/update' : '/api/posts/add';
+            const body = currentPost
+              ? { filename, originalFilename: currentPost.filename, frontmatter, content }
+              : { filename, frontmatter, content };
+
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(body),
+            });
+
+            if (response.ok) {
+              document.getElementById('form-success').textContent = currentPost
+                ? 'Post updated successfully!'
+                : 'Post created successfully!';
+              document.getElementById('form-success').classList.remove('hidden');
+
+              setTimeout(() => {
+                hideModal();
+                loadPosts();
+              }, 1500);
+            } else {
+              const error = await response.json();
+              document.getElementById('form-error').textContent = error.error;
+              document.getElementById('form-error').classList.remove('hidden');
+            }
+          } catch (error) {
+            document.getElementById('form-error').textContent = error.message;
+            document.getElementById('form-error').classList.remove('hidden');
+          }
+        });
+      }
+    }
+
+    document.addEventListener('astro:page-load', bindAdminEvents);
+    document.addEventListener('astro:after-swap', bindAdminEvents);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bindAdminEvents, { once: true });
+    } else {
+      bindAdminEvents();
+    }
+
+    if (!window.__adminLoginBound) {
+      window.__adminLoginBound = true;
+      document.addEventListener('submit', handleLoginSubmit);
+    }
 
     function showDashboard() {
       document.getElementById('password-gate').classList.add('hidden');
@@ -424,7 +656,6 @@ const metadata = {
         populateCategoryFilter();
         renderPosts();
       } catch (error) {
-        console.error('Error loading posts:', error);
         document.getElementById('loading-indicator').textContent = 'Error loading posts';
       }
     }
@@ -474,7 +705,7 @@ const metadata = {
 
       filtered.forEach((post) => {
         const tr = document.createElement('tr');
-        tr.className = 'hover:bg-gray-50';
+        tr.className = 'hover:bg-gray-100';
 
         const languageBadge =
           post.language === 'en'
@@ -487,18 +718,18 @@ const metadata = {
 
         tr.innerHTML = `
           <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm font-medium text-gray-900">${post.title}${draftBadge}</div>
-            <div class="text-xs text-gray-500">${post.filename}</div>
+            <div class="text-sm font-medium !text-gray-900">${post.title}${draftBadge}</div>
+            <div class="text-xs !text-gray-500">${post.filename}</div>
           </td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${post.category || 'N/A'}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm !text-gray-700">${post.category || 'N/A'}</td>
           <td class="px-6 py-4 whitespace-nowrap">${languageBadge}</td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${post.author || 'N/A'}</td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+          <td class="px-6 py-4 whitespace-nowrap text-sm !text-gray-700">${post.author || 'N/A'}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm !text-gray-700">
             ${post.publishDate ? new Date(post.publishDate).toLocaleDateString() : 'N/A'}
           </td>
           <td class="px-6 py-4 whitespace-nowrap text-sm">
-            <button class="text-blue-600 hover:text-blue-800 mr-3 edit-btn" data-filename="${post.filename}">Edit</button>
-            <button class="text-red-600 hover:text-red-800 delete-btn" data-filename="${post.filename}">Delete</button>
+            <button class="!text-blue-600 hover:!text-blue-800 mr-3 edit-btn" data-filename="${post.filename}">Edit</button>
+            <button class="!text-red-600 hover:!text-red-800 delete-btn" data-filename="${post.filename}">Delete</button>
           </td>
         `;
 
@@ -514,19 +745,6 @@ const metadata = {
         btn.addEventListener('click', () => deletePost(btn.dataset.filename));
       });
     }
-
-    // Filter handlers
-    document.getElementById('language-filter').addEventListener('change', renderPosts);
-    document.getElementById('category-filter').addEventListener('change', renderPosts);
-
-    // Add new post
-    document.getElementById('add-new-btn').addEventListener('click', () => {
-      currentPost = null;
-      document.getElementById('modal-title').textContent = 'Add New Post';
-      document.getElementById('post-form').reset();
-      document.getElementById('post-date').value = new Date().toISOString().slice(0, 16);
-      showModal();
-    });
 
     // Edit post
     function editPost(filename) {
@@ -548,7 +766,6 @@ const metadata = {
         : '';
       document.getElementById('post-draft').checked = post.draft || false;
       document.getElementById('post-image').value = post.image || '';
-      document.getElementById('post-content').value = post.content || '';
 
       if (post.metadata) {
         document.getElementById('post-canonical').value = post.metadata.canonical || '';
@@ -561,7 +778,10 @@ const metadata = {
         }
       }
 
+      // Show modal first, then set content after editor is initialized
       showModal();
+
+      setPendingEditorContent(post.content || '');
     }
 
     // Delete post
@@ -593,6 +813,14 @@ const metadata = {
     function showModal() {
       document.getElementById('editor-modal').classList.remove('hidden');
       document.getElementById('editor-modal').classList.add('flex');
+
+      // Initialize editor if not already initialized
+      // Use setTimeout to ensure the modal is visible before initializing
+      if (!editor) {
+        setTimeout(() => {
+          initToastEditor();
+        }, 50);
+      }
     }
 
     function hideModal() {
@@ -600,91 +828,33 @@ const metadata = {
       document.getElementById('editor-modal').classList.remove('flex');
     }
 
-    document.getElementById('close-modal').addEventListener('click', hideModal);
-    document.getElementById('cancel-btn').addEventListener('click', hideModal);
+    function initToastEditor() {
+      const editorElement = document.getElementById('post-content-editor');
 
-    // Form submission
-    document.getElementById('post-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const title = document.getElementById('post-title').value.trim();
-      const excerpt = document.getElementById('post-excerpt').value.trim();
-      const author = document.getElementById('post-author').value.trim();
-      const category = document.getElementById('post-category').value.trim();
-      const language = document.getElementById('post-language').value;
-      const tagsInput = document.getElementById('post-tags').value.trim();
-      const tags = tagsInput ? tagsInput.split(',').map((t) => t.trim()) : [];
-      const publishDate = document.getElementById('post-date').value;
-      const draft = document.getElementById('post-draft').checked;
-      const image = document.getElementById('post-image').value.trim();
-      const content = document.getElementById('post-content').value.trim();
-
-      const canonical = document.getElementById('post-canonical').value.trim();
-      const metaDescription = document.getElementById('post-meta-description').value.trim();
-      const robotsIndex = document.getElementById('post-robots-index').checked;
-      const robotsFollow = document.getElementById('post-robots-follow').checked;
-
-      // Generate filename from title
-      const filename =
-        (currentPost ? currentPost.filename : generateFilename(title)) ||
-        `post-${Date.now()}.mdx`;
-
-      const frontmatter = {
-        title,
-        excerpt,
-        author,
-        category,
-        language,
-        tags,
-        publishDate: publishDate ? new Date(publishDate).toISOString() : new Date().toISOString(),
-        draft,
-        image: image || '~/assets/images/default.jpg',
-      };
-
-      if (canonical || metaDescription || !robotsIndex || !robotsFollow) {
-        frontmatter.metadata = {};
-        if (canonical) frontmatter.metadata.canonical = canonical;
-        if (metaDescription) frontmatter.metadata.description = metaDescription;
-        if (!robotsIndex || !robotsFollow) {
-          frontmatter.metadata.robots = {
-            index: robotsIndex,
-            follow: robotsFollow,
-          };
-        }
+      if (!editorElement) {
+        return;
       }
 
-      try {
-        const endpoint = currentPost ? '/api/posts/update' : '/api/posts/add';
-        const body = currentPost
-          ? { filename, originalFilename: currentPost.filename, frontmatter, content }
-          : { filename, frontmatter, content };
-
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
-        });
-
-        if (response.ok) {
-          document.getElementById('form-success').textContent = currentPost
-            ? 'Post updated successfully!'
-            : 'Post created successfully!';
-          document.getElementById('form-success').classList.remove('hidden');
-
-          setTimeout(() => {
-            hideModal();
-            loadPosts();
-          }, 1500);
-        } else {
-          const error = await response.json();
-          document.getElementById('form-error').textContent = error.error;
-          document.getElementById('form-error').classList.remove('hidden');
-        }
-      } catch (error) {
-        document.getElementById('form-error').textContent = error.message;
-        document.getElementById('form-error').classList.remove('hidden');
+      if (typeof toastui === 'undefined' || !toastui.Editor) {
+        setTimeout(initToastEditor, 100);
+        return;
       }
-    });
+
+      if (editor) {
+        return;
+      }
+
+      editor = new toastui.Editor({
+        el: editorElement,
+        height: '400px',
+        initialEditType: 'markdown',
+        previewStyle: 'tab',
+        usageStatistics: false,
+        placeholder: 'Write your blog post content here...'
+      });
+
+      applyPendingEditorContent();
+    }
 
     function generateFilename(title) {
       return (

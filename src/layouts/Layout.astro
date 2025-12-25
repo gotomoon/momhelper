@@ -39,6 +39,7 @@ const htmlLanguage = locale === 'en' || locale === 'ko' ? locale : detectedLocal
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <slot name="head" />
 
     <!-- Google Fonts for Korean Typography (matching WordPress) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
