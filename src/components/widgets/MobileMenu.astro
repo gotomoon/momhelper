@@ -26,7 +26,7 @@ const withLocale = (href = '') => {
 const aboutText = currentLocale === 'ko' ? '회사소개' : 'About';
 const reviewsText = currentLocale === 'ko' ? '후기' : 'Reviews';
 const postpartumText = currentLocale === 'ko' ? '산후조리 서비스' : 'Postpartum Care';
-const otherServicesText = currentLocale === 'ko' ? '기타 서비스' : 'Other Services';
+const otherServicesText = currentLocale === 'ko' ? '베이비시터' : 'Nanny Service';
 const supportText = currentLocale === 'ko' ? '고객지원' : 'Support';
 
 const aboutLink = links.find((link) => link.text === aboutText);
@@ -67,14 +67,14 @@ const labels =
         home: '홈',
         about: '소개',
         postpartum: '산후조리',
-        otherServices: '기타서비스',
+        otherServices: '베이비시터',
         support: '지원',
       }
     : {
         home: 'Home',
         about: 'About',
         postpartum: 'Postpartum Care',
-        otherServices: 'Other Services',
+        otherServices: 'Nanny Service',
         support: 'Support',
       };
 ---
@@ -210,7 +210,7 @@ const labels =
         aria-label="Close">&times;</button
       >
       <div class="mb-4 text-center font-bold text-lg">
-        {currentLocale === 'ko' ? '기타 서비스 메뉴' : 'Other Services Menu'}
+        {currentLocale === 'ko' ? '베이비시터 메뉴' : 'Nanny Service Menu'}
       </div>
       <ul class="space-y-3">
         {

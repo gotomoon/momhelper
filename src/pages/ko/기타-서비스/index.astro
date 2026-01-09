@@ -3,19 +3,18 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: '기타 서비스',
-  description: '베이비시터/내니, 가사 도움, 간병인 서비스를 제공하는 맘헬퍼USA의 기타 서비스 안내입니다.',
+  title: '베이비시터',
+  description: '전문적인 베이비시터/내니 서비스를 제공하는 맘헬퍼USA의 베이비시터 서비스 안내입니다.',
 };
 ---
 
 <PageLayout metadata={metadata}>
   <!-- Hero Section -->
-  <WPPageHero title="기타 서비스" />
+  <WPPageHero title="베이비시터" />
 
-  <!-- Other Service Types Section -->
+  <!-- Nanny Service Section -->
   <section class="py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-16 text-center text-gray-800">기타 서비스 타입</h2>
 
       <!-- 베이비시터/내니 -->
       <div class="mb-20">
@@ -54,100 +53,6 @@ const metadata = {
                   <span
                     ><strong>3세 – 학생 :</strong> 각 연령층에 맞는 놀이, 간식/식사 준비, 목욕(옵션), 픽업 등이 주된 업무이며,
                     가사활동은 이용자와 사전 협의에 의해 조정합니다.</span
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 가사 도움 -->
-      <div class="mb-20">
-        <div class="flex flex-col md:flex-row-reverse gap-12 items-start">
-          <div class="w-full md:w-1/2">
-            <div
-              class="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
-            >
-              <img src="/images/housekeeping-cooking.webp" alt="가사 도움" class="w-full h-auto object-cover" />
-            </div>
-          </div>
-          <div class="w-full md:w-1/2">
-            <h3 class="text-2xl md:text-3xl font-bold text-mh-orange-dark mb-2">가사 도움</h3>
-            <div class="w-16 h-1 bg-mh-orange mb-6"></div>
-
-            <p class="text-mh-orange font-semibold mb-4 text-lg">
-              가정을 방문하여 집안청소, 세탁, 정리정돈, 주방 정리, 식사 준비 등을 도와드립니다.
-            </p>
-
-            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-              <h4 class="font-bold text-mh-orange-dark mb-4 text-lg">가사도움인 형태</h4>
-              <ul class="space-y-3 text-gray-700">
-                <li class="flex items-start">
-                  <span class="text-mh-orange mr-2">•</span><span
-                    ><strong>가사 도움 :</strong> 이용자의 가정을 방문하여 음식준비외 집안청소, 세탁, 정리정돈, 주방 정리
-                    등을 도와 드립니다.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <span class="text-mh-orange mr-2">•</span><span
-                    ><strong>청소 도움 :</strong> 가정집, 오피스 청소 혹은 이사 전후 청소해 드립니다.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <span class="text-mh-orange mr-2">•</span><span
-                    ><strong>음식 도움:</strong> 천연 조미료를 이용한 엄마표 식사 준비해 드립니다.</span
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 간병인 서비스 -->
-      <div class="mb-12">
-        <div class="flex flex-col md:flex-row gap-12 items-start">
-          <div class="w-full md:w-1/2">
-            <div
-              class="rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
-            >
-              <img src="/images/caregiver.webp" alt="간병인 서비스" class="w-full h-auto object-cover" />
-            </div>
-          </div>
-          <div class="w-full md:w-1/2">
-            <h3 class="text-2xl md:text-3xl font-bold text-mh-orange-dark mb-2">간병인 서비스</h3>
-            <div class="w-16 h-1 bg-mh-orange mb-6"></div>
-
-            <p class="text-mh-orange font-semibold mb-4 text-lg">
-              보호자 와 가족을 대신해서 간병이 필요하신 집이나 병원 / 양로병원에 가서 도와드립니다
-            </p>
-
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 mb-8">
-              <li class="flex items-center">
-                <span class="text-mh-orange mr-2">•</span>청소 (환자 방, 화장실 등 환자가 사용하는 공간)
-              </li>
-              <li class="flex items-center">
-                <span class="text-mh-orange mr-2">•</span>환자 식사/간식 준비<br />세탁 (환자 가운, 의복, 침대시트, 수건)
-              </li>
-              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>산책 및 운동</li>
-              <li class="flex items-center">
-                <span class="text-mh-orange mr-2">•</span>개인 서비스 지원 (배변 및 방광 치료, 목욕, 머리 손질)
-              </li>
-              <li class="flex items-center"><span class="text-mh-orange mr-2">•</span>환자에 따라 요구되는 서비스가 다를 수 있습니다.</li>
-            </ul>
-
-            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-              <h4 class="font-bold text-mh-orange-dark mb-4 text-lg">간병인 형태</h4>
-              <ul class="space-y-3 text-gray-700">
-                <li class="flex items-start">
-                  <span class="text-mh-orange mr-2">•</span><span
-                    ><strong>개인 간병인</strong><br />입주, 출퇴근 (풀타임, 파트타임), 심야, 단기간</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <span class="text-mh-orange mr-2">•</span><span
-                    ><strong>IHSS 간병인</strong><br />IHSS 수혜자의 매월 서비스 시간에 따라 이용자와 상의하여 조정합니다.</span
                   >
                 </li>
               </ul>

@@ -39,10 +39,10 @@ export const headerDataEn = {
       ],
     },
     {
-      text: 'Other Services',
+      text: 'Nanny Service',
       links: [
         {
-          text: 'View All Services',
+          text: 'View Nanny Service',
           href: getPathForRoute('other-services', 'en') ?? getPermalink('/other-services'),
         },
         {
@@ -115,14 +115,14 @@ export const headerDataKo = {
       ],
     },
     {
-      text: '기타 서비스',
+      text: '베이비시터',
       links: [
         {
-          text: '기타 서비스',
+          text: '베이비시터',
           href: getPathForRoute('other-services', 'ko') ?? getPermalink('/기타-서비스'),
         },
         {
-          text: '기타 서비스 신청하기',
+          text: '베이비시터 신청하기',
           href: getPathForRoute('other-services-booking', 'ko') ?? getPermalink('/기타-서비스-신청하기'),
         },
       ],
