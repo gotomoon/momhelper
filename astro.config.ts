@@ -25,14 +25,16 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
   adapter: vercel(),
-  site: 'https://example.com',
+  site: 'https://momhelperusa.com',
+  trailingSlash: 'never', // Ensure consistent URL handling without trailing slashes
 
   // Internationalization configuration
   i18n: {
     locales: ['ko', 'en'],  // Reorder: Korean first
     defaultLocale: 'ko',    // Korean as default
     routing: {
-      prefixDefaultLocale: false,  // Korean routes: / (no prefix), English routes: /en/
+      prefixDefaultLocale: true,  // Both languages use prefixes: /ko/ and /en/
+      redirectToDefaultLocale: false, // Don't redirect / to /ko
     },
   },
 
@@ -40,7 +42,15 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'ko',
+        locales: {
+          en: 'en',
+          ko: 'ko',
+        },
+      },
+    }),
     mdx(),
     icon({
       include: {

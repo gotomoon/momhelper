@@ -3,7 +3,7 @@ import { getCanonical } from '~/utils/permalinks';
 export const locales = ['en', 'ko'] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'ko';
 
 export const routeSlugs = {
   home: { en: '', ko: '' },

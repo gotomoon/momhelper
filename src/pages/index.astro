@@ -1,8 +1,14 @@
 ---
-import { I18N } from 'astrowind:config';
-
+// Redirect to Korean as default language
 export const prerender = true;
-
-const defaultLocale = I18N?.language === 'ko' ? 'ko' : 'en';
-return Astro.redirect(`/${defaultLocale}`);
 ---
+
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0;url=/ko" />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <script>window.location.href = '/ko';</script>
+  </body>
+</html>
