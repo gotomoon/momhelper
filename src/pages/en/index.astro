@@ -1,6 +1,7 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
+import logoImg from '~/assets/images/logo-W-transpB.webp';
 import momBabyBirth from '~/assets/images/momhelper/misc/mom-baby-birth.webp';
 import cribMomSquare from '~/assets/images/momhelper/misc/crib-mom-square.webp';
 import postpartumMeal from '~/assets/images/momhelper/misc/postpartum-meal-1.webp';
@@ -30,11 +31,14 @@ const metadata = {
 
     <div class="container mx-auto px-4 relative z-20 py-16 text-center">
       <!-- Heading Text -->
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl mx-auto flex flex-col items-center">
         <h1 class="sr-only">Mom Helper USA</h1>
+        <div class="animate-logoFade mb-6">
+          <Image src={logoImg} alt="Mom Helper USA" class="w-48 md:w-64 h-auto" />
+        </div>
         <h2
-          class="text-white font-sans font-medium leading-relaxed drop-shadow-md"
-          style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 26pt; margin-top: -30px;"
+          class="text-white font-sans font-medium leading-relaxed drop-shadow-md animate-taglineSlide"
+          style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 26pt;"
         >
           Personalized Postpartum Care Services at Your Doorstep
         </h2>

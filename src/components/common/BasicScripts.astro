@@ -407,10 +407,11 @@ const blogTranslations = await getBlogTranslationMap();
   }
 
   const initColorTheme = () => {
-    if ((localStorage.getItem('theme') ?? 'system') === 'dark') {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
       applyTheme('dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      applyTheme('auto');
+    } else {
+      applyTheme('light');
     }
   };
 
