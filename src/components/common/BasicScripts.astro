@@ -6,12 +6,13 @@ import { getBlogTranslationMap } from '~/utils/blogTranslations';
 const blogTranslations = await getBlogTranslationMap();
 ---
 
-<script is:inline define:vars={{ defaultTheme: UI.theme }}>
+<script is:inline define:vars={{ defaultTheme: UI.theme || 'light' }}>
   if (window.basic_script) {
     return;
   }
 
   window.basic_script = true;
+  const themeExplicitKey = 'aw-theme-explicit';
 
   function applyTheme(theme) {
     if (theme === 'dark') {
@@ -21,17 +22,27 @@ const blogTranslations = await getBlogTranslationMap();
     }
   }
 
-  const initTheme = function () {
-    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-      applyTheme(defaultTheme.replace(':only', ''));
-    } else if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      applyTheme('dark');
-    } else {
-      applyTheme('light');
+  const resolveTheme = () => {
+    if (defaultTheme && defaultTheme.endsWith(':only')) {
+      return defaultTheme.replace(':only', '');
     }
+
+    const storedTheme = localStorage.getItem('theme');
+    const hasExplicitTheme = localStorage.getItem(themeExplicitKey) === 'true';
+
+    if (hasExplicitTheme && storedTheme) {
+      return storedTheme;
+    }
+
+    if (defaultTheme === 'system') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    return defaultTheme || 'light';
+  };
+
+  const initTheme = function () {
+    applyTheme(resolveTheme());
   };
   initTheme();
 
@@ -69,11 +80,13 @@ const blogTranslations = await getBlogTranslationMap();
     });
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-      if (defaultTheme.endsWith(':only')) {
+      if (defaultTheme && defaultTheme.endsWith(':only')) {
         return;
       }
-      document.documentElement.classList.toggle('dark');
-      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('theme', nextTheme);
+      localStorage.setItem(themeExplicitKey, 'true');
     });
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
@@ -258,7 +271,7 @@ const blogTranslations = await getBlogTranslationMap();
   });
 </script>
 
-<script is:inline define:vars={{ locales, routeSlugs, routeLocaleAvailability, blogTranslations, fallbackLocale: getLocaleFromPath('/') }}>
+<script is:inline define:vars={{ locales, routeSlugs, routeLocaleAvailability, blogTranslations, fallbackLocale: getLocaleFromPath('/'), defaultTheme: UI.theme || 'light' }}>
   // Handle Language Switcher
   const LANGUAGE_SWITCHER_DATA = {
     locales,
@@ -361,6 +374,8 @@ const blogTranslations = await getBlogTranslationMap();
   document.addEventListener('astro:after-swap', updateLanguageSwitchers);
 
   // Handle Color Mode
+  const themeExplicitKey = 'aw-theme-explicit';
+
   function applyTheme(theme) {
     if (theme === 'auto') {
       document.documentElement.classList.add('dark');
@@ -406,13 +421,27 @@ const blogTranslations = await getBlogTranslationMap();
     });
   }
 
-  const initColorTheme = () => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
-      applyTheme('dark');
-    } else {
-      applyTheme('light');
+  const resolveTheme = () => {
+    if (defaultTheme && defaultTheme.endsWith(':only')) {
+      return defaultTheme.replace(':only', '');
     }
+
+    const storedTheme = localStorage.getItem('theme');
+    const hasExplicitTheme = localStorage.getItem(themeExplicitKey) === 'true';
+
+    if (hasExplicitTheme && storedTheme) {
+      return storedTheme;
+    }
+
+    if (defaultTheme === 'system') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    return defaultTheme || 'light';
+  };
+
+  const initColorTheme = () => {
+    applyTheme(resolveTheme());
   };
 
   initColorTheme();
@@ -432,13 +461,13 @@ const blogTranslations = await getBlogTranslationMap();
     let ticking = true;
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-      if (localStorage.getItem('theme') === 'light') {
-        applyTheme('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        applyTheme('light');
-        localStorage.setItem('theme', 'light');
+      if (defaultTheme && defaultTheme.endsWith(':only')) {
+        return;
       }
+      const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('theme', nextTheme);
+      localStorage.setItem(themeExplicitKey, 'true');
     });
 
     attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {

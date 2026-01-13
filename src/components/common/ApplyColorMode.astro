@@ -4,7 +4,9 @@ import { UI } from 'astrowind:config';
 // TODO: This code is temporary
 ---
 
-<script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
+<script is:inline define:vars={{ defaultTheme: UI.theme || 'light' }}>
+  const themeExplicitKey = 'aw-theme-explicit';
+
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -20,14 +22,24 @@ import { UI } from 'astrowind:config';
     }
   }
 
-  if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-    applyTheme(defaultTheme.replace(':only', ''));
-  } else if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    applyTheme('dark');
-  } else {
-    applyTheme('light');
-  }
+  const resolveTheme = () => {
+    if (defaultTheme && defaultTheme.endsWith(':only')) {
+      return defaultTheme.replace(':only', '');
+    }
+
+    const storedTheme = localStorage.getItem('theme');
+    const hasExplicitTheme = localStorage.getItem(themeExplicitKey) === 'true';
+
+    if (hasExplicitTheme && storedTheme) {
+      return storedTheme;
+    }
+
+    if (defaultTheme === 'system') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    return defaultTheme || 'light';
+  };
+
+  applyTheme(resolveTheme());
 </script>
