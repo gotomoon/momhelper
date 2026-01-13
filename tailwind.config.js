@@ -27,11 +27,21 @@ export default {
 
       animation: {
         fade: 'fadeInUp 1s both',
+        logoFade: 'logoFadeIn 1.6s ease-out both',
+        taglineSlide: 'taglineSlideUp 1.0s ease-out both 1.6s',
       },
 
       keyframes: {
         fadeInUp: {
           '0%': { opacity: 0, transform: 'translateY(2rem)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        logoFadeIn: {
+          '0%': { opacity: 0, transform: 'scale(0.5)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+        taglineSlideUp: {
+          '0%': { opacity: 0, transform: 'translateY(1rem)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
       },

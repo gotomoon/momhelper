@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
+
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import Button from '~/components/ui/Button.astro';
 
@@ -154,7 +155,6 @@ function findRouteForText(text: string): string | null {
     '서비스 신청하기': 'book-online',
     '기타 서비스': 'other-services',
     '기타 서비스 신청하기': 'other-services-booking',
-    'Q & A': 'faq',
   };
 
   return textToRouteMapping[text] || null;
@@ -398,7 +398,7 @@ const translatedLinks = translateLinks(links);
     // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
       // Only handle on mobile
-      if (window.innerWidth < 768 && !e.target.closest('.dropdown')) {
+      if (window.innerWidth < 768 && !(e.target as HTMLElement)?.closest('.dropdown')) {
         dropdowns.forEach((dropdown) => {
           const menu = dropdown.querySelector('.dropdown-menu');
           if (menu) {
