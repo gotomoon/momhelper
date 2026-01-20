@@ -22,3 +22,9 @@ pnpm-debug.log*
 pnpm-lock.yaml
 
 .astro
+
+# editor swap/backup files
+*.swp
+*.swo
+*.swx
+*~

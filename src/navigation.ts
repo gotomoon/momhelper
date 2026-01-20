@@ -46,8 +46,8 @@ export const headerDataEn = {
           href: getPathForRoute('other-services', 'en') ?? getPermalink('/other-services'),
         },
         {
-          text: 'Book Online',
-          href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online'),
+          text: 'Book Nanny Service',
+          href: getPathForRoute('other-services-booking', 'en') ?? getPermalink('/other-services-booking'),
         },
       ],
     },

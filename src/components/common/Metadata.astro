@@ -8,6 +8,7 @@ import { SITE, METADATA } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 import { getLanguageAlternates, getLocaleFromPath, getOpenGraphLocale } from '~/utils/i18nRoutes';
+import { getBlogTranslationMap } from '~/utils/blogTranslations';
 
 import { adaptOpenGraphImages } from '~/utils/images';
 
@@ -28,7 +29,8 @@ const {
 
 const pathname = Astro.url.pathname ?? '/';
 const currentLocale = getLocaleFromPath(pathname);
-const languageAlternates = getLanguageAlternates(pathname);
+const blogTranslations = await getBlogTranslationMap();
+const languageAlternates = getLanguageAlternates(pathname, { canonical, blogTranslations });
 const openGraphLocale = getOpenGraphLocale(currentLocale);
 const normalizedStructuredData = Array.isArray(structuredData)
   ? structuredData

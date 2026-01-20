@@ -1,5 +1,7 @@
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import yaml from 'js-yaml';
 
 import { defineConfig } from 'astro/config';
 import type { AstroIntegration } from 'astro';
@@ -17,6 +19,10 @@ import astrowind from './vendor/integration';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const configPath = new URL('./src/config.yaml', import.meta.url);
+const configYaml = fs.readFileSync(configPath, 'utf8');
+const siteConfig = yaml.load(configYaml) as { site?: { site?: string } } | undefined;
+const siteUrl = siteConfig?.site?.site ?? 'https://momhelperusa.com';
 
 const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
@@ -25,7 +31,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
   adapter: vercel(),
-  site: 'https://momhelperusa.com',
+  site: siteUrl,
   trailingSlash: 'never', // Ensure consistent URL handling without trailing slashes
 
   // Internationalization configuration

@@ -1,0 +1,158 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Announcements',
+  description: 'Latest updates and announcements from Mom Helper USA.',
+};
+
+const announcements = [
+  {
+    id: 1,
+    title: '2025 Lunar New Year Holiday Service Notice',
+    excerpt: 'We are sharing the service schedule for the Lunar New Year holiday period (January 28–30, 2025).',
+    date: 'January 10, 2025',
+    category: 'Notice',
+  },
+  {
+    id: 2,
+    title: 'Winter Peak Season Booking Notice',
+    excerpt: 'November through February is peak season. Please reserve at least two months in advance if your due date falls in this window.',
+    date: 'October 15, 2024',
+    category: 'Update',
+  },
+  {
+    id: 3,
+    title: 'Service Pricing Adjustment Notice',
+    excerpt: 'Some service rates will be adjusted starting January 1, 2025. Please refer to the pricing page for details.',
+    date: 'December 1, 2024',
+    category: 'Notice',
+  },
+];
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Widget -->
+  <Hero
+    tagline="Announcements"
+    title="Latest Updates"
+    subtitle="Stay informed about important announcements and updates from Mom Helper USA"
+  />
+
+  <!-- Announcements List -->
+  <section class="px-4 py-16 mx-auto max-w-6xl">
+    <div class="space-y-8">
+      {announcements.map((announcement) => (
+        <article class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">
+                {announcement.category}
+              </span>
+              <span class="text-muted text-sm">{announcement.date}</span>
+            </div>
+            <h2 class="text-2xl font-bold mb-4 hover:text-primary transition-colors">
+              {announcement.title}
+            </h2>
+            <p class="text-lg text-muted mb-6">
+              {announcement.excerpt}
+            </p>
+            <button class="text-primary font-semibold hover:underline flex items-center">
+              View Details
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Detailed Announcements -->
+  <section class="px-4 py-16 mx-auto max-w-4xl bg-blue-50 dark:bg-transparent">
+    <article class="prose prose-lg dark:prose-invert max-w-none">
+      <h2 class="text-3xl font-bold mb-6">2025 Lunar New Year Holiday Service Notice</h2>
+      <p class="text-muted mb-4"><strong>Posted:</strong> January 10, 2025</p>
+
+      <p class="mb-6">
+        Hello from Mom Helper USA.
+      </p>
+
+      <p class="mb-6">
+        Below is our service schedule for the 2025 Lunar New Year holiday period.
+      </p>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Holiday Dates</h3>
+      <ul class="list-disc pl-6 mb-6 space-y-2">
+        <li><strong>January 28 (Tue):</strong> Lunar New Year Day - Closed</li>
+        <li><strong>January 29 (Wed):</strong> Holiday - Service available (holiday premium applies)</li>
+        <li><strong>January 30 (Thu):</strong> Holiday - Service available</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Service Details</h3>
+      <ul class="list-disc pl-6 mb-6 space-y-2">
+        <li>Services remain available during the holiday period for clients who book in advance.</li>
+        <li>No service is provided on January 28 (Lunar New Year Day).</li>
+        <li>A holiday premium (50% of the daily rate) applies on January 29 and 30.</li>
+        <li>We will share an emergency contact number in advance for urgent needs.</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Reservations & Questions</h3>
+      <p class="mb-6">
+        If you would like service during the holiday period, please reserve early. Feel free to reach out with any questions.
+      </p>
+
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-lg mt-8">
+        <p class="mb-2"><strong>Phone:</strong> (213) 808-4415</p>
+        <p class="mb-2"><strong>Email:</strong> momhelperusa10@gmail.com</p>
+        <p><strong>Kakao Talk:</strong> momhelper.usa</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Important Notice -->
+  <section class="px-4 py-16 mx-auto max-w-4xl">
+    <div class="bg-yellow-50 dark:bg-slate-800 border-l-4 border-yellow-400 p-8 rounded-lg">
+      <div class="flex items-start">
+        <svg class="w-8 h-8 text-yellow-600 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <div>
+          <h3 class="text-xl font-bold mb-3">Winter Peak Season Booking Notice</h3>
+          <p class="text-muted mb-4">
+            November through February is peak season for postpartum care. If your due date falls in this period, we strongly
+            recommend reserving at least two months in advance.
+          </p>
+          <p class="text-muted mb-4">
+            December and January fill up the fastest, so please reach out as early as possible.
+          </p>
+          <a href="/en/book-online" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors">
+            Reserve Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="px-4 py-16 mx-auto max-w-4xl text-center">
+    <h2 class="text-3xl font-bold mb-6">Get Announcement Alerts</h2>
+    <p class="text-xl text-muted mb-8">
+      Receive the latest updates via Kakao Talk.
+    </p>
+    <div class="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-lg p-8 shadow-lg">
+      <div class="text-primary mb-4">
+        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-3">Add us on Kakao Talk</h3>
+      <p class="text-muted mb-4">ID: <span class="text-primary font-semibold">momhelper.usa</span></p>
+      <p class="text-sm text-muted">
+        Turn on notifications to receive important announcements without missing them.
+      </p>
+    </div>
+  </section>
+</PageLayout>

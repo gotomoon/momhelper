@@ -1,0 +1,127 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+
+const metadata = {
+  title: 'Other Services Booking',
+  description: 'Book nanny, housekeeping, or caregiver services with a simple online request form.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="Other Services Booking" />
+
+  <!-- Form Section -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">Other Services Request Form</h2>
+
+      <div class="mb-8">
+        <h4 class="text-lg font-semibold text-[#d37643] mb-4">Please complete the request form</h4>
+        <p class="text-gray-700">Select the service you need and share any details that help us support you better.</p>
+      </div>
+
+      <form id="application_form" class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+        <!-- Name and Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Full name">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Email address">
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Phone number">
+        </div>
+
+        <!-- Address -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="street" class="block text-sm font-medium text-gray-700 mb-2">Service Address: Street *</label>
+            <input type="text" id="street" name="street" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Street">
+          </div>
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+            <input type="text" id="city" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="City">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="state" class="block text-sm font-medium text-gray-700 mb-2">State *</label>
+            <input type="text" id="state" name="state" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="State">
+          </div>
+          <div>
+            <label for="zip" class="block text-sm font-medium text-gray-700 mb-2">Zip Code *</label>
+            <input type="text" id="zip" name="zip" required pattern="[0-9\s\-]{5,}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Zip code">
+          </div>
+        </div>
+
+        <!-- Service Type Selection -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-3">Service Type *</label>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="radio" name="service_type" value="Nanny" required class="mr-2 text-[#d37643]"> Nanny / Babysitter</label>
+            <label class="flex items-center"><input type="radio" name="service_type" value="Housekeeping" class="mr-2 text-[#d37643]"> Housekeeping</label>
+            <label class="flex items-center"><input type="radio" name="service_type" value="Caregiver" class="mr-2 text-[#d37643]"> Caregiver</label>
+            <label class="flex items-center"><input type="radio" name="service_type" value="Other" class="mr-2 text-[#d37643]"> Other</label>
+          </div>
+        </div>
+
+        <!-- Work Type -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-3">Work Type *</label>
+          <div class="space-y-2">
+            <label class="flex items-center"><input type="radio" name="work_type" value="Commute" required class="mr-2 text-[#d37643]"> Commute</label>
+            <label class="flex items-center"><input type="radio" name="work_type" value="Live-in" class="mr-2 text-[#d37643]"> Live-in</label>
+            <label class="flex items-center"><input type="radio" name="work_type" value="Hourly" class="mr-2 text-[#d37643]"> Hourly</label>
+          </div>
+        </div>
+
+        <!-- Service Start Date -->
+        <div>
+          <label for="start_date" class="block text-sm font-medium text-gray-700 mb-2">Preferred Start Date (MM/DD/YYYY)</label>
+          <input type="text" id="start_date" name="start_date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Preferred start date">
+        </div>
+
+        <!-- Service Duration -->
+        <div>
+          <label for="service_duration" class="block text-sm font-medium text-gray-700 mb-2">Service Duration</label>
+          <input type="text" id="service_duration" name="service_duration" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="e.g. 3 months, 6 months, long-term">
+        </div>
+
+        <!-- Additional Information -->
+        <div>
+          <label for="notes" class="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
+          <textarea id="notes" name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#d37643] focus:border-transparent" placeholder="Share any specific needs or questions."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="bg-[#d37643] text-white font-bold px-8 py-3 rounded-lg hover:bg-[#b8551f] transition-colors">
+            Submit Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Important Notes Section -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">Other Services Booking Notes</h2>
+      <ul class="list-disc list-inside space-y-3 text-gray-700">
+        <li>Service rates vary based on service type and work arrangement.</li>
+        <li>Specific service details and pricing are confirmed after consultation.</li>
+        <li>After submitting the form, our team will contact you promptly.</li>
+      </ul>
+    </div>
+  </section>
+</PageLayout>

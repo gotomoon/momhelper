@@ -1,6 +1,7 @@
 import type { Locale } from '~/utils/i18nRoutes';
 import { fetchPosts } from '~/utils/blog';
 import { trimSlash } from '~/utils/permalinks';
+import { SITE } from 'astrowind:config';
 
 type BlogTranslationEntry = Partial<Record<Locale, string>>;
 
@@ -14,7 +15,8 @@ const normalizePath = (input: string): string => {
 const getCanonicalPath = (canonical: string | undefined, fallback: string): string => {
   if (canonical) {
     try {
-      const url = new URL(canonical, 'https://momhelperusa.com');
+      const siteUrl = SITE?.site ?? 'https://momhelperusa.com';
+      const url = new URL(canonical, siteUrl);
       return normalizePath(url.pathname);
     } catch {
       return normalizePath(canonical);
