@@ -5,6 +5,11 @@ import { getPathForRoute, routeSlugs, type Locale } from '~/utils/i18nRoutes';
 import { getCanonical, trimSlash } from '~/utils/permalinks';
 
 const siteUrl = SITE?.site ?? 'https://momhelperusa.com';
+const excludedPaths = new Set([
+  '/ko/산후관리-서비스',
+  '/ko/산후조리-서비스',
+  '/ko/postpartum-care',
+]);
 
 const escapeXml = (value: string): string =>
   value
@@ -20,6 +25,27 @@ const toAbsoluteUrl = (value: string): string => {
   }
   const path = value.startsWith('/') ? value : `/${value}`;
   return new URL(path, siteUrl).toString();
+};
+
+const normalizePath = (value: string): string => {
+  let path = value;
+  try {
+    path = new URL(value, siteUrl).pathname;
+  } catch {
+    path = value;
+  }
+  try {
+    path = decodeURIComponent(path);
+  } catch {
+    path = path;
+  }
+  if (!path.startsWith('/')) {
+    path = `/${path}`;
+  }
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+  return path;
 };
 
 const getStaticRouteUrls = (locale: Locale): string[] => {
@@ -55,6 +81,10 @@ export const getSitemapXml = async (locale: Locale): Promise<string> => {
   const staticUrls = getStaticRouteUrls(locale);
   const blogUrls = await getBlogUrls(locale);
   const urls = Array.from(new Set([...staticUrls, ...blogUrls])).sort();
+  const excludedFound = urls.filter((url) => excludedPaths.has(normalizePath(url)));
+  if (excludedFound.length) {
+    throw new Error(`Sitemap contains excluded legacy paths: ${excludedFound.join(', ')}`);
+  }
   const entries = urls.map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`).join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
