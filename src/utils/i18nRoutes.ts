@@ -15,7 +15,7 @@ export const routeSlugs = {
   privacy: { en: 'privacy', ko: 'privacy' },
   'about-postpartum-care': { en: 'about-postpartum-care', ko: '산후조리에-관하여' },
   'what-is-postpartum-care': { en: 'what-is-postpartum-care', ko: '산후관리사란' },
-  'postpartum-care': { en: 'postpartum-care', ko: '산후관리-서비스' },
+  'postpartum-care': { en: 'postpartum-care', ko: '산후도우미-산후조리-서비스' },
   pricing: { en: 'pricing', ko: '이용요금-2' },
   'book-online': { en: 'book-online', ko: '서비스-신청하기' },
   'other-services': { en: 'other-services', ko: '기타-서비스' },

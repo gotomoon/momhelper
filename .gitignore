@@ -23,6 +23,8 @@ pnpm-lock.yaml
 
 .astro
 
+.vercel/
+
 # editor swap/backup files
 *.swp
 *.swo

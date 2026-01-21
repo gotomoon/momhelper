@@ -102,7 +102,7 @@ export const headerDataKo = {
         },
         {
           text: '산후조리 서비스 내용',
-          href: getPathForRoute('postpartum-care', 'ko') ?? getPermalink('/산후조리-서비스'),
+          href: getPathForRoute('postpartum-care', 'ko') ?? getPermalink('/산후도우미-산후조리-서비스'),
         },
         {
           text: '이용요금',
