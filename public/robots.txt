@@ -1,5 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://momhelperusa.com/sitemap-ko.xml
-Sitemap: https://momhelperusa.com/sitemap-en.xml
