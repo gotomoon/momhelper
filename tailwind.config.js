@@ -29,6 +29,7 @@ export default {
         fade: 'fadeInUp 1s both',
         logoFade: 'logoFadeIn 1.6s ease-out both',
         taglineSlide: 'taglineSlideUp 1.0s ease-out both 1.6s',
+        headerFade: 'headerFadeIn 1.2s ease-out both',
       },
 
       keyframes: {
@@ -42,6 +43,10 @@ export default {
         },
         taglineSlideUp: {
           '0%': { opacity: 0, transform: 'translateY(1rem)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        headerFadeIn: {
+          '0%': { opacity: 0, transform: 'translateY(-1rem)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
       },

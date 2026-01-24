@@ -2,6 +2,7 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
 import logoImg from '~/assets/images/logo-W-transpB.webp';
+import babyHandImg from '~/assets/images/momhelper/misc/baby-hand.jpeg';
 import momBabyBirth from '~/assets/images/momhelper/misc/mom-baby-birth.webp';
 import cribMomSquare from '~/assets/images/momhelper/misc/crib-mom-square.webp';
 import postpartumMeal from '~/assets/images/momhelper/misc/postpartum-meal-1.webp';
@@ -17,13 +18,16 @@ const metadata = {
 ---
 
 <PageLayout metadata={metadata}>
-  <!-- Hero Section -->
-  <section class="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+  <!-- Hero Section - extends behind the header -->
+  <section class="relative min-h-screen -mt-32 pt-32 flex items-center justify-center overflow-hidden">
     <!-- Background Image -->
-    <div
-      class="absolute inset-0 z-0 bg-cover bg-center"
-      style="background-image: url('https://momhelperusa.com/wp-content/uploads/2024/03/baby-hand.jpeg');"
-    >
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={babyHandImg}
+        alt=""
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
     </div>
 
     <!-- Overlay -->
