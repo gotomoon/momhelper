@@ -135,6 +135,8 @@ function findRouteForText(text: string): string | null {
     Pricing: 'pricing',
     'Book Online': 'book-online',
     'View All Services': 'other-services',
+    'View Nanny Service': 'other-services',
+    'Nanny Service': 'other-services',
     'Q & A': 'faq',
     'Contact Us': 'contact',
 
@@ -155,6 +157,8 @@ function findRouteForText(text: string): string | null {
     '서비스 신청하기': 'book-online',
     '기타 서비스': 'other-services',
     '기타 서비스 신청하기': 'other-services-booking',
+    베이비시터: 'other-services',
+    '베이비시터 신청하기': 'other-services-booking',
   };
 
   return textToRouteMapping[text] || null;
@@ -220,45 +224,6 @@ const translatedLinks = translateLinks(links);
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >
-  <div class="hidden md:flex items-center justify-end gap-2 px-4 py-2 max-w-7xl mx-auto">
-    {showToggleTheme && <ToggleTheme iconClass="w-6 h-6" />}
-    <div class="flex gap-1">
-      {
-        locales.map((locale) => {
-          const href = getSwitchHref(locale.code);
-          const isActive = locale.code === currentLocale;
-          return (
-            <a
-              href={href}
-              class:list={[
-                'px-2.5 py-1 rounded text-xs font-semibold transition-colors border',
-                isActive
-                  ? 'text-white border-white/70 bg-white/10'
-                  : 'text-white/90 border-transparent hover:bg-white/10',
-              ]}
-              aria-label={locale.label}
-              data-lang-switch={locale.code}
-            >
-              {locale.label}
-            </a>
-          );
-        })
-      }
-    </div>
-    {
-      actions?.length ? (
-        <span class="ml-2">
-          {actions.map((btnProps) => (
-            <Button
-              {...btnProps}
-              class="ml-2 py-2 px-4 text-xs font-semibold shadow-none w-auto border border-white/60 bg-white/10 text-white hover:bg-white/20"
-            />
-          ))}
-        </span>
-      ) : null
-    }
-  </div>
-
   <div
     class:list={[
       'relative text-gray-900 dark:text-slate-200 py-3 px-3 md:px-6 mx-auto w-full',
@@ -278,30 +243,40 @@ const translatedLinks = translateLinks(links);
         <Logo />
       </a>
       <div class="flex items-center gap-2 md:hidden">
-        {showToggleTheme && <ToggleTheme iconClass="w-6 h-6" />}
-        {/* Mobile Language Switcher */}
-        <div class="flex gap-1">
-          {
-            locales.map((locale) => {
-              const href = getSwitchHref(locale.code);
-              const isActive = locale.code === currentLocale;
-              return (
-                <a
-                  href={href}
-                  class:list={[
-                    'px-2 py-1 rounded text-xs font-semibold transition-colors',
-                    isActive
-                      ? 'text-gray-900 dark:text-white border border-gray-900 dark:border-gray-400 bg-gray-100 dark:bg-gray-700'
-                      : 'text-gray-900 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700',
-                  ]}
-                  aria-label={locale.label}
-                  data-lang-switch={locale.code}
-                >
-                  {locale.label}
-                </a>
-              );
-            })
-          }
+        {showToggleTheme && <ToggleTheme />}
+        {/* Mobile Language Switcher - Pill Shape */}
+        <div
+          class="relative inline-flex items-center rounded-full border border-slate-300/80 dark:border-slate-500/70 bg-transparent p-0 transition-colors duration-200"
+          style="width: 4.5rem; height: 2.25rem;"
+          role="group"
+          aria-label="Language selector"
+        >
+          <!-- Sliding circle background -->
+          <div
+            class="absolute rounded-full transition-all duration-300 ease-in-out bg-mh-orange dark:bg-mh-orange/50"
+            style={`width: calc(50% - 2px); height: calc(100% - 2px); left: ${currentLocale === 'ko' ? '1px' : 'calc(50% + 1px)'};`}
+          ></div>
+
+          {/* 한글 first (left side) */}
+          <a
+            href={getSwitchHref('ko')}
+            class="relative z-10 w-1/2 flex items-center justify-center text-xs font-semibold transition-colors duration-200"
+            aria-label="한국어"
+            data-lang-switch="ko"
+            data-lang-active={currentLocale === 'ko' ? 'true' : 'false'}
+          >
+            한글
+          </a>
+          {/* EN second (right side) */}
+          <a
+            href={getSwitchHref('en')}
+            class="relative z-10 w-1/2 flex items-center justify-center text-xs font-semibold transition-colors duration-200"
+            aria-label="English"
+            data-lang-switch="en"
+            data-lang-active={currentLocale === 'en' ? 'true' : 'false'}
+          >
+            EN
+          </a>
         </div>
       </div>
     </div>
@@ -358,7 +333,61 @@ const translatedLinks = translateLinks(links);
         }
       </ul>
     </nav>
-    {position === 'center' ? <div class="hidden md:block" aria-hidden="true" /> : null}
+    <div
+      class:list={[
+        'hidden md:flex items-center gap-3',
+        { 'md:justify-self-end': position === 'center' },
+      ]}
+    >
+      {showToggleTheme && <ToggleTheme />}
+
+      {/* Desktop Language Switcher - Pill Shape */}
+      <div
+        class="relative inline-flex items-center rounded-full border border-slate-300/80 dark:border-slate-500/70 bg-transparent p-0 transition-colors duration-200"
+        style="width: 4.5rem; height: 2.25rem;"
+        role="group"
+        aria-label="Language selector"
+      >
+        <!-- Sliding circle background -->
+        <div
+          class="absolute rounded-full transition-all duration-300 ease-in-out bg-mh-orange dark:bg-mh-orange/50"
+          style={`width: calc(50% - 2px); height: calc(100% - 2px); left: ${currentLocale === 'ko' ? '1px' : 'calc(50% + 1px)'};`}
+        ></div>
+
+        {/* 한글 first (left side) */}
+        <a
+          href={getSwitchHref('ko')}
+          class="relative z-10 w-1/2 flex items-center justify-center text-xs font-semibold transition-colors duration-200"
+          aria-label="한국어"
+          data-lang-switch="ko"
+          data-lang-active={currentLocale === 'ko' ? 'true' : 'false'}
+        >
+          한글
+        </a>
+        {/* EN second (right side) */}
+        <a
+          href={getSwitchHref('en')}
+          class="relative z-10 w-1/2 flex items-center justify-center text-xs font-semibold transition-colors duration-200"
+          aria-label="English"
+          data-lang-switch="en"
+          data-lang-active={currentLocale === 'en' ? 'true' : 'false'}
+        >
+          EN
+        </a>
+      </div>
+      {
+        actions?.length ? (
+          <span class="ml-2">
+            {actions.map((btnProps) => (
+              <Button
+                {...btnProps}
+                class="ml-2 py-2 px-4 text-xs font-semibold shadow-none w-auto border border-white/60 bg-white/10 text-white hover:bg-white/20"
+              />
+            ))}
+          </span>
+        ) : null
+      }
+    </div>
   </div>
 </header>
 
@@ -415,3 +444,23 @@ const translatedLinks = translateLinks(links);
   // Re-attach on page navigation (for SPA-like behavior)
   document.addEventListener('astro:after-swap', attachEvent);
 </script>
+
+<style>
+  /* Light mode: active is white, inactive is muted orange */
+  [data-lang-active="true"] {
+    color: #ffffff !important;
+  }
+
+  [data-lang-active="false"] {
+    color: rgba(211, 118, 67, 0.6) !important;
+  }
+
+  /* Dark mode: active is dark, inactive is muted orange */
+  :global(.dark) [data-lang-active="true"] {
+    color: #1f2937 !important;
+  }
+
+  :global(.dark) [data-lang-active="false"] {
+    color: rgba(211, 118, 67, 0.6) !important;
+  }
+</style>

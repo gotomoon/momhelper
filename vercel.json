@@ -97,7 +97,12 @@
     },
     {
       "source": "/en/%EA%B8%B0%ED%83%80-%EC%84%9C%EB%B9%84%EC%8A%A4",
-      "destination": "https://momhelperusa.com/en/other-services",
+      "destination": "https://momhelperusa.com/en/babysitter-service",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/other-services",
+      "destination": "https://momhelperusa.com/en/babysitter-service",
       "statusCode": 301
     },
     {
@@ -182,7 +187,12 @@
     },
     {
       "source": "/ko/other-services",
-      "destination": "https://momhelperusa.com/ko/%EA%B8%B0%ED%83%80-%EC%84%9C%EB%B9%84%EC%8A%A4",
+      "destination": "https://momhelperusa.com/ko/%EB%B2%A0%EC%9D%B4%EB%B9%84%EC%8B%9C%ED%84%B0",
+      "statusCode": 301
+    },
+    {
+      "source": "/ko/%EA%B8%B0%ED%83%80-%EC%84%9C%EB%B9%84%EC%8A%A4",
+      "destination": "https://momhelperusa.com/ko/%EB%B2%A0%EC%9D%B4%EB%B9%84%EC%8B%9C%ED%84%B0",
       "statusCode": 301
     },
     {

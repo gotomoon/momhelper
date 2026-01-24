@@ -2,19 +2,30 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '', formName = 'contact' } = Astro.props;
+const {
+  inputs,
+  textarea,
+  disclaimer,
+  button = 'Contact us',
+  description = '',
+  formName = 'contact',
+  subject,
+  redirect,
+  fromName,
+} = Astro.props;
+
+const web3FormsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+const resolvedSubject = subject || `New ${formName} form submission from Mom Helper USA`;
+const resolvedFromName = fromName || 'Mom Helper USA Website';
 ---
 
-<form name={formName} method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <!-- Netlify Forms requires this hidden input -->
-  <input type="hidden" name="form-name" value={formName} />
-
-  <!-- Honeypot field for spam protection (hidden from users) -->
-  <div style="display: none;">
-    <label>
-      Don't fill this out if you're human: <input name="bot-field" />
-    </label>
-  </div>
+<form name={formName} method="POST" action="https://api.web3forms.com/submit">
+  <!-- Web3Forms Hidden Fields -->
+  <input type="hidden" name="access_key" value={web3FormsAccessKey} />
+  {redirect && <input type="hidden" name="redirect" value={redirect} />}
+  <input type="hidden" name="subject" value={resolvedSubject} />
+  <input type="hidden" name="from_name" value={resolvedFromName} />
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
   {
     inputs &&
       inputs.map(

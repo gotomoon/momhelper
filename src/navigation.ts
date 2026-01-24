@@ -43,7 +43,7 @@ export const headerDataEn = {
       links: [
         {
           text: 'View Nanny Service',
-          href: getPathForRoute('other-services', 'en') ?? getPermalink('/other-services'),
+          href: getPathForRoute('other-services', 'en') ?? getPermalink('/babysitter-service'),
         },
         {
           text: 'Book Nanny Service',
@@ -73,13 +73,7 @@ export const headerDataEn = {
       href: getPathForRoute('reviews', 'en') ?? getPermalink('/reviews'),
     },
   ],
-  actions: [
-    {
-      text: 'Book Now',
-      href: getPathForRoute('book-online', 'en') ?? getPermalink('/book-online'),
-      variant: 'primary',
-    },
-  ],
+  actions: [],
 };
 
 // Korean navigation
@@ -119,7 +113,7 @@ export const headerDataKo = {
       links: [
         {
           text: '베이비시터',
-          href: getPathForRoute('other-services', 'ko') ?? getPermalink('/기타-서비스'),
+          href: getPathForRoute('other-services', 'ko') ?? getPermalink('/베이비시터'),
         },
         {
           text: '베이비시터 신청하기',
@@ -149,13 +143,7 @@ export const headerDataKo = {
       href: getPathForRoute('reviews', 'ko') ?? getPermalink('/이용후기'),
     },
   ],
-  actions: [
-    {
-      text: '서비스 신청',
-      href: getPathForRoute('book-online', 'ko') ?? getPermalink('/서비스-신청하기'),
-      variant: 'primary',
-    },
-  ],
+  actions: [],
 };
 
 // Default export for backward compatibility (English)

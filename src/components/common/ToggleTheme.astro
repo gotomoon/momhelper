@@ -6,35 +6,114 @@ import { UI } from 'astrowind:config';
 export interface Props {
   label?: string;
   class?: string;
-  iconClass?: string;
-  iconNameLight?: string;
-  iconNameDark?: string;
 }
 
 const {
   label = 'Toggle between Dark and Light mode',
-  class:
-    className = 'theme-toggle border border-current rounded-full inline-flex items-center gap-1 p-1 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700',
-  iconClass = 'w-4 h-4',
-  iconNameLight = 'tabler:moon',
-  iconNameDark = 'tabler:sun',
+  class: className = '',
 } = Astro.props;
 ---
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
-    <button
-      type="button"
-      class={className}
+    <div
+      class={`relative inline-flex items-center rounded-full border border-slate-300/80 dark:border-slate-500/70 bg-transparent p-0 transition-colors duration-200 ${className}`}
+      style="width: 4.5rem; height: 2.25rem;"
+      role="group"
       aria-label={label}
-      data-aw-toggle-color-scheme
     >
-      <span class="theme-toggle__option theme-toggle__option--moon" aria-hidden="true">
-        <Icon name={iconNameLight} class={iconClass} />
-      </span>
-      <span class="theme-toggle__option theme-toggle__option--sun" aria-hidden="true">
-        <Icon name={iconNameDark} class={iconClass} />
-      </span>
-    </button>
+      <!-- Sliding circle background -->
+      <div
+        class="absolute rounded-full transition-all duration-300 ease-in-out bg-mh-orange dark:bg-mh-orange/50"
+        style="width: calc(50% - 2px); height: calc(100% - 2px); left: 1px;"
+        data-theme-circle
+      ></div>
+
+      <!-- Sun icon (Light mode) -->
+      <button
+        type="button"
+        class="relative z-10 w-1/2 flex items-center justify-center focus:outline-none"
+        aria-label="Light mode"
+        data-aw-toggle-color-scheme
+        data-mode="light"
+        data-light-btn
+      >
+        <Icon
+          name="tabler:sun"
+          class="w-4 h-4 transition-all duration-200"
+        />
+      </button>
+
+      <!-- Moon icon (Dark mode) -->
+      <button
+        type="button"
+        class="relative z-10 w-1/2 flex items-center justify-center focus:outline-none"
+        aria-label="Dark mode"
+        data-aw-toggle-color-scheme
+        data-mode="dark"
+        data-dark-btn
+      >
+        <Icon
+          name="tabler:moon"
+          class="w-4 h-4 transition-all duration-200"
+        />
+      </button>
+    </div>
   )
 }
+
+<script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    const matches = document.querySelectorAll('[data-aw-toggle-color-scheme] > input');
+
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem.checked = theme !== 'dark';
+      });
+    }
+  }
+
+  const themePreferenceKey = 'aw-theme-explicit';
+  const storedTheme = localStorage.getItem('theme');
+  const hasExplicitPreference = localStorage.getItem(themePreferenceKey) === '1';
+
+  if (defaultTheme && defaultTheme.endsWith(':only')) {
+    applyTheme(defaultTheme.replace(':only', ''));
+  } else if (hasExplicitPreference && storedTheme) {
+    applyTheme(storedTheme);
+  } else if (defaultTheme === 'system') {
+    applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  } else {
+    applyTheme(defaultTheme || 'light');
+  }
+</script>
+
+<style>
+  /* Light mode: sun is white (active), moon is muted orange (inactive) */
+  [data-light-btn] {
+    color: #ffffff !important;
+  }
+
+  [data-dark-btn] {
+    color: rgba(211, 118, 67, 0.6) !important;
+  }
+
+  /* Dark mode: sun is muted orange (inactive), moon is dark (active) */
+  :global(.dark) [data-light-btn] {
+    color: rgba(211, 118, 67, 0.6) !important;
+  }
+
+  :global(.dark) [data-dark-btn] {
+    color: #1f2937 !important;
+  }
+
+  /* Slide the circle to the right in dark mode */
+  :global(.dark) [data-theme-circle] {
+    left: calc(50% + 1px) !important;
+  }
+</style>

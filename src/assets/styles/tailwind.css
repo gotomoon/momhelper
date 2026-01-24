@@ -64,6 +64,8 @@
 }
 
 #header.scroll > div:first-child {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   background-color: transparent;
   box-shadow: none;
 }
@@ -214,6 +216,12 @@
   box-shadow: 0 2px 6px rgb(0 0 0 / 12%);
 }
 
+html:not(.dark) #header [data-aw-toggle-color-scheme],
+html:not(.dark) #header [data-lang-switch] {
+  text-shadow: none;
+  box-shadow: none;
+}
+
 #header [data-aw-toggle-color-scheme] svg {
   color: currentColor !important;
   filter: drop-shadow(0 1px 2px rgb(0 0 0 / 22%));
@@ -251,28 +259,10 @@ html:not(.dark) .theme-toggle__option--moon {
   opacity: 0.75;
 }
 
-#header:not(.scroll) [data-aw-toggle-color-scheme],
-#header:not(.scroll) [data-lang-switch] {
-  color: #ffffff !important;
-  border-color: #ffffff;
-}
-
-#header.scroll [data-aw-toggle-color-scheme],
-#header.scroll [data-lang-switch] {
-  color: #b8551f !important;
-  border-color: #b8551f;
-}
-
 .dark #header.scroll nav > ul > li > a,
 .dark #header.scroll nav > ul > li > button {
   color: #f8fafc;
   text-shadow: 0 1px 2px rgb(0 0 0 / 35%);
-}
-
-.dark #header.scroll [data-aw-toggle-color-scheme],
-.dark #header.scroll [data-lang-switch] {
-  color: #f8fafc !important;
-  border-color: #f8fafc;
 }
 
 /* Dark theme overrides for common layout colors */

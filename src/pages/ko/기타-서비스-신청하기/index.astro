@@ -6,6 +6,10 @@ const metadata = {
   title: '기타 서비스 신청하기',
   description: '베이비시터/내니, 가사도움, 간병인 서비스 신청. 간편한 온라인 신청으로 맞춤형 케어를 예약하세요.',
 };
+
+const web3FormsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+const siteUrl = (Astro.site ? String(Astro.site) : 'https://momhelperusa.com').replace(/\/$/, '');
+const redirectUrl = `${siteUrl}/ko/기타-서비스-신청하기?success=true`;
 ---
 
 <PageLayout metadata={metadata}>
@@ -22,7 +26,14 @@ const metadata = {
         <p class="text-gray-700">원하시는 서비스와 세부사항을 선택해 주시거나 안내 주시면 감사하겠습니다.</p>
       </div>
 
-      <form id="application_form" class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+      <form id="application_form" class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Hidden Fields -->
+        <input type="hidden" name="access_key" value={web3FormsAccessKey} />
+        <input type="hidden" name="redirect" value={redirectUrl} />
+        <input type="hidden" name="subject" value="New Other Services Booking Request (KO) from Mom Helper USA" />
+        <input type="hidden" name="from_name" value="Mom Helper USA Website" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
         <!-- Name and Email -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>

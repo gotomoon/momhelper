@@ -7,6 +7,10 @@ const metadata = {
   title: '연락처',
   description: 'Mom Helper USA에 문의하세요. 전화, 이메일, 카카오톡으로 상담 및 예약이 가능합니다.',
 };
+
+const web3FormsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+const siteUrl = (Astro.site ? String(Astro.site) : 'https://momhelperusa.com').replace(/\/$/, '');
+const redirectUrl = `${siteUrl}/ko/연락처?success=true`;
 ---
 
 <PageLayout metadata={metadata}>
@@ -113,7 +117,14 @@ const metadata = {
 
       <!-- Form -->
       <div class="et_pb_row">
-        <form class="bg-white rounded-lg p-8 shadow-lg" action="/api/contact" method="POST">
+        <form class="bg-white rounded-lg p-8 shadow-lg" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Hidden Fields -->
+          <input type="hidden" name="access_key" value={web3FormsAccessKey} />
+          <input type="hidden" name="redirect" value={redirectUrl} />
+          <input type="hidden" name="subject" value="New Contact Form Submission from Mom Helper USA" />
+          <input type="hidden" name="from_name" value="Mom Helper USA Website" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
           <div class="space-y-6">
             <!-- Name -->
             <div>

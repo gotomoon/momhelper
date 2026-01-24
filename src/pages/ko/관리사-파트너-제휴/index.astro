@@ -6,6 +6,10 @@ const metadata = {
   title: '관리사/파트너 제휴',
   description: '맘 헬퍼 USA와 협력에 관심이 있으신가요? 산후 관리사 지원 및 파트너 제휴 신청',
 };
+
+const web3FormsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+const siteUrl = (Astro.site ? String(Astro.site) : 'https://momhelperusa.com').replace(/\/$/, '');
+const redirectUrl = `${siteUrl}/ko/관리사-파트너-제휴?success=true`;
 ---
 
 <PageLayout metadata={metadata}>
@@ -96,7 +100,14 @@ const metadata = {
           케어를 제공하기 위한 협력 방안을 함께 논의해 보도록 하겠습니다.
         </p>
 
-        <form class="space-y-6" action="https://formspree.io/f/your-form-id" method="POST">
+        <form class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Hidden Fields -->
+          <input type="hidden" name="access_key" value={web3FormsAccessKey} />
+          <input type="hidden" name="redirect" value={redirectUrl} />
+          <input type="hidden" name="subject" value="New Partner/Caregiver Application (KO) from Mom Helper USA" />
+          <input type="hidden" name="from_name" value="Mom Helper USA Website" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-2">이름</label>

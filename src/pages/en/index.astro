@@ -2,28 +2,25 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import { Image } from 'astro:assets';
 import logoImg from '~/assets/images/logo-W-transpB.webp';
+import babyHandImg from '~/assets/images/momhelper/misc/baby-hand.jpeg';
 import momBabyBirth from '~/assets/images/momhelper/misc/mom-baby-birth.webp';
 import cribMomSquare from '~/assets/images/momhelper/misc/crib-mom-square.webp';
 import postpartumMeal from '~/assets/images/momhelper/misc/postpartum-meal-1.webp';
 import babysitting from '~/assets/images/momhelper/services/babysitting.webp';
-import caregiver from '~/assets/images/momhelper/services/caregiver.webp';
-import housekeeping from '~/assets/images/momhelper/services/housekeeping.webp';
 
 const metadata = {
   title: 'Mom Helper USA',
-  description: 'Personalized Postpartum Care Services at Your Doorstep',
+  description: 'Personalized Postpartum Care Services',
   ignoreTitleTemplate: true,
 };
 ---
 
 <PageLayout metadata={metadata}>
   <!-- Hero Section -->
-  <section class="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+  <section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
     <!-- Background Image -->
-    <div
-      class="absolute inset-0 z-0 bg-cover bg-center"
-      style="background-image: url('https://momhelperusa.com/wp-content/uploads/2024/03/baby-hand.jpeg');"
-    >
+    <div class="absolute inset-0 z-0">
+      <Image src={babyHandImg} alt="" class="w-full h-full object-cover" loading="eager" />
     </div>
 
     <!-- Overlay -->
@@ -40,9 +37,29 @@ const metadata = {
           class="text-white font-sans font-medium leading-relaxed drop-shadow-md animate-taglineSlide"
           style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 26pt;"
         >
-          Personalized Postpartum Care Services at Your Doorstep
+          Personalized Postpartum Care Services
         </h2>
       </div>
+    </div>
+
+    <!-- Animated Wave Divider -->
+    <div class="absolute bottom-0 left-0 w-full z-20 overflow-hidden leading-none">
+      <svg
+        class="relative block w-[200%] h-[120px] md:h-[150px] animate-wave"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"
+          fill="#fef0da"
+          fill-opacity="0.6"></path>
+        <path
+          d="M0,80 C200,20 400,100 600,80 C800,60 1000,100 1200,80 L1200,120 L0,120 Z"
+          fill="#ffffff"
+          fill-opacity="0.8"></path>
+        <path d="M0,100 C300,70 500,110 700,90 C900,70 1100,100 1200,100 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
     </div>
   </section>
 
@@ -71,7 +88,8 @@ const metadata = {
           <div>
             <h3 class="font-heading text-xl text-mh-orange-dark mb-4">Custom Postpartum Care</h3>
             <p class="text-mh-gray leading-relaxed px-4">
-              Personalized postpartum care tailored to each mother's needs and circumstances. Supports quick recovery and healthy parenting.
+              Personalized postpartum care tailored to each mother's needs and circumstances. Supports quick recovery
+              and healthy parenting.
             </p>
           </div>
         </div>
@@ -105,7 +123,8 @@ const metadata = {
           <div>
             <h3 class="font-heading text-xl text-mh-orange-dark mb-4">Comfortable Home Care</h3>
             <p class="text-mh-gray leading-relaxed px-4">
-              Mothers receive postpartum care in the comfort of their own homes, promoting fast physical and mental recovery.
+              Mothers receive postpartum care in the comfort of their own homes, promoting fast physical and mental
+              recovery.
             </p>
           </div>
         </div>
@@ -114,7 +133,7 @@ const metadata = {
       <!-- Button -->
       <div class="text-center mt-16">
         <a
-          href="/postpartum-care"
+          href="/en/postpartum-care"
           class="inline-block bg-mh-orange text-white font-sans font-bold text-sm uppercase px-8 py-4 rounded-full hover:bg-mh-orange-dark transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
         >
           Learn more about Postpartum Care services
@@ -128,80 +147,33 @@ const metadata = {
     <div class="container mx-auto max-w-6xl px-4">
       <!-- Section Heading -->
       <div class="text-center mb-12">
-        <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-medium">Other Services</h2>
+        <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-medium">Custom Babysitting Services</h2>
       </div>
 
-      <!-- Three Service Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <!-- Babysitting -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group"
-        >
-          <a href="/other-services" class="block h-full">
-            <div class="overflow-hidden">
-              <Image
-                src={babysitting}
-                alt="Custom Babysitting & Nanny"
-                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div class="p-6 text-center">
-              <h3 class="font-bold text-mh-gray text-lg group-hover:text-mh-orange transition-colors">
-                Custom Babysitting
-              </h3>
-            </div>
-          </a>
-        </div>
-
-        <!-- Caregiver -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group"
-        >
-          <a href="/other-services" class="block h-full">
-            <div class="overflow-hidden">
-              <Image
-                src={caregiver}
-                alt="Caregiver Services"
-                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div class="p-6 text-center">
-              <h3 class="font-bold text-mh-gray text-lg group-hover:text-mh-orange transition-colors">
-                Professional Caregivers
-              </h3>
-            </div>
-          </a>
-        </div>
-
-        <!-- Housekeeping -->
-        <div
-          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group"
-        >
-          <a href="/other-services" class="block h-full">
-            <div class="overflow-hidden">
-              <Image
-                src={housekeeping}
-                alt="Housekeeping Services"
-                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div class="p-6 text-center">
-              <h3 class="font-bold text-mh-gray text-lg group-hover:text-mh-orange transition-colors">
-                Reliable Housekeeping
-              </h3>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- CTA Button -->
-      <div class="text-center mt-12">
         <a
-          href="/other-services"
-          class="inline-block bg-mh-orange text-white font-sans font-bold text-sm uppercase px-8 py-4 rounded-full hover:bg-mh-orange-dark transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+          href="/en/babysitter-service"
+          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
         >
-          Learn more about other services
+          <div class="h-64 overflow-hidden">
+            <Image
+              src={babysitting}
+              alt="Custom Babysitting"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
         </a>
+
+        <!-- CTA Button -->
+        <div class="text-center">
+          <a
+            href="/en/babysitter-service"
+            class="inline-block bg-mh-orange text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+          >
+            Learn more about custom babysitting services
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -227,11 +199,14 @@ const metadata = {
         <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl relative">
           <div class="text-mh-orange text-6xl absolute top-4 left-4 opacity-20 font-serif">"</div>
           <p class="text-gray-700 mb-6 relative z-10 leading-relaxed pt-4">
-            The caregiver is highly educated and has extensive experience with children. She has a warm heart, is positive, and has a cheerful personality. She is a completely trustworthy expert. My baby was born very small and underweight with severe jaundice. She worked hard to help overcome the jaundice quickly and promptly identified tongue tie issues, leading to successful breastfeeding.
+            The caregiver is highly educated and has extensive experience with children. She has a warm heart, is
+            positive, and has a cheerful personality. She is a completely trustworthy expert. My baby was born very
+            small and underweight with severe jaundice. She worked hard to help overcome the jaundice quickly and
+            promptly identified tongue tie issues, leading to successful breastfeeding.
           </p>
           <div class="text-right border-t border-gray-100 pt-4">
             <p class="font-bold text-mh-orange-dark">Jenny Jung</p>
-            <p class="text-sm text-gray-500">Los Angeles</p>
+            <p class="text-sm text-gray-500">San Diego</p>
           </div>
         </div>
 
@@ -239,11 +214,13 @@ const metadata = {
         <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl relative">
           <div class="text-mh-orange text-6xl absolute top-4 left-4 opacity-20 font-serif">"</div>
           <p class="text-gray-700 mb-6 relative z-10 leading-relaxed pt-4">
-            She was completely different from anyone who had provided postpartum care before. After a month, I could even leave the baby and our large home in her care to go on a family trip and an unavoidable business trip. During the 8 weeks she was with us, our family felt comfortable and secure.
+            She was completely different from anyone who had provided postpartum care before. After a month, I could
+            even leave the baby and our large home in her care to go on a family trip and an unavoidable business trip.
+            During the 8 weeks she was with us, our family felt comfortable and secure.
           </p>
           <div class="text-right border-t border-gray-100 pt-4">
             <p class="font-bold text-mh-orange-dark">Yaeun's Mom</p>
-            <p class="text-sm text-gray-500">Los Angeles</p>
+            <p class="text-sm text-gray-500">San Francisco</p>
           </div>
         </div>
 
@@ -251,7 +228,9 @@ const metadata = {
         <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl relative">
           <div class="text-mh-orange text-6xl absolute top-4 left-4 opacity-20 font-serif">"</div>
           <p class="text-gray-700 mb-6 relative z-10 leading-relaxed pt-4">
-            Her cooking skills are truly excellent. She prepared delicious low-sodium meals tailored to my taste with balanced nutrition. She devoted herself to helping my quick recovery through foods that support breastfeeding, healthy lifestyle habits, and massages, barely taking any rest time for herself.
+            Her cooking skills are truly excellent. She prepared delicious low-sodium meals tailored to my taste with
+            balanced nutrition. She devoted herself to helping my quick recovery through foods that support
+            breastfeeding, healthy lifestyle habits, and massages, barely taking any rest time for herself.
           </p>
           <div class="text-right border-t border-gray-100 pt-4">
             <p class="font-bold text-mh-orange-dark">First-time Mom, 40s</p>
@@ -263,7 +242,7 @@ const metadata = {
       <!-- CTA Button -->
       <div class="text-center">
         <a
-          href="/reviews"
+          href="/en/reviews"
           class="inline-block bg-mh-orange text-white font-bold text-lg px-12 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
         >
           View Reviews in Detail →

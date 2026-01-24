@@ -12,22 +12,17 @@ import housekeeping from '~/assets/images/momhelper/services/housekeeping.webp';
 
 const metadata = {
   title: 'Mom Helper USA',
-  description: '찾아가는 맞춤형 산후조리 서비스',
+  description: '맞춤형 산후조리 서비스',
   ignoreTitleTemplate: true,
 };
 ---
 
 <PageLayout metadata={metadata}>
   <!-- Hero Section - extends behind the header -->
-  <section class="relative min-h-screen -mt-32 pt-32 flex items-center justify-center overflow-hidden">
+  <section class="relative min-h-[75vh] -mt-32 pt-32 flex items-center justify-center overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <Image
-        src={babyHandImg}
-        alt=""
-        class="w-full h-full object-cover"
-        loading="eager"
-      />
+      <Image src={babyHandImg} alt="" class="w-full h-full object-cover" loading="eager" />
     </div>
 
     <!-- Overlay -->
@@ -44,7 +39,7 @@ const metadata = {
           class="text-white font-sans font-medium leading-relaxed drop-shadow-md animate-taglineSlide"
           style="font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 26pt;"
         >
-          찾아가는 맞춤형 산후조리 서비스
+          맞춤형 산후조리 서비스
         </h2>
       </div>
     </div>
@@ -60,17 +55,12 @@ const metadata = {
         <path
           d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"
           fill="#fef0da"
-          fill-opacity="0.6"
-        />
+          fill-opacity="0.6"></path>
         <path
           d="M0,80 C200,20 400,100 600,80 C800,60 1000,100 1200,80 L1200,120 L0,120 Z"
           fill="#ffffff"
-          fill-opacity="0.8"
-        />
-        <path
-          d="M0,100 C300,70 500,110 700,90 C900,70 1100,100 1200,100 L1200,120 L0,120 Z"
-          fill="#ffffff"
-        />
+          fill-opacity="0.8"></path>
+        <path d="M0,100 C300,70 500,110 700,90 C900,70 1100,100 1200,100 L1200,120 L0,120 Z" fill="#ffffff"></path>
       </svg>
     </div>
   </section>
@@ -148,13 +138,11 @@ const metadata = {
   <!-- Other Services Section -->
   <section class="py-16 md:py-24 bg-mh-bg-cream/30">
     <div class="container mx-auto px-4">
-      <h2 class="text-mh-orange-dark text-center font-sans text-2xl md:text-3xl font-bold mb-16">기타 서비스</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-10 mb-12 md:mb-16">
         <!-- Babysitting -->
         <a
-          href="/ko/기타-서비스"
-          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+          href="/ko/맞춤형-베이비시터-서비스"
+          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 w-full md:w-[360px]"
         >
           <div class="h-64 overflow-hidden">
             <Image
@@ -163,106 +151,70 @@ const metadata = {
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
             />
           </div>
-          <div class="p-6 text-center">
-            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">
-              맞춤형 베이비시터
-            </h3>
-          </div>
         </a>
 
-        <!-- Caregiver -->
-        <a
-          href="/ko/기타-서비스"
-          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-        >
-          <div class="h-64 overflow-hidden">
-            <Image
-              src={caregiver}
-              alt="전문 간병인"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-            />
-          </div>
-          <div class="p-6 text-center">
-            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">전문 간병인</h3>
-          </div>
-        </a>
-
-        <!-- Housekeeping -->
-        <a
-          href="/ko/기타-서비스"
-          class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-        >
-          <div class="h-64 overflow-hidden">
-            <Image
-              src={housekeeping}
-              alt="홈 케어"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-            />
-          </div>
-          <div class="p-6 text-center">
-            <h3 class="font-bold text-gray-700 text-xl group-hover:text-mh-orange transition-colors">홈 케어</h3>
-          </div>
-        </a>
-      </div>
-
-      <!-- CTA Button -->
-      <div class="text-center">
-        <a
-          href="/ko/기타-서비스"
-          class="inline-block bg-mh-orange text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
-        >
-          기타 서비스 더 알아보기
-        </a>
+        <!-- Text + CTA -->
+        <div class="text-center md:text-left max-w-md">
+          <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-bold mb-6">
+            맞춤형 베이비시터 서비스
+          </h2>
+          <a
+            href="/ko/맞춤형-베이비시터-서비스"
+            class="inline-block bg-mh-orange text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-mh-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+          >
+            베이비시터 서비스 더 알아보기
+          </a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Testimonials Section -->
-  <section class="py-16 md:py-24 bg-mh-bg-pink relative overflow-hidden">
-    <div class="container mx-auto px-4 max-w-6xl relative z-10">
-      <!-- Section Title -->
-      <div class="text-center mb-12">
-        <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-medium">고객 후기</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <!-- Testimonial 1 -->
-        <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
-          <p class="text-gray-700 leading-relaxed text-base">
-            이모님은 많이 배우셨고 아이 경험이 많으십니다. 마음이 따뚯하고 긍정적이며, 성격이 밝으신 분으로 아기를 많이
-            좋아하고 사랑하시는 분입니다. 전적으로 신뢰할 수 있는 경험이 많으신 전문가이십니다. 제 아기가 체중미달에
-            아주 작게 태어났고 황달이 …
-          </p>
+    <!-- Testimonials Section -->
+    <section class="py-16 md:py-24 bg-mh-bg-pink relative overflow-hidden">
+      <div class="container mx-auto px-4 max-w-6xl relative z-10">
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+          <h2 class="text-mh-orange-dark font-sans text-2xl md:text-3xl font-medium">고객 후기</h2>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
-          <p class="text-gray-700 leading-relaxed text-base">
-            지금까지 산후조리를 해 주셨던 분들과는 모든 것에서 너무 다르셨고, 1개월이 지나서는 아기와 큰 집을 맡겨두고
-            몇일 가족 트립과 어쩔 수 없는 비지니스 트립을 다녀올 수도 있었습니다. 이모님이 계시는 8주 동안 우리 가족들은
-            편안하고 든 든 했습니다. 바람직한 산후조리와 …
-          </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <!-- Testimonial 1 -->
+          <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
+            <p class="text-gray-700 leading-relaxed text-base">
+              이모님은 많이 배우셨고 아이 경험이 많으십니다. 마음이 따뚯하고 긍정적이며, 성격이 밝으신 분으로 아기를
+              많이 좋아하고 사랑하시는 분입니다. 전적으로 신뢰할 수 있는 경험이 많으신 전문가이십니다. 제 아기가
+              체중미달에 아주 작게 태어났고 황달이 …
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
+            <p class="text-gray-700 leading-relaxed text-base">
+              지금까지 산후조리를 해 주셨던 분들과는 모든 것에서 너무 다르셨고, 1개월이 지나서는 아기와 큰 집을 맡겨두고
+              몇일 가족 트립과 어쩔 수 없는 비지니스 트립을 다녀올 수도 있었습니다. 이모님이 계시는 8주 동안 우리
+              가족들은 편안하고 든 든 했습니다. 바람직한 산후조리와 …
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
+            <p class="text-gray-700 leading-relaxed text-base">
+              요리 솜씨가 정말 좋으십니다. 저의 입맛에 맞추어서 저염식이면서도 골고루 영양소가 들어갈수 있게 맛있게
+              요리를 해주셨고, 모유 수유에 도움이 되는 음식, 생활습관, 마사지까지 저의 빠른 회복을 위해 쉬는 시간도 얼마
+              못가지시면서 헌신적으로 도와주셨습니다. 그리고 …
+            </p>
+          </div>
         </div>
 
-        <!-- Testimonial 3 -->
-        <div class="bg-mh-bg-cream rounded-xl p-8 shadow-md relative">
-          <p class="text-gray-700 leading-relaxed text-base">
-            요리 솜씨가 정말 좋으십니다. 저의 입맛에 맞추어서 저염식이면서도 골고루 영양소가 들어갈수 있게 맛있게 요리를
-            해주셨고, 모유 수유에 도움이 되는 음식, 생활습관, 마사지까지 저의 빠른 회복을 위해 쉬는 시간도 얼마
-            못가지시면서 헌신적으로 도와주셨습니다. 그리고 …
-          </p>
+        <!-- CTA Button -->
+        <div class="text-center">
+          <a
+            href="/ko/이용후기"
+            class="inline-block bg-mh-orange text-white font-sans font-medium text-base px-10 py-3 rounded-full border-2 border-mh-orange hover:bg-mh-orange-dark hover:border-mh-orange-dark transition-all duration-300"
+          >
+            후기 자세히 보기
+          </a>
         </div>
       </div>
-
-      <!-- CTA Button -->
-      <div class="text-center">
-        <a
-          href="/ko/이용후기"
-          class="inline-block bg-mh-orange text-white font-sans font-medium text-base px-10 py-3 rounded-full border-2 border-mh-orange hover:bg-mh-orange-dark hover:border-mh-orange-dark transition-all duration-300"
-        >
-          후기 자세히 보기
-        </a>
-      </div>
-    </div>
+    </section>
   </section>
 </PageLayout>

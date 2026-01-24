@@ -7,6 +7,10 @@ const metadata = {
   title: 'Contact Us',
   description: 'Contact Mom Helper USA for consultations and reservations. Reach us by phone, email, or Kakao Talk.',
 };
+
+const web3FormsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+const siteUrl = (Astro.site ? String(Astro.site) : 'https://momhelperusa.com').replace(/\/$/, '');
+const redirectUrl = `${siteUrl}/en/contact?success=true`;
 ---
 
 <PageLayout metadata={metadata}>
@@ -97,12 +101,29 @@ const metadata = {
         <p class="text-gray-600 text-lg">Fill out the form below and we'll get back to you promptly</p>
       </div>
 
+      <!-- Success Message -->
+      <div
+        id="success-message"
+        class="hidden bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-xl mb-8 text-center"
+      >
+        <p class="font-bold text-lg mb-1">Thank you for your inquiry!</p>
+        <p>We have received your message and will get back to you within 24 hours.</p>
+      </div>
+
       <!-- Form -->
       <form
         class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100"
-        action="/api/contact"
+        action="https://api.web3forms.com/submit"
         method="POST"
       >
+        <!-- Web3Forms Hidden Fields -->
+        <input type="hidden" name="access_key" value={web3FormsAccessKey} />
+        <input type="hidden" name="redirect" value={redirectUrl} />
+        <input type="hidden" name="subject" value="New Contact Form Submission from Mom Helper USA" />
+        <input type="hidden" name="from_name" value="Mom Helper USA Website" />
+        <!-- Honeypot Spam Protection -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
         <div class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Name -->

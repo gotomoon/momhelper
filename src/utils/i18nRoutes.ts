@@ -18,7 +18,7 @@ export const routeSlugs = {
   'postpartum-care': { en: 'postpartum-care', ko: '산후도우미-산후조리-서비스' },
   pricing: { en: 'pricing', ko: '이용요금-2' },
   'book-online': { en: 'book-online', ko: '서비스-신청하기' },
-  'other-services': { en: 'other-services', ko: '기타-서비스' },
+  'other-services': { en: 'babysitter-service', ko: '베이비시터' },
   'other-services-booking': { en: 'other-services-booking', ko: '기타-서비스-신청하기' },
   faq: { en: 'faq', ko: 'q-a' },
   'prenatal-postpartum-info': { en: 'prenatal-postpartum-info', ko: '산전-산후조리-정보' },
