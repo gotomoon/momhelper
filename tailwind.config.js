@@ -30,6 +30,7 @@ export default {
         logoFade: 'logoFadeIn 1.6s ease-out both',
         taglineSlide: 'taglineSlideUp 1.0s ease-out both 1.6s',
         headerFade: 'headerFadeIn 1.2s ease-out both',
+        wave: 'waveFlow 8s ease-in-out infinite',
       },
 
       keyframes: {
@@ -48,6 +49,11 @@ export default {
         headerFadeIn: {
           '0%': { opacity: 0, transform: 'translateY(-1rem)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        waveFlow: {
+          '0%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(-25%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },
