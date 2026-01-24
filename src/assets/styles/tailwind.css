@@ -64,10 +64,20 @@
 }
 
 #header.scroll > div:first-child {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
   background-color: transparent;
   box-shadow: none;
+}
+
+#header.scroll nav > ul > li > a,
+#header.scroll nav > ul > li > button {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+#header.scroll a img {
+  height: 64px !important;
 }
 
 .dark #header.scroll {
