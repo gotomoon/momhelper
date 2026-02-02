@@ -303,7 +303,7 @@ npm run preview
 All pages include consistent contact info:
 
 - **Phone:** (213) 808-4415
-- **Email:** momhelperusa10@gmail.com
+- **Email:** momhelperusa@gmail.com
 - **KakaoTalk:** momhelper.usa
 
 ## 🎓 Key Learnings

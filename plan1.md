@@ -170,7 +170,7 @@ export default {
   3. **Custom API route** (Astro SSR adapter + email service)
 - **Validation**: HTML5 + lightweight JS
 - **Anti-spam**: Honeypot field + reCAPTCHA (optional)
-- **Submission**: Email to momhelperusa10@gmail.com
+- **Submission**: Email to momhelperusa@gmail.com
 
 ### 5.2 Service Application Form
 
@@ -213,7 +213,7 @@ const { title, description, canonical, ogImage = '/og-default.jpg', lang = 'ko' 
         "@type": "LocalBusiness",
         "name": "Mom Helper USA",
         "telephone": "(213)808-4415",
-        "email": "momhelperusa10@gmail.com",
+        "email": "momhelperusa@gmail.com",
         "address": { "@type": "PostalAddress", "addressCountry": "US" }
       }
     </script>
