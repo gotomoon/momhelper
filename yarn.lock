@@ -1097,7 +1097,7 @@
 "@ungap/structured-clone@^1.0.0":
   version "1.2.0"
 
-"@vercel/analytics@^1.5.0":
+"@vercel/analytics@^1.5.0", "@vercel/analytics@^1.6.1":
   version "1.6.1"
   resolved "https://registry.npmjs.org/@vercel/analytics/-/analytics-1.6.1.tgz"
   integrity sha512-oH9He/bEM+6oKlv3chWuOOcp8Y6fo6/PSro8hEkgCW3pu9/OiCXiUpRUogDh3Fs3LH2sosDrx8CxeOLBEE+afg==
