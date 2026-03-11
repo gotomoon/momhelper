@@ -3,7 +3,7 @@ publishDate: 2024-05-15T00:00:00Z
 author: Mom Helper USA
 title: 'Early Pregnancy Symptoms: What to Expect and How to Handle Them in the U.S.'
 excerpt: Understand common early pregnancy signs and how to manage them in the U.S., including finding doctors and navigating support programs.
-image: ~/assets/images/momhelper/women-chiropractic.webp
+image: 'https://images.pexels.com/photos/8043211/pexels-photo-8043211.jpeg?cs=srgb&dl=pexels-eman-genatilan-3459781-8043211.jpg&fm=jpg'
 category: Prenatal Care
 language: en
 translationKey: early-pregnancy-symptoms
