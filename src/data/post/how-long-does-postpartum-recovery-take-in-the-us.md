@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-02-26T00:00:00Z
 author: Mom Helper USA
-title: 'How Long Does Postpartum Recovery Take?'
+title: 'How Long Does Postpartum Recovery Take in the U.S.?'
 excerpt: Learn what postpartum recovery really looks like by week, month, and delivery type, including physical healing, sleep, energy, and emotional recovery.
 image: ~/assets/images/momhelper/misc/crib-mom.webp
 category: Postpartum Care
@@ -13,10 +13,10 @@ tags:
   - vaginal birth recovery
   - postpartum healing
 metadata:
-  title: 'How Long Does Postpartum Recovery Take? | Real Postpartum Timeline'
+  title: 'How Long Does Postpartum Recovery Take in the U.S.? | Real Postpartum Timeline'
   ignoreTitleTemplate: true
   description: 'Learn what postpartum recovery really looks like by week, month, and delivery type, including physical healing, sleep, energy, and emotional recovery.'
-  canonical: https://momhelperusa.com/how-long-does-postpartum-recovery-take
+  canonical: https://momhelperusa.com/how-long-does-postpartum-recovery-take-in-the-us
 ---
 
 <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 my-8">

@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-04-20T00:00:00Z
 author: Mom Helper USA
-title: 'Early Pregnancy: Finding a Good Obstetrician and Maternity Support Programs'
+title: 'Early Pregnancy in the U.S.: Finding a Good Obstetrician and Maternity Support Programs'
 excerpt: Find good doctors, hospitals, and maternity support programs in the USA. Learn about insurance, Medicaid, WIC, and other resources.
 image: ~/assets/images/momhelper/blog/finding-obgyn.jpg
 category: Prenatal Care
@@ -13,7 +13,7 @@ tags:
   - insurance
   - medicaid
 metadata:
-  canonical: https://momhelperusa.com/early-pregnancy-finding-a-good-obstetrician-and-maternity-support-programs
+  canonical: https://momhelperusa.com/early-pregnancy-in-the-us-finding-a-good-obstetrician-and-maternity-support-programs
 ---
 
 ## Finding a Good Doctor and Hospital

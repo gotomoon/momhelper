@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-02-28T00:00:00Z
 author: Mom Helper USA
-title: '7 Essential Things to Check When Choosing a Postpartum Helper'
+title: '7 Essential Things to Check When Choosing a Postpartum Helper in the U.S.'
 excerpt: Use this practical checklist to choose a postpartum helper safely, including experience, communication, service scope, cost, and identity verification.
 image: ~/assets/images/momhelper/blog/newborn-care-guide.jpg
 category: Postpartum Care
@@ -13,10 +13,10 @@ tags:
   - newborn care
   - postpartum checklist
 metadata:
-  title: '7 Essential Things to Check When Choosing a Postpartum Helper'
+  title: '7 Essential Things to Check When Choosing a Postpartum Helper in the U.S.'
   ignoreTitleTemplate: true
   description: 'Use this practical checklist to choose a postpartum helper safely, including experience, communication, service scope, cost, and identity verification.'
-  canonical: https://momhelperusa.com/7-essential-things-to-check-when-choosing-a-postpartum-helper
+  canonical: https://momhelperusa.com/7-essential-things-to-check-when-choosing-a-postpartum-helper-in-the-us
 ---
 
 <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 my-8">
