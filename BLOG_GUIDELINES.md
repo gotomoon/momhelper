@@ -104,6 +104,7 @@ blog/
   find-postpartum-helper.jpg
   newborn-care-checklist.jpg
   newborn-care-guide.jpg
+  postpartum-helper-newborn.jpg
   postpartum-recovery-tips.jpg
 ```
 
