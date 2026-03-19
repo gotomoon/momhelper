@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-02-28T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: '7 Essential Things to Check When Choosing a Postpartum Helper in the U.S.'
 excerpt: Use this practical checklist to choose a postpartum helper safely, including experience, communication, service scope, cost, and identity verification.
 image: ~/assets/images/momhelper/blog/newborn-care-guide.jpg

@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-04-20T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'Early Pregnancy in the U.S.: Finding a Good Obstetrician and Maternity Support Programs'
 excerpt: Find good doctors, hospitals, and maternity support programs in the USA. Learn about insurance, Medicaid, WIC, and other resources.
 image: ~/assets/images/momhelper/blog/finding-obgyn.jpg
@@ -84,4 +84,4 @@ There are nonprofit organizations that run pregnancy and childbirth support prog
 
 ---
 
-We hope this article helps you understand early pregnancy symptoms and how to manage them, allowing you to have a happy and healthy pregnancy. If you have any questions about prenatal/postpartum care services, please contact us at Mom Helper USA for a consultation and seek professional assistance if needed.
+We hope this article helps you understand early pregnancy symptoms and how to manage them, allowing you to have a happy and healthy pregnancy. If you have any questions about prenatal/postpartum care services, please contact us at 맘헬퍼 USA (Mom Helper USA) for a consultation and seek professional assistance if needed.

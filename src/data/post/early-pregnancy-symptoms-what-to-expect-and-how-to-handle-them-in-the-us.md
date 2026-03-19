@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-05-15T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'Early Pregnancy Symptoms: What to Expect and How to Handle Them in the U.S.'
 excerpt: Understand common early pregnancy signs and how to manage them in the U.S., including finding doctors and navigating support programs.
 image: ~/assets/images/momhelper/blog/early-pregnancy-symptoms.jpg
@@ -60,4 +60,4 @@ As your uterus expands, your lower back can feel strained. Gentle stretching, pr
 
 ---
 
-We hope this guide helps you recognize early pregnancy symptoms and manage them with confidence. If you have questions about prenatal or postpartum care services, contact Mom Helper USA for support from our team.
+We hope this guide helps you recognize early pregnancy symptoms and manage them with confidence. If you have questions about prenatal or postpartum care services, contact 맘헬퍼 USA (Mom Helper USA) for support from our team.

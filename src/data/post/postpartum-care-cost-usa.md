@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-02-27T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'How Much Does Postpartum Care Cost in the USA?'
 excerpt: Wondering about postpartum care costs in the USA? Learn average pricing and what factors affect the total cost.
 image: ~/assets/images/momhelper/misc/postpartum-meal.webp
@@ -250,7 +250,7 @@ metadata:
   </div>
 </div>
 
-## Why Families Choose Mom Helper USA
+## Why Families Choose 맘헬퍼 USA (Mom Helper USA)
 
 <div class="grid md:grid-cols-2 gap-4 my-6">
   <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-5">

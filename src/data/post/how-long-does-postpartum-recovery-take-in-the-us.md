@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-02-26T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'How Long Does Postpartum Recovery Take in the U.S.?'
 excerpt: Learn what postpartum recovery really looks like by week, month, and delivery type, including physical healing, sleep, energy, and emotional recovery.
 image: ~/assets/images/momhelper/misc/crib-mom.webp
@@ -204,4 +204,4 @@ metadata:
   <p class="mb-0"><strong>Good recovery is not about “bouncing back.”</strong> It is about healing safely and building a stable new routine.</p>
 </div>
 
-Mom Helper USA supports mothers through the full postpartum period, not just the first few days after birth. If you need practical help with meals, rest, newborn care, or recovery support, reach out for a personalized consultation.
+맘헬퍼 USA (Mom Helper USA) supports mothers through the full postpartum period, not just the first few days after birth. If you need practical help with meals, rest, newborn care, or recovery support, reach out for a personalized consultation.

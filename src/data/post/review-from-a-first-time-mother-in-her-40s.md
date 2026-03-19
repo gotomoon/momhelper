@@ -14,7 +14,7 @@ metadata:
 
 ## Review from a first-time mother in her 40s
 
-I am a relatively older first-time mother, having had my first child at 41. Since I have no family to help me with postpartum care, and my husband is often out for church duties, leaving early in the morning and returning late at night, I was in desperate need of support. Thankfully, Aunt Irene from Mom Helper USA took great care of both me and my baby, making me feel comfortable. I was able to enjoy a pleasant and healthy postpartum recovery, and I also learned a lot about childcare.
+I am a relatively older first-time mother, having had my first child at 41. Since I have no family to help me with postpartum care, and my husband is often out for church duties, leaving early in the morning and returning late at night, I was in desperate need of support. Thankfully, Aunt Irene from 맘헬퍼 USA (Mom Helper USA) took great care of both me and my baby, making me feel comfortable. I was able to enjoy a pleasant and healthy postpartum recovery, and I also learned a lot about childcare.
 
 From the phone interview, I could tell that she was a kind and caring person, which gave me peace of mind in signing the contract and allowed me to await my delivery with a sense of security. Although I gave birth earlier than expected, she thankfully came on the needed date. She quickly understood the layout of our home and tirelessly helped with household chores, cooking, childcare, and managing my health.
 

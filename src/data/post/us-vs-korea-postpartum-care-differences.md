@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-02-25T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'US vs. Korea Postpartum Care Differences'
 excerpt: Compare postpartum recovery, costs, diet, and support systems in Korea vs. the U.S. A practical guide for new moms in America.
 image: ~/assets/images/momhelper/misc/mom-holding-baby.webp

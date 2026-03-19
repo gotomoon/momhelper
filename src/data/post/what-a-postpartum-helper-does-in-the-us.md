@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-03-19T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'What a Postpartum Helper Actually Does in the U.S.: A Day in the Life'
 excerpt: Wondering what a professional postpartum helper actually does all day? From overnight newborn care and feeding support to meal prep and parent education, here is a complete breakdown of exactly what to expect.
 image: ~/assets/images/momhelper/blog/what-postpartum-caregiver-does.webp
@@ -13,7 +13,7 @@ tags:
   - newborn care
   - postpartum support
 metadata:
-  title: 'What a Postpartum Helper Actually Does in the U.S. | A Day in the Life | Mom Helper USA'
+  title: 'What a Postpartum Helper Actually Does in the U.S. | A Day in the Life | 맘헬퍼 USA (Mom Helper USA)'
   description: 'A complete breakdown of what a professional postpartum helper does in the U.S. — overnight newborn care, feeding support, meal prep, and parent education. Everything you need to know before hiring.'
   canonical: https://momhelperusa.com/what-a-postpartum-helper-does-in-the-us
 ---

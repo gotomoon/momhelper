@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-03-10T00:00:00Z
-author: Mom Helper USA
+author: 맘헬퍼 USA (Mom Helper USA)
 title: 'Newborn Care Checklist for First-Time Parents in the U.S.'
 excerpt: Everything first-time parents need to know — from hospital discharge through the first month. Daily care, health checks, safety rules, and mother's recovery, all in one place.
 image: ~/assets/images/momhelper/blog/newborn-care-checklist.jpg
@@ -13,7 +13,7 @@ tags:
   - first-time parents
   - parenting guide
 metadata:
-  title: 'Newborn Care Checklist for First-Time Parents in the U.S. | Mom Helper USA'
+  title: 'Newborn Care Checklist for First-Time Parents in the U.S. | 맘헬퍼 USA (Mom Helper USA)'
   description: "Everything first-time parents need to know — from hospital discharge through the first month. Daily care, health checks, safety rules, and mother's recovery, all in one place."
   canonical: https://momhelperusa.com/newborn-care-checklist-in-the-us
 ---
@@ -671,7 +671,7 @@ Print it out and stick it on the refrigerator. Pull it out whenever you feel anx
 
 ---
 
-## Mom Helper USA Is Here for You
+## 맘헬퍼 USA (Mom Helper USA) Is Here for You
 
 Even with a checklist, doing it all yourself can feel overwhelming. A professional postpartum caregiver is right there with you:
 
