@@ -178,7 +178,7 @@ metadata:
   <div class="bg-red-50 border border-red-200 rounded-lg p-5">
     <h4 class="font-bold text-red-700 mb-3">Physical warning signs</h4>
     <ul class="text-sm space-y-1 mb-0">
-      <li>Fever over 100.4 F</li>
+      <li>Fever over 100.4°F (38°C)</li>
       <li>Heavy bleeding that suddenly increases</li>
       <li>Bad-smelling discharge</li>
       <li>Severe abdominal pain</li>
