@@ -1,5 +1,45 @@
 Accent color: #dc883b
 
+# Blog Admin Notes
+
+- Admin URL: `/admin/posts`
+- Editor: Toast UI in **WYSIWYG-first** mode
+- Storage:
+  - **Production**: GitHub-backed if `GITHUB_TOKEN`, `GITHUB_OWNER`, and `GITHUB_REPO` are configured
+  - **Local fallback**: writes directly to `src/data/post/` if GitHub vars are not set
+- Image uploads:
+  - Optional Cloudinary upload widget + in-editor uploads
+  - Manual image URLs still work without Cloudinary
+- Full setup guide: `BLOG_ADMIN_SETUP.md`
+
+## Admin Services Setup
+
+Set these in Vercel for production use:
+
+```bash
+ADMIN_PASSWORD=your-secure-password
+GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+GITHUB_OWNER=your-github-username
+GITHUB_REPO=momhelper
+GITHUB_BRANCH=main
+PUBLIC_CLOUDINARY_CLOUD_NAME=your-cloud-name
+PUBLIC_CLOUDINARY_UPLOAD_PRESET=blog_unsigned
+PUBLIC_WEB3FORMS_ACCESS_KEY=your-web3forms-key
+```
+
+What each service does:
+
+- `ADMIN_PASSWORD`: protects `/admin/posts`
+- `GitHub`: persists blog post create/update/delete operations in production
+- `Cloudinary`: powers featured-image uploads and in-editor image uploads
+- `Web3Forms`: powers the public contact and booking forms on the site
+
+If GitHub or Cloudinary are not configured:
+
+- Blog post edits fall back to local filesystem writes
+- Editors can still paste image URLs manually
+- Public forms are unaffected
+
 # 메뉴 업데이트 하는 법
 
 I'll provide a clear guide on how to update menu items in both English and Korean:

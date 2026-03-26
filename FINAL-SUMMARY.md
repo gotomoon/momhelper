@@ -254,6 +254,14 @@ Sitemap: Generated ✅
 - 🟡 Navigation updates (0%)
 - 🟡 Deployment (0%)
 
+## 2026 Update
+
+- Added a browser-based blog admin at `/admin/posts`
+- Switched the post editor to a **WYSIWYG-first** workflow
+- Added optional Cloudinary uploads for featured images and editor image inserts
+- Blog API now supports **GitHub-backed** persistence in production with local filesystem fallback for development
+- Current setup reference: `BLOG_ADMIN_SETUP.md`
+
 ## 🛠️ How to Use
 
 ### Development

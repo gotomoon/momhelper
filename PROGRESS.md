@@ -195,7 +195,7 @@ src/
 1. **Single-page bilingual approach** - Each language has its own page rather than client-side language switching
 2. **Preserved WordPress URLs** - All Korean URLs match exactly for SEO
 3. **Using existing components** - Leveraged AstroWind components rather than building custom ones
-4. **Static-first** - All pages are static (no CMS yet)
+4. **Static-first public site** - Public pages are static; the project now uses a lightweight blog admin instead of a full CMS
 5. **Netlify Forms** - Recommended for form handling (zero config)
 
 ### 5. Multilingual Language Switching System (October 12, 2025)
@@ -228,3 +228,13 @@ According to the original plan (21 essential pages + 3 blog posts):
 - **Remaining:** 16 pages + 3 blog posts
 - **Build Status:** ✅ Working
 - **Visual Parity:** 🟡 In Progress (needs actual images)
+
+---
+
+## 2026 Update
+
+- Added a lightweight blog admin at `/admin/posts`
+- Blog editor is now **WYSIWYG-first** instead of Markdown-first
+- Production publishing supports **GitHub-backed** storage when `GITHUB_*` env vars are configured
+- Local development still supports direct file writes to `src/data/post/`
+- Optional Cloudinary integration now supports featured-image uploads and in-editor image uploads
