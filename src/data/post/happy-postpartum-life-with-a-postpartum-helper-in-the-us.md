@@ -57,9 +57,9 @@ This post shares the real stories of moms who spent their postpartum period with
 
 ### Week One: From Fear to Hope
 
-> "The first night, the baby cried and I panicked. Teacher Emma calmly showed me how to swaddle and use the 5S soothing method. The baby settled in 10 minutes. But the most important part came next — she said 'Now you try it' and had us do it ourselves. She didn't do it for us. She taught us."
+> "The first night, the baby cried and I panicked. Teacher Nicole calmly showed me how to swaddle and use the 5S soothing method. The baby settled in 10 minutes. But the most important part came next — she said 'Now you try it' and had us do it ourselves. She didn't do it for us. She taught us."
 
-**Emma's daily routine:**
+**Nicole's daily routine:**
 - **6 AM:** Handles feeding so mom gets 6 consecutive hours of sleep
 - **8 AM:** Demonstrates bath time, then has mom try it herself
 - **Afternoon:** Mom naps 2–3 hours while the helper watches baby
@@ -68,7 +68,7 @@ This post shares the real stories of moms who spent their postpartum period with
 
 ### Week Two: The Joy of a First Success
 
-> "On day 10, I gave the baby a bath by myself for the first time. Teacher Emma just stood there watching, and I was so nervous. But I did it! That night I told my husband for the first time, 'I think I'm becoming a mom.'"
+> "On day 10, I gave the baby a bath by myself for the first time. Teacher Nicole just stood there watching, and I was so nervous. But I did it! That night I told my husband for the first time, 'I think I'm becoming a mom.'"
 
 ### After 4 Weeks: A Completely Different Person
 
@@ -79,7 +79,7 @@ This post shares the real stories of moms who spent their postpartum period with
 - Teamwork with her husband
 - The joy of motherhood
 
-> "Teacher Emma changed my life. She didn't just help me survive — she helped me be born as a mother. My daughter is 3 months old now, and I never imagined I'd be such a confident, happy mom."
+> "Teacher Nicole changed my life. She didn't just help me survive — she helped me be born as a mother. My daughter is 3 months old now, and I never imagined I'd be such a confident, happy mom."
 
 **Cost:** $12,000 (4 weeks)
 **Sarah's take:** "Cheaper than our wedding, and the impact on my life is beyond comparison."
@@ -361,7 +361,7 @@ Prevention is easier than treatment:
 ### Real Reviews
 
 **Los Angeles, first baby:**
-> "I found Teacher Emma through Mom Helper USA. Four weeks changed my life. Worth every penny."
+> "I found Teacher Nicole through Mom Helper USA. Four weeks changed my life. Worth every penny."
 
 **New York, second baby:**
 > "My first experience with my mother-in-law was so hard. Teacher Susan was the perfect middle ground. I'll absolutely call her for our third."
