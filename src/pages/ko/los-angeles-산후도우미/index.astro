@@ -1,0 +1,87 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+
+const metadata = {
+  title: '로스앤젤레스(LA) 산후도우미 | LA 한인 산후 케어 | Mom Helper USA',
+  description: 'LA 지역 한인 산모를 위한 전문 산후도우미 서비스. 경험 많은 산후관리사가 로스앤젤레스 가정으로 직접 방문합니다.',
+  robots: { index: true, follow: true },
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="로스앤젤레스(LA) 산후도우미 서비스" />
+
+  <!-- Intro Section -->
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">LA 지역 한인 산후 케어</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+        로스앤젤레스는 미국 최대 한인 커뮤니티가 위치한 도시입니다. 맘헬퍼USA는 LA 지역 한인 산모들이 가정에서 편안하게 한국식 산후조리를 받을 수 있도록 전문 산후관리사를 파견합니다.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        코리아타운, 토런스, 어바인, 풀러턴, 다이아몬드바 등 LA 및 인근 지역 어디서나 서비스를 제공합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Area Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">서비스 지역 안내</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 mb-6">LA 지역에서 서비스를 제공하는 주요 도시 및 지역입니다:</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+        {['코리아타운 (Koreatown)', '토런스 (Torrance)', '어바인 (Irvine)', '풀러턴 (Fullerton)', '다이아몬드바 (Diamond Bar)', '세리토스 (Cerritos)', '아케이디아 (Arcadia)', '롤랜드 하이츠 (Rowland Heights)', '템플 시티 (Temple City)'].map((city) => (
+          <div class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-slate-700">
+            <p class="text-gray-700 dark:text-gray-300 font-medium text-sm">{city}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-gray-700 dark:text-gray-300">목록에 없는 지역도 상담 후 서비스 제공 가능합니다.</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">맘헬퍼USA LA 서비스 특징</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <ul class="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg mb-8">
+        <li>LA 한인 커뮤니티 10년 이상 서비스 경험</li>
+        <li>교육과 현장 경험을 갖춘 전문 산후조리사·산후관리사 파견</li>
+        <li>출퇴근형·입주형 중 가정 상황에 맞게 선택 가능</li>
+        <li>한국어로 편안하게 소통 가능한 전문 케어팀</li>
+        <li>한국식 산후 영양식 및 신생아 케어 전문</li>
+      </ul>
+      <p class="text-gray-700 dark:text-gray-300 text-lg">
+        서비스 내용과 이용요금은 <a href="/ko/산후도우미-산후조리-서비스" class="text-[#D37643] font-semibold underline hover:opacity-80">미국 산후도우미 서비스 안내 페이지</a>와 <a href="/ko/이용요금-2" class="text-[#D37643] font-semibold underline hover:opacity-80">이용요금 안내</a>에서 확인하실 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#262f71] dark:text-white">지금 바로 문의하세요</h2>
+      <p class="text-gray-700 dark:text-gray-300 text-lg mb-8">출산 예정일, 거주 지역, 필요한 서비스를 알려주시면 맞춤 상담을 제공합니다.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/ko/서비스-신청하기"
+          class="inline-block text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300"
+          style="background-color: #D37643;"
+        >
+          서비스 신청하기
+        </a>
+        <a
+          href="/ko/산후도우미-산후조리-서비스"
+          class="inline-block text-[#D37643] font-bold px-8 py-4 rounded-full border-2 border-[#D37643] hover:bg-[#D37643] hover:text-white transition-all duration-300"
+        >
+          미국 산후도우미 서비스 보기
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

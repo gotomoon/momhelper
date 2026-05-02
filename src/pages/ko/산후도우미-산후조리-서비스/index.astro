@@ -2,15 +2,102 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '미국 산후도우미란 무엇인가요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '미국 산후도우미는 출산 후 가정에 방문하여 산모와 신생아를 돌보는 전문 케어 서비스입니다. 산후조리사 또는 산후관리사가 산모 회복, 신생아 케어, 모유 수유 지원, 가사 보조 등을 제공합니다.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '산후조리사와 산후관리사의 차이는 무엇인가요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '산후조리사는 산모의 회복과 신생아 케어를 전문으로 하는 직업적 명칭이며, 산후관리사는 보다 포괄적인 산후 케어와 가사 지원을 포함한 역할을 뜻합니다. 맘헬퍼USA는 두 역할을 통합한 전문 서비스를 제공합니다.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '서비스 기간은 얼마나 되나요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '기본 서비스는 2주에서 8주까지 선택 가능합니다. 산모와 가족의 상황에 따라 연장 또는 조정이 가능하며, 출퇴근형과 입주형 중 선택할 수 있습니다.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '미국 어느 지역에서 서비스가 가능한가요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '로스앤젤레스(LA), 오렌지카운티, 샌디에이고, 샌프란시스코 베이 에어리어를 포함한 미국 주요 한인 밀집 지역에서 서비스를 제공합니다. 타주의 경우 별도 문의하시기 바랍니다.',
+      },
+    },
+  ],
+};
+
 const metadata = {
-  title: '산후조리 서비스',
-  description: '산모 케어, 신생아 케어, 가족케어 및 가사 서비스를 제공하는 맘헬퍼USA의 산후조리 서비스 내용입니다.',
+  title: '미국 산후도우미 | 미국 한인 산후조리 서비스 | Mom Helper USA',
+  description: '미국 한인 산모를 위한 전문 산후도우미 서비스. 경험 많은 산후조리사와 산후관리사가 산모와 신생아를 안전하게 케어합니다.',
+  robots: { index: true, follow: true },
+  structuredData: faqSchema,
 };
 ---
 
 <PageLayout metadata={metadata}>
   <!-- Hero Section -->
-  <WPPageHero title="산후조리 서비스" />
+  <WPPageHero title="미국 산후도우미 서비스" />
+
+  <!-- SEO Intro Sections -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">미국 산후도우미란?</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+        미국 산후도우미는 출산 후 가정을 방문하여 산모와 신생아를 전문적으로 돌보는 케어 서비스입니다. 한국의 산후조리원과 달리, 미국에서는 산후관리사가 직접 가정을 방문하여 산모의 회복과 신생아 케어를 지원합니다.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        맘헬퍼USA의 전문 산후조리사는 산모 케어, 신생아 케어, 모유 수유 지원, 산후 영양식 준비 등 산모와 가족에게 꼭 필요한 서비스를 제공합니다.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold mt-16 mb-4 text-[#262f71] dark:text-white">전문 산후조리사와 함께하는 산후 케어</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+        교육과 현장 경험을 갖춘 전문 산후조리사가 산모의 빠른 회복을 돕습니다. 출산 직후의 신체 회복, 신생아와의 애착 형성, 모유 수유 지원까지 단계별 postpartum care를 제공합니다.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        각 산모의 건강 상태와 가정 환경에 맞게 서비스를 조정하여, newborn care와 breastfeeding support까지 맞춤형으로 지원합니다.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold mt-16 mb-4 text-[#262f71] dark:text-white">산후관리사가 필요한 이유</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+        미국에서 출산한 한인 산모에게는 전문 산후관리사의 도움이 특히 중요합니다. 가족과 멀리 떨어져 있는 환경에서 산후 회복에 집중하려면 믿을 수 있는 전문가의 지원이 필수입니다.
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 text-lg mb-4">
+        <li>출산 후 '산후풍' 예방을 위한 올바른 산후조리</li>
+        <li>한국식 산후 영양식 준비와 산모 건강 관리</li>
+        <li>신생아 돌봄 교육과 수유 리듬 형성 지원</li>
+        <li>산모의 정서적 안정과 산후우울 예방</li>
+      </ul>
+
+      <h2 class="text-2xl md:text-3xl font-bold mt-16 mb-4 text-[#262f71] dark:text-white">Mom Helper USA가 특별한 이유</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+        맘헬퍼USA는 원장님의 직접적인 산후 경험에서 시작된 서비스입니다. 직접 산후풍을 경험하고 제대로 된 산후조리의 중요성을 깨달은 후, 미국 한인 산모들을 위한 전문 서비스를 시작했습니다.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+        고객 후기와 10년 이상의 서비스 경험이 말해주듯, 맘헬퍼USA는 신뢰와 전문성으로 수백 명의 한인 산모를 도왔습니다.
+      </p>
+      <a href="/ko/about" class="inline-block text-[#D37643] font-semibold underline hover:opacity-80">원장님 이야기 자세히 보기 →</a>
+    </div>
+  </section>
 
   <!-- Basic Services Section -->
   <section class="py-16 md:py-20 bg-white dark:bg-slate-900">

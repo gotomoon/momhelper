@@ -3,14 +3,27 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: '산후조리 이용요금',
-  description: '산후조리 서비스 이용요금 안내. 기본 서비스와 프리미엄 서비스 요금표, 추가 비용 안내.',
+  title: '미국 산후도우미 비용 | 산후 케어 이용요금 | Mom Helper USA',
+  description: '미국 산후도우미 비용이 궁금하신가요? LA, 오렌지카운티, 샌디에이고 지역 산후관리 비용과 이용요금을 안내합니다.',
+  robots: { index: true, follow: true },
 };
 ---
 
 <PageLayout metadata={metadata}>
   <!-- Hero Section -->
-  <WPPageHero title="산후조리 이용요금" />
+  <WPPageHero title="미국 산후도우미 비용 안내" />
+
+  <!-- Intro Section -->
+  <section class="py-10 md:py-14 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+        <strong>미국 산후도우미 비용</strong>은 서비스 유형(출퇴근형/입주형)과 기간에 따라 달라집니다. LA 산후도우미 가격부터 오렌지카운티, 샌디에이고 등 지역별 미국 산후관리 비용을 아래에서 투명하게 안내합니다.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        서비스 내용이 궁금하시다면 <a href="/ko/산후도우미-산후조리-서비스" class="text-[#D37643] font-semibold underline hover:opacity-80">미국 산후도우미 서비스 안내</a>를 먼저 확인해 주세요.
+      </p>
+    </div>
+  </section>
 
   <!-- Section 1: Basic Fees -->
   <section class="py-16 md:py-20 bg-white">
@@ -146,7 +159,7 @@ const metadata = {
   <!-- Section 2: Premium Fees -->
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">2. Premium Service Fees</h2>
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">2. 프리미엄 서비스 요금</h2>
       <hr class="border-gray-300 mb-8" />
 
       <!-- Premium Fees Table -->

@@ -3,9 +3,10 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import WPPageHero from '~/components/wordpress/WPPageHero.astro';
 
 const metadata = {
-  title: '회사소개',
+  title: '맘헬퍼USA 소개 | 실제 산후 경험으로 시작된 서비스',
   description:
-    '맘헬퍼USA는 전문 산후조리 서비스를 제공해왔습니다. 저희의 이야기와 가족을 돕기 위한 헌신에 대해 알아보세요.',
+    '맘헬퍼USA 원장님의 실제 산후 경험을 바탕으로 설립된 전문 산후도우미 서비스입니다. 저희의 이야기와 교육 배경을 확인하세요.',
+  robots: { index: true, follow: true },
 };
 ---
 
@@ -137,6 +138,42 @@ const metadata = {
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-E-A-T Trust Section -->
+  <section class="py-16 md:py-24 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white text-center">
+        실제 산후 경험으로 시작된 Mom Helper USA
+      </h2>
+      <div class="mb-10 mx-auto" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-slate-700 text-center">
+          <div class="text-3xl mb-3">👶</div>
+          <h3 class="font-bold text-[#262f71] dark:text-white mb-2">직접 겪은 산후 경험</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">첫아이 출산 후 제대로 된 산후조리를 못해 산후풍으로 고생한 원장님의 실제 경험이 맘헬퍼USA의 출발점입니다.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-slate-700 text-center">
+          <div class="text-3xl mb-3">📚</div>
+          <h3 class="font-bold text-[#262f71] dark:text-white mb-2">전문 관리사 교육 이수</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">산후조리 전문 관리사 교육을 이수하고, 현장 경험을 통해 쌓은 전문성을 바탕으로 서비스를 운영합니다.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-slate-700 text-center">
+          <div class="text-3xl mb-3">🌟</div>
+          <h3 class="font-bold text-[#262f71] dark:text-white mb-2">수백 명의 한인 산모 케어</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">10년 이상의 서비스 경험과 수백 명의 한인 산모 케어 실적이 맘헬퍼USA의 신뢰를 증명합니다.</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a
+          href="/ko/산후도우미-산후조리-서비스"
+          class="inline-block text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300"
+          style="background-color: #D37643;"
+        >
+          미국 산후도우미 서비스 알아보기
+        </a>
       </div>
     </div>
   </section>

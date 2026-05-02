@@ -1,0 +1,87 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import WPPageHero from '~/components/wordpress/WPPageHero.astro';
+
+const metadata = {
+  title: '샌프란시스코 산후도우미 | 베이 에어리어 한인 산후 케어 | Mom Helper USA',
+  description: '샌프란시스코 베이 에어리어 한인 산모를 위한 전문 산후도우미 서비스. 산호세, 프리몬트, 밀피타스 등 베이 에어리어 전 지역 방문 케어.',
+  robots: { index: true, follow: true },
+};
+---
+
+<PageLayout metadata={metadata}>
+  <!-- Hero Section -->
+  <WPPageHero title="샌프란시스코 베이 에어리어 산후도우미 서비스" />
+
+  <!-- Intro Section -->
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">베이 에어리어 한인 산후 케어</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+        샌프란시스코 베이 에어리어에는 실리콘밸리를 중심으로 다수의 한인 가정이 거주합니다. 맘헬퍼USA는 베이 에어리어 한인 산모들에게 전문 산후관리사를 파견하여 가정 방문 산후조리 서비스를 제공합니다.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        산호세, 프리몬트, 밀피타스, 쿠퍼티노, 서니베일 등 실리콘밸리 및 베이 에어리어 전 지역에서 서비스를 제공합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Area Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">서비스 지역 안내</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <p class="text-gray-700 dark:text-gray-300 mb-6">베이 에어리어 주요 서비스 지역입니다:</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+        {['산호세 (San Jose)', '프리몬트 (Fremont)', '밀피타스 (Milpitas)', '쿠퍼티노 (Cupertino)', '서니베일 (Sunnyvale)', '산타클라라 (Santa Clara)', '얼라메다 (Alameda)', '더블린 (Dublin)', '플레전튼 (Pleasanton)'].map((city) => (
+          <div class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-slate-700">
+            <p class="text-gray-700 dark:text-gray-300 font-medium text-sm">{city}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-gray-700 dark:text-gray-300">타주 방문 서비스의 경우 항공권 비용이 별도로 발생하며, 상담 시 안내합니다.</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#262f71] dark:text-white">베이 에어리어 산후 케어 서비스 특징</h2>
+      <div class="mb-8" style="height: 4px; background-color: #D37643; width: 100px;"></div>
+      <ul class="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg mb-8">
+        <li>실리콘밸리·베이 에어리어 한인 가정 서비스 경험</li>
+        <li>교육과 현장 경험을 갖춘 전문 산후관리사 파견</li>
+        <li>출퇴근형·입주형 선택 가능</li>
+        <li>한국어로 편안하게 소통 가능</li>
+        <li>타주 방문 서비스 가능 (항공권 비용 별도)</li>
+      </ul>
+      <p class="text-gray-700 dark:text-gray-300 text-lg">
+        서비스 내용은 <a href="/ko/산후도우미-산후조리-서비스" class="text-[#D37643] font-semibold underline hover:opacity-80">미국 산후도우미 서비스 안내</a>를, 요금은 <a href="/ko/이용요금-2" class="text-[#D37643] font-semibold underline hover:opacity-80">이용요금 안내</a>를 확인하세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-slate-900/60">
+    <div class="container mx-auto px-4 max-w-6xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#262f71] dark:text-white">지금 바로 문의하세요</h2>
+      <p class="text-gray-700 dark:text-gray-300 text-lg mb-8">출산 예정일, 거주 지역, 필요한 서비스를 알려주시면 맞춤 상담을 제공합니다.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/ko/서비스-신청하기"
+          class="inline-block text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300"
+          style="background-color: #D37643;"
+        >
+          서비스 신청하기
+        </a>
+        <a
+          href="/ko/산후도우미-산후조리-서비스"
+          class="inline-block text-[#D37643] font-bold px-8 py-4 rounded-full border-2 border-[#D37643] hover:bg-[#D37643] hover:text-white transition-all duration-300"
+        >
+          미국 산후도우미 서비스 보기
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
